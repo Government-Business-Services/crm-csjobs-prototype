@@ -1,0 +1,49 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% set pageHeading = "Reference Request" %}
+{% set pageSection = "" %}
+
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <p>Not logged in</p>
+    
+
+    <form method="post" action="details" >
+
+    {{ govukRadios({
+        name: "refRequestTimeKnown",
+        fieldset: {
+          legend: {
+            text: "How long have you known the applicant?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend"
+          }
+        },
+        items: [
+          { value: "less than 3 years", text: "less than 3 years" },
+          { value: "more than 3 years", text: "3+ years" }          
+        ]
+      }) }}
+
+      <p class="govuk-body">Please click submit once you've completed all mandatory fields</p>
+
+      {{ govukButton({
+        text: "Submit"
+      }) }}
+
+    </form>
+
+
+  
+</div>
+</div>
+
+{% endblock %}

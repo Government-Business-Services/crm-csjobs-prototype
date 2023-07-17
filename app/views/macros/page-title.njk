@@ -1,0 +1,7 @@
+{% macro pageTitle (
+    pageHeading = "",
+    pageSection = ""
+) %}
+{% if pageHeading %}
+    {{ pageHeading }} - {% endif %}{% if pageSection %}{{ pageSection }} - {% endif %} CS Jobs - GOV.UK
+{% endmacro %}
