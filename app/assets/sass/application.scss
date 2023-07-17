@@ -4,3 +4,168 @@
 // 
 
 // Add extra styles here
+
+
+
+
+.cabo-side-navigation {
+    font-family: "GDS Transport",arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 14px;
+    font-size: .875rem;
+    line-height: 1.1428571429;
+    border-right: 2px solid #dedede;    
+}
+
+@media print {
+    .cabo-side-navigation {
+        font-family: sans-serif
+    }
+}
+
+@media(min-width: 40.0625em) {
+    .cabo-side-navigation {
+        font-size:16px;
+        font-size: 1rem;
+        line-height: 1.25
+    }
+}
+
+@media print {
+    .cabo-side-navigation {
+        font-size: 14pt;
+        line-height: 1.2
+    }
+}
+
+@media(max-width: 40.0525em) {
+    .cabo-side-navigation {
+        display:flex;
+        overflow-x: scroll
+    }
+}
+
+@media(min-width: 40.0625em) {
+    .cabo-side-navigation {
+        display:block;
+        padding: 20px 0 0
+    }
+}
+
+
+
+@media print {
+    .cabo-side-navigation__title {
+        font-family: sans-serif
+    }
+}
+
+@media(min-width: 40.0625em) {
+    .cabo-side-navigation__title {
+        font-size:19px;
+        font-size: 1.1875rem;
+        line-height: 1.3157894737
+    }
+}
+
+@media print {
+    .cabo-side-navigation__title {
+        font-size: 14pt;
+        line-height: 1.15
+    }
+}
+
+@media(max-width: 40.0525em) {
+    .cabo-side-navigation__title {
+        display:none
+    }
+}
+
+.cabo-side-navigation__list {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+@media(max-width: 40.0525em) {
+    .cabo-side-navigation__list {
+        display:flex;
+        margin: 0;
+        white-space: nowrap
+    }
+}
+
+@media(min-width: 40.0625em) {
+    .cabo-side-navigation__list {
+        margin-bottom:20px
+    }
+}
+
+@media(max-width: 40.0525em) {
+    .cabo-side-navigation__item {
+        display:flex
+    }
+}
+
+.cabo-side-navigation__item a,.cabo-side-navigation__item a:link,.cabo-side-navigation__item a:visited {
+    background-color: inherit;
+    color: #1d70b8;
+    display: block;
+    text-decoration: none
+}
+
+@media(max-width: 40.0525em) {
+    .cabo-side-navigation__item a,.cabo-side-navigation__item a:link,.cabo-side-navigation__item a:visited {
+        border-bottom:4px solid rgba(0,0,0,0);
+        padding: 15px;
+        padding-bottom: 11px
+    }
+}
+
+@media(min-width: 40.0625em) {
+    .cabo-side-navigation__item a,.cabo-side-navigation__item a:link,.cabo-side-navigation__item a:visited {
+        background-color:inherit;
+        border-left: 4px solid rgba(0,0,0,0);
+        padding: 10px
+    }
+}
+
+.cabo-side-navigation__item a:hover {
+    // background-color: #1d70b8
+}
+
+.cabo-side-navigation__item a:focus {
+    color: #0b0c0c;
+    background-color: #fd0;
+    box-shadow: 0 -2px #fd0,0 4px #0b0c0c;
+    border-color: #0b0c0c;
+    border-left-color: rgba(0,0,0,0);
+    position: relative
+}
+
+.cabo-side-navigation__item--active a:link,.cabo-side-navigation__item--active a:visited {
+    color: #ffffff;
+    font-weight: bold
+}
+
+.cabo-side-navigation__item--active a:focus {
+    color: #ffffff;
+    background-color: #fd0;
+    box-shadow: 0 -2px #fd0,0 4px #0b0c0c;
+    border-color: #0b0c0c;
+    border-left-color: rgba(0,0,0,0)
+}
+
+@media(min-width: 40.0625em) {
+    .cabo-side-navigation__item--active a:link,.cabo-side-navigation__item--active a:visited {
+        background-color:#1d70b8
+    }
+
+    .cabo-side-navigation__item--active a:focus {
+        color: #0b0c0c;
+        background-color: #fd0;
+        border-color: rgba(0,0,0,0)
+    }
+}
