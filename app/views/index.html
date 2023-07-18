@@ -1,19 +1,21 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Home" %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "CRJ CS Jobs" %}
+{% set pageSection = "CS Jobs" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
+    <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
 
-    <h1 class="govuk-heading-xl">
-      CRM
-    </h1>
+    {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+    
   </div>
 </div>
 
