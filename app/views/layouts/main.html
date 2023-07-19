@@ -9,22 +9,52 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 {% import "macros/page-header.njk" as macroPageHeader %}
 
 
+{% if showNavLinks != false %}
+
+    {% block header %}
+        {{ govukHeader({
+            homepageUrl: "#",
+            classes: "",
+            serviceName: "Civil Service Jobs",
+            serviceUrl: "#",
+            navigation: [
+                {
+                    href: "/candidate/references?iteration=",
+                    text: "Current view"
+                },
+            {
+                href: "/candidate/references?iteration=new",
+                text: "New iteration"
+            }
+        ]
+    }) }}
+    {% endblock %}
+
+{% endif %}
+
 {% block beforeContent %}
 
     {% if showPhaseBanner != false %}
-
         {{ govukPhaseBanner({
             tag : { text: "Prototype" },
             html: "This is a prototype. It is not a real service."
-        }) }}
+        }) }}        
     {% endif %}
 
     {% if showBackLink != false %}
-
-    {{ govukBackLink({
+        {{ govukBackLink({
             text: "Back",
             href: "javascript:history.go(-1)"
         }) }}
+    {% endif %}
+
+    {% if showNavLinks != false %}
+        <p class="govuk-!-text-align-right govuk-!-margin-top-2 govuk-!-margin-bottom-0">        
+            <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-left-3" href="/candidate/references?iteration=">Home</a>
+            <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-left-3" href="/candidate/references?iteration=new">Applications</a>
+            <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-left-3" href="/candidate/references?iteration=new">Job Description</a>
+            <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-left-3" href="/candidate/references?iteration=new">Sign out</a>      
+        </p>
     {% endif %}
 
 {% endblock %}
