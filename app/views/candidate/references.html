@@ -37,11 +37,136 @@
       </ul>
     </nav>
 
-
-     
-
+  
   </div>
   <div class="govuk-grid-column-two-thirds">    
+
+
+    {% if data['iteration'] == "new" %}
+
+      <h1 class="govuk-heading-l">Character references</h1>
+
+      <div class="govuk-inset-text">
+        <p>You should ask your referees for their consent before supplying their contact information to us.</p>
+      </div>
+      
+        <p>A character referee:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>can be someone you’ve previously worked with</li>
+          <li>must have known you for more than 3 years</li>      
+        </ul>
+  
+        <p>A character referee must not be a member of your family or related to you in any way.</p>
+
+      <h2 class="govuk-heading-m">First Referee</h2>
+
+      {{ govukRadios({
+        name: "refOneRelationship",
+        classes: "govuk-radios--inline",
+        fieldset: {
+          legend: {
+            text: "What is your relationship to this referee?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend"
+          }
+        },
+        items: [
+          { value: "Friend", text: "Friend" },
+          { value: "Work colleague", text: "Work colleague" },
+          { value: "Line manager", text: "Line Manager" }
+        ]
+      }) }}
+
+      {{ govukInput({
+        label: { text: "Full name", classes: "govuk-label",isPageHeading: false },      
+        classes: "govuk-!-width-two-thirds",
+        id: "refOneFullName",
+        name: "refOneFullName"
+      }) }}
+
+      {{ govukInput({
+        label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
+        classes: "govuk-!-width-two-thirds",
+        id: "refOneEmail",
+        name: "refOneEmail"
+      }) }}
+
+      <!-- {{ govukInput({
+        label: { text: "Phone number", classes: "govuk-label",isPageHeading: false },      
+        classes: "govuk-!-width-two-thirds",
+        id: "refOnePhone",
+        name: "refOnePhone"
+      }) }} -->
+
+
+
+      <h2 class="govuk-heading-m">Second Referee</h2>
+
+      {{ govukRadios({
+        name: "refTwoRelationship",
+        classes: "govuk-radios--inline",
+        fieldset: {
+          legend: {
+            text: "What is your relationship to this referee?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend"
+          }
+        },
+        items: [
+          { value: "Friend", text: "Friend" },
+          { value: "Work colleague", text: "Work colleague" },
+          { value: "Line manager", text: "Line Manager" }
+        ]
+      }) }}
+
+      {{ govukInput({
+        label: { text: "Full name", classes: "govuk-label",isPageHeading: false },      
+        classes: "govuk-!-width-two-thirds",
+        id: "refTwoFullName",
+        name: "refTwoFullName"
+      }) }}
+
+      {{ govukInput({
+        label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
+        classes: "govuk-!-width-two-thirds",
+        id: "refTwoEmail",
+        name: "refTwoEmail"
+      }) }}
+
+
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Back",
+          classes: "govuk-button--secondary"
+        }) }}
+      
+        {{ govukButton({
+          text: "Continue"
+                  
+        }) }}
+      </div>
+
+      
+
+<!-- 
+      <p>A character referee must not be a member of your family or related to you in any way. The referee could be someone you've previously worked with.</p>
+      <p>The character referee must have known you for more than 3 years.</p>
+       -->
+
+
+      
+      <!-- <ul class="govuk-list govuk-list--bullet">
+
+        <li>a member of your family</li>
+        <li>related to you in any way</li>
+      
+      </ul> -->
+      
+      
+      
+
+    {% else %}
 
     <h1 class="govuk-heading-l">References</h1>
 
@@ -219,6 +344,7 @@
     
     </form>
 
+    {% endif %}
   
 </div>
 </div>
