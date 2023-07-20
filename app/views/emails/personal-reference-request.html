@@ -9,7 +9,12 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-  <h1 class="govuk-heading-m">Reference Request</h1>
+    {% if data['iteration'] == "new" %}
+
+
+    [% else %]
+  
+    <h1 class="govuk-heading-m">Reference Request</h1>
   <p class="govuk-body">Dear Katie Watson ,</p>
   <p class="govuk-body">Re: A8 testing PH</p>
   <p class="govuk-body">We are undertaking pre-employment checks tor Hugo Furst</p>
@@ -20,6 +25,8 @@
   <p class="govuk-body"></p>
   <p class="govuk-body">Kind regards,
   <br>HM Revenue and Customs recruitment team</p>
+
+    {% endif %}
 
 </div>
 </div>
