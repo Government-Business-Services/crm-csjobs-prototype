@@ -1,6 +1,6 @@
 {% extends "govuk-prototype-kit/layouts/unbranded.html" %}
 
-{% set pageHeading = "End of request" %}
+{% set pageHeading = "Character reference submitted" %}
 {% set pageSection = "" %}
 
 {% block pageTitle %}
@@ -10,13 +10,54 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-full">
+
+	{% if data['iteration'] == "new" %}
+		<div class="govuk-grid-column-two-thirds">
+		
+			<!-- <h1 class="govuk-heading-l">{{pageHeading}}</h1> -->
+			
+
+			{{ govukPanel({
+				titleText: pageHeading				
+			  }) }}
+
+			  <!-- We have sent you a confirmation email. -->
+			<p class="govuk-body govuk-!-margin-top-7">Thank you for completing the character reference for Hugo Furst.</p>			
+			<!-- <p class="govuk-body">We appreciate your time and you helping us to complete our pre-employment checks.</p> -->
+			<p class="govuk-body">We may contact you <!--by email -->again if we need to clarify something, but you do not have to do anything else now.</p>
+				
+
+			<h2 class="govuk-heading-m">What happens next</h2>
+		<p class="govuk-body">We will use the reference as part of our pre-employment checks for Hugo Furst.</p>
+		<p class="govuk-body">This reference will not be actively shared with Hugo Furst, but they can request a copy at a later date if they wish.</p>
+		
+
+		<p class="govuk-body">
+			<a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+		</p>
+
+	{% else %}
+		
+	
+		<div class="govuk-grid-column-full">
 
     	
+
+
 		<p>Feedback form complete.</p>
-    	
-
+    
+	{% endif %}
+	
 	</div>
+	<div class="grid-column-one-third">
+
+  
+
+		<ul class="govuk-list govuk-!-text-align-right govuk-!-margin-top-2 ">        
+			<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 " href="/reference-request/complete?iteration=">Current view</a></li>
+			<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/reference-request/complete?iteration=new">New iteration</a></li>
+		</ul>  
+	  </div>
 </div>
 
 {% endblock %}
