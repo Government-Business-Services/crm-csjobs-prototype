@@ -15,157 +15,201 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{% if data['iteration'] == "new" %}
 
 
-    {% if data['iteration'] == "new" %}
     
+			<p>Not logged in</p>    		
+    		<h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-    <p>Not logged in</p>
-
-    <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-
-    <p class="govuk-body">We are undertaking pre-employment checks for Hugo Furst</p>
-    <p class="govuk-body">They have been successful in the position of Project Manager and have nominated you as a referee.</p>
-    <p class="govuk-body">To enable us to proceed with our checks, please complete the reference form below. We would appreciate it if you could complete the form within 48 hours to avoid any delay.</p>
-    <p class="govuk-body">An unfavourable reply does not necessarily mean that the applicant won't be offered a job; your reference is very valuable to us and we will take it into consideration in the strictest confidence.</p>
-    
-
-    <form method="post" action="time-known" >
-    {{ govukRadios({
-        name: "refRequestRelated",
-        fieldset: {
-          legend: {
-            text: "Are you related to the applicant",
-            isPageHeading: false,
-            classes: "govuk-fieldset__legend"
-          }
-        },
-        items: [
-          { value: "Yes", text: "Yes" },
-          { value: "No", text: "No" }          
-        ]
-      }) }}
+			<div class="govuk-inset-text">
+				<p>This form cannot be saved and retrieved later on. If you close the form without sending it, you will have to start again.</p>
+			</div>
 
 
-      {{ govukRadios({
-        name: "refRequestTimeKnown",
-        fieldset: {
-          legend: {
-            text: "How long have you known the applicant?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend"
-          }
-        },
-        items: [
-          { value: "less than 3 years", text: "less than 3 years" },
-          { value: "more than 3 years", text: "3+ years" }          
-        ]
-      }) }}
+    		<!-- <p class="govuk-body">We are undertaking pre-employment checks for Hugo Furst</p>
+    		<p class="govuk-body">They have been successful in the position of Project Manager and have nominated you as a referee.</p>
+    		<p class="govuk-body">To enable us to proceed with our checks, please complete the reference form below. We would appreciate it if you could complete the form within 48 hours to avoid any delay.</p>
+    		<p class="govuk-body">An unfavourable reply does not necessarily mean that the applicant won't be offered a job; your reference is very valuable to us and we will take it into consideration in the strictest confidence.</p>
+     -->
+    		<form method="post" action="time-known" >
+    			
+				{{ govukRadios({
+        			name: "refPersonalRequestRelated",
+        			classes: "govuk-radios--inline",
+        			fieldset: {
+          				legend: { text: "Are you related to the applicant", isPageHeading: false, classes: "govuk-fieldset__legend" }
+        			},
+        			items: [
+          				{ value: "Yes", text: "Yes" },
+          				{ value: "No", text: "No" }          
+        			]
+      			}) }}
+
+      			{{ govukRadios({
+        			name: "refPersonalRequestTimeKnown",
+					classes: "govuk-radios--inline",
+        			fieldset: {
+          				legend: { text: "Have you known the applicant for more than 3 years?", isPageHeading: true, classes: "govuk-fieldset__legend" }
+        			},
+        			items: [
+          				{ value: "Yes", text: "Yes" },
+          				{ value: "No", text: "No" }          
+        			]
+      			}) }}
 
 
-      {{ govukInput({
-        label: { text: "Your full name", classes: "govuk-label",isPageHeading: false },      
-        classes: "govuk-!-width-one-third",
-        id: "refRequestFullName",
-        name: "refRequestFullName"
-    }) }}
+				
+				<!-- We already have both of these things -->
 
-    {{ govukInput({
-        label: { text: "Your UK telephone number", classes: "govuk-label", isPageHeading: false },
-        hint: {
-          text: "Enter a telephone number like 01632 960 001, 07700 900 982 or +44 808 157 0192"
-        },
-        classes: "govuk-!-width-one-third",
-        id: "refRequestTelephone",
-        name: "refRequestTelephone"
-    }) }}
+      			{{ govukInput({
+        			label: { text: "Your full name", classes: "govuk-label", isPageHeading: false },      
+        			classes: "govuk-!-width-two-thirds",
+        			id: "refRequestFullName",
+        			name: "refRequestFullName"
+    			}) }}				
+				
+				{{ govukInput({
+        			label: { text: "Your email address", classes: "govuk-label", isPageHeading: false },        			
+        			classes: "govuk-!-width-two-thirds",
+        			id: "refPersonalRequestTelephone",
+        			name: "refPersonalRequestTelephone"
+    			}) }}
+
+				<!-- /////// -->
+
+
+    			<!-- {{ govukInput({
+        			label: { text: "Your UK telephone number", classes: "govuk-label", isPageHeading: false },
+        			hint: {
+          				text: "Enter a telephone number like 01632 960 001, 07700 900 982 or +44 808 157 0192"
+        			},
+        			classes: "govuk-!-width-one-third",
+        			id: "refPersonalRequestTelephone",
+        			name: "refPersonalRequestTelephone"
+    			}) }} -->
   
-  <!-- Conditionals -->
-    {% set emailHtml %}
-        {{ govukTextarea({
-          id: "refRequestColleaguesInfo",
-          name: "refRequestColleaguesInfo",
-          type: "text",                
-          classes: "govuk-!-width-full",
-          label: { text: "Provide details of the applicant’s work with you during the last 3 years" }
-        }) }}
-    {% endset -%}    
+  				<!-- Conditionals -->
+				{% set emailHtml %}
+					<!-- {{ govukTextarea({
+						id: "refRequestColleaguesInfo",
+						name: "refRequestColleaguesInfo",
+						type: "text",                
+						classes: "govuk-!-width-full",
+						label: { text: "Provide details of the applicant’s work with you during the last 3 years" },
+						hint: {
+							text: "Include what work they did, how long for and where. We encourage you to be honest and factual. You can include positive and negative points as you see fit. Maximum 500 characters."
+					  	}
+					}) }} -->
 
-    {% set phoneHtml %}
-    {{ govukTextarea({
-        id: "refRequestOtherWorkInfo",
-        name: "refRequestOtherWorkInfo",
-        type: "text",  
-        classes: "govuk-!-width-full",
-        label: { text: "Provide details of the applicant's work for other employers or their self-employment during the last 3 years, if possible." }
-    }) }}
-  {% endset -%}
+
+					{{ govukCharacterCount({
+						name: "with-hint",
+						id: "with-hint",
+						maxlength: 500,
+						label: { text: "Provide details of the applicant’s work with you during the last 3 years", classes: "govuk-label", isPageHeading: true },
+						hint: {
+						  text: "Include what work they did, how long for and where. We encourage you to be honest and factual. You can include positive and negative points as you see fit."
+						}
+					}) }}
+
+
+				{% endset -%}
+
+    			{% set phoneHtml %}
+					<!-- {{ govukTextarea({
+						id: "refRequestOtherWorkInfo",
+						name: "refRequestOtherWorkInfo",
+						type: "text",  
+						classes: "govuk-!-width-full",
+						label: { text: "Provide details of the applicant's work for other employers or their self-employment during the last 3 years, if possible." }
+					}) }} -->
+
+					{{ govukCharacterCount({
+						name: "with-hint",
+						id: "with-hint",
+						maxlength: 500,
+						label: { text: "Provide details of the applicant's work for other employers or their self-employment during the last 3 years, if possible.", classes: "govuk-label", isPageHeading: true },
+						hint: {
+							text: "Include what work they did, how long for and where. We encourage you to be honest and factual. You can include positive and negative points as you see fit."
+						}
+					}) }}
+
+  				{% endset -%}
   
-  {% set textHtml %}
-    {{ govukTextarea({
-        id: "refRequestUnsuitableInfo",
-        name: "refRequestUnsuitableInfo",
-        type: "text",  
-        classes: "govuk-!-width-full",
-        label: { text: "Provide details of the applicant’s skills conduct or reliability" }
-    }) }}
-  {% endset -%}
-  <!-- //// end of conditionals //// -->
+  				{% set textHtml %}
+    				<!-- {{ govukTextarea({
+        				id: "refRequestUnsuitableInfo",
+        				name: "refRequestUnsuitableInfo",
+        				type: "text",  
+        				classes: "govuk-!-width-full",
+        				label: { text: "Provide details of the applicant’s skills conduct or reliability" }
+    				}) }} -->
+
+					{{ govukCharacterCount({
+						name: "with-hint",
+						id: "with-hint",
+						maxlength: 500,
+						label: { text: "Provide details of the applicant’s skills conduct or reliability", classes: "govuk-label", isPageHeading: true },
+						hint: {
+						  text: "Include any information that you feel is important. This could be about the applicant's methods of working, their professional behaviour at work and their abilities."
+						}
+					}) }}
+  				{% endset -%}
+  				<!-- //// end of conditionals //// -->
 
 
-    {{ govukRadios({
-        name: "refRequestColleagues",
-        fieldset: {
-            legend: { text: "Has the applicant worked with you during the last 3 years?", isPageHeading: false, classes: "govuk-fieldset__legend" }
-        },
-        items: [
-            { value: "yes", text: "yes", conditional: {html: emailHtml} },
-            { value: "no", text: "no" }          
-        ]
-      }) }}
+				{{ govukRadios({
+					name: "refRequestColleagues",
+					fieldset: {
+						legend: { text: "Has the applicant worked with you during the last 3 years?", isPageHeading: false, classes: "govuk-fieldset__legend" }
+					},
+					items: [
+						{ value: "Yes", text: "Yes", conditional: {html: emailHtml} },
+						{ value: "No", text: "No" }          
+					]
+				}) }}
 
-      {{ govukRadios({
-        name: "refRequestOtherWork",
-        fieldset: {
-            legend: { text: "Are you aware of the applicant working for any other employees or being self-employed during this time?", isPageHeading: false, classes: "govuk-fieldset__legend" }
-        },
-        items: [
-            { value: "yes", text: "yes", conditional: {html: phoneHtml} },
-            { value: "no", text: "no" }          
-        ]
-      }) }}
+      			{{ govukRadios({
+        			name: "refRequestOtherWork",
+        			fieldset: {
+            			legend: { text: "Are you aware of the applicant working for any other employees or being self-employed during this time?", isPageHeading: false, classes: "govuk-fieldset__legend" }
+        			},
+        			items: [
+            			{ value: "Yes", text: "Yes", conditional: {html: phoneHtml} },
+            			{ value: "No", text: "No" }          
+        			]
+      			}) }}
 
-      {{ govukRadios({
-        name: "refRequestUnsuitable",
-        fieldset: {
-          legend: { text: "To your knowledge, is there anything about the applicant’s skills, conduct or reliability that would make them unsuitable for a job in the Civil Service?", isPageHeading: true, classes: "govuk-fieldset__legend" } },
-        items: [
-            { value: "yes", text: "yes", conditional: {html: textHtml}  },
-            { value: "no", text: "no" }          
-        ]
-      }) }}
+      			{{ govukRadios({
+        			name: "refRequestUnsuitable",
+        			fieldset: {
+          				legend: { text: "To your knowledge, is there anything about the applicant’s skills, conduct or reliability that would make them unsuitable for a job in the Civil Service?", isPageHeading: true, classes: "govuk-fieldset__legend" } },
+        			items: [
+            			{ value: "Yes", text: "Yes", conditional: {html: textHtml}  },
+            			{ value: "No", text: "No" }          
+        			]
+      			}) }}
 
       
-      <p class="govuk-body">Please click submit once you've completed all mandatory fields</p>
-
-      {{ govukButton({
-        text: "Submit",
-        href: "complete",
-        disabled: true
-      }) }}
-    
-    </form>
+      <!-- <p class="govuk-body">Please click submit once you've completed all mandatory fields</p> -->
+	  			
 
 
-
-  </div>
-  <div class="grid-column-one-third">
-    <ul class="govuk-list govuk-!-text-align-right govuk-!-margin-top-2 ">        
-        <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 " href="/reference-request/personal?iteration=">Current view</a></li>
-          <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/reference-request/personal?iteration=new">New iteration</a></li>
-      </ul>  
-
+      			{{ govukButton({
+        			text: "Submit character reference",
+        			href: "complete"        
+      			}) }}    
+    		
+			</form>
+  		</div>
+  		<div class="grid-column-one-third">
+    		<ul class="govuk-list govuk-!-text-align-right govuk-!-margin-top-2 ">        
+        		<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 " href="/reference-request/personal?iteration=">Current view</a></li>
+          		<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/reference-request/personal?iteration=new">New iteration</a></li>
+      		</ul>  
 
     {% else %}
 
@@ -192,7 +236,7 @@
 
     <form method="post" action="time-known" >
     {{ govukRadios({
-        name: "refRequestRelated",
+        name: "refPersonalRequestRelated",
         fieldset: {
           legend: {
             text: "Are you related to the applicant",
@@ -208,7 +252,7 @@
 
 
       {{ govukRadios({
-        name: "refRequestTimeKnown",
+        name: "refPersonalRequestTimeKnown",
         fieldset: {
           legend: {
             text: "How long have you known the applicant?",
@@ -236,8 +280,8 @@
           text: "Enter a telephone number like 01632 960 001, 07700 900 982 or +44 808 157 0192"
         },
         classes: "govuk-!-width-one-third",
-        id: "refRequestTelephone",
-        name: "refRequestTelephone"
+        id: "refPersonalRequestTelephone",
+        name: "refPersonalRequestTelephone"
     }) }}
   
   <!-- Conditionals -->

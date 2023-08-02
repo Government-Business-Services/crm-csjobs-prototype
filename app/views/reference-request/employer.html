@@ -24,18 +24,19 @@
 
     		<h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-			<p class="govuk-body">We are undertaking pre-employment checks for Hugo Furst</p>
-    		<p class="govuk-body">They have been successful in the position of Project Manager and have nominated you as a referee.</p>
+        	<div class="govuk-inset-text">
+          		<p>This form cannot be saved and retrieved later on. If you close the form without sending it, you will have to start again.</p>
+        	</div>
 
-    		<h2 class="govuk-heading-m">To help us to proceed with our checks</h2>
+    		<!-- <h2 class="govuk-heading-m">To help us to proceed with our checks</h2>
     		<p class="govuk-body">Please complete this reference form. To avoid delay we would appreciate it if you could complete the form within 48 hours.</p>
-    		<p class="govuk-body">A reference alone may not decide if the candidate is offered the job but will play a role. References will not be actively shard, but applicants can request a copy of their references.</p>
+    		<p class="govuk-body">A reference alone may not decide if the candidate is offered the job but will play a role. References will not be actively shard, but applicants can request a copy of their references.</p> -->
 
     		<form method="post" action="time-known" >
     		
 				{{ govukRadios({
         			name: "refRequestRelatedEmployer",
-					classes: "govuk-radios--inline",
+					  classes: "govuk-radios--inline",
         			fieldset: {
           				legend: { text: "Are you related to the applicant", isPageHeading: false, classes: "govuk-fieldset__legend" }
         			},
@@ -45,24 +46,22 @@
         			]
       			}) }}
 
-      {{ govukInput({
-        label: { text: "Your full name", classes: "govuk-label",isPageHeading: false },      
-        classes: "govuk-!-width-one-third",
-        id: "refRequestFullNameEmployer",
-        name: "refRequestFullNameEmployer"
-      }) }}
+      			{{ govukInput({
+        			label: { text: "Your full name", classes: "govuk-label",isPageHeading: false },      
+        			classes: "govuk-!-width-two-thirds",
+        			id: "refRequestFullNameEmployer",
+        			name: "refRequestFullNameEmployer"
+      			}) }}
 
-      {{ govukInput({
-        label: { text: "Your UK telephone number", classes: "govuk-label", isPageHeading: false },
-        hint: {
-          text: "Enter a telephone number like 01632 960 001, 07700 900 982 or +44 808 157 0192"
-        },
-        classes: "govuk-!-width-one-third",
-        id: "refRequestTelephone",
-        name: "refRequestTelephone"
-      }) }}
-
-
+      			<!-- {{ govukInput({
+        			label: { text: "Your UK telephone number", classes: "govuk-label", isPageHeading: false },
+        			hint: {
+          				text: "Enter a telephone number like 01632 960 001, 07700 900 982 or +44 808 157 0192"
+        			},
+        			classes: "govuk-!-width-one-third",
+        			id: "refRequestTelephone",
+        			name: "refRequestTelephone"
+      			}) }} -->
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
@@ -123,22 +122,20 @@
           label: { text: "In what capacity did the applicant work with you?" }
         }) }}
         
-      <p class="govuk-body">Please click submit once you've completed all mandatory fields</p>
+      			<!-- <p class="govuk-body">Please click submit once you've completed all mandatory fields</p> -->
 
-      {{ govukButton({
-        text: "Submit",
-        href: "complete",
-        disabled: true
-      }) }}
-    
-    </form>
+      			{{ govukButton({
+        			text: "Submit character reference",
+        			href: "complete"        
+      			}) }}    
+    		</form>
 
-  	</div>
-  	<div class="grid-column-one-third">
-    	<ul class="govuk-list govuk-!-text-align-right govuk-!-margin-top-2 ">        
-        	<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 " href="/reference-request/employer?iteration=">Current view</a></li>
-          	<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/reference-request/employer?iteration=new">New iteration</a></li>
-      	</ul>  
+  		</div>
+  		<div class="grid-column-one-third">
+    		<ul class="govuk-list govuk-!-text-align-right govuk-!-margin-top-2 ">        
+        		<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 " href="/reference-request/employer?iteration=">Current view</a></li>
+          		<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/reference-request/employer?iteration=new">New iteration</a></li>
+      		</ul>  
     
     {% else %}
 
