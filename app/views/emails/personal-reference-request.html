@@ -1,37 +1,61 @@
-{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+{% extends "layouts/email.html" %}
 
-{% block pageTitle %}
-  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
+{% set serviceName = "" %}
+
+{% if data['iteration'] == "new" %}
+  {% set pageHeading = "Character reference request" %}
+{% else %}
+  {% set pageHeading = "Reference Request" %}
+{% endif %}
+
+{% block pageTitle %}Email - {{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
-<div class="govuk-grid-row">
+<div class="govuk-grid-row govuk-!-margin-bottom-9">
   <div class="govuk-grid-column-two-thirds">
 
     {% if data['iteration'] == "new" %}
 
-      <h1 class="govuk-heading-m">Character reference request</h1>
+      <h1 class="govuk-heading-m">{{ pageHeading }}</h1>
       <p>Dear Katie Watson,</p>
-      <h2 class="govuk-heading-s">Why you have received this message</h2>
+      <h2 class="govuk-heading-s">Why you have received this email</h2>
 
-      <h2 class="govuk-heading-s">Complete the character reference form</h2>
-      <p>We need your help to proceed with our checks.</p>
-      <p>Please complete <a class="govuk-link govuk-link--no-visited-state" href="/reference-request/employer">this reference form</a>.</p>
-      <p>This will send your character reference to us and we can proceed with the applicant's employment process.</p>
-      <p>To avoid any delays with our pre-employment checks, we would appreciate it if you could complete the reference form within 48 hours or as soon as possible.</p>
-      <h2 class="govuk-heading-s">What the reference is for</h2>
+
+      <!-- <p>You have been nominated as a referee to give a character reference for Hugo Furst.</p> -->
+      <!-- <p>You have been nominated by Hugo Furst as a character reference referee.</p> -->
+
+
+      <!-- <p>They have been successful in a provisional offer for the position of Project Manager.</p> -->
+      <p>Hugo Furst has been given a provisional offer for the position of Project Manager.</p>
+      <p>As part of the employment process we are doing pre-employment checks and they have nominated you as a referee to give a character reference.</p>
+
+      <!-- <p>As part of the employment process we are doing pre-employment checks and the applicant needs to provide character references.</p> -->
+
+      <h2 class="govuk-heading-s">We need your help to proceed with our checks</h2>
+      <p>By giving a character reference you are helping someone to potentially start a new job.</p>
+
+      
+      <p>Your reference may not decide if Hugo Furst is successfully offered the job but it does play a role in the employment process. Your participation is very much appreciated.</p>
+      <!-- <h2 class="govuk-heading-s">Complete the character reference form</h2> -->
+      <!-- <p>We need your help to proceed with our checks.</p> -->
+      <p>Please complete <a class="govuk-link govuk-link--no-visited-state" href="/reference-request/employer">this character reference form</a>.</p>
+      <p>This will send your character reference to us and we can proceed with Hugo Furst’s employment process.</p>
+      <p>To avoid any delays, we would appreciate it if you could complete the reference form within 48 hours.</p>
+      <!-- <h2 class="govuk-heading-s">What the reference is for</h2>
       <p>By giving a character reference you are helping someone to start a new job. Your participation is very much appreciated.</p>
-      <p>A reference may not decide if the candidate is offered the job but it does play a role in the employment process.</p>
+      <p>A reference may not decide if the candidate is offered the job but it does play a role in the employment process.</p> -->
       <h2 class="govuk-heading-s">How we use the reference</h2>
-      <p>Any references provided will not be actively shared, but applicants can request a copy of their references at a later date if they wish.</p>
-      <p>Thank you very much in advance for your time and for completing the form. If you have any queries please email <a class="govuk-link govuk-link--no-visited-state" href="#">test@test.com</a>.</p>
-      <p>Kind regards,</p>
+      <p>Any reference provided will not be actively shared, but Hugo Furst can request a copy of this references at a later date if they wish.</p>
+      <p>Thank you very much in advance for your time. If you have any queries please email <a class="govuk-link govuk-link--no-visited-state" href="#">test@test.com</a>.</p>
+
+      <!-- <p>Your participation is very much appreciated.</p> -->
+      <p class="govuk-!-margin-top-9">Kind regards,</p>
       <p>HM Revenue and Customs recruitment team</p>
 
     {% else %}
   
-    <h1 class="govuk-heading-m">Reference Request</h1>
+    <h1 class="govuk-heading-m">{{ pageHeading }}</h1>
   <p class="govuk-body">Dear Katie Watson ,</p>
   <p class="govuk-body">Re: A8 testing PH</p>
   <p class="govuk-body">We are undertaking pre-employment checks tor Hugo Furst</p>

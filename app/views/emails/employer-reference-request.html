@@ -1,18 +1,24 @@
-{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+{% extends "layouts/email.html" %}
 
-{% block pageTitle %}
-  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
+{% set serviceName = "" %}
+
+{% if data['iteration'] == "new" %}
+  {% set pageHeading = "Character reference request" %}
+{% else %}
+  {% set pageHeading = "Reference Request" %}
+{% endif %}
+
+{% block pageTitle %}Email - {{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
-<div class="govuk-grid-row">
+<div class="govuk-grid-row govuk-!-margin-bottom-9">
   <div class="govuk-grid-column-two-thirds">
 
 
     {% if data['iteration'] == "new" %}
 
-      <h1 class="govuk-heading-m">Character reference request</h1>
+      <h1 class="govuk-heading-m">{{ pageHeading }}</h1>
       <p>Dear Katie Watson,</p>
       <h2 class="govuk-heading-s">Why you have received this message</h2>
       <p>You have been nominated as a referee to give a character reference for Hugo Furst.</p>
@@ -35,7 +41,7 @@
 
     {% else %}
   
-      <h1 class="govuk-heading-m">Reference Request</h1>
+      <h1 class="govuk-heading-m">{{ pageHeading }}</h1>
       <p class="govuk-body">Dear Katie Watson ,</p>
       <p class="govuk-body">Re: A8 testing PH</p>
       <p class="govuk-body">We are undertaking pre-employment checks tor Hugo Furst</p>
@@ -55,14 +61,13 @@
 
 <div class="grid-column-one-third">
 
-  {% if showIterationLinks != false %}
+  
 
         <ul class="govuk-list govuk-!-text-align-right govuk-!-margin-top-2 ">        
             <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 " href="/emails/employer-reference-request?iteration=">Current view</a></li>
             <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/emails/employer-reference-request?iteration=new">New iteration</a></li>
-        </ul>
-    {% endif %}
-</div>
+        </ul>  
+  </div>
 </div>
 
 {% endblock %}
