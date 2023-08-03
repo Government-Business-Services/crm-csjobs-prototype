@@ -1,0 +1,28 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set serviceFlow = "" %}
+
+{% set pageHeading = "Page listings " %}
+{% set pageSection = "CivilService Jobs" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}            
+
+            <p class="govuk-body-s">Last updated 3 August 2023</p>
+            <p class="govuk-body govuk-!-margin-bottom-7">Some pages have dynamic content, so if using the links and not going through the flows that lead to each page, its not always possible to show the right content for all scenarios.</p>
+
+            
+
+            <p><a class="govuk-link govuk-link--no-visited-state" href="/data">Data been stored as part of current session</a></p>
+
+
+    </div>
+</div>
+
+{% endblock %}
