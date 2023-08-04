@@ -1,7 +1,14 @@
-{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+{% if data['iteration'] == "new" %}
+  {% extends "layouts/main.html" %}
+{% else %}
+  {% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+{% endif %}
+
+{% set showBackLink = false %}
 
 {% if data['iteration'] == "new" %}
   {% set pageHeading = "Character reference request" %}
+  {% set pageSection = "Hugo Furst" %}
 {% else %}
   {% set pageHeading = "Reference Request" %}
 {% endif %}
@@ -18,11 +25,8 @@
 	<div class="govuk-grid-column-two-thirds">
 
     	{% if data['iteration'] == "new" %}
-
-
-    
-			<p>Not logged in</p>    		
-    		<h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+			
+			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 			<div class="govuk-inset-text">
 				<p>This form cannot be saved and retrieved later on. If you close the form without sending it, you will have to start again.</p>
@@ -64,7 +68,7 @@
 				
 				<!-- We already have both of these things -->
 
-      			{{ govukInput({
+      			<!-- {{ govukInput({
         			label: { text: "Your full name", classes: "govuk-label", isPageHeading: false },      
         			classes: "govuk-!-width-two-thirds",
         			id: "refRequestFullName",
@@ -76,7 +80,7 @@
         			classes: "govuk-!-width-two-thirds",
         			id: "refPersonalRequestTelephone",
         			name: "refPersonalRequestTelephone"
-    			}) }}
+    			}) }} -->
 
 				<!-- /////// -->
 

@@ -1,7 +1,14 @@
-{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+{% if data['iteration'] == "new" %}
+  {% extends "layouts/main.html" %}
+{% else %}
+  {% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+{% endif %}
+
+{% set showBackLink = false %}
 
 {% if data['iteration'] == "new" %}
   {% set pageHeading = "Character reference request" %}
+  {% set pageSection = "Hugo Furst" %}
 {% else %}
   {% set pageHeading = "Reference Request" %}
 {% endif %}
@@ -20,9 +27,7 @@
 
     	{% if data['iteration'] == "new" %}
 
-    		<p>Not logged in</p>
-
-    		<h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+          {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
         	<div class="govuk-inset-text">
           		<p>This form cannot be saved and retrieved later on. If you close the form without sending it, you will have to start again.</p>
@@ -38,7 +43,7 @@
         			name: "refRequestRelatedEmployer",
 					  classes: "govuk-radios--inline",
         			fieldset: {
-          				legend: { text: "Are you related to the applicant", isPageHeading: false, classes: "govuk-fieldset__legend" }
+          				legend: { text: "Are you related to {NAME}", isPageHeading: false, classes: "govuk-fieldset__legend" }
         			},
         			items: [
           				{ value: "Yes", text: "Yes" },
@@ -63,64 +68,51 @@
         			name: "refRequestTelephone"
       			}) }} -->
 
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend">
-            <p class="govuk-fieldset__heading">
-              Provide the dates that the applicant worked with you
-            </p>
-          </legend>
-          
-          <div class="govuk-date-input" id="passport-issued">
-            <p class="govuk-body-s govuk-!-margin-bottom-1">From</p>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">                
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric" value="dd">
-              </div>
-            </div>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">                
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric" value="mm">
-              </div>
-            </div>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                
-                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric" value="2023">
-              </div>
-            </div>
-          </div>
-          
-          <div class="govuk-date-input" id="passport-issued">
-            <p class="govuk-body-s govuk-!-margin-bottom-1 govuk-!-margin-top-2">To</p>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">                
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric" value="dd">
-              </div>
-            </div>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric" value="mm">
-              </div>
-            </div>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                
-                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric" value="2023">
-              </div>
-            </div>
-          </div>
-        </fieldset>
-      </div>
 
-      {{ govukTextarea({
-          id: "refRequestWorkCapacity",
-          name: "refRequestWorkCapacity",
-          type: "text",                
-          classes: "govuk-!-width-full",
-          label: { text: "In what capacity did the applicant work with you?" }
-        }) }}
+
+            {{ govukDateInput({
+              id: "passport-issued",
+              namePrefix: "passport-issued",
+              fieldset: {
+                legend: {
+                  text: "When did {NAME} start working with/for you?",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend"
+                }
+              },
+              hint: {
+                text: "For example, 27 3 2007"
+              }
+            }) }}
+
+            {{ govukDateInput({
+              id: "passport-issued",
+              namePrefix: "passport-issued",
+              fieldset: {
+                legend: {
+                  text: "When did {NAME} finish working with/for you?",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend"
+                }
+              },
+              hint: {
+                text: "For example, 27 3 2007"
+              }
+            }) }}
+
+
+
+            {{ govukCharacterCount({
+              name: "refRequestWorkCapacity",
+              id: "refRequestWorkCapacity",
+              maxlength: 500,
+              label: { text: "In what capacity did {NAME} work with/for you?", classes: "govuk-label", isPageHeading: false },
+              hint: {
+                text: "Include what work they did, how long for and where. We encourage you to be honest and factual."
+              }
+            }) }}
+
+     
         
       			<!-- <p class="govuk-body">Please click submit once you've completed all mandatory fields</p> -->
 
