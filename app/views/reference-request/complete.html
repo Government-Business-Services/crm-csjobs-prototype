@@ -1,4 +1,10 @@
-{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+{% if data['iteration'] == "new" %}
+  {% extends "layouts/main.html" %}
+{% else %}
+  {% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+{% endif %}
+
+{% set showBackLink = false %}
 
 {% set pageHeading = "Character reference submitted" %}
 {% set pageSection = "" %}
@@ -28,7 +34,7 @@
 				
 
 			<h2 class="govuk-heading-m">What happens next</h2>
-		<p class="govuk-body">We will use the reference as part of our pre-employment checks for Hugo Furst.</p>
+		<p class="govuk-body">We will use this reference as part of our pre-employment checks for Hugo Furst.</p>
 		<p class="govuk-body">This reference will not be actively shared with Hugo Furst, but they can request a copy at a later date if they wish.</p>
 		
 
