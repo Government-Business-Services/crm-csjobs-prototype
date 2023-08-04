@@ -44,7 +44,7 @@
         			name: "refPersonalRequestRelated",
         			classes: "govuk-radios--inline",
         			fieldset: {
-          				legend: { text: "Are you related to the applicant", isPageHeading: false, classes: "govuk-fieldset__legend" }
+          				legend: { text: "Are you related to {NAME}", isPageHeading: false, classes: "govuk-fieldset__legend" }
         			},
         			items: [
           				{ value: "Yes", text: "Yes" },
@@ -56,7 +56,7 @@
         			name: "refPersonalRequestTimeKnown",
 					classes: "govuk-radios--inline",
         			fieldset: {
-          				legend: { text: "Have you known the applicant for more than 3 years?", isPageHeading: true, classes: "govuk-fieldset__legend" }
+          				legend: { text: "Have you known {NAME} for more than 3 years?", isPageHeading: true, classes: "govuk-fieldset__legend" }
         			},
         			items: [
           				{ value: "Yes", text: "Yes" },
@@ -113,7 +113,7 @@
 						name: "with-hint",
 						id: "with-hint",
 						maxlength: 500,
-						label: { text: "Provide details of the applicant’s work with you during the last 3 years", classes: "govuk-label", isPageHeading: true },
+						label: { text: "Provide details of their work with you during the last 3 years", classes: "govuk-label", isPageHeading: true },
 						hint: {
 						  text: "Include what work they did, how long for and where. We encourage you to be honest and factual. You can include positive and negative points as you see fit."
 						}
@@ -135,7 +135,7 @@
 						name: "with-hint",
 						id: "with-hint",
 						maxlength: 500,
-						label: { text: "Provide details of the applicant's work for other employers or their self-employment during the last 3 years, if possible.", classes: "govuk-label", isPageHeading: true },
+						label: { text: "Provide details of their work for other employers or their self-employment during the last 3 years, if possible.", classes: "govuk-label", isPageHeading: true },
 						hint: {
 							text: "Include what work they did, how long for and where. We encourage you to be honest and factual. You can include positive and negative points as you see fit."
 						}
@@ -156,7 +156,7 @@
 						name: "with-hint",
 						id: "with-hint",
 						maxlength: 500,
-						label: { text: "Provide details of the applicant’s skills conduct or reliability", classes: "govuk-label", isPageHeading: true },
+						label: { text: "Provide details of their skills conduct or reliability", classes: "govuk-label", isPageHeading: true },
 						hint: {
 						  text: "Include any information that you feel is important. This could be about the applicant's methods of working, their professional behaviour at work and their abilities."
 						}
@@ -168,7 +168,7 @@
 				{{ govukRadios({
 					name: "refRequestColleagues",
 					fieldset: {
-						legend: { text: "Has the applicant worked with you during the last 3 years?", isPageHeading: false, classes: "govuk-fieldset__legend" }
+						legend: { text: "Has {NAME} worked with you during the last 3 years?", isPageHeading: false, classes: "govuk-fieldset__legend" }
 					},
 					items: [
 						{ value: "Yes", text: "Yes", conditional: {html: emailHtml} },
@@ -179,7 +179,7 @@
       			{{ govukRadios({
         			name: "refRequestOtherWork",
         			fieldset: {
-            			legend: { text: "Are you aware of the applicant working for any other employees or being self-employed during this time?", isPageHeading: false, classes: "govuk-fieldset__legend" }
+            			legend: { text: "Are you aware of {NAME} working for any other employees or being self-employed during this time?", isPageHeading: false, classes: "govuk-fieldset__legend" }
         			},
         			items: [
             			{ value: "Yes", text: "Yes", conditional: {html: phoneHtml} },
@@ -190,7 +190,7 @@
       			{{ govukRadios({
         			name: "refRequestUnsuitable",
         			fieldset: {
-          				legend: { text: "To your knowledge, is there anything about the applicant’s skills, conduct or reliability that would make them unsuitable for a job in the Civil Service?", isPageHeading: true, classes: "govuk-fieldset__legend" } },
+          				legend: { text: "To your knowledge, is there anything about {NAME}’s skills, conduct or reliability that would make them unsuitable for a job in the Civil Service?", isPageHeading: true, classes: "govuk-fieldset__legend" } },
         			items: [
             			{ value: "Yes", text: "Yes", conditional: {html: textHtml}  },
             			{ value: "No", text: "No" }          
