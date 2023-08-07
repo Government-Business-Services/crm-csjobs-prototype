@@ -48,7 +48,7 @@
       <h1 class="govuk-heading-l">Character references</h1>
 
       
-        <p>You should ask your referees for their consent before supplying their contact information to us.</p>
+        <p>You should ask your referees for their consent before supplying their name and email address to us.</p>
       
       <div class="govuk-inset-text">
         <p>A character referee:</p>
@@ -91,6 +91,9 @@
       {{ govukInput({
         label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
         classes: "govuk-!-width-two-thirds",
+        hint: {
+          text: "We use this to contact the referee for the reference."
+        },
         id: "refOneEmail",
         name: "refOneEmail"
       }) }}
@@ -104,7 +107,7 @@
 
 
 
-      <h2 class="govuk-heading-m">Second Referee</h2>
+      <h2 class="govuk-heading-m govuk-!-margin-top-7">Second Referee</h2>
 
       {{ govukRadios({
         name: "refTwoRelationship",
@@ -133,6 +136,9 @@
       {{ govukInput({
         label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
         classes: "govuk-!-width-two-thirds",
+        hint: {
+          text: "We use this to contact the referee for the reference."
+        },
         id: "refTwoEmail",
         name: "refTwoEmail"
       }) }}
