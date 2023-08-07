@@ -66,9 +66,27 @@
 
       <h2 class="govuk-heading-m">First Referee</h2>
 
+      {% set otherHtml %}
+        {{ govukInput({
+          id: "refOneRelationshipOther",
+          name: "refOneRelationshipOther",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          classes: "govuk-!-width-two-thirds",
+          label: {
+            text: "Other relationship to referee",
+            classes: "govuk-visually-hidden"
+          },
+          hint: {
+            text: "For example, Pastor or Tutor"
+          }
+
+        }) }}
+      {% endset -%}
+
       {{ govukRadios({
-        name: "refOneRelationship",
-        classes: "govuk-radios--inline",
+        name: "refOneRelationship",        
         fieldset: {
           legend: {
             text: "What is your relationship to this referee?",
@@ -79,7 +97,9 @@
         items: [
           { value: "Friend", text: "Friend" },
           { value: "Work colleague", text: "Work colleague" },
-          { value: "Other", text: "Other" }
+          { value: "Other", text: "Other", conditional: {
+            html: otherHtml
+          } }
         ]
       }) }}
 
@@ -94,7 +114,7 @@
         label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
         classes: "govuk-!-width-two-thirds",
         hint: {
-          text: "We use this to contact the referee for the reference."
+          text: "We use this to contact the referee for their reference."
         },
         id: "refOneEmail",
         name: "refOneEmail"
@@ -111,9 +131,28 @@
 
       <h2 class="govuk-heading-m govuk-!-margin-top-7">Second Referee</h2>
 
+
+      {% set otherTwoHtml %}
+        {{ govukInput({
+          id: "refTwoRelationshipOther",
+          name: "refTwoRelationshipOther",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          classes: "govuk-!-width-two-thirds",
+          label: {
+            text: "Other relationship to referee",
+            classes: "govuk-visually-hidden"
+          },
+          hint: {
+            text: "For example, Pastor or Tutor"
+          }
+
+        }) }}
+      {% endset -%}
+
       {{ govukRadios({
-        name: "refTwoRelationship",
-        classes: "govuk-radios--inline",
+        name: "refTwoRelationship",        
         fieldset: {
           legend: {
             text: "What is your relationship to this referee?",
@@ -124,7 +163,9 @@
         items: [
           { value: "Friend", text: "Friend" },
           { value: "Work colleague", text: "Work colleague" },
-          { value: "Other", text: "Other" }
+          { value: "Other", text: "Other" , conditional: {
+            html: otherTwoHtml
+          } }
         ]
       }) }}
 
@@ -138,9 +179,7 @@
       {{ govukInput({
         label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
         classes: "govuk-!-width-two-thirds",
-        hint: {
-          text: "We use this to contact the referee for the reference."
-        },
+        
         id: "refTwoEmail",
         name: "refTwoEmail"
       }) }}
@@ -154,9 +193,28 @@
 
        <h2 class="govuk-heading-m">Third referee</h2>
 
+       {% set otherThirdHtml %}
+        {{ govukInput({
+          id: "refThirdRelationshipOther",
+          name: "refThirdRelationshipOther",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          classes: "govuk-!-width-two-thirds",
+          label: {
+            text: "Other relationship to referee",
+            classes: "govuk-visually-hidden"
+          },
+          hint: {
+            text: "For example, Pastor or Tutor"
+          }
+
+        }) }}
+      {% endset -%}
+
+
       {{ govukRadios({
-        name: "refThirdRelationship",
-        classes: "govuk-radios--inline",
+        name: "refThirdRelationship",        
         fieldset: {
           legend: {
             text: "What is your relationship to this referee?",
@@ -167,7 +225,9 @@
         items: [
           { value: "Friend", text: "Friend" },
           { value: "Work colleague", text: "Work colleague" },
-          { value: "Other manager", text: "Other" }
+          { value: "Other manager", text: "Other", conditional: {
+            html: otherThirdHtml
+          } } 
         ]
       }) }}
 
@@ -181,9 +241,7 @@
       {{ govukInput({
         label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
         classes: "govuk-!-width-two-thirds",
-        hint: {
-          text: "We use this to contact the referee for the reference."
-        },
+        
         id: "refThirdEmail",
         name: "refThirdEmail"
       }) }}
