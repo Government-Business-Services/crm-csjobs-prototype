@@ -51,12 +51,12 @@
         			]
       			}) }}
 
-      			{{ govukInput({
+      			<!-- {{ govukInput({
         			label: { text: "Your full name", classes: "govuk-label",isPageHeading: false },      
         			classes: "govuk-!-width-two-thirds",
         			id: "refRequestFullNameEmployer",
         			name: "refRequestFullNameEmployer"
-      			}) }}
+      			}) }} -->
 
       			<!-- {{ govukInput({
         			label: { text: "Your UK telephone number", classes: "govuk-label", isPageHeading: false },
@@ -75,7 +75,7 @@
               namePrefix: "passport-issued",
               fieldset: {
                 legend: {
-                  text: "When did {NAME} start working with/for you?",
+                  text: "When did you and {NAME} start working together?",
                   isPageHeading: true,
                   classes: "govuk-fieldset__legend"
                 }
@@ -85,20 +85,49 @@
               }
             }) }}
 
-            {{ govukDateInput({
-              id: "passport-issued",
-              namePrefix: "passport-issued",
+            
+
+            {% set notWorkingHtml %}
+              {{ govukDateInput({
+                id: "passport-issued",
+                namePrefix: "passport-issued",
+                fieldset: {
+                  legend: {
+                    text: "When did you and {NAME} stop working together?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend"
+                  }
+                },
+                hint: {
+                  text: "For example, 27 3 2007"
+                }
+              }) }}
+            {% endset -%}
+
+
+
+            {{ govukRadios({
+              name: "refTwoRelationship",        
               fieldset: {
                 legend: {
-                  text: "When did {NAME} finish working with/for you?",
-                  isPageHeading: true,
+                  text: "Are you still working together?",
+                  isPageHeading: false,
                   classes: "govuk-fieldset__legend"
                 }
               },
-              hint: {
-                text: "For example, 27 3 2007"
-              }
+              items: [
+                { value: "Yes", text: "Yes" },                
+                { value: "No", text: "No" , conditional: {
+                  html: notWorkingHtml
+                } }
+              ]
             }) }}
+
+
+
+
+
+            
 
 
 
@@ -106,9 +135,9 @@
               name: "refRequestWorkCapacity",
               id: "refRequestWorkCapacity",
               maxlength: 500,
-              label: { text: "In what capacity did {NAME} work with/for you?", classes: "govuk-label", isPageHeading: false },
+              label: { text: "What type of work did {NAME} do?", classes: "govuk-label", isPageHeading: false },
               hint: {
-                text: "Include what work they did, how long for and where. We encourage you to be honest and factual."
+                text: "Include what work they did, how long for and where. We encourage you to be honest and factual. For example, forklift driver for 2 years based in Cardiff."
               }
             }) }}
 
