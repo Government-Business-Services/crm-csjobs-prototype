@@ -141,7 +141,46 @@
               }
             }) }}
 
-     
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-7">Before you submit this reference</h2>
+            <p class="">Confirm the name and email address we have for you are correct</p>
+				    <div class="govuk-inset-text govuk-!-margin-top-0">
+				      <p>Katie Watson
+				      <br>katie-watson@gmail.com</p>
+				    </div> 				  
+
+				{% set changeDetailsHtml %}
+
+				  {{ govukInput({
+        			label: { text: "Your full name", classes: "govuk-label", isPageHeading: false },      
+        			classes: "govuk-!-width-two-thirds",
+        			id: "refRequestFullName",
+        			name: "refRequestFullName"
+    			}) }}				
+				
+				{{ govukInput({
+        			label: { text: "Your email address", classes: "govuk-label", isPageHeading: false },        			
+        			classes: "govuk-!-width-two-thirds",
+        			id: "refPersonalRequestTelephone",
+        			name: "refPersonalRequestTelephone"
+    			}) }}
+
+				  {% endset -%}
+
+
+				  {{ govukRadios({
+        			name: "refPersonalRequestRelated",
+        			
+        			fieldset: {
+          				legend: { text: "Confirm these details are correct", isPageHeading: false, classes: "govuk-visually-hidden" }
+        			},
+        			items: [
+          				{ value: "Yes", text: "Yes" },
+          				{ value: "No", text: "No", conditional: {
+							html: changeDetailsHtml
+						  } }          
+        			]
+      			}) }}
         
       			<!-- <p class="govuk-body">Please click submit once you've completed all mandatory fields</p> -->
 
