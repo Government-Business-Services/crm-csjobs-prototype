@@ -114,18 +114,28 @@
         label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
         classes: "govuk-!-width-two-thirds",
         hint: {
-          text: "We use this to contact the referee for their reference."
+          text: "We’ll only use this to ask for the reference."
         },
         id: "refOneEmail",
         name: "refOneEmail"
       }) }}
 
-      <!-- {{ govukInput({
+      {% if data['showPhone'] == "Yes" %}
+
+      {{ govukInput({
         label: { text: "Phone number", classes: "govuk-label",isPageHeading: false },      
-        classes: "govuk-!-width-two-thirds",
+        classes: "govuk-!-width-one-half",
+        hint: {
+          html: "This must be a UK landline or mobile. <br>For example, 1632 960001 or 7700900982"
+        },
+        prefix: {
+          text: "+44"
+        },
         id: "refOnePhone",
         name: "refOnePhone"
-      }) }} -->
+      }) }}
+
+      {% endif %}
 
 
 
@@ -183,6 +193,23 @@
         id: "refTwoEmail",
         name: "refTwoEmail"
       }) }}
+
+      {% if data['showPhone'] == "Yes" %}
+
+      {{ govukInput({
+        label: { text: "Phone number", classes: "govuk-label",isPageHeading: false },      
+        classes: "govuk-!-width-one-half",
+        hint: {
+          html: "This must be a UK landline or mobile. <br>For example, 1632 960001 or 7700900982"
+        },
+        prefix: {
+          text: "+44"
+        },
+        id: "refTwoPhone",
+        name: "refTwoPhone"
+      }) }}
+
+      {% endif %}
 
        <!-- <p>If you have any gaps in your work history during the last 3 years, you must give us the details of a third referee. </p> -->
 
@@ -248,6 +275,23 @@
         id: "refThirdEmail",
         name: "refThirdEmail"
       }) }}
+
+      {% if data['showPhone'] == "Yes" %}
+
+      {{ govukInput({
+        label: { text: "Phone number", classes: "govuk-label",isPageHeading: false },      
+        classes: "govuk-!-width-one-half",
+        hint: {
+          html: "This must be a UK landline or mobile. <br>For example, 1632 960001 or 7700900982"
+        },
+        prefix: {
+          text: "+44"
+        },
+        id: "refThirdPhone",
+        name: "refThirdPhone"
+      }) }}
+
+      {% endif %}
 
       {% endif %}
        <!-- {% set emailHtml %}
