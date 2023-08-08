@@ -1,0 +1,321 @@
+{% if data['iteration'] == "new" %}
+  {% extends "layouts/main.html" %}
+{% else %}
+  {% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+{% endif %}
+
+{% set showBackLink = false %}
+
+{% if data['iteration'] == "new" %}
+  {% set pageHeading = "Character reference request" %}
+  {% set pageSection = "Hugo Furst" %}
+{% else %}
+  {% set pageHeading = "Reference Request" %}
+{% endif %}
+{% set pageSection = "" %}
+
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{% if data['iteration'] == "new" %}
+
+          {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+        	<div class="govuk-inset-text">
+          		<p>This form cannot be saved and retrieved later on. If you close the form without sending it, you will have to start again.</p>
+        	</div>
+
+    		<!-- <h2 class="govuk-heading-m">To help us to proceed with our checks</h2>
+    		<p class="govuk-body">Please complete this reference form. To avoid delay we would appreciate it if you could complete the form within 48 hours.</p>
+    		<p class="govuk-body">A reference alone may not decide if the candidate is offered the job but will play a role. References will not be actively shard, but applicants can request a copy of their references.</p> -->
+
+    		<form method="post" action="time-known" >
+    		
+				{{ govukRadios({
+        			name: "refRequestRelatedAcademic",
+					  classes: "govuk-radios--inline",
+        			fieldset: {
+          				legend: { text: "Are you related to {NAME}", isPageHeading: false, classes: "govuk-fieldset__legend" }
+        			},
+        			items: [
+          				{ value: "Yes", text: "Yes" },
+          				{ value: "No", text: "No" }          
+        			]
+      			}) }}
+
+            {{ govukInput({
+        			label: { text: "Your position at the place of education", classes: "govuk-label",isPageHeading: false },      
+        			classes: "govuk-!-width-two-thirds",
+        			id: "refRequestPositionAcademic",
+        			name: "refRequestPositionAcademic"
+      			}) }}
+
+      			<!-- {{ govukInput({
+        			label: { text: "Your full name", classes: "govuk-label",isPageHeading: false },      
+        			classes: "govuk-!-width-two-thirds",
+        			id: "refRequestFullNameEmployer",
+        			name: "refRequestFullNameEmployer"
+      			}) }} -->
+
+      			<!-- {{ govukInput({
+        			label: { text: "Your UK telephone number", classes: "govuk-label", isPageHeading: false },
+        			hint: {
+          				text: "Enter a telephone number like 01632 960 001, 07700 900 982 or +44 808 157 0192"
+        			},
+        			classes: "govuk-!-width-one-third",
+        			id: "refRequestTelephone",
+        			name: "refRequestTelephone"
+      			}) }} -->
+
+
+
+            {{ govukDateInput({
+              id: "refRequestStartDateAcademic",
+              namePrefix: "refRequestStartDateAcademic",
+              fieldset: {
+                legend: {
+                  text: "When did {NAME} begin studying with you?",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend"
+                }
+              },
+              hint: {
+                text: "For example, 27 3 2007"
+              }
+            }) }}
+
+            
+
+            {% set notWorkingHtml %}
+              {{ govukDateInput({
+                id: "passport-issued",
+                namePrefix: "passport-issued",
+                fieldset: {
+                  legend: {
+                    text: "When did {NAME} stop studying with you?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend"
+                  }
+                },
+                hint: {
+                  text: "For example, 27 3 2007"
+                }
+              }) }}
+            {% endset -%}
+
+
+
+            {{ govukRadios({
+              name: "refTwoRelationship",        
+              fieldset: {
+                legend: {
+                  text: "Are they still studying with you?",
+                  isPageHeading: false,
+                  classes: "govuk-fieldset__legend"
+                }
+              },
+              items: [
+                { value: "Yes", text: "Yes" },                
+                { value: "No", text: "No" , conditional: {
+                  html: notWorkingHtml
+                } }
+              ]
+            }) }}
+
+
+
+
+
+            
+
+
+
+            
+
+
+            <h2 class="govuk-heading-m govuk-!-margin-top-7">Before you submit this reference</h2>
+            <p class="">Confirm the name and email address we have for you are correct</p>
+				    <div class="govuk-inset-text govuk-!-margin-top-0">
+				      <p>Katie Watson
+				      <br>katie-watson@gmail.com</p>
+				    </div> 				  
+
+				{% set changeDetailsHtml %}
+
+				  {{ govukInput({
+        			label: { text: "Your full name", classes: "govuk-label", isPageHeading: false },      
+        			classes: "govuk-!-width-two-thirds",
+        			id: "refRequestFullName",
+        			name: "refRequestFullName"
+    			}) }}				
+				
+				{{ govukInput({
+        			label: { text: "Your email address", classes: "govuk-label", isPageHeading: false },        			
+        			classes: "govuk-!-width-two-thirds",
+        			id: "refPersonalRequestTelephone",
+        			name: "refPersonalRequestTelephone"
+    			}) }}
+
+				  {% endset -%}
+
+
+				  {{ govukRadios({
+        			name: "refPersonalRequestRelated",
+        			
+        			fieldset: {
+          				legend: { text: "Confirm these details are correct", isPageHeading: false, classes: "govuk-visually-hidden" }
+        			},
+        			items: [
+          				{ value: "Yes", text: "Yes" },
+          				{ value: "No", text: "No", conditional: {
+							html: changeDetailsHtml
+						  } }          
+        			]
+      			}) }}
+        
+      			<!-- <p class="govuk-body">Please click submit once you've completed all mandatory fields</p> -->
+
+      			{{ govukButton({
+        			text: "Submit character reference",
+        			href: "complete"        
+      			}) }}    
+    		</form>
+
+  		</div>
+  		<div class="grid-column-one-third">
+    		<ul class="govuk-list govuk-!-text-align-right govuk-!-margin-top-2 ">        
+        		<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 " href="/reference-request/academic?iteration=">Current view</a></li>
+          		<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/reference-request/academic?iteration=new">New iteration</a></li>
+      		</ul>  
+    
+    {% else %}
+
+    <p>Not logged in</p>
+
+    <h1 class="govuk-heading-m">{{ pageHeading }}</h1>
+
+    <p>We are undertaking pre-employment checks for</p>
+    <p>They have been successful in the position of and have nominated you as a referee.</p>
+    <p>To enable us to proceed with our checks, please complete the reference form below. We would appreciate it if you could complete the form within 48 hours to avoid any delay.</p>
+    <p>An unfavourable reply does not necessarily mean that the applicant won’t be offered a job; your reference is very valuable to us and we will take it into consideration in the strictest confidence.</p>
+
+
+  </div>
+  <div class="grid-column-one-third">
+
+  
+
+    <ul class="govuk-list govuk-!-text-align-right govuk-!-margin-top-2 ">        
+        <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 " href="/reference-request/academic?iteration=">Current view</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/reference-request/academic?iteration=new">New iteration</a></li>
+    </ul>  
+  </div>
+  <div class="govuk-grid-column-full">
+
+    <form method="post" action="time-known" >
+    
+
+      {{ govukInput({
+        label: { text: "Your full name", classes: "govuk-label",isPageHeading: false },      
+        classes: "govuk-!-width-one-third",
+        id: "refRequestFullNameEmployer",
+        name: "refRequestFullNameEmployer"
+      }) }}
+
+      {{ govukInput({
+        label: { text: "Your UK telephone number", classes: "govuk-label", isPageHeading: false },
+        hint: {
+          text: "Enter a telephone number like 01632 960 001, 07700 900 982 or +44 808 157 0192"
+        },
+        classes: "govuk-!-width-one-third",
+        id: "refRequestTelephone",
+        name: "refRequestTelephone"
+      }) }}
+
+      {{ govukInput({
+        label: { text: "Your position in your organisation", classes: "govuk-label",isPageHeading: false },      
+        classes: "govuk-!-width-one-third",
+        id: "refRequestFullNameEmployer",
+        name: "refRequestFullNameEmployer"
+      }) }}
+
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend">
+            <p class="govuk-fieldset__heading">
+              Provide the dates that the applicant studied at your organisation
+            </p>
+          </legend>
+          
+          <div class="govuk-date-input" id="passport-issued">
+            <p class="govuk-body-s govuk-!-margin-bottom-1">From</p>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">                
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric" value="dd">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">                
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric" value="mm">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric" value="2023">
+              </div>
+            </div>
+          </div>
+          
+          <div class="govuk-date-input" id="passport-issued">
+            <p class="govuk-body-s govuk-!-margin-bottom-1 govuk-!-margin-top-2">To</p>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">                
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric" value="dd">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric" value="mm">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric" value="2023">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      
+        
+      <p class="govuk-body">Please click submit once you've completed all mandatory fields</p>
+
+      {{ govukButton({
+        text: "Submit",
+        href: "complete",
+        disabled: true
+      }) }}
+    
+    </form>
+
+    
+
+    {% endif %}
+   
+    </div>
+</div>
+
+{% endblock %}
