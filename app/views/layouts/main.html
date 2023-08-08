@@ -19,12 +19,20 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
             serviceUrl: "/",
             navigation: [
                 {
-                    href: "/candidate/references?iteration=",
+                    href: "/candidate/references?iteration=&gaps=",
                     text: "Current view"
                 },
             {
                 href: "/candidate/references?iteration=new",
                 text: "New iteration"
+            },
+            {
+                href: "/candidate/references?gaps=Yes",
+                text: "Gaps"
+            },
+            {
+                href: "/candidate/references?gaps=",
+                text: "No gaps"
             }
         ]
     }) }}
