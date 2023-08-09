@@ -223,14 +223,12 @@
 				  {% set addPhoneHtml %}
 
 				  {{ govukInput({
-					label: { text: "Phone number", classes: "govuk-label",isPageHeading: false },      
+					label: { text: "Telephone number", classes: "govuk-label",isPageHeading: false },      
 					classes: "govuk-!-width-one-half",
 					hint: {
-					  html: "This must be a UK landline or mobile. <br>For example, 1632 960001 or 7700900982"
+					  html: "This must be a UK landline or mobile. <br>For example, +44 020 7450 4000 or 07771 900 900"
 					},
-					prefix: {
-					  text: "+44"
-					},
+					
 					id: "refThirdPhone",
 					name: "refThirdPhone"
 				  }) }}
@@ -241,7 +239,7 @@
 				  {{ govukRadios({
         			name: "refPersonalRequestRelated",        			
         			fieldset: {
-          				legend: { text: "Do you want to provide your phone number?", isPageHeading: false, classes: "govuk-fieldset__legend" }
+          				legend: { text: "Do you want to provide your telephone number?", isPageHeading: false, classes: "govuk-fieldset__legend" }
         			},
 					hint: {
 						text: "We will only contact you if there is an issue"

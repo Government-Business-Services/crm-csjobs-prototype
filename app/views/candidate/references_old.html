@@ -47,7 +47,7 @@
 
       <h1 class="govuk-heading-l">Character references</h1>
 
-      <p>As part of the recruitment process, you are required to provide 2 character referees. We may contact both of these referees to ask them to give us a personal character reference about you.</p>
+      <p>As part of the recruitment process, you are required to provide 3 character referees. We may contact these referees to ask them to give us a personal character reference about you.</p>
       
 
         <p>You should ask your referees for their consent before supplying their name and email address to us.</p>
@@ -83,7 +83,7 @@
           name: "refThirdRelationship",        
           fieldset: {
               legend: {
-                  text: "What is this referee's relationship to you?",
+                  text: "What is this referee’s relationship to you?",
                   isPageHeading: false,
                   classes: "govuk-fieldset__legend"
               }
@@ -103,7 +103,10 @@
 
       {{ govukInput({
           label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
-          classes: "govuk-!-width-two-thirds",        
+          classes: "govuk-!-width-two-thirds",    
+          hint: {
+            text: "We’ll only use this to ask for the reference."
+          },    
           id: "refThirdEmail",
           name: "refThirdEmail"
       }) }}
@@ -111,10 +114,10 @@
       {% if data['showPhone'] == "Yes" %}
 
           {{ govukInput({
-              label: { text: "Phone number", classes: "govuk-label",isPageHeading: false },      
+              label: { text: "Telephone number", classes: "govuk-label",isPageHeading: false },      
               classes: "govuk-!-width-one-half",
               hint: {
-                  html: "This must be a UK landline or mobile. <br>For example, 1632 960001 or 7700900982"
+                  html: "This must be a UK landline or mobile. <br>For example, +44 020 7450 4000 or 07771 900 900"
               },
               prefix: {
                   text: "+44"
@@ -153,7 +156,7 @@
     name: "refThirdRelationship",        
     fieldset: {
       legend: {
-        text: "What is your relationship to this referee?",
+        text: "Please provide a referee who is one of the following",
         isPageHeading: false,
         classes: "govuk-fieldset__legend"
       }
@@ -177,7 +180,9 @@
   {{ govukInput({
     label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
     classes: "govuk-!-width-two-thirds",
-    
+    hint: {
+      text: "We’ll only use this to ask for the reference."
+    },
     id: "refThirdEmail",
     name: "refThirdEmail"
   }) }}
@@ -185,10 +190,10 @@
   {% if data['showPhone'] == "Yes" %}
 
   {{ govukInput({
-    label: { text: "Phone number", classes: "govuk-label",isPageHeading: false },      
+    label: { text: "Telephone number", classes: "govuk-label",isPageHeading: false },      
     classes: "govuk-!-width-one-half",
     hint: {
-      html: "This must be a UK landline or mobile. <br>For example, 1632 960001 or 7700900982"
+      html: "This must be a UK landline or mobile. <br>For example, +44 020 7450 4000 or 07771 900 900"
     },
     prefix: {
       text: "+44"
@@ -283,14 +288,12 @@
       {% if data['showPhone'] == "Yes" %}
 
       {{ govukInput({
-        label: { text: "Phone number", classes: "govuk-label",isPageHeading: false },      
+        label: { text: "Telephone number", classes: "govuk-label",isPageHeading: false },      
         classes: "govuk-!-width-one-half",
         hint: {
-          html: "This must be a UK landline or mobile. <br>For example, 1632 960001 or 7700900982"
+          html: "This must be a UK landline or mobile. <br>For example, +44 020 7450 4000 or 07771 900 900"
         },
-        prefix: {
-          text: "+44"
-        },
+        
         id: "refTwoPhone",
         name: "refTwoPhone"
       }) }}
@@ -303,7 +306,9 @@
       <!-- ///////////////////////////////////////////////// -->
 
       <h2 class="govuk-heading-m govuk-!-margin-top-7">Third Referee</h2>
-      <p>We only ask this if .....</p>
+      <div class="govuk-inset-text">
+      <p>To avoid a delay in your application we require a third referee who can be contacted if we are not able to reach the other two referees.</p>
+    </div>
 
       {% set otherHtml %}
         {{ govukInput({
@@ -351,10 +356,7 @@
 
       {{ govukInput({
         label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
-        classes: "govuk-!-width-two-thirds",
-        hint: {
-          text: "We’ll only use this to ask for the reference."
-        },
+        classes: "govuk-!-width-two-thirds",        
         id: "refOneEmail",
         name: "refOneEmail"
       }) }}
@@ -362,14 +364,12 @@
       {% if data['showPhone'] == "Yes" %}
 
       {{ govukInput({
-        label: { text: "Phone number", classes: "govuk-label",isPageHeading: false },      
+        label: { text: "Telephone number", classes: "govuk-label",isPageHeading: false },      
         classes: "govuk-!-width-one-half",
         hint: {
-          html: "This must be a UK landline or mobile. <br>For example, 1632 960001 or 7700900982"
+          html: "This must be a UK landline or mobile. <br>For example, +44 020 7450 4000 or 07771 900 900"
         },
-        prefix: {
-          text: "+44"
-        },
+        
         id: "refOnePhone",
         name: "refOnePhone"
       }) }}
