@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+
+
+{% set pageHeading = "Reference check improvements" %}
+{% set pageSection = "Prototype" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+    	<ul class="govuk-list govuk-body-s">
+      		<li>August 2023</li>      		
+    	</ul>
+    
+  	</div>
+
+  	<div class="govuk-grid-column-two-thirds">
+    	
+		<h3 class="govuk-heading-m govuk-!-margin-bottom-1">Candidate application</h3>
+    	<ul class="govuk-list">
+      		<li><a href="/candidate/references" class="govuk-link govuk-link--no-visited-state" >Character references</a></li>			
+    	</ul>
+		
+		<h3 class="govuk-heading-m govuk-!-margin-bottom-1">Character reference request emails</h3>
+		<ul class="govuk-list">
+			<li><a href="/emails/personal-reference-request" class="govuk-link govuk-link--no-visited-state" >Email character reference request - personal</a></li>			
+			<li><a href="/emails/employer-reference-request" class="govuk-link govuk-link--no-visited-state" >Email character reference request - employer</a></li>						  
+		</ul>
+
+		<h3 class="govuk-heading-m govuk-!-margin-bottom-1">Character reference request forms</h3>
+		<ul class="govuk-list">			
+			<li><a href="/reference-request/personal" class="govuk-link govuk-link--no-visited-state" >Character reference form - personal</a></li>			
+			<li><a href="/reference-request/employer" class="govuk-link govuk-link--no-visited-state" >Character reference form - employer</a></li>			
+			<li><a href="/reference-request/academic" class="govuk-link govuk-link--no-visited-state" >Character reference form - academic</a></li>			
+		</ul>
+
+  	</div>
+
+
+  <div class="govuk-grid-column-one-third">
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1" id="subsection-title">Assets </h2>
+            <nav class="govuk-!-margin-bottom-7">
+                <ul class="govuk-list">
+                    <li><a href="https://app.mural.co/t/civilservicerecruitment8943/m/civilservicerecruitment8943/1689584400444/06781d001a5fa73a5c6e5b33db503320a5fa0434?sender=ub98a52257bdf547e502c3033" class="govuk-link govuk-link--no-visited-state" target="_blank" >Mural board</a></li>                    
+                </ul>
+            </nav>
+        </div>   
+</div>
+
+{% endblock %}
