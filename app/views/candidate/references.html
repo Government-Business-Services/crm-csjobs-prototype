@@ -28,7 +28,7 @@
 
         <h1 class="govuk-heading-l">References</h1>
         <p>As part of the recruitment process, you are required to provide 3 referees.</p>
-        <p>We may contact these referees to ask them to give us a reference about you.</p>    
+        <!-- <p>We may contact these referees to ask them to give us a reference about you.</p>     -->
         <p>You should ask your referees for their consent before supplying their name and email address to us.</p>
         
         <div class="govuk-inset-text">
@@ -129,7 +129,7 @@
                 name: "refThirdRelationship",        
                 fieldset: {
                     legend: {
-                        text: "Please provide a character referee who is one of the following",
+                        text: "Please provide a referee who is one of the following",
                         isPageHeading: false,
                         classes: "govuk-fieldset__legend"
                     }
@@ -185,7 +185,7 @@
                 }
             },
             hint: {
-                text: "If you were self-employed, unemployed or out of work for another reason for the last 3 years, select No and provide a character referee."
+                text: "If you were self-employed, unemployed or out of work for another reason for the last 3 years, select No and provide an alternative referee."
             },
             items: [
                 { value: "Yes", text: "Yes", conditional: { html: academicHtml }  },
@@ -223,7 +223,7 @@
             name: "refTwoRelationship",        
             fieldset: {
                 legend: {
-                    text: "What is your relationship to this character referee?",
+                    text: "What is your relationship to this referee?",
                     isPageHeading: false,
                     classes: "govuk-fieldset__legend"
                 }
@@ -269,9 +269,9 @@
         <!-- ///////////////////////////////////////////////// -->
 
         <h2 class="govuk-heading-m govuk-!-margin-top-7">Third Referee</h2>
-        <div class="govuk-inset-text">
+        <!-- <div class="govuk-inset-text">
             <p>To avoid a delay in your application we require a third referee who can be used if we are not able to reach the other two referees.</p>
-        </div>
+        </div> -->
 
         {% set otherHtml %}
             
@@ -297,7 +297,7 @@
             name: "refOneRelationship",        
             fieldset: {
                 legend: {
-                    text: "What is your relationship to this character referee?",
+                    text: "What is your relationship to this referee?",
                     isPageHeading: false,
                     classes: "govuk-fieldset__legend"
                 }
@@ -338,9 +338,10 @@
         {% endif %}      
 
         <div class="govuk-inset-text govuk-!-margin-top-9">
-            <h2 class="govuk-heading-m">Before you submit</h2>
-            <p>By submitting these referees you are confirming that they are not a member of your family or related to you in any way.</p>
-            <!-- <p>We will ask your referees to provide a reference for the name that you have applied under.</p> -->
+            <h2 class="govuk-heading-m">Before you continue</h2>
+            <p>By providing these referees you are confirming that they are not a member of your family or related to you in any way.</p>
+            <p>We will only contact referees if we need to. We are asking for them in advance to avoid any delays in your pre-employment checks.</p>
+            <p>We will ask them to provide a reference for the name that you have applied under.</p>
         </div>
 
 
@@ -351,7 +352,7 @@
                 classes: "govuk-button--secondary"
             }) }}        -->
             {{ govukButton({
-                text: "Confirm and submit",
+                text: "Confirm and continue",
                 classes: "govuk-!-margin-top-5"                  
             }) }}
         

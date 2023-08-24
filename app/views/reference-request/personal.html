@@ -210,7 +210,7 @@
         			fieldset: {
           				legend: { text: "To your knowledge, is there anything about {NAME}’s integrity, honesty, objectivity or impartiality that would make them unsuitable for a job in the Civil Service?", isPageHeading: true, classes: "govuk-fieldset__legend" } },
 					hint: { 
-						html: 'You could consider points from the <a href="https://www.gov.uk/government/publications/civil-service-code/the-civil-service-code" target="_blank">Civil Service code</a> that the applicant should adhere to.'
+						html: 'You could consider points from the <a href="https://www.gov.uk/government/publications/civil-service-code/the-civil-service-code" target="_blank">Civil Service code (opens in new tab)</a>.'
 					},
         			items: [
             			{ value: "Yes", text: "Yes", conditional: {html: textHtml}  },
@@ -243,7 +243,7 @@
           				legend: { text: "Do you want to provide your telephone number?", isPageHeading: false, classes: "govuk-fieldset__legend" }
         			},
 					hint: {
-						text: "We will only contact you if there is an issue"
+						text: "We will only contact you if there is an issue."
 					},
         			items: [
           				{ value: "Yes", text: "Yes", conditional: {
@@ -303,7 +303,7 @@
 
 
       			{{ govukButton({
-        			text: "Submit character reference",
+        			text: "Send reference",
         			href: "complete"        
       			}) }}    
     		

@@ -75,7 +75,7 @@
               namePrefix: "passport-issued",
               fieldset: {
                 legend: {
-                  text: "When did you and {NAME} start working together?",
+                  text: "When did {NAME} start working at your organisation?",
                   isPageHeading: true,
                   classes: "govuk-fieldset__legend"
                 }
@@ -93,7 +93,7 @@
                 namePrefix: "passport-issued",
                 fieldset: {
                   legend: {
-                    text: "When did you and {NAME} stop working together?",
+                    text: "When did {NAME} stop working at your organisation?",
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend"
                   }
@@ -110,7 +110,7 @@
               name: "refTwoRelationship",        
               fieldset: {
                 legend: {
-                  text: "Are you still working together?",
+                  text: "Are they still working there?",
                   isPageHeading: false,
                   classes: "govuk-fieldset__legend"
                 }
@@ -135,9 +135,9 @@
               name: "refRequestWorkCapacity",
               id: "refRequestWorkCapacity",
               maxlength: 500,
-              label: { text: "What type of work did {NAME} do?", classes: "govuk-label", isPageHeading: false },
+              label: { text: "Describe {NAME}’s role in your organisation", classes: "govuk-label", isPageHeading: false },
               hint: {
-                text: "Include what work they did, how long for and where. We encourage you to be honest and factual. For example, forklift driver for 2 years based in Cardiff."
+                text: "Include what type of work, how long for and where. We encourage you to be honest and factual. For example, forklift driver for 2 years based in Cardiff."
               }
             }) }}
 
@@ -185,7 +185,7 @@
       			<!-- <p class="govuk-body">Please click submit once you've completed all mandatory fields</p> -->
 
       			{{ govukButton({
-        			text: "Submit character reference",
+        			text: "Send reference",
         			href: "complete"        
       			}) }}    
     		</form>
