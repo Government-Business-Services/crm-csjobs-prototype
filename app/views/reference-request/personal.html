@@ -132,7 +132,7 @@
 						maxlength: 500,
 						label: { text: "Provide details of their work with you during the last 3 years", classes: "govuk-label", isPageHeading: false, classes: "govuk-visually-hidden" },
 						hint: {
-						  text: "Include what work they did, how long for and where. We encourage you to be honest and factual. You can include positive and negative points as you see fit."
+						  text: "Include what work they did, how long for and where, if possible. We encourage you to be honest and factual. You can include positive and negative points as you see fit."
 						}
 					}) }}
 
@@ -175,7 +175,8 @@
 						maxlength: 500,
 						label: { text: "Provide details of their skills, conduct or reliability", classes: "govuk-label", isPageHeading: false, classes: "govuk-visually-hidden" },
 						hint: {
-						  text: "Include any details of their skills, conduct or reliability that you feel is important."
+						  text: "Include any details of their methods of working, their professional behaviour and their abilities that you feel is important.
+						  "
 						}
 					}) }}
   				{% endset -%}
@@ -207,9 +208,9 @@
       			{{ govukRadios({
         			name: "refRequestUnsuitable",
         			fieldset: {
-          				legend: { text: "To your knowledge, is there anything about {NAME}’s skills, conduct or reliability that would make them unsuitable for a job in the Civil Service?", isPageHeading: true, classes: "govuk-fieldset__legend" } },
-					hint : { 
-						text: "This could be about their methods of working, their professional behaviour and their abilities."
+          				legend: { text: "To your knowledge, is there anything about {NAME}’s integrity, honesty, objectivity or impartiality that would make them unsuitable for a job in the Civil Service?", isPageHeading: true, classes: "govuk-fieldset__legend" } },
+					hint: { 
+						html: 'You could consider points from the <a href="https://www.gov.uk/government/publications/civil-service-code/the-civil-service-code" target="_blank">Civil Service code</a> that the applicant should adhere to.'
 					},
         			items: [
             			{ value: "Yes", text: "Yes", conditional: {html: textHtml}  },
