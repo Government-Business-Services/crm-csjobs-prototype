@@ -26,7 +26,22 @@
 
     <h1 class="govuk-heading-l">Pension Questionnaire</h1>
 
-    
+		<p class="govuk-body-l">Your answers will allow us to work out which of the Civil Service Pension schemes you can join.</p>		
+
+
+		{{ govukRadios({
+			name: "refRequestUnsuitable",
+			fieldset: {
+			  legend: { text: "Have you ever been a member of public service pension scheme?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-hint" } },
+			  hint: { text: "Answer this question with your latest period of pension scheme membership. Public services employers include the Civil Service, judiciary workers, teachers, members of the armed forces, fire and rescue services, the police, health service workers and local government employees. *By-analogy schemes are almost identical to the main Civil Service arrangements, but may have slightly different terms or rules." },
+
+			items: [
+				{ value: "Civil Service Pension arrangements", text: "Civil Service Pension arrangements" },
+				{ value: "By-analogy* Civil Service Pension arrangements", text: "By-analogy* Civil Service Pension arrangements" },
+				{ value: "Other public service pension - Post 31 March 2007", text: "Other public service pension - Post 31 March 2007" },
+				{ value: "No - I have never been a public service pension member", text: "No - I have never been a public service pension member" }
+			]
+		  }) }}
 
       <div class="govuk-button-group">
         {{ govukButton({
