@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+
+
+{% set pageHeading = "Customer Relationship Management (CRM) improvements" %}
+{% set pageSection = "Prototype" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+    	<ul class="govuk-list govuk-body-s">
+      		<li>September 2023</li>      		
+    	</ul>
+    
+  	</div>
+
+  	<div class="govuk-grid-column-two-thirds">
+
+		<p>Content to follow.</p>
+    	
+		
+		
+		
+  	</div>
+
+
+  <div class="govuk-grid-column-one-third">
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1" id="subsection-title">Assets </h2>
+            <nav class="govuk-!-margin-bottom-7">
+                <ul class="govuk-list">
+                    <!-- <li><a href="https://app.mural.co/t/civilservicerecruitment8943/m/civilservicerecruitment8943/1689584400444/06781d001a5fa73a5c6e5b33db503320a5fa0434?sender=ub98a52257bdf547e502c3033" class="govuk-link govuk-link--no-visited-state" target="_blank" >Mural board</a></li>                     -->
+                </ul>
+            </nav>
+        </div>   
+</div>
+
+{% endblock %}
