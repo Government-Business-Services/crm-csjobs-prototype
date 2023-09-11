@@ -11,7 +11,7 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">    
-      {% include "includes/nav.html" %}
+    	{% include "includes/nav.html" %}
     </div>
     
     <div class="govuk-grid-column-two-thirds">    
@@ -26,21 +26,115 @@
 
     <h1 class="govuk-heading-l">Your details</h1>
 
-    
 
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Back"
+		{{ govukSelect({
+			label: { text: "Title", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      
+			classes: "govuk-!-width-two-thirds",
+			id: "refOneFullName",
+			name: "refOneFullName"
+		}) }}
+
+		<p class="govuk-label govuk-!-font-weight-bold">First name: </p>
+		<p>Hugo</p>
+
+
+		<p class="govuk-label govuk-!-font-weight-bold">Last name: </p>
+		<p>Furst</p>
+		
+
+		{{ govukRadios({
+			name: "refRequestUnsuitable",
+			fieldset: {
+			  legend: { text: "Do you have a National Insurance number", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+			items: [
+				{ value: "Yes", text: "Yes" },
+				{ value: "No", text: "No" }				
+			]
+		  }) }}
+
+
+		{{ govukInput({
+			label: { text: "National insurance number", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      
+			hint: {
+				text: "It's on your National Insurance Card, Benefit letter, payslip or P60. For example, 'QQ123456C'."
+			},
+			classes: "govuk-!-width-two-thirds",
+			id: "refOneFullName",
+			name: "refOneFullName"
+		}) }}
+
+
+		{{ govukInput({
+            label: { text: "Full name", classes: "govuk-label",isPageHeading: false },      
+            classes: "govuk-!-width-two-thirds",
+            id: "refOneFullName",
+            name: "refOneFullName"
         }) }}
-      
-        {{ govukButton({
-          text: "Continue"
-                  
-        }) }}
-      </div>
 
 
+
+		<div class="govuk-form-group">
+			<fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+			  <legend class="govuk-fieldset__legend govuk-fieldset__legend">
+				<p class="govuk-fieldset__heading">
+				  Date of birth
+				</p>
+			  </legend>
+			  
+			  <div class="govuk-date-input" id="passport-issued">				
+				<div class="govuk-date-input__item">
+				  <div class="govuk-form-group">                
+					<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric" value="dd">
+				  </div>
+				</div>
+				<div class="govuk-date-input__item">
+				  <div class="govuk-form-group">                
+					<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric" value="mm">
+				  </div>
+				</div>
+				<div class="govuk-date-input__item">
+				  <div class="govuk-form-group">
+					
+					<input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric" value="2023">
+				  </div>
+				</div>
+			  </div>						  
+			</fieldset>
+		  </div>
+
+
+		  {{ govukSelect({
+			label: { text: "Gender", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      
+			classes: "govuk-!-width-two-thirds",
+			id: "refOneFullName",
+			name: "refOneFullName"
+			}) }}
+
+
+		  {{ govukRadios({
+			name: "refRequestUnsuitable",
+			fieldset: {
+			  legend: { text: "Martial status", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+			items: [
+				{ value: "Prefer not to say", text: "Prefer not to say" },
+				{ value: "Married", text: "Married" },
+				{ value: "Single", text: "Single" }          
+			]
+		  }) }}
+
+
+		  
+
+      	<div class="govuk-button-group">
+        	{{ govukButton({
+          		text: "Back"
+        	}) }}
       
+        	{{ govukButton({
+          		text: "Continue"                  
+        	}) }}
+      	</div>
+
     
     </form>
 
