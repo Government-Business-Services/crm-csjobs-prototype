@@ -26,7 +26,112 @@
 
     <h1 class="govuk-heading-l">Overseas</h1>
 
-    
+    {{ govukRadios({
+		name: "refRequestUnsuitable",
+		fieldset: {
+		  legend: { text: "Have you resided outside the UK within the past 3 years for 6 months or more?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+		items: [
+			{ value: "Yes", text: "Yes" },
+			{ value: "No", text: "No" }			
+		]
+	  }) }}
+
+
+
+	  <p class="govuk-!-font-weight-bold">Where it is not possible to carry out meaningful checks in the UK because of a lack of UK residence, prospective employees are required to give a reasonable account of any significat periods of time living abroad.</p>
+	  <p class="govuk-!-font-weight-bold">Please provide a list of all countries you have visisted with date and reasons for travel.</p>
+
+	  <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+          
+          
+		  {{ govukInput({
+			label: { text: "Country", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      			
+			classes: "govuk-!-width-two-thirds",
+			id: "refOneFullName",
+			name: "refOneFullName"
+		}) }}
+
+          <div class="govuk-date-input" id="passport-issued">
+            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Date from</p>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">                
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric" value="dd">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">                
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric" value="mm">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric" value="2023">
+              </div>
+            </div>
+          </div>
+          
+          <div class="govuk-date-input" id="passport-issued">
+            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1 govuk-!-margin-top-2">Date To</p>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">                
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric" value="dd">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric" value="mm">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric" value="2023">
+              </div>
+            </div>
+          </div>
+
+		  {{ govukInput({
+			label: { text: "Reason for travel", classes: "govuk-label govuk-!-font-weight-bold govuk-!-margin-top-5", isPageHeading: false },      			
+			classes: "govuk-!-width-two-thirds",
+			id: "refOneFullName",
+			name: "refOneFullName"
+		}) }}
+
+
+        </fieldset>
+
+		
+      </div>
+
+	  {{ govukButton({
+		text: "Add another instance"
+				
+	  }) }}
+
+
+	  {{ govukRadios({
+		name: "refRequestUnsuitable",
+		fieldset: {
+		  legend: { text: "When you resided outside of the UK, were you employed?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+		items: [
+			{ value: "Yes", text: "Yes" },
+			{ value: "No", text: "No" }			
+		]
+	  }) }}
+
+	  {{ govukRadios({
+		name: "refRequestUnsuitable",
+		fieldset: {
+		  legend: { text: "When you resided outside of the UK, were you studying?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+		items: [
+			{ value: "Yes", text: "Yes" },
+			{ value: "No", text: "No" }			
+		]
+	  }) }}
+
 
       <div class="govuk-button-group">
         {{ govukButton({
