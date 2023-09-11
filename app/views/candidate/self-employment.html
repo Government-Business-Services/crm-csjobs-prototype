@@ -26,7 +26,15 @@
 
     <h1 class="govuk-heading-l">Self Employment</h1>
 
-    
+	{{ govukRadios({
+		name: "refRequestUnsuitable",
+		fieldset: {
+		  legend: { text: "Have you been self employed during the last 3 years?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+		items: [
+			{ value: "Yes", text: "Yes" },
+			{ value: "No", text: "No" }			
+		]
+	  }) }}
 
       <div class="govuk-button-group">
         {{ govukButton({
