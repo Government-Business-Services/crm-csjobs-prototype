@@ -26,7 +26,47 @@
 
     <h1 class="govuk-heading-l">Bankruptcy Details</h1>
 
-    
+	{{ govukRadios({
+		name: "refRequestUnsuitable",
+		fieldset: {
+		  legend: { text: "Are you an undischarged bankrupt?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+		items: [
+			{ value: "Yes", text: "Yes" },
+			{ value: "No", text: "No" }			
+		]
+	  }) }}
+
+	  {{ govukRadios({
+		name: "refRequestUnsuitable",
+		fieldset: {
+		  legend: { text: "Are you insolvent?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+		items: [
+			{ value: "Yes", text: "Yes" },
+			{ value: "No", text: "No" }			
+		]
+	  }) }}
+
+	  {{ govukRadios({
+		name: "refRequestUnsuitable",
+		fieldset: {
+		  legend: { text: "Is a receiving order in effect on your property?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+		items: [
+			{ value: "Yes", text: "Yes" },
+			{ value: "No", text: "No" }			
+		]
+	  }) }}
+
+	  {{ govukRadios({
+		name: "refRequestUnsuitable",
+		fieldset: {
+		  legend: { text: "Have you been subject to a penalty imposed in relation to late filing on your tax affairs within the last 5 years?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+		items: [
+			{ value: "Yes", text: "Yes" },
+			{ value: "No", text: "No" }			
+		]
+	  }) }}
+
+
 
       <div class="govuk-button-group">
         {{ govukButton({
