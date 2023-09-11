@@ -26,7 +26,46 @@
 
     <h1 class="govuk-heading-l">Health Declaration</h1>
 
-    
+	{{ govukRadios({
+		name: "refRequestUnsuitable",
+		fieldset: {
+		  legend: { text: "Do you need any adjustments (including adaptations to the workplace) to assist you at work?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+		items: [
+			{ value: "Yes", text: "Yes" },
+			{ value: "No", text: "No" }			
+		]
+	  }) }}
+
+
+	  {{ govukRadios({
+		name: "refRequestUnsuitable",
+		fieldset: {
+		  legend: { text: "Do you have any health issues, a disability or other conditions that have affected your ability to work in the past?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+		items: [
+			{ value: "Yes", text: "Yes" },
+			{ value: "No", text: "No" }			
+		]
+	  }) }}
+
+	  {{ govukRadios({
+		name: "refRequestUnsuitable",
+		fieldset: {
+		  legend: { text: "Do you have any health issues, a disability or other conditions that may affect your ability to underake the duties outlined in the job advert?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+		items: [
+			{ value: "Yes", text: "Yes" },
+			{ value: "No", text: "No" }			
+		]
+	  }) }}
+
+	  {{ govukRadios({
+		name: "refRequestUnsuitable",
+		fieldset: {
+		  legend: { text: "Are you having, or waiting for, treatment or investigations for any medical condition at present that may affect your attendance or may require adjustments at work?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+		items: [
+			{ value: "Yes", text: "Yes" },
+			{ value: "No", text: "No" }			
+		]
+	  }) }}
 
       <div class="govuk-button-group">
         {{ govukButton({
