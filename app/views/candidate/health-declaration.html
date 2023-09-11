@@ -79,6 +79,38 @@
 		]
 	  }) }}
 
+
+	  {{ govukRadios({
+		name: "refRequestUnsuitable",
+		fieldset: {
+		  legend: { text: "Have you ever had any health issues which may have been caused or made worse by work (including an educational setting) and which you think may affect your ability to undertake the new role or place you at any risk in the workplace?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+		items: [
+			{ value: "Yes", text: "Yes" },
+			{ value: "No", text: "No" }			
+		]
+	  }) }}
+
+	  {{ govukRadios({
+		name: "refRequestUnsuitable",
+		fieldset: {
+		  legend: { text: "Have you had any health-related absence from work of more than 16 days within the last 2 years?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+		items: [
+			{ value: "Yes", text: "Yes" },
+			{ value: "No", text: "No" }			
+		]
+	  }) }}
+
+
+	  {{ govukRadios({
+		name: "refRequestUnsuitable",
+		fieldset: {
+		  legend: { text: "Do you have any health issues or disabilities which you would like to discuss with our occupational health provider?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+		items: [
+			{ value: "Yes", text: "Yes" },
+			{ value: "No", text: "No" }			
+		]
+	  }) }}
+
       <div class="govuk-button-group">
         {{ govukButton({
           text: "Back"

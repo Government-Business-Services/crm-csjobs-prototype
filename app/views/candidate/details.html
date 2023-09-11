@@ -103,6 +103,7 @@
 		  </div>
 
 
+
 		  {{ govukSelect({
 			label: { text: "Gender", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      
 			classes: "govuk-!-width-two-thirds",
@@ -123,7 +124,58 @@
 		  }) }}
 
 
+		  <p class="govuk-body-l">What is your home address?</p>
+		  <p class="govuk-hint">This must be your current personal address, and not your employer's address.</p>
+
 		  
+		  {{ govukInput({
+            label: { text: "Address line 1*", classes: "govuk-label",isPageHeading: false },      
+            classes: "govuk-!-width-two-thirds",
+            id: "refOneFullName",
+            name: "refOneFullName"
+        }) }}
+
+		{{ govukInput({
+            label: { text: "Address line 2*", classes: "govuk-label",isPageHeading: false },      
+            classes: "govuk-!-width-two-thirds",
+            id: "refOneFullName",
+            name: "refOneFullName"
+        }) }}
+
+		{{ govukInput({
+            label: { text: "City/Town*", classes: "govuk-label",isPageHeading: false },      
+            classes: "govuk-!-width-two-thirds",
+            id: "refOneFullName",
+            name: "refOneFullName"
+        }) }}
+
+		{{ govukInput({
+            label: { text: "County*", classes: "govuk-label",isPageHeading: false },      
+            classes: "govuk-!-width-two-thirds",
+            id: "refOneFullName",
+            name: "refOneFullName"
+        }) }}
+
+		{{ govukInput({
+            label: { text: "Country*", classes: "govuk-label",isPageHeading: false },      
+            classes: "govuk-!-width-two-thirds",
+            id: "refOneFullName",
+            name: "refOneFullName"
+        }) }}
+
+		{{ govukInput({
+            label: { text: "Postcode*", classes: "govuk-label",isPageHeading: false },      
+            classes: "govuk-!-width-two-thirds",
+            id: "refOneFullName",
+            name: "refOneFullName"
+        }) }}
+
+		{{ govukInput({
+            label: { text: "Preferred contact number*", classes: "govuk-label",isPageHeading: false },      
+            classes: "govuk-!-width-two-thirds",
+            id: "refOneFullName",
+            name: "refOneFullName"
+        }) }}
 
       	<div class="govuk-button-group">
         	{{ govukButton({

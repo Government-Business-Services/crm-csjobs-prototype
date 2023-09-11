@@ -133,6 +133,17 @@
 	  }) }}
 
 
+	  {{ govukRadios({
+		name: "refRequestUnsuitable",
+		fieldset: {
+		  legend: { text: "When you resided outside of the UK, did you travel with a fellow UK traveller?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+		items: [
+			{ value: "Yes", text: "Yes" },
+			{ value: "No", text: "No" }			
+		]
+	  }) }}
+
+
       <div class="govuk-button-group">
         {{ govukButton({
           text: "Back"
