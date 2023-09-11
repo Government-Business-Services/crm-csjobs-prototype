@@ -11,15 +11,7 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-third">    
-        <nav class="cabo-side-navigation" aria-label="Side navigation">
-            <ul class="cabo-side-navigation__list">
-                <li class="cabo-side-navigation__item cabo-side-navigation__item--active" ><a href="/candidate/details" aria-current="location">Your details</a></li>
-                <li class="cabo-side-navigation__item"><a href="/candidate/right-to-work">Right to work</a></li>
-                <li class="cabo-side-navigation__item"><a href="/candidate/employment-history">Employment history</a></li>
-                <li class="cabo-side-navigation__item"><a href="/candidate/references">References</a></li>
-                <li class="cabo-side-navigation__item"><a href="/candidate/declaration">Declaration</a></li>
-            </ul>
-        </nav>
+      {% include "includes/nav.html" %}
     </div>
     
     <div class="govuk-grid-column-two-thirds">    
@@ -32,7 +24,7 @@
     <!-- ////////////// END OF NEW ////////////////// -->
     {% else %}
 
-    <h1 class="govuk-heading-l">Your details</h1>
+    <h1 class="govuk-heading-l">Previous Civil Service Employment</h1>
 
     
 
