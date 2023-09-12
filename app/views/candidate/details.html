@@ -28,12 +28,21 @@
 
 
 		{{ govukSelect({
-			label: { text: "Title", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      
-			classes: "govuk-!-width-two-thirds",
+			label: { text: "Title", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      			
 			id: "refOneFullName",
-			name: "refOneFullName"
+			name: "refOneFullName",
+			items: [
+			  {
+				value: "Mr",
+				text: "Mr"
+			  }
+			  
+			]
 		}) }}
 
+
+
+		
 		<p class="govuk-label govuk-!-font-weight-bold">First name: </p>
 		<p>Hugo</p>
 
@@ -64,12 +73,7 @@
 		}) }}
 
 
-		{{ govukInput({
-            label: { text: "Full name", classes: "govuk-label",isPageHeading: false },      
-            classes: "govuk-!-width-two-thirds",
-            id: "refOneFullName",
-            name: "refOneFullName"
-        }) }}
+		
 
 
 
@@ -106,9 +110,16 @@
 
 		  {{ govukSelect({
 			label: { text: "Gender", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      
-			classes: "govuk-!-width-two-thirds",
+			
 			id: "refOneFullName",
-			name: "refOneFullName"
+			name: "refOneFullName",
+			items: [
+			  {
+				value: "Male",
+				text: "Male"
+			  }
+			  
+			]
 			}) }}
 
 
