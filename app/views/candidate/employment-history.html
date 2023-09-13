@@ -18,105 +18,182 @@
     
     {% if data['iteration'] == "new" %}
 
-      <h1 class="govuk-heading-l">Employment history</h1>
+	<h1 class="govuk-heading-l govuk-!-padding-top-4">Employment history</h1>
 
 
-        </div>
+	<form method="post" action="" >
+	
+		{{ govukRadios({
+			name: "canEmploymentHistory",
+			fieldset: {
+				legend: { text: "Have you been employed within the last 3 years", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			items: [
+				{ value: "Yes", text: "Yes" },
+				{ value: "No", text: "No" }				
+			]
+		}) }}
+
+		<p class="govuk-body">Enter details of your previous employment history covering at least the last three years, starting with the most recent.</p>
+		
+		<div class="govuk-form-group">
+			<fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+					
+				{{ govukInput({
+					label: { text: "Employer name", classes: "govuk-label", isPageHeading: false },      			
+					classes: "govuk-!-width-two-thirds",
+					id: "canEmploymentEmployerOne",
+					name: "canEmploymentEmployerOne"
+				}) }}
+
+
+				{{ govukDateInput({
+					id: "canEmploymentEmployerOneStartDate",
+					namePrefix: "canEmploymentEmployerOneStartDate",
+					fieldset: {
+						legend: {
+							text: "When did you start working for this employer?",
+							isPageHeading: true,
+							classes: "govuk-fieldset__legend"
+					  	}
+					},
+					hint: {
+					  	text: "For example, 27 3 2020"
+					}
+				}) }}
+
+				{% set leavingDateHtml %}
+              		{{ govukDateInput({
+                		id: "canEmploymentEmployerOneEndDate",
+                		namePrefix: "canEmploymentEmployerOneEndDate",
+                		fieldset: {
+                  			legend: {
+                    			text: "When did you stop working for this employer?",
+                    			isPageHeading: true,
+                    			classes: "govuk-fieldset__legend"
+                  			}
+                		},
+                		hint: {
+                  			text: "For example, 27 3 2020"
+                		}
+              		}) }}
+            	{% endset -%}
+
+            	{{ govukRadios({
+              		name: "canEmploymentEmployerOneStatus",        
+              		fieldset: {
+                		legend: {
+                  			text: "Are you still working there?",
+                  			isPageHeading: false,
+                  			classes: "govuk-fieldset__legend"
+                		}
+              		},
+              		items: [
+                		{ value: "Yes", text: "Yes" },                
+                		{ value: "No", text: "No" , conditional: { html: leavingDateHtml } }
+              		]
+            	}) }}
+			
+			</fieldset>				
+		</div>
+
+
+		<p class="govuk-body govuk-!-margin-bottom-7"><a href="#">Add another employer</a></p>				
+		
+		{{ govukButton({
+			text: "Save and continue"                  
+		}) }}		
+
+	</form>
       
     <!-- ////////////// END OF NEW ////////////////// -->
     {% else %}
 
-    <h1 class="govuk-heading-l govuk-!-padding-top-4">Employment history</h1>
-
-	{{ govukRadios({
-		name: "refRequestUnsuitable",
-		fieldset: {
-		  legend: { text: "Have you been employed within the last 3 years", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
-		items: [
-			{ value: "Yes", text: "Yes" },
-			{ value: "No", text: "No" }				
-		]
-	  }) }}
-
-	<p>Enter details of your previous employment history covering at least the last three years, starting with the most recent.</p>
-	<div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-          
-          
-		  {{ govukInput({
-			label: { text: "Employer name", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      			
-			classes: "govuk-!-width-two-thirds",
-			id: "refOneFullName",
-			name: "refOneFullName"
-		}) }}
-
-          <div class="govuk-date-input" id="passport-issued">
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Date from</p>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">                
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric" value="dd">
-              </div>
-            </div>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">                
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric" value="mm">
-              </div>
-            </div>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                
-                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric" value="2023">
-              </div>
-            </div>
-          </div>
-          
-          <div class="govuk-date-input" id="passport-issued">
-            <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1 govuk-!-margin-top-2">Date To</p>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">                
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric" value="dd">
-              </div>
-            </div>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric" value="mm">
-              </div>
-            </div>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                
-                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric" value="2023">
-              </div>
-            </div>
-          </div>
-        </fieldset>
-      </div>
-
-	  {{ govukButton({
-		text: "Add another instance"
-				
-	  }) }}
-
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Back"
-        }) }}
-      
-        {{ govukButton({
-          text: "Continue"
-                  
-        }) }}
-      </div>
+    	<h1 class="govuk-heading-l govuk-!-padding-top-4">Employment history</h1>
 
 
-      
-    
-    </form>
+		<form method="post" action="" >
+		
+			{{ govukRadios({
+				name: "canEmploymentHistory",
+				fieldset: {
+					legend: { text: "Have you been employed within the last 3 years", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+				items: [
+					{ value: "Yes", text: "Yes" },
+					{ value: "No", text: "No" }				
+				]
+			}) }}
+
+			<p class="govuk-body govuk-!-font-weight-bold">Enter details of your previous employment history covering at least the last three years, starting with the most recent.</p>
+			
+			<div class="govuk-form-group">
+				<fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+						
+					{{ govukInput({
+						label: { text: "Employer name", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      			
+						classes: "govuk-!-width-two-thirds",
+						id: "canEmploymentEmployerOne",
+						name: "canEmploymentEmployerOne"
+					}) }}
+
+					<div class="govuk-date-input" id="passport-issued">
+						<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Date from</p>
+						<div class="govuk-date-input__item">
+							<div class="govuk-form-group">                
+								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric" value="dd">
+							</div>
+						</div>
+						<div class="govuk-date-input__item">
+							<div class="govuk-form-group">                
+								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric" value="mm">
+							</div>
+						</div>
+						<div class="govuk-date-input__item">
+							<div class="govuk-form-group">						
+								<input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric" value="2023">
+							</div>
+						</div>
+					</div>
+					
+					<div class="govuk-date-input" id="passport-issued">
+						<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1 govuk-!-margin-top-2">Date To</p>
+						<div class="govuk-date-input__item">
+							<div class="govuk-form-group">                
+								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric" value="dd">
+							</div>
+						</div>
+						<div class="govuk-date-input__item">
+							<div class="govuk-form-group">						
+								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric" value="mm">
+							</div>
+						</div>
+						<div class="govuk-date-input__item">
+							<div class="govuk-form-group">						
+								<input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric" value="2023">
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+
+			{{ govukButton({
+				text: "Add another instance"				
+			}) }}
+
+			<div class="govuk-button-group">
+				{{ govukButton({
+					text: "Back"
+				}) }}
+		
+				{{ govukButton({
+					text: "Continue"                  
+				}) }}
+			</div>
+
+    	</form>
 
     {% endif %}
   
-</div>
+	</div>
 </div>
 
 {% endblock %}
