@@ -26,42 +26,84 @@
 
     <h1 class="govuk-heading-l govuk-!-padding-top-4">Bankruptcy Details</h1>
 
+
+	{% set undischargedHtml %}
+		{{ govukTextarea({
+			id: "canBankruptcyUndischargedDetails",
+			name: "canBankruptcyUndischargedDetails",
+			type: "text",  
+			classes: "govuk-!-width-full",
+			label: { text: "Provide details about your bankruptcy status." }
+		}) }}
+  	{% endset -%}
+
+	{% set insolventHtml %}
+	  {{ govukTextarea({
+		  id: "canBankruptcyInsolventDetails",
+		  name: "canBankruptcyInsolventDetails",
+		  type: "text",  
+		  classes: "govuk-!-width-full",
+		  label: { text: "Provide details about your insolvency status." }
+	  }) }}
+	{% endset -%}
+
+	{% set orderHtml %}
+		{{ govukTextarea({
+			id: "canBankruptcyOrderDetails",
+			name: "canBankruptcyOrderDetails",
+			type: "text",  
+			classes: "govuk-!-width-full",
+			label: { text: "Provide details about the receiving order in effect on your property." }
+		}) }}
+  	{% endset -%}
+
+	{% set penaltyHtml %}
+	  {{ govukTextarea({
+		  id: "canBankruptcyPenaltyDetails",
+		  name: "canBankruptcyPenaltyDetails",
+		  type: "text",  
+		  classes: "govuk-!-width-full",
+		  label: { text: "Provide details on any penalties imposed in relation to late filing on your tax affairs within the last 5 years." }
+	  }) }}
+	{% endset -%}
+
+
 	{{ govukRadios({
-		name: "refRequestUnsuitable",
+		name: "canBankruptcyUndischarged",
 		fieldset: {
 		  legend: { text: "Are you an undischarged bankrupt?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
 		items: [
-			{ value: "Yes", text: "Yes" },
+			{ value: "Yes", text: "Yes", conditional: {html: undischargedHtml} },
 			{ value: "No", text: "No" }			
 		]
 	  }) }}
 
 	  {{ govukRadios({
-		name: "refRequestUnsuitable",
+		name: "canBankruptcyInsolvent",
 		fieldset: {
 		  legend: { text: "Are you insolvent?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
 		items: [
-			{ value: "Yes", text: "Yes" },
+			{ value: "Yes", text: "Yes", conditional: {html: insolventHtml} },
 			{ value: "No", text: "No" }			
 		]
 	  }) }}
 
 	  {{ govukRadios({
-		name: "refRequestUnsuitable",
+		name: "canBankruptcyOrder",
 		fieldset: {
 		  legend: { text: "Is a receiving order in effect on your property?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
 		items: [
-			{ value: "Yes", text: "Yes" },
+			{ value: "Yes", text: "Yes", conditional: {html: orderHtml} },
 			{ value: "No", text: "No" }			
 		]
 	  }) }}
 
 	  {{ govukRadios({
-		name: "refRequestUnsuitable",
+		name: "canBankruptcyPenalty",
 		fieldset: {
 		  legend: { text: "Have you been subject to a penalty imposed in relation to late filing on your tax affairs within the last 5 years?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
 		items: [
-			{ value: "Yes", text: "Yes" },
+			{ value: "Yes", text: "Yes", conditional: {html: penaltyHtml} },
 			{ value: "No", text: "No" }			
 		]
 	  }) }}
