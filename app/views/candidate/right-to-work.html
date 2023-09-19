@@ -10,39 +10,543 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-third">    
-      {% include "includes/nav.html" %}
+    <div class="govuk-grid-column-one-third">        
+		{% include "includes/nav.html" %}
     </div>
     
     <div class="govuk-grid-column-two-thirds">    
     
-    {% if data['iteration'] == "new" %}
+    	{% if data['iteration'] == "new" %}
 
-      <h1 class="govuk-heading-l">Right to work</h1>
-
+      	<h1 class="govuk-heading-l">Right to work</h1>      
+    </div>
       
-        </div>
+    	<!-- ////////////// END OF NEW ////////////////// -->
+    	{% else %}
+
+
+
+    	<h1 class="govuk-heading-l govuk-!-padding-top-4">Right to work</h1>
+
+		<p class="govuk-body-l govuk-!-font-weight-bold">We ask for this information so we can confirm your right to work in the UK.</p>
+
+		<form method="post" action="/candidate/employment-history" >
+			
+				<div class="govuk-form-group">
+					<label class="govuk-label govuk-!-font-weight-bold" for="pecDetailsAddressCountry">Nationality at birth</label>
+					<select class="govuk-select" id="pecDetailsAddressCountry" name="pecDetailsAddressCountry">
+					<option value="Default">Select</option>									
+					<option value="4287" title="British citizen, Briton">British citizen, Briton</option>
+					<option value="4288" title="British national (overseas)">British national (overseas)</option>
+					<option value="42646" title="British Overseas Citizen">British Overseas Citizen</option>
+					<option value="42651" title="British overseas territories citizen">British overseas territories citizen</option>
+					<option value="42653" title="British protected person">British protected person</option>
+					<option value="42652" title="British subject">British subject</option>
+					<option value="4265" title="Afghan">Afghan</option>
+					<option value="4266" title="Albanian">Albanian</option>
+					<option value="4267" title="Algerian">Algerian</option>
+					<option value="42643" title="Andorran">Andorran</option>
+					<option value="4269" title="Angolan">Angolan</option>
+					<option value="4270" title="Argentine, Argentinian">Argentine, Argentinian</option>
+					<option value="4271" title="Armenian">Armenian</option>
+					<option value="4272" title="Australian">Australian</option>
+					<option value="4273" title="Austrian">Austrian</option>
+					<option value="4274" title="Azerbaijani">Azerbaijani</option>
+					<option value="4275" title="Bahamian">Bahamian</option>
+					<option value="4276" title="Bahraini">Bahraini</option>
+					<option value="4277" title="Bangladeshi">Bangladeshi</option>
+					<option value="4278" title="Barbadian">Barbadian</option>
+					<option value="4279" title="Belarusian">Belarusian</option>
+					<option value="4280" title="Belgian">Belgian</option>
+					<option value="4281" title="Beninese">Beninese</option>
+					<option value="4282" title="Bhutanese">Bhutanese</option>
+					<option value="4283" title="Bolivian">Bolivian</option>
+					<option value="4286" title="Brazilian">Brazilian</option>
+					<option value="4290" title="Bulgarian">Bulgarian</option>
+					<option value="4441" title="Burkinabe, Burkinan">Burkinabe, Burkinan</option>
+					<option value="4430" title="Cambodian">Cambodian</option>
+					<option value="4292" title="Cameroonian">Cameroonian</option>
+					<option value="4293" title="Canadian">Canadian</option>
+					<option value="4462" title="Cape Verdean">Cape Verdean</option>
+					<option value="4294" title="Chadian">Chadian</option>
+					<option value="4295" title="Chilean">Chilean</option>
+					<option value="4296" title="Chinese">Chinese</option>
+					<option value="4437" title="Citizen of Antigua and Barbuda">Citizen of Antigua and Barbuda</option>
+					<option value="4434" title="Citizen of Belize">Citizen of Belize</option>
+					<option value="4284" title="Citizen of Bosnia and Herzegovina">Citizen of Bosnia and Herzegovina</option>
+					<option value="4285" title="Citizen of Botswana">Citizen of Botswana</option>
+					<option value="4289" title="Citizen of Brunei">Citizen of Brunei</option>
+					<option value="4291" title="Citizen of Burundi">Citizen of Burundi</option>
+					<option value="4313" title="Citizen of Fiji">Citizen of Fiji</option>
+					<option value="4514" title="Citizen of Guinea-Bissau">Citizen of Guinea-Bissau</option>
+					<option value="4333" title="Citizen of Ireland, Irish citizen">Citizen of Ireland, Irish citizen</option>
+					<option value="4537" title="Citizen of Kiribati">Citizen of Kiribati</option>
+					<option value="4545" title="Citizen of Lesotho">Citizen of Lesotho</option>
+					<option value="4553" title="Citizen of Madagascar">Citizen of Madagascar</option>
+					<option value="4357" title="Citizen of Malaysia">Citizen of Malaysia</option>
+					<option value="4365" title="Citizen of Myanmar">Citizen of Myanmar</option>
+					<option value="4581" title="Citizen of Niger">Citizen of Niger</option>
+					<option value="4438" title="Citizen of San Marino">Citizen of San Marino</option>
+					<option value="4612" title="Citizen of Sao Tome and Principe">Citizen of Sao Tome and Principe</option>
+					<option value="4440" title="Citizen of Seychelles">Citizen of Seychelles</option>
+					<option value="4398" title="Citizen of Sri Lanka">Citizen of Sri Lanka</option>
+					<option value="4606" title="Citizen of St Christopher (St Kitts) and Nevis">Citizen of St Christopher (St Kitts) and Nevis</option>
+					<option value="4464" title="Citizen of the Central African Republic">Citizen of the Central African Republic</option>
+					<option value="4539" title="Citizen of the Democratic People's Republic of Korea, Citizen of the DPRK">Citizen of the Democratic People's Republic of Korea, Citizen of the DPRK</option>
+					<option value="4473" title="Citizen of The Democratic Republic of the Congo">Citizen of The Democratic Republic of the Congo</option>
+					<option value="4484" title="Citizen of the Dominican Republic">Citizen of the Dominican Republic</option>
+					<option value="4336" title="Citizen of the Ivory Coast">Citizen of the Ivory Coast</option>
+					<option value="4298" title="Citizen of the Republic of the Congo">Citizen of the Republic of the Congo</option>
+					<option value="4309" title="Citizen of the United Arab Emirates">Citizen of the United Arab Emirates</option>
+					<option value="4656" title="Citizen of Vanuatu">Citizen of Vanuatu</option>
+					<option value="4297" title="Colombian">Colombian</option>
+					<option value="4471" title="Comoran">Comoran</option>
+					<option value="4299" title="Costa Rican">Costa Rican</option>
+					<option value="4300" title="Croatian">Croatian</option>
+					<option value="4301" title="Cuban">Cuban</option>
+					<option value="4302" title="Cypriot">Cypriot</option>
+					<option value="4303" title="Czech">Czech</option>
+					<option value="42683" title="Czechoslovak">Czechoslovak</option>
+					<option value="4304" title="Dane">Dane</option>
+					<option value="4482" title="Djiboutian">Djiboutian</option>
+					<option value="4435" title="Dominican">Dominican</option>
+					<option value="4305" title="Dutch citizen, Dutchman, Dutchwoman">Dutch citizen, Dutchman, Dutchwoman</option>
+					<option value="42684" title="East German">East German</option>
+					<option value="4638" title="East Timorese">East Timorese</option>
+					<option value="4306" title="Ecuadorean">Ecuadorean</option>
+					<option value="4307" title="Egyptian">Egyptian</option>
+					<option value="4488" title="Equatorial Guinean">Equatorial Guinean</option>
+					<option value="4310" title="Eritrean">Eritrean</option>
+					<option value="4311" title="Estonian">Estonian</option>
+					<option value="4312" title="Ethiopian">Ethiopian</option>
+					<option value="4314" title="Filipino, Filipina">Filipino, Filipina</option>
+					<option value="4315" title="Finn">Finn</option>
+					<option value="4316" title="French citizen, Frenchman, Frenchwoman">French citizen, Frenchman, Frenchwoman</option>
+					<option value="4442" title="Gabonese">Gabonese</option>
+					<option value="4317" title="Gambian">Gambian</option>
+					<option value="4318" title="Georgian">Georgian</option>
+					<option value="4319" title="German">German</option>
+					<option value="4320" title="Ghanaian">Ghanaian</option>
+					<option value="4321" title="Greek">Greek</option>
+					<option value="4322" title="Grenadian">Grenadian</option>
+					<option value="4324" title="Guatemalan">Guatemalan</option>
+					<option value="4443" title="Guinean">Guinean</option>
+					<option value="4436" title="Guyanese">Guyanese</option>
+					<option value="4325" title="Haitian">Haitian</option>
+					<option value="4519" title="Honduran">Honduran</option>
+					<option value="4327" title="Hungarian">Hungarian</option>
+					<option value="4328" title="Icelander">Icelander</option>
+					<option value="4329" title="Indian">Indian</option>
+					<option value="4330" title="Indonesian">Indonesian</option>
+					<option value="4331" title="Iranian">Iranian</option>
+					<option value="4332" title="Iraqi">Iraqi</option>
+					<option value="4334" title="Israeli">Israeli</option>
+					<option value="4335" title="Italian">Italian</option>
+					<option value="4337" title="Jamaican">Jamaican</option>
+					<option value="4338" title="Japanese">Japanese</option>
+					<option value="4339" title="Jordanian">Jordanian</option>
+					<option value="4340" title="Kazakh">Kazakh</option>
+					<option value="4341" title="Kenyan">Kenyan</option>
+					<option value="42644" title="Kosovan">Kosovan</option>
+					<option value="4343" title="Kuwaiti">Kuwaiti</option>
+					<option value="4344" title="Kyrgyz">Kyrgyz</option>
+					<option value="4542" title="Lao">Lao</option>
+					<option value="4345" title="Latvian">Latvian</option>
+					<option value="4346" title="Lebanese">Lebanese</option>
+					<option value="4347" title="Liberian">Liberian</option>
+					<option value="4348" title="Libyan">Libyan</option>
+					<option value="4349" title="Liechtenstein citizen">Liechtenstein citizen</option>
+					<option value="4350" title="Lithuanian">Lithuanian</option>
+					<option value="4351" title="Luxembourger">Luxembourger</option>
+					<option value="4353" title="Macedonian, Citizen of the Republic of North Macedonia">Macedonian, Citizen of the Republic of North Macedonia</option>
+					<option value="4356" title="Malawian">Malawian</option>
+					<option value="4429" title="Maldivian">Maldivian</option>
+					<option value="4431" title="Malian">Malian</option>
+					<option value="4358" title="Maltese">Maltese</option>
+					<option value="4559" title="Marshall Islander">Marshall Islander</option>
+					<option value="4439" title="Mauritanian">Mauritanian</option>
+					<option value="4359" title="Mauritian">Mauritian</option>
+					<option value="4360" title="Mexican">Mexican</option>
+					<option value="4565" title="Micronesian">Micronesian</option>
+					<option value="4361" title="Moldovan">Moldovan</option>
+					<option value="4567" title="Monegasque">Monegasque</option>
+					<option value="4362" title="Mongolian">Mongolian</option>
+					<option value="4432" title="Montenegrin">Montenegrin</option>
+					<option value="4363" title="Moroccan">Moroccan</option>
+					<option value="4364" title="Mozambican">Mozambican</option>
+					<option value="4366" title="Namibian">Namibian</option>
+					<option value="4574" title="Nauruan">Nauruan</option>
+					<option value="4367" title="Nepalese">Nepalese</option>
+					<option value="4368" title="New Zealander">New Zealander</option>
+					<option value="4369" title="Nicaraguan">Nicaraguan</option>
+					<option value="4370" title="Nigerian">Nigerian</option>
+					<option value="4371" title="Norwegian">Norwegian</option>
+					<option value="4372" title="Omani">Omani</option>
+					<option value="4373" title="Pakistani">Pakistani</option>
+					<option value="4589" title="Palauan">Palauan</option>
+					<option value="4375" title="Panamanian">Panamanian</option>
+					<option value="4376" title="Papua New Guinean">Papua New Guinean</option>
+					<option value="4377" title="Paraguayan">Paraguayan</option>
+					<option value="4378" title="Peruvian">Peruvian</option>
+					<option value="4379" title="Pole">Pole</option>
+					<option value="4380" title="Portuguese">Portuguese</option>
+					<option value="4382" title="Qatari">Qatari</option>
+					<option value="4383" title="Romanian">Romanian</option>
+					<option value="4384" title="Russian">Russian</option>
+					<option value="4385" title="Rwandan">Rwandan</option>
+					<option value="4308" title="Salvadorean">Salvadorean</option>
+					<option value="4386" title="Samoan">Samoan</option>
+					<option value="4387" title="Saudi Arabian">Saudi Arabian</option>
+					<option value="4388" title="Senegalese">Senegalese</option>
+					<option value="4389" title="Serbian">Serbian</option>
+					<option value="4390" title="Sierra Leonean">Sierra Leonean</option>
+					<option value="4391" title="Singaporean">Singaporean</option>
+					<option value="4392" title="Slovak">Slovak</option>
+					<option value="4393" title="Slovene">Slovene</option>
+					<option value="4621" title="Solomon Islander">Solomon Islander</option>
+					<option value="4394" title="Somali">Somali</option>
+					<option value="4395" title="South African">South African</option>
+					<option value="4396" title="South Korean">South Korean</option>
+					<option value="42645" title="South Sudanese">South Sudanese</option>
+					<option value="42685" title="Soviet citizen">Soviet citizen</option>
+					<option value="4397" title="Spaniard, Spanish citizen">Spaniard, Spanish citizen</option>
+					<option value="4399" title="St Lucian">St Lucian</option>
+					<option value="4400" title="Sudanese">Sudanese</option>
+					<option value="4628" title="Surinamer">Surinamer</option>
+					<option value="4401" title="Swazi">Swazi</option>
+					<option value="4402" title="Swede">Swede</option>
+					<option value="4403" title="Swiss">Swiss</option>
+					<option value="4404" title="Syrian">Syrian</option>
+					<option value="4406" title="Tajik">Tajik</option>
+					<option value="4407" title="Tanzanian">Tanzanian</option>
+					<option value="4408" title="Thai">Thai</option>
+					<option value="4410" title="Togolese">Togolese</option>
+					<option value="4641" title="Tongan">Tongan</option>
+					<option value="4411" title="Trinidad and Tobago citizen">Trinidad and Tobago citizen</option>
+					<option value="4412" title="Tunisian">Tunisian</option>
+					<option value="4413" title="Turk">Turk</option>
+					<option value="4414" title="Turkmen">Turkmen</option>
+					<option value="4647" title="Tuvaluan">Tuvaluan</option>
+					<option value="4415" title="Ugandan">Ugandan</option>
+					<option value="4416" title="Ukrainian">Ukrainian</option>
+					<option value="4268" title="United States citizen">United States citizen</option>
+					<option value="4417" title="Uruguayan">Uruguayan</option>
+					<option value="4418" title="Uzbek">Uzbek</option>
+					<option value="4518" title="Vatican citizen">Vatican citizen</option>
+					<option value="4419" title="Venezuelan">Venezuelan</option>
+					<option value="4420" title="Vietnamese">Vietnamese</option>
+					<option value="4609" title="Vincentian">Vincentian</option>
+					<option value="4424" title="Yemeni">Yemeni</option>
+					<option value="4425" title="Yugoslavian">Yugoslavian</option>
+					<option value="4427" title="Zambian">Zambian</option>
+					<option value="4428" title="Zimbabwean">Zimbabwean</option>
+					<option value="42654" title="Other">Other</option>
+				        </select>
+					</div>
+
+
+
+
+					<div class="govuk-form-group">
+						<label class="govuk-label govuk-!-font-weight-bold" for="pecDetailsAddressCountry">Present nationality</label>
+						<div id="subject-hint" class="govuk-hint">
+							As shown on your passport or travel document
+						  </div>
+						
+						<select class="govuk-select" id="pecDetailsAddressCountry" name="pecDetailsAddressCountry">
+						<option value="Default">Select</option>									
+						<option value="4287" title="British citizen, Briton">British citizen, Briton</option>
+						<option value="4288" title="British national (overseas)">British national (overseas)</option>
+						<option value="42646" title="British Overseas Citizen">British Overseas Citizen</option>
+						<option value="42651" title="British overseas territories citizen">British overseas territories citizen</option>
+						<option value="42653" title="British protected person">British protected person</option>
+						<option value="42652" title="British subject">British subject</option>
+						<option value="4265" title="Afghan">Afghan</option>
+						<option value="4266" title="Albanian">Albanian</option>
+						<option value="4267" title="Algerian">Algerian</option>
+						<option value="42643" title="Andorran">Andorran</option>
+						<option value="4269" title="Angolan">Angolan</option>
+						<option value="4270" title="Argentine, Argentinian">Argentine, Argentinian</option>
+						<option value="4271" title="Armenian">Armenian</option>
+						<option value="4272" title="Australian">Australian</option>
+						<option value="4273" title="Austrian">Austrian</option>
+						<option value="4274" title="Azerbaijani">Azerbaijani</option>
+						<option value="4275" title="Bahamian">Bahamian</option>
+						<option value="4276" title="Bahraini">Bahraini</option>
+						<option value="4277" title="Bangladeshi">Bangladeshi</option>
+						<option value="4278" title="Barbadian">Barbadian</option>
+						<option value="4279" title="Belarusian">Belarusian</option>
+						<option value="4280" title="Belgian">Belgian</option>
+						<option value="4281" title="Beninese">Beninese</option>
+						<option value="4282" title="Bhutanese">Bhutanese</option>
+						<option value="4283" title="Bolivian">Bolivian</option>
+						<option value="4286" title="Brazilian">Brazilian</option>
+						<option value="4290" title="Bulgarian">Bulgarian</option>
+						<option value="4441" title="Burkinabe, Burkinan">Burkinabe, Burkinan</option>
+						<option value="4430" title="Cambodian">Cambodian</option>
+						<option value="4292" title="Cameroonian">Cameroonian</option>
+						<option value="4293" title="Canadian">Canadian</option>
+						<option value="4462" title="Cape Verdean">Cape Verdean</option>
+						<option value="4294" title="Chadian">Chadian</option>
+						<option value="4295" title="Chilean">Chilean</option>
+						<option value="4296" title="Chinese">Chinese</option>
+						<option value="4437" title="Citizen of Antigua and Barbuda">Citizen of Antigua and Barbuda</option>
+						<option value="4434" title="Citizen of Belize">Citizen of Belize</option>
+						<option value="4284" title="Citizen of Bosnia and Herzegovina">Citizen of Bosnia and Herzegovina</option>
+						<option value="4285" title="Citizen of Botswana">Citizen of Botswana</option>
+						<option value="4289" title="Citizen of Brunei">Citizen of Brunei</option>
+						<option value="4291" title="Citizen of Burundi">Citizen of Burundi</option>
+						<option value="4313" title="Citizen of Fiji">Citizen of Fiji</option>
+						<option value="4514" title="Citizen of Guinea-Bissau">Citizen of Guinea-Bissau</option>
+						<option value="4333" title="Citizen of Ireland, Irish citizen">Citizen of Ireland, Irish citizen</option>
+						<option value="4537" title="Citizen of Kiribati">Citizen of Kiribati</option>
+						<option value="4545" title="Citizen of Lesotho">Citizen of Lesotho</option>
+						<option value="4553" title="Citizen of Madagascar">Citizen of Madagascar</option>
+						<option value="4357" title="Citizen of Malaysia">Citizen of Malaysia</option>
+						<option value="4365" title="Citizen of Myanmar">Citizen of Myanmar</option>
+						<option value="4581" title="Citizen of Niger">Citizen of Niger</option>
+						<option value="4438" title="Citizen of San Marino">Citizen of San Marino</option>
+						<option value="4612" title="Citizen of Sao Tome and Principe">Citizen of Sao Tome and Principe</option>
+						<option value="4440" title="Citizen of Seychelles">Citizen of Seychelles</option>
+						<option value="4398" title="Citizen of Sri Lanka">Citizen of Sri Lanka</option>
+						<option value="4606" title="Citizen of St Christopher (St Kitts) and Nevis">Citizen of St Christopher (St Kitts) and Nevis</option>
+						<option value="4464" title="Citizen of the Central African Republic">Citizen of the Central African Republic</option>
+						<option value="4539" title="Citizen of the Democratic People's Republic of Korea, Citizen of the DPRK">Citizen of the Democratic People's Republic of Korea, Citizen of the DPRK</option>
+						<option value="4473" title="Citizen of The Democratic Republic of the Congo">Citizen of The Democratic Republic of the Congo</option>
+						<option value="4484" title="Citizen of the Dominican Republic">Citizen of the Dominican Republic</option>
+						<option value="4336" title="Citizen of the Ivory Coast">Citizen of the Ivory Coast</option>
+						<option value="4298" title="Citizen of the Republic of the Congo">Citizen of the Republic of the Congo</option>
+						<option value="4309" title="Citizen of the United Arab Emirates">Citizen of the United Arab Emirates</option>
+						<option value="4656" title="Citizen of Vanuatu">Citizen of Vanuatu</option>
+						<option value="4297" title="Colombian">Colombian</option>
+						<option value="4471" title="Comoran">Comoran</option>
+						<option value="4299" title="Costa Rican">Costa Rican</option>
+						<option value="4300" title="Croatian">Croatian</option>
+						<option value="4301" title="Cuban">Cuban</option>
+						<option value="4302" title="Cypriot">Cypriot</option>
+						<option value="4303" title="Czech">Czech</option>
+						<option value="42683" title="Czechoslovak">Czechoslovak</option>
+						<option value="4304" title="Dane">Dane</option>
+						<option value="4482" title="Djiboutian">Djiboutian</option>
+						<option value="4435" title="Dominican">Dominican</option>
+						<option value="4305" title="Dutch citizen, Dutchman, Dutchwoman">Dutch citizen, Dutchman, Dutchwoman</option>
+						<option value="42684" title="East German">East German</option>
+						<option value="4638" title="East Timorese">East Timorese</option>
+						<option value="4306" title="Ecuadorean">Ecuadorean</option>
+						<option value="4307" title="Egyptian">Egyptian</option>
+						<option value="4488" title="Equatorial Guinean">Equatorial Guinean</option>
+						<option value="4310" title="Eritrean">Eritrean</option>
+						<option value="4311" title="Estonian">Estonian</option>
+						<option value="4312" title="Ethiopian">Ethiopian</option>
+						<option value="4314" title="Filipino, Filipina">Filipino, Filipina</option>
+						<option value="4315" title="Finn">Finn</option>
+						<option value="4316" title="French citizen, Frenchman, Frenchwoman">French citizen, Frenchman, Frenchwoman</option>
+						<option value="4442" title="Gabonese">Gabonese</option>
+						<option value="4317" title="Gambian">Gambian</option>
+						<option value="4318" title="Georgian">Georgian</option>
+						<option value="4319" title="German">German</option>
+						<option value="4320" title="Ghanaian">Ghanaian</option>
+						<option value="4321" title="Greek">Greek</option>
+						<option value="4322" title="Grenadian">Grenadian</option>
+						<option value="4324" title="Guatemalan">Guatemalan</option>
+						<option value="4443" title="Guinean">Guinean</option>
+						<option value="4436" title="Guyanese">Guyanese</option>
+						<option value="4325" title="Haitian">Haitian</option>
+						<option value="4519" title="Honduran">Honduran</option>
+						<option value="4327" title="Hungarian">Hungarian</option>
+						<option value="4328" title="Icelander">Icelander</option>
+						<option value="4329" title="Indian">Indian</option>
+						<option value="4330" title="Indonesian">Indonesian</option>
+						<option value="4331" title="Iranian">Iranian</option>
+						<option value="4332" title="Iraqi">Iraqi</option>
+						<option value="4334" title="Israeli">Israeli</option>
+						<option value="4335" title="Italian">Italian</option>
+						<option value="4337" title="Jamaican">Jamaican</option>
+						<option value="4338" title="Japanese">Japanese</option>
+						<option value="4339" title="Jordanian">Jordanian</option>
+						<option value="4340" title="Kazakh">Kazakh</option>
+						<option value="4341" title="Kenyan">Kenyan</option>
+						<option value="42644" title="Kosovan">Kosovan</option>
+						<option value="4343" title="Kuwaiti">Kuwaiti</option>
+						<option value="4344" title="Kyrgyz">Kyrgyz</option>
+						<option value="4542" title="Lao">Lao</option>
+						<option value="4345" title="Latvian">Latvian</option>
+						<option value="4346" title="Lebanese">Lebanese</option>
+						<option value="4347" title="Liberian">Liberian</option>
+						<option value="4348" title="Libyan">Libyan</option>
+						<option value="4349" title="Liechtenstein citizen">Liechtenstein citizen</option>
+						<option value="4350" title="Lithuanian">Lithuanian</option>
+						<option value="4351" title="Luxembourger">Luxembourger</option>
+						<option value="4353" title="Macedonian, Citizen of the Republic of North Macedonia">Macedonian, Citizen of the Republic of North Macedonia</option>
+						<option value="4356" title="Malawian">Malawian</option>
+						<option value="4429" title="Maldivian">Maldivian</option>
+						<option value="4431" title="Malian">Malian</option>
+						<option value="4358" title="Maltese">Maltese</option>
+						<option value="4559" title="Marshall Islander">Marshall Islander</option>
+						<option value="4439" title="Mauritanian">Mauritanian</option>
+						<option value="4359" title="Mauritian">Mauritian</option>
+						<option value="4360" title="Mexican">Mexican</option>
+						<option value="4565" title="Micronesian">Micronesian</option>
+						<option value="4361" title="Moldovan">Moldovan</option>
+						<option value="4567" title="Monegasque">Monegasque</option>
+						<option value="4362" title="Mongolian">Mongolian</option>
+						<option value="4432" title="Montenegrin">Montenegrin</option>
+						<option value="4363" title="Moroccan">Moroccan</option>
+						<option value="4364" title="Mozambican">Mozambican</option>
+						<option value="4366" title="Namibian">Namibian</option>
+						<option value="4574" title="Nauruan">Nauruan</option>
+						<option value="4367" title="Nepalese">Nepalese</option>
+						<option value="4368" title="New Zealander">New Zealander</option>
+						<option value="4369" title="Nicaraguan">Nicaraguan</option>
+						<option value="4370" title="Nigerian">Nigerian</option>
+						<option value="4371" title="Norwegian">Norwegian</option>
+						<option value="4372" title="Omani">Omani</option>
+						<option value="4373" title="Pakistani">Pakistani</option>
+						<option value="4589" title="Palauan">Palauan</option>
+						<option value="4375" title="Panamanian">Panamanian</option>
+						<option value="4376" title="Papua New Guinean">Papua New Guinean</option>
+						<option value="4377" title="Paraguayan">Paraguayan</option>
+						<option value="4378" title="Peruvian">Peruvian</option>
+						<option value="4379" title="Pole">Pole</option>
+						<option value="4380" title="Portuguese">Portuguese</option>
+						<option value="4382" title="Qatari">Qatari</option>
+						<option value="4383" title="Romanian">Romanian</option>
+						<option value="4384" title="Russian">Russian</option>
+						<option value="4385" title="Rwandan">Rwandan</option>
+						<option value="4308" title="Salvadorean">Salvadorean</option>
+						<option value="4386" title="Samoan">Samoan</option>
+						<option value="4387" title="Saudi Arabian">Saudi Arabian</option>
+						<option value="4388" title="Senegalese">Senegalese</option>
+						<option value="4389" title="Serbian">Serbian</option>
+						<option value="4390" title="Sierra Leonean">Sierra Leonean</option>
+						<option value="4391" title="Singaporean">Singaporean</option>
+						<option value="4392" title="Slovak">Slovak</option>
+						<option value="4393" title="Slovene">Slovene</option>
+						<option value="4621" title="Solomon Islander">Solomon Islander</option>
+						<option value="4394" title="Somali">Somali</option>
+						<option value="4395" title="South African">South African</option>
+						<option value="4396" title="South Korean">South Korean</option>
+						<option value="42645" title="South Sudanese">South Sudanese</option>
+						<option value="42685" title="Soviet citizen">Soviet citizen</option>
+						<option value="4397" title="Spaniard, Spanish citizen">Spaniard, Spanish citizen</option>
+						<option value="4399" title="St Lucian">St Lucian</option>
+						<option value="4400" title="Sudanese">Sudanese</option>
+						<option value="4628" title="Surinamer">Surinamer</option>
+						<option value="4401" title="Swazi">Swazi</option>
+						<option value="4402" title="Swede">Swede</option>
+						<option value="4403" title="Swiss">Swiss</option>
+						<option value="4404" title="Syrian">Syrian</option>
+						<option value="4406" title="Tajik">Tajik</option>
+						<option value="4407" title="Tanzanian">Tanzanian</option>
+						<option value="4408" title="Thai">Thai</option>
+						<option value="4410" title="Togolese">Togolese</option>
+						<option value="4641" title="Tongan">Tongan</option>
+						<option value="4411" title="Trinidad and Tobago citizen">Trinidad and Tobago citizen</option>
+						<option value="4412" title="Tunisian">Tunisian</option>
+						<option value="4413" title="Turk">Turk</option>
+						<option value="4414" title="Turkmen">Turkmen</option>
+						<option value="4647" title="Tuvaluan">Tuvaluan</option>
+						<option value="4415" title="Ugandan">Ugandan</option>
+						<option value="4416" title="Ukrainian">Ukrainian</option>
+						<option value="4268" title="United States citizen">United States citizen</option>
+						<option value="4417" title="Uruguayan">Uruguayan</option>
+						<option value="4418" title="Uzbek">Uzbek</option>
+						<option value="4518" title="Vatican citizen">Vatican citizen</option>
+						<option value="4419" title="Venezuelan">Venezuelan</option>
+						<option value="4420" title="Vietnamese">Vietnamese</option>
+						<option value="4609" title="Vincentian">Vincentian</option>
+						<option value="4424" title="Yemeni">Yemeni</option>
+						<option value="4425" title="Yugoslavian">Yugoslavian</option>
+						<option value="4427" title="Zambian">Zambian</option>
+						<option value="4428" title="Zimbabwean">Zimbabwean</option>
+						<option value="42654" title="Other">Other</option>
+							</select>
+						</div>
+
+						
+
+						{% set OtherNationalitiesHtml %}
+            
+							{{ govukInput({
+								label: { text: "Provide details on other nationalities or citizenships", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      								
+								classes: "govuk-!-width-two-thirds",
+								id: "pecDetailsNINumber",
+								name: "pecDetailsNINumber"
+							}) }}
+						
+						{% endset -%}
+
+
+						{{ govukRadios({
+							name: "pecRTWOtherNationality",
+							id: "pecRTWOtherNationality",
+							fieldset: {
+							legend: { text: "Have you held or currently hold any other nationality or citizenship?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+							items: [
+							{ value: "Yes", text: "Yes", conditional: { html: OtherNationalitiesHtml }  },
+							{ value: "No", text: "No" }													]
+						}) }}
+
+					  
+
+						{% set BritishPassportHtml %}
+
+						{{ govukRadios({
+							name: "pecRTWPassport",
+							id: "pecRTWPassport",
+							fieldset: {
+							  legend: { text: "Do you hold a valid British or Irish passport or Irish passport card?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+							items: [
+								{ value: "Yes", text: "Yes" },
+								{ value: "No", text: "No" }							
+							]
+						  }) }}
+
+
+						{% endset -%}
+
+						{% set LiveUKHtml %}
+
+						{{ govukRadios({
+							name: "pecRTWPassport",
+							id: "pecRTWPassport",
+							fieldset: {
+							  legend: { text: "Do you live in the UK?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+							items: [
+								{ value: "Yes", text: "Yes" },
+								{ value: "No", text: "No" }							
+							]
+						  }) }}
+
+
+						{% endset -%}
+
+					  {{ govukRadios({
+						name: "pecRTWUKCitizen",
+						id: "pecRTWUKCitizen",
+						fieldset: {
+						  legend: { text: "Are you a UK or Irish citizen?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+						items: [
+							{ value: "Yes", text: "Yes", conditional: { html: BritishPassportHtml } },
+							{ value: "No", text: "No", conditional: { html: LiveUKHtml } }							
+						]
+					  }) }}
+
+
+					 
+
+					 
+	
+
+      	<div class="govuk-button-group">
+        	{{ govukButton({
+          		text: "Back"
+        	}) }}
       
-    <!-- ////////////// END OF NEW ////////////////// -->
-    {% else %}
-
-    <h1 class="govuk-heading-l govuk-!-padding-top-4">Right to work</h1>
-
-    
-
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Back"
-        }) }}
-      
-        {{ govukButton({
-          text: "Continue"
-                  
-        }) }}
-      </div>
-
-
-      
+        	{{ govukButton({
+          		text: "Continue"				
+        	}) }}
+      	</div>
     
     </form>
 
