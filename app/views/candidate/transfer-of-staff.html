@@ -27,10 +27,13 @@
     <h1 class="govuk-heading-l govuk-!-padding-top-4">Transfer of Staff Form</h1>
 
     
-
-      <div class="govuk-button-group">
+        <form method="post" action="/candidate/references" >
+      
+      
+          <div class="govuk-button-group">
         {{ govukButton({
-          text: "Back"
+          text: "Back",
+          href: "employment-history"
         }) }}
       
         {{ govukButton({
