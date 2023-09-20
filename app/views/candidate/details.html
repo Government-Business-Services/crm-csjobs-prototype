@@ -34,13 +34,13 @@
 			name: "pecDetailsTitle",
 			items: [
 				{ value: "Select one", text: "Select"  },
-				{ value: "Mr", text: "Mr", checked: checked("pecDetailsTitle", Mr) },
-			  	{ value: "Mrs", text: "Mrs" },
-			  	{ value: "Miss", text: "Miss" },
-			  	{ value: "Ms", text: "Ms" },
-			  	{ value: "Mx", text: "Mx" },
-			  	{ value: "Dr", text: "Dr" },
-			  	{ value: "Other", text: "Other" }			  
+				{ value: "Mr", text: "Mr", selected: checked("pecDetailsTitle", "Mr") },
+			  	{ value: "Mrs", text: "Mrs", selected: checked("pecDetailsTitle", "Mrs") },
+			  	{ value: "Miss", text: "Miss", selected: checked("pecDetailsTitle", "Miss") },
+			  	{ value: "Ms", text: "Ms", selected: checked("pecDetailsTitle", "Ms") },
+			  	{ value: "Mx", text: "Mx", selected: checked("pecDetailsTitle", "Mx") },
+			  	{ value: "Dr", text: "Dr", selected: checked("pecDetailsTitle", "Dr") },
+			  	{ value: "Other", text: "Other", selected: checked("pecDetailsTitle", "Other") }			  
 			]
 		}) }}
 		
@@ -130,10 +130,10 @@
 			name: "pecDetailsGender",
 			items: [
 				{ value: "Select one", text: "Select" },
-				{ value: "Man", text: "Man", checked: checked("pecDetailsGender", "Man") },
-			  	{ value: "Woman", text: "Woman", checked: checked("pecDetailsGender", "Woman") },
-			  	{ value: "Prefer to self-describe", text: "Prefer to self-describe", checked: checked("pecDetailsGender", "Prefer to self-describe") },
-			  	{ value: "Prefer not to disclose", text: "Prefer not to disclose", checked: checked("pecDetailsGender", "Prefer not to disclose") }			  
+				{ value: "Man", text: "Man", selected: checked("pecDetailsGender", "Man") },
+			  	{ value: "Woman", text: "Woman", selected: checked("pecDetailsGender", "Woman") },
+			  	{ value: "Prefer to self-describe", text: "Prefer to self-describe", selected: checked("pecDetailsGender", "Prefer to self-describe") },
+			  	{ value: "Prefer not to disclose", text: "Prefer not to disclose", selected: checked("pecDetailsGender", "Prefer not to disclose") }			  
 			]
 		}) }}
 		<!-- // End of DOB -->
