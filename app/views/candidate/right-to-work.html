@@ -23,17 +23,16 @@
     	<!-- ////////////// END OF NEW ////////////////// -->
     	{% else %}
 
-
-
     	<h1 class="govuk-heading-l govuk-!-padding-top-4">Right to work</h1>
-
 		<p class="govuk-body-l govuk-!-font-weight-bold">We ask for this information so we can confirm your right to work in the UK.</p>
 
+
+		<!-- Nationality Question -->
 		<form method="post" action="/candidate/employment-history?navpage=eh" >
 			
 				<div class="govuk-form-group">
-					<label class="govuk-label govuk-!-font-weight-bold" for="pecDetailsAddressCountry">Nationality at birth</label>
-					<select class="govuk-select" id="pecDetailsAddressCountry" name="pecDetailsAddressCountry">
+					<label class="govuk-label govuk-!-font-weight-bold" for="pecRightWorkNationality">Nationality at birth</label>
+					<select class="govuk-select" id="pecRightWorkNationality" name="pecRightWorkNationality">
 					<option value="Default">Select</option>									
 					<option value="4287" title="British citizen, Briton">British citizen, Briton</option>
 					<option value="4288" title="British national (overseas)">British national (overseas)</option>
@@ -247,12 +246,12 @@
 
 
 					<div class="govuk-form-group">
-						<label class="govuk-label govuk-!-font-weight-bold" for="pecDetailsAddressCountry">Present nationality</label>
+						<label class="govuk-label govuk-!-font-weight-bold" for="pecRightWorkNationalityPresent">Present nationality</label>
 						<div id="subject-hint" class="govuk-hint">
 							As shown on your passport or travel document
 						  </div>
 						
-						<select class="govuk-select" id="pecDetailsAddressCountry" name="pecDetailsAddressCountry">
+						<select class="govuk-select" id="pecRightWorkNationalityPresent" name="pecRightWorkNationalityPresent">
 						<option value="Default">Select</option>									
 						<option value="4287" title="British citizen, Briton">British citizen, Briton</option>
 						<option value="4288" title="British national (overseas)">British national (overseas)</option>
@@ -463,20 +462,18 @@
 						</div>
 
 						
-
-						{% set OtherNationalitiesHtml %}
-            
-							{{ govukInput({
-								label: { text: "Provide details on other nationalities or citizenships", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      								
-								classes: "govuk-!-width-two-thirds",
-								id: "OtherNationalitiesHtml",
-								name: "OtherNationalitiesHtml",
-								value: data['OtherNationalitiesHtml']
-								
-							}) }}
-						
+						<!-- Other Nationalities Question -->
+						<!-- Conditionals -->
+						{% set OtherNationalitiesHtml %}            
+						{{ govukInput({
+							label: { text: "Provide details on other nationalities or citizenships", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      								
+							classes: "govuk-!-width-two-thirds",
+							id: "OtherNationalitiesHtml",
+							name: "OtherNationalitiesHtml",
+							value: data['OtherNationalitiesHtml']							
+						}) }}						
 						{% endset -%}
-
+						<!-- // End of conditionals -->
 
 						{{ govukRadios({
 							name: "pecRTWOtherNationality",
@@ -484,54 +481,52 @@
 							fieldset: {
 							legend: { text: "Have you held or currently hold any other nationality or citizenship?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
 							items: [
-							{ value: "Yes", text: "Yes", conditional: { html: OtherNationalitiesHtml }  },
-							{ value: "No", text: "No" }													]
+							{ value: "Yes", text: "Yes", conditional: { html: OtherNationalitiesHtml }, checked: checked("pecRTWOtherNationality", "Yes")  },
+							{ value: "No", text: "No", checked: checked("pecRTWOtherNationality", "No") }													]
 						}) }}
+						<!-- // End of Nationalities -->
+						<!-- /////////////////////////////////////// -->
 
 					  
-
+						<!-- UK Citizen Question -->
+						<!-- Conditionals -->
 						{% set BritishPassportHtml %}
-
 						{{ govukRadios({
 							name: "pecRTWPassport",
 							id: "pecRTWPassport",
 							fieldset: {
-							  legend: { text: "Do you hold a valid British or Irish passport or Irish passport card?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+								legend: { text: "Do you hold a valid British or Irish passport or Irish passport card?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
 							items: [
-								{ value: "Yes", text: "Yes" },
-								{ value: "No", text: "No" }							
+								{ value: "Yes", text: "Yes", checked: checked("pecRTWPassport", "Yes") },
+								{ value: "No", text: "No", checked: checked("pecRTWPassport", "No") }							
 							]
-						  }) }}
-
-
+						}) }}
 						{% endset -%}
 
 						{% set LiveUKHtml %}
-
 						{{ govukRadios({
-							name: "pecRTWPassport",
-							id: "pecRTWPassport",
+							name: "pecRTWLiveUk",
+							id: "pecRTWLiveUk",
 							fieldset: {
 							  legend: { text: "Do you live in the UK?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
 							items: [
-								{ value: "Yes", text: "Yes" },
-								{ value: "No", text: "No" }							
+								{ value: "Yes", text: "Yes", checked: checked("pecRTWLiveUk", "Yes") },
+								{ value: "No", text: "No", checked: checked("pecRTWLiveUk", "No") }
 							]
-						  }) }}
-
-
+						}) }}
 						{% endset -%}
+						<!-- // End of Conditionals -->
 
-					  {{ govukRadios({
-						name: "pecRTWUKCitizen",
-						id: "pecRTWUKCitizen",
-						fieldset: {
-						  legend: { text: "Are you a UK or Irish citizen?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
-						items: [
-							{ value: "Yes", text: "Yes", conditional: { html: BritishPassportHtml } },
-							{ value: "No", text: "No", conditional: { html: LiveUKHtml } }							
-						]
-					  }) }}
+					  	{{ govukRadios({
+							name: "pecRTWUKCitizen",
+							id: "pecRTWUKCitizen",
+							fieldset: {
+						  		legend: { text: "Are you a UK or Irish citizen?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+							items: [
+								{ value: "Yes", text: "Yes", conditional: { html: BritishPassportHtml }, checked: checked("pecRTWUKCitizen", "Yes") },
+								{ value: "No", text: "No", conditional: { html: LiveUKHtml }, checked: checked("pecRTWUKCitizen", "No") }							
+							]
+					  	}) }}
 
 
 					 
