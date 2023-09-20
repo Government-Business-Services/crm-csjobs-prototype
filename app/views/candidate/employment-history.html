@@ -116,18 +116,16 @@
 
 
 			{% set EmploymentDetailsHtml %}
-
-			<p class="govuk-body-l">Enter details of your previous employment history covering at least the last three years, starting with the most recent.</p>
-			
+			<p class="govuk-body-l">Enter details of your previous employment history covering at least the last three years, starting with the most recent.</p>			
 			<div class="govuk-form-group">
 				<fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
 						
 					{{ govukInput({
 						label: { text: "Employer name", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      			
 						classes: "govuk-!-width-two-thirds",
-						id: "canEmploymentEmployerOne",
-						name: "canEmploymentEmployerOne",
-						value: data['canEmploymentEmployerOne']
+						id: "pecEmploymentEmployerOne",
+						name: "pecEmploymentEmployerOne",
+						value: data['pecEmploymentEmployerOne']
 					}) }}
 
 					<div class="govuk-date-input" id="passport-issued">
@@ -175,23 +173,18 @@
 				classes: "govuk-!-margin-top-5",
 				href: "#"	
 			}) }}
-
-
-						{% endset -%}
-
-
+			{% endset -%}
 		
 			{{ govukRadios({
-				name: "canEmploymentHistory",
+				name: "pecEmploymentHistory",
 				fieldset: {
-					legend: { text: "Have you been employed within the last 3 years", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+					legend: { text: "Have you been employed within the last 3 years", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } 
+				},
 				items: [
-					{ value: "Yes", text: "Yes", conditional: { html: EmploymentDetailsHtml } },
-					{ value: "No", text: "No" }				
+					{ value: "Yes", text: "Yes", conditional: { html: EmploymentDetailsHtml }, checked: checked("pecEmploymentHistory", "Yes") },
+					{ value: "No", text: "No", checked: checked("pecEmploymentHistory", "No") }				
 				]
 			}) }}
-
-			
 
 			<div class="govuk-button-group">
 				{{ govukButton({
@@ -212,5 +205,3 @@
 </div>
 
 {% endblock %}
-
-

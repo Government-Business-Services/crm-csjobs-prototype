@@ -3,7 +3,7 @@
 {% set showBackLink = false %}
 {% set showNavLinks = true %}
 
-{% set pageHeading = "Reference Request" %}
+{% set pageHeading = "pecReference Request" %}
 {% set pageSection = "" %}
 
 {% block content %}
@@ -44,7 +44,7 @@
         <!-- Conditionals -->
         {% set academicHtml %}
         {{ govukRadios({
-            name: "refOneRelationship",        
+            name: "pecRefOneRelationship",        
             fieldset: {
                 legend: {
                     text: "What is this referee’s relationship to you?",
@@ -53,17 +53,17 @@
                 }
             },
             items: [
-                { value: "Employer", text: "Employer", checked: checked, checked: checked("refOneRelationship", "Employer") },          
-                { value: "Academic", text: "Academic", checked: checked, checked: checked("refOneRelationship", "Academic") }          
+                { value: "Employer", text: "Employer", checked: checked, checked: checked("pecRefOneRelationship", "Employer") },          
+                { value: "Academic", text: "Academic", checked: checked, checked: checked("pecRefOneRelationship", "Academic") }          
             ]
         }) }}        
 
         {{ govukInput({
             label: { text: "Full name", classes: "govuk-label",isPageHeading: false },      
             classes: "govuk-!-width-two-thirds",
-            id: "refOneName",
-            name: "refOneName",
-            value: data['refOneName']
+            id: "pecRefOneName",
+            name: "pecRefOneName",
+            value: data['pecRefOneName']
         }) }}
 
         {{ govukInput({
@@ -72,9 +72,9 @@
             hint: {
                 text: "We’ll only use this to ask for the reference."
             },    
-            id: "refOneEmail",
-            name: "refOneEmail",
-            value: data['refOneEmail']
+            id: "pecRefOneEmail",
+            name: "pecRefOneEmail",
+            value: data['pecRefOneEmail']
         }) }}
 
             {% if data['showPhone'] == "Yes" %}
@@ -84,9 +84,9 @@
                     hint: {
                         html: "This must be a UK landline or mobile. <br>For example, +44 020 7450 4000 or 07771 900 900"
                     },
-                    id: "refOnePhone",
-                    name: "refOnePhone",
-                    value: data['refOnePhone']
+                    id: "pecRefOnePhone",
+                    name: "pecRefOnePhone",
+                    value: data['pecRefOnePhone']
                 }) }}
             {% endif %}
         {% endset -%}
@@ -95,9 +95,9 @@
 
             {% set otherOneHtml %}                
             {{ govukInput({
-                id: "refOneRelationshipOther",
-                name: "refOneRelationshipOther",                
-                value: data['refOneRelationshipOther'],                                
+                id: "pecRefOneRelationshipOther",
+                name: "pecRefOneRelationshipOther",                
+                value: data['pecRefOneRelationshipOther'],                                
                 classes: "govuk-!-width-two-thirds",
                 label: {
                     text: "Other relationship to referee",
@@ -111,7 +111,7 @@
             {% endset -%}
             <!-- First referee relationship -->
             {{ govukRadios({
-                name: "refOneRelationship",        
+                name: "pecRefOneRelationship",        
                 fieldset: {
                     legend: {
                         text: "Please provide a referee who is one of the following",
@@ -120,18 +120,18 @@
                     }
                 },
                 items: [
-                    { value: "Friend", text: "Friend", checked: checked("refOneRelationship", "Friend") },          
-                    { value: "Someone you worked with", text: "Someone you worked with", checked: checked("refOneRelationship", "Someone you worked with") },
-                    { value: "Other manager", text: "Other", conditional: { html: otherOneHtml}, checked: checked("refOneRelationship", "Other manager") } 
+                    { value: "Friend", text: "Friend", checked: checked("pecRefOneRelationship", "Friend") },          
+                    { value: "Someone you worked with", text: "Someone you worked with", checked: checked("pecRefOneRelationship", "Someone you worked with") },
+                    { value: "Other manager", text: "Other", conditional: { html: otherOneHtml}, checked: checked("pecRefOneRelationship", "Other manager") } 
                 ]
             }) }}
             <!-- First referee name -->
             {{ govukInput({
                 label: { text: "Full name", classes: "govuk-label",isPageHeading: false },      
                 classes: "govuk-!-width-two-thirds",
-                id: "refOneNameAlt",
-                name: "refOneNameAlt",
-                value: data['refOneNameAlt']
+                id: "pecRefOneNameAlt",
+                name: "pecRefOneNameAlt",
+                value: data['pecRefOneNameAlt']
             }) }}
             <!-- First referee email -->
             {{ govukInput({
@@ -140,9 +140,9 @@
                 hint: {
                     text: "We’ll only use this to ask for the reference."
                 },
-                id: "refOneEmailAlt",
-                name: "refOneEmailAlt",
-                value: data['refOneEmailAlt']
+                id: "pecRefOneEmailAlt",
+                name: "pecRefOneEmailAlt",
+                value: data['pecRefOneEmailAlt']
             }) }}
             <!-- First referee phone -->
             {% if data['showPhone'] == "Yes" %}
@@ -152,9 +152,9 @@
                     hint: {
                         html: "This must be a UK landline or mobile. <br>For example, +44 020 7450 4000 or 07771 900 900"
                     },                    
-                    id: "refOnePhone",
-                    name: "refOnePhone",
-                    value: data['refOnePhone']
+                    id: "pecRefOnePhone",
+                    name: "pecRefOnePhone",
+                    value: data['pecRefOnePhone']
                 }) }}
             {% endif %}
 
@@ -163,7 +163,7 @@
         
         <!-- First referee provide Employer or Academic -->
         {{ govukRadios({
-            name: "refOneProvide",        
+            name: "pecRefOneProvide",        
             fieldset: {
                 legend: {
                     text: "Can you provide an employer or academic referee from the last 3 years?",
@@ -175,8 +175,8 @@
                 text: "If you were self-employed, unemployed or out of work for another reason for the last 3 years, select No and provide an alternative referee."
             },
             items: [
-                { value: "Yes", text: "Yes", conditional: { html: academicHtml }, checked: checked("refOneProvide", "Yes") },
-                { value: "No", text: "No", conditional: { html: nonAcademicHtml }, checked: checked("refOneProvide", "No") }         
+                { value: "Yes", text: "Yes", conditional: { html: academicHtml }, checked: checked("pecRefOneProvide", "Yes") },
+                { value: "No", text: "No", conditional: { html: nonAcademicHtml }, checked: checked("pecRefOneProvide", "No") }         
             ]
         }) }}
         <!-- // End of referee one -->
@@ -187,10 +187,10 @@
         <!-- Conditionals -->
         {% set otherTwoHtml %}            
             {{ govukInput({
-                id: "refTwoRelationshipOther",
-                name: "refTwoRelationshipOther",
+                id: "pecRefTwoRelationshipOther",
+                name: "pecRefTwoRelationshipOther",
                 type: "text",                                
-                value: data['refTwoRelationshipOther'],
+                value: data['pecRefTwoRelationshipOther'],
                 classes: "govuk-!-width-two-thirds",
                 label: {
                     text: "Other relationship to referee",
@@ -203,7 +203,7 @@
         {% endset -%}
         <!-- Second referee relationship -->
         {{ govukRadios({
-            name: "refTwoRelationship",        
+            name: "pecRefTwoRelationship",        
             fieldset: {
                 legend: {
                     text: "What is your relationship to this referee?",
@@ -212,26 +212,26 @@
                 }
             },
             items: [                    
-                { value: "Friend", text: "Friend", checked: checked("refTwoRelationship", "Friend") },
-                { value: "Someone you worked with", text: "Someone you worked with", checked: checked("refTwoRelationship", "Someone you worked with") },
-                { value: "Other", text: "Other" , conditional: { html: otherTwoHtml }, checked: checked("refTwoRelationship", "Other") }
+                { value: "Friend", text: "Friend", checked: checked("pecRefTwoRelationship", "Friend") },
+                { value: "Someone you worked with", text: "Someone you worked with", checked: checked("pecRefTwoRelationship", "Someone you worked with") },
+                { value: "Other", text: "Other" , conditional: { html: otherTwoHtml }, checked: checked("pecRefTwoRelationship", "Other") }
             ]
         }) }}        
         <!-- Second referee name -->
         {{ govukInput({
             label: { text: "Full name", classes: "govuk-label",isPageHeading: false },      
             classes: "govuk-!-width-two-thirds",
-            id: "refTwoName",
-            name: "refTwoName",
-            value: data['refTwoName']
+            id: "pecRefTwoName",
+            name: "pecRefTwoName",
+            value: data['pecRefTwoName']
         }) }}
         <!-- Second referee email -->
         {{ govukInput({
             label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
             classes: "govuk-!-width-two-thirds",        
-            id: "refTwoEmail",
-            name: "refTwoEmail",
-            value: data['refTwoEmail']
+            id: "pecRefTwoEmail",
+            name: "pecRefTwoEmail",
+            value: data['pecRefTwoEmail']
         }) }}
         <!-- Second referee phone -->
         {% if data['showPhone'] == "Yes" %}
@@ -241,9 +241,9 @@
             hint: {
                 html: "This must be a UK landline or mobile. <br>For example, +44 020 7450 4000 or 07771 900 900"
             },        
-            id: "refTwoPhone",
-            name: "refTwoPhone",
-            value: data['refTwoPhone']
+            id: "pecRefTwoPhone",
+            name: "pecRefTwoPhone",
+            value: data['pecRefTwoPhone']
         }) }}
         {% endif %}
             
@@ -261,10 +261,10 @@
         <!-- Conditionals -->
         {% set otherHtml %}            
         {{ govukInput({
-            id: "refThreeRelationshipOther",
-            name: "refThreeRelationshipOther",
+            id: "pecRefThreeRelationshipOther",
+            name: "pecRefThreeRelationshipOther",
             type: "text",
-            value: data['refThreeRelationshipOther'],                        
+            value: data['pecRefThreeRelationshipOther'],                        
             classes: "govuk-!-width-two-thirds",
             label: {
                 text: "Other relationship to referee",
@@ -279,7 +279,7 @@
 
         <!-- Third referee relationship -->
         {{ govukRadios({
-            name: "refThreeRelationship",        
+            name: "pecRefThreeRelationship",        
             fieldset: {
                 legend: {
                     text: "What is your relationship to this referee?",
@@ -288,26 +288,26 @@
                 }
             },
             items: [                
-                { value: "Friend", text: "Friend", checked: checked("refThreeRelationship", "Friend") },
-                { value: "Someone you worked with", text: "Someone you worked with", checked: checked("refThreeRelationship", "Someone you worked with") },
-                { value: "Other", text: "Other", conditional: { html: otherHtml }, checked: checked("refThreeRelationship", "Other") }
+                { value: "Friend", text: "Friend", checked: checked("pecRefThreeRelationship", "Friend") },
+                { value: "Someone you worked with", text: "Someone you worked with", checked: checked("pecRefThreeRelationship", "Someone you worked with") },
+                { value: "Other", text: "Other", conditional: { html: otherHtml }, checked: checked("pecRefThreeRelationship", "Other") }
             ]
         }) }}
         <!-- Third referee name -->
         {{ govukInput({
             label: { text: "Full name", classes: "govuk-label",isPageHeading: false },      
             classes: "govuk-!-width-two-thirds",
-            id: "refThreeName",
-            name: "refThreeName",
-            value: data['refThreeName']
+            id: "pecRefThreeName",
+            name: "pecRefThreeName",
+            value: data['pecRefThreeName']
         }) }}
         <!-- Third referee email -->
         {{ govukInput({
             label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
             classes: "govuk-!-width-two-thirds",        
-            id: "refThreeEmail",
-            name: "refThreeEmail",
-            value: data['refThreeEmail']
+            id: "pecRefThreeEmail",
+            name: "pecRefThreeEmail",
+            value: data['pecRefThreeEmail']
         }) }}
         <!-- Third referee phone -->
         {% if data['showPhone'] == "Yes" %}
@@ -317,9 +317,9 @@
             hint: {
                 html: "This must be a UK landline or mobile. <br>For example, +44 020 7450 4000 or 07771 900 900"
             },
-            id: "refThreePhone",
-            name: "refThreePhone",
-            value: data['refThreePhone']
+            id: "pecRefThreePhone",
+            name: "pecRefThreePhone",
+            value: data['pecRefThreePhone']
         }) }}
         {% endif %}
 
