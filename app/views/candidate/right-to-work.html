@@ -469,8 +469,10 @@
 							{{ govukInput({
 								label: { text: "Provide details on other nationalities or citizenships", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      								
 								classes: "govuk-!-width-two-thirds",
-								id: "pecDetailsNINumber",
-								name: "pecDetailsNINumber"
+								id: "OtherNationalitiesHtml",
+								name: "OtherNationalitiesHtml",
+								value: data['OtherNationalitiesHtml']
+								
 							}) }}
 						
 						{% endset -%}

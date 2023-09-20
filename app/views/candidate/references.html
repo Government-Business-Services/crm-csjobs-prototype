@@ -51,8 +51,8 @@
                     }
                 },
                 items: [
-                    { value: "Employer", text: "Employer" },          
-                    { value: "Academic", text: "Academic" }          
+                    { value: "Employer", text: "Employer", checked: checked },          
+                    { value: "Academic", text: "Academic", checked: checked }          
                 ]
             }) }}
 
@@ -60,7 +60,8 @@
                 label: { text: "Full name", classes: "govuk-label",isPageHeading: false },      
                 classes: "govuk-!-width-two-thirds",
                 id: "refThirdFullName",
-                name: "refThirdFullName"
+                name: "refThirdFullName",
+                value: data['refThirdFullName']
             }) }}
 
             {{ govukInput({
@@ -70,7 +71,8 @@
                     text: "We’ll only use this to ask for the reference."
                 },    
                 id: "refThirdEmail",
-                name: "refThirdEmail"
+                name: "refThirdEmail",
+                value: data['refThirdEmail']
             }) }}
 
             {% if data['showPhone'] == "Yes" %}
@@ -97,6 +99,7 @@
                     id: "refThirdRelationshipOther",
                     name: "refThirdRelationshipOther",
                     type: "email",
+                    value: data['refThirdRelationshipOther'],
                     autocomplete: "email",
                     spellcheck: false,
                     classes: "govuk-!-width-two-thirds",
@@ -133,7 +136,8 @@
                 label: { text: "Full name", classes: "govuk-label",isPageHeading: false },      
                 classes: "govuk-!-width-two-thirds",
                 id: "refThirdFullName",
-                name: "refThirdFullName"
+                name: "refThirdFullName",
+                value: data['refThirdFullName']
             }) }}
 
             {{ govukInput({
@@ -143,7 +147,8 @@
                     text: "We’ll only use this to ask for the reference."
                 },
                 id: "refThirdEmail",
-                name: "refThirdEmail"
+                name: "refThirdEmail",
+                value: data['refThirdEmail']
             }) }}
 
             {% if data['showPhone'] == "Yes" %}
@@ -192,9 +197,10 @@
             {{ govukInput({
                 id: "refTwoRelationshipOther",
                 name: "refTwoRelationshipOther",
-                type: "email",
+                type: "text",
                 autocomplete: "email",
                 spellcheck: false,
+                value: data['refTwoRelationshipOther'],
                 classes: "govuk-!-width-two-thirds",
                 label: {
                     text: "Other relationship to referee",
@@ -228,14 +234,16 @@
             label: { text: "Full name", classes: "govuk-label",isPageHeading: false },      
             classes: "govuk-!-width-two-thirds",
             id: "refTwoFullName",
-            name: "refTwoFullName"
+            name: "refTwoFullName",
+            value: data['refTwoFullName']
         }) }}
 
         {{ govukInput({
             label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
             classes: "govuk-!-width-two-thirds",        
             id: "refTwoEmail",
-            name: "refTwoEmail"
+            name: "refTwoEmail",
+            value: data['refTwoEmail']
         }) }}
 
         {% if data['showPhone'] == "Yes" %}
@@ -266,7 +274,8 @@
             {{ govukInput({
                 id: "refOneRelationshipOther",
                 name: "refOneRelationshipOther",
-                type: "email",
+                type: "text",
+                value: data['refOneRelationshipOther'],
                 autocomplete: "email",
                 spellcheck: false,
                 classes: "govuk-!-width-two-thirds",
@@ -301,14 +310,16 @@
             label: { text: "Full name", classes: "govuk-label",isPageHeading: false },      
             classes: "govuk-!-width-two-thirds",
             id: "refOneFullName",
-            name: "refOneFullName"
+            name: "refOneFullName",
+            value: data['refOneFullName']
         }) }}
 
         {{ govukInput({
             label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
             classes: "govuk-!-width-two-thirds",        
             id: "refOneEmail",
-            name: "refOneEmail"
+            name: "refOneEmail",
+            value: data['refOneEmail']
         }) }}
 
         {% if data['showPhone'] == "Yes" %}

@@ -126,24 +126,25 @@
 						label: { text: "Employer name", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      			
 						classes: "govuk-!-width-two-thirds",
 						id: "canEmploymentEmployerOne",
-						name: "canEmploymentEmployerOne"
+						name: "canEmploymentEmployerOne",
+						value: data['canEmploymentEmployerOne']
 					}) }}
 
 					<div class="govuk-date-input" id="passport-issued">
 						<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">Date from</p>
 						<div class="govuk-date-input__item">
 							<div class="govuk-form-group">                
-								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric" value="dd">
+								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric" value="">
 							</div>
 						</div>
 						<div class="govuk-date-input__item">
 							<div class="govuk-form-group">                
-								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric" value="mm">
+								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric" value="{{ data['passport-issued-month'] }}">
 							</div>
 						</div>
 						<div class="govuk-date-input__item">
 							<div class="govuk-form-group">						
-								<input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric" value="2023">
+								<input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric" value="">
 							</div>
 						</div>
 					</div>
@@ -152,17 +153,17 @@
 						<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1 govuk-!-margin-top-2">Date To</p>
 						<div class="govuk-date-input__item">
 							<div class="govuk-form-group">                
-								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric" value="dd">
+								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric" value="">
 							</div>
 						</div>
 						<div class="govuk-date-input__item">
 							<div class="govuk-form-group">						
-								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric" value="mm">
+								<input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric" value="">
 							</div>
 						</div>
 						<div class="govuk-date-input__item">
 							<div class="govuk-form-group">						
-								<input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric" value="2023">
+								<input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric" value="">
 							</div>
 						</div>
 					</div>
