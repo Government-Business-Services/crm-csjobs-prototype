@@ -3,7 +3,6 @@
 {% set showBackLink = false %}
 {% set showNavLinks = true %}
 
-
 {% set pageHeading = "Application status: Offer accepted" %}
 {% set pageSection = "" %}
 
@@ -11,49 +10,44 @@
 
 <div class="govuk-grid-row">
     
-       
-    
     {% if data['iteration'] == "new" %}
 
-    <div class="govuk-grid-column-two-thirds"> 
-
-    <h1 class="govuk-heading-l">Your details</h1>
-        </div>
+    	<div class="govuk-grid-column-two-thirds"> 
+    		<h1 class="govuk-heading-l">Your details</h1>    	
+		</div>
       
-    <!-- ////////////// END OF NEW ////////////////// -->
+    	<!-- ////////////// END OF NEW ////////////////// -->
     {% else %}
 
-    <div class="govuk-grid-column-full">    
-    <p>Application For ATS2219 - Reference Checker</p>
-    <p class="govuk-body-l">Application status: Offer accepted</p>
+    	<div class="govuk-grid-column-full">    
+    		<p>Application For ATS2219 - Reference Checker</p>
+    		<p class="govuk-body-l">Application status: Offer accepted</p>
 
+			<form method="post" action="/candidate/details" >
 
-    <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Begin pre-employment checks",
-          href: "/candidate/details"
-        }) }}
+			<input type="input" id="preEmploymentChecks" name="preEmploymentChecks" value="Started" class="govuk-visually-hidden" />
+
+    		<div class="govuk-button-group">
+        		{{ govukButton({
+          			text: "Begin pre-employment checks"          			
+        		}) }}
       
-        {{ govukButton({
-          text: "Withdraw Application"
-                  
-        }) }}
+        		{{ govukButton({
+          			text: "Withdraw Application"                  
+        		}) }}
 
-        {{ govukButton({
-            text: "Advert details"
-                    
-          }) }}
-      </div>
+        		{{ govukButton({
+            		text: "Advert details"                    
+          		}) }}
+      		</div>
+			</form>			
 
-        <p>We're delighted that you have accepted our job offer.</p>
-        <p>As part of the onboarding process we require additional information.</p>
+        	<p>We're delighted that you have accepted our job offer.</p>
+        	<p>As part of the onboarding process we require additional information.</p>
     
-
     {% endif %}
   
-</div>
+	</div>
 </div>
 
 {% endblock %}
-
-
