@@ -20,7 +20,7 @@
 	<h1 class="govuk-heading-l govuk-!-padding-top-4">Employment history</h1>
 
 
-	<form method="post" action="" >
+	<form method="post" action="/candidate/references?navpage=ref" >
 	
 		{{ govukRadios({
 			name: "canEmploymentHistory",
@@ -112,7 +112,7 @@
     	<h1 class="govuk-heading-l govuk-!-padding-top-4">Employment history</h1>
 
 
-		<form method="post" action="/candidate/references" >
+		<form method="post" action="/candidate/references?navpage=ref" >
 
 
 			{% set EmploymentDetailsHtml %}
@@ -195,7 +195,7 @@
 			<div class="govuk-button-group">
 				{{ govukButton({
 					text: "Back",
-					href: "/candidate/right-to-work"
+					href: "/candidate/right-to-work?navpage=rtw"
 				}) }}
 		
 				{{ govukButton({

@@ -29,7 +29,7 @@
 
 		<p class="govuk-body-l govuk-!-font-weight-bold">We ask for this information so we can confirm your right to work in the UK.</p>
 
-		<form method="post" action="/candidate/employment-history" >
+		<form method="post" action="/candidate/employment-history?navpage=eh" >
 			
 				<div class="govuk-form-group">
 					<label class="govuk-label govuk-!-font-weight-bold" for="pecDetailsAddressCountry">Nationality at birth</label>
@@ -540,7 +540,7 @@
       	<div class="govuk-button-group">
         	{{ govukButton({
           		text: "Back",
-				href: "/candidate/details"
+				href: "/candidate/details?navpage=det"
         	}) }}
       
         	{{ govukButton({

@@ -36,6 +36,8 @@
             </ul>
         </div>        
 
+
+        <form method="post" action="/candidate/declaration?navpage=dec"
         <h2 class="govuk-heading-m">First Referee</h2>                    
         
         {% set academicHtml %}
@@ -335,7 +337,7 @@
             
             {{ govukButton({
                 text: "Back",
-                href: "/candidate/employment-history",
+                href: "/candidate/employment-history?navpage=eh",
                 classes: "govuk-button--secondary"
             }) }}       
             {{ govukButton({
