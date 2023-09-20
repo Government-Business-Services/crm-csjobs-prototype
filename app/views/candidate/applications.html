@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showNavLinks = true %}
+{% set showIterationLinks = true %}
+
+{% set pageHeading = "Applications" %}
+{% set pageSection = "" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    
+       
+    
+    {% if data['iteration'] == "new" %}
+
+    <div class="govuk-grid-column-two-thirds"> 
+
+    <h1 class="govuk-heading-l">Your details</h1>
+        </div>
+      
+    <!-- ////////////// END OF NEW ////////////////// -->
+    {% else %}
+
+    <div class="govuk-grid-column-full">    
+    
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      	<p class="govuk-body-l"><a href="#">View unsuccessful, withdrawn and archived successful applications</a></p>
+
+      	{{ govukTable({        	
+        	
+        	firstCellIsHeader: true,
+			classes: "govuk-body-s",
+        	head: [
+          		{ text: "Reference"  },
+          		{ text: "Application ID"},
+          		{ text: "Title" },
+				{ text: "Status" },
+				{ text: "Department" },
+				{ text: "Closing date" },
+				{ text: "Last update" },
+				{ text: "Action" }				  
+        	],
+        	rows: [
+          		[
+            		{ text: "9280" },
+            		{ text: "14028" },
+            		{ text: "PEC Forms PH" },
+					{ text: "Offer accepted" },
+					{ text: "HM Revenue and Customs" },
+					{ text: "21/09/2023, 23:55" },
+					{ text: "14/09/2023, 09:28" },
+					{ html: '<a href="/candidate/">Review latest update</a' }					
+          		]          
+        	]
+      	}) }}
+
+    {% endif %}
+  
+</div>
+</div>
+
+{% endblock %}
+
+
