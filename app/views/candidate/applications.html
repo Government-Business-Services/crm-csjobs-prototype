@@ -10,8 +10,7 @@
 
 <div class="govuk-grid-row">
     
-       
-    
+        
     {% if data['iteration'] == "new" %}
 
     <div class="govuk-grid-column-two-thirds"> 
@@ -26,12 +25,11 @@
     
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-      	<p class="govuk-body-l"><a href="#">View unsuccessful, withdrawn and archived successful applications</a></p>
+      	<p class="govuk-body-l"><a href="/candidate/inactive/applications" class="govuk-link--no-visited-state">View unsuccessful, withdrawn and archived successful applications</a></p>
 
       	{{ govukTable({        	
         	
-        	firstCellIsHeader: true,
-			classes: "govuk-body-s",
+        	firstCellIsHeader: false,			
         	head: [
           		{ text: "Reference"  },
           		{ text: "Application ID"},
@@ -51,7 +49,7 @@
 					{ text: "HM Revenue and Customs" },
 					{ text: "28/09/2023, 23:55" },
 					{ text: "20/09/2023, 09:28" },
-					{ html: '<a href="/candidate/">Review latest update</a' }					
+					{ html: '<a href="/candidate/" class="govuk-link--no-visited-state">Review latest update</a' }					
           		]          
         	]
       	}) }}
