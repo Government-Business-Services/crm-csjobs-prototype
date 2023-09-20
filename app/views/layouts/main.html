@@ -12,25 +12,27 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 {% block header %}
 {% if showIterationLinks == true %}
     
-        {{ govukHeader({
-            homepageUrl: "/",
-            classes: "",
-            serviceName: "Civil Service Jobs",
-            serviceUrl: "/"
-            
-    }) }}
+    {{ govukHeader({
+        homepageUrl: "/",
+        classes: "",
+        serviceName: "Civil Service Jobs",
+        serviceUrl: "/",
+        navigation: [
+            { href: "?iteration=&gaps=", text: "Current" },
+            { href: "?iteration=new", text: "New" },            
+            { href: "?showPhone=Yes", text: "Phone" },
+            { href: "?showPhone=", text: "No Phone" }
+        ]
+    }) }}    
     
 {% else %}
 
-
-        {{ govukHeader({
-            homepageUrl: "/",
-            classes: "",
-            serviceName: "Civil Service Jobs",
-            serviceUrl: "/"                    
-        }) }}
-
-
+    {{ govukHeader({
+        homepageUrl: "/",
+        classes: "",
+        serviceName: "Civil Service Jobs",
+        serviceUrl: "/"                    
+    }) }}
 
 {% endif %}
 {% endblock %}
