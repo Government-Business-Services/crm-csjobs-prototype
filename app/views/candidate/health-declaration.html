@@ -204,7 +204,7 @@
 		</ul>
 
 
-		<form method="post" action="" >
+		<form method="post" action="/candidate/declaration?navpage=dec" >
 
 			<!-- // Conditional reveals -->
 
@@ -214,7 +214,8 @@
 					name: "canHealthAdjustmentsDetails",
 					type: "text",  
 					classes: "govuk-!-width-full",
-					label: { text: "Provide details about any adjustments (including adaptions to the workplace) required to assist you at work." }
+					label: { text: "Provide details about any adjustments (including adaptions to the workplace) required to assist you at work." },
+					value: data['canHealthAdjustmentsDetails']
 				}) }}
 			{% endset -%}
 
@@ -224,7 +225,8 @@
 					name: "canHealthPastWorkDetails",
 					type: "text",  
 					classes: "govuk-!-width-full",
-					label: { text: "Provide details of any health, disability or other conditions that affected your ability to work in the past." }
+					label: { text: "Provide details of any health, disability or other conditions that affected your ability to work in the past." },
+					value: data['canHealthPastWorkDetails']
 				}) }}
 			{% endset -%}
 
@@ -234,7 +236,8 @@
 					name: "canHealthAdvertDetails",
 					type: "text",  
 					classes: "govuk-!-width-full",
-					label: { text: "Give details of any health, disability or other conditions that may affect your ability to undertake the duties outlined in the job advert." }
+					label: { text: "Give details of any health, disability or other conditions that may affect your ability to undertake the duties outlined in the job advert." },
+					value: data['canHealthAdvertDetails']
 				}) }}
 			{% endset -%}
 
@@ -244,7 +247,8 @@
 					name: "canHealthMedicalDetails",
 					type: "text",  
 					classes: "govuk-!-width-full",
-					label: { text: "Provide details about treatment or investigations for any medical condition at present that may affect your attendance or may require adjustments at work." }
+					label: { text: "Provide details about treatment or investigations for any medical condition at present that may affect your attendance or may require adjustments at work." },
+					value: data['canHealthMedicalDetails']
 				}) }}
 			{% endset -%}
 
@@ -254,7 +258,8 @@
 					name: "canHealthAbilityDetails",
 					type: "text",  
 					classes: "govuk-!-width-full",
-					label: { text: "Provide details of the health issues which may have been caused or made worse by work (including an educational setting) and which you think may affect your ability to undertake the new role or place you at any risk in the workplace." }
+					label: { text: "Provide details of the health issues which may have been caused or made worse by work (including an educational setting) and which you think may affect your ability to undertake the new role or place you at any risk in the workplace." },
+					value: data['canHealthAbilityDetails']
 				}) }}
 			{% endset -%}
 
@@ -265,7 +270,8 @@
 					name: "canHealthAbsenceDetails",
 					type: "text",  
 					classes: "govuk-!-width-full",
-					label: { text: "Provide details of your health-related absence from work of more than 16 days within the last 2 years." }
+					label: { text: "Provide details of your health-related absence from work of more than 16 days within the last 2 years." },
+					value: data['canHealthAbsenceDetails']
 				}) }}
 			{% endset -%}
 
@@ -276,7 +282,8 @@
 					name: "canHealthOccupationalDetails",
 					type: "text",  
 					classes: "govuk-!-width-full",
-					label: { text: "Give details of the health issues or disabilities you would like to discuss with our occupational health provider.." }
+					label: { text: "Give details of the health issues or disabilities you would like to discuss with our occupational health provider.." },
+					value: data['canHealthOccupationalDetails']
 				}) }}
 			{% endset -%}
 
@@ -288,8 +295,8 @@
 				fieldset: {
 				legend: { text: "Do you need any adjustments (including adaptations to the workplace) to assist you at work?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
 				items: [
-					{ value: "Yes", text: "Yes", conditional: {html: adjustmentsHtml} },
-					{ value: "No", text: "No" }			
+					{ value: "Yes", text: "Yes", conditional: {html: adjustmentsHtml}, checked: checked("canHealthAdjustments", "Yes") },
+					{ value: "No", text: "No", checked: checked("canHealthAdjustments", "No") }			
 				]
 			}) }}
 
@@ -299,8 +306,8 @@
 				fieldset: {
 				legend: { text: "Do you have any health issues, a disability or other conditions that have affected your ability to work in the past?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
 				items: [
-					{ value: "Yes", text: "Yes", conditional: {html: pastWorkHtml} },
-					{ value: "No", text: "No" }			
+					{ value: "Yes", text: "Yes", conditional: {html: pastWorkHtml}, checked: checked("canHealthPastWork", "Yes") },
+					{ value: "No", text: "No", checked: checked("canHealthPastWork", "No") }			
 				]
 			}) }}
 
@@ -309,8 +316,8 @@
 				fieldset: {
 				legend: { text: "Do you have any health issues, a disability or other conditions that may affect your ability to undertake the duties outlined in the job advert?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
 				items: [
-					{ value: "Yes", text: "Yes", conditional: {html: advertHtml} },
-					{ value: "No", text: "No" }			
+					{ value: "Yes", text: "Yes", conditional: {html: advertHtml}, checked: checked("canHealthAdvert", "Yes") },
+					{ value: "No", text: "No", checked: checked("canHealthAdvert", "No") }			
 				]
 			}) }}
 
@@ -319,8 +326,8 @@
 				fieldset: {
 				legend: { text: "Are you having, or waiting for, treatment or investigations for any medical condition at present that may affect your attendance or may require adjustments at work?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
 				items: [
-					{ value: "Yes", text: "Yes", conditional: {html: medicalHtml} },
-					{ value: "No", text: "No" }			
+					{ value: "Yes", text: "Yes", conditional: {html: medicalHtml}, checked: checked("canHealthMedical", "Yes") },
+					{ value: "No", text: "No", checked: checked("canHealthMedical", "No") }			
 				]
 			}) }}
 
@@ -329,8 +336,8 @@
 				fieldset: {
 				legend: { text: "Have you ever had any health issues which may have been caused or made worse by work (including an educational setting) and which you think may affect your ability to undertake the new role or place you at any risk in the workplace??", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
 				items: [
-					{ value: "Yes", text: "Yes", conditional: {html: abilityHtml} },
-					{ value: "No", text: "No" }			
+					{ value: "Yes", text: "Yes", conditional: {html: abilityHtml}, checked: checked("canHealthAbility", "Yes") },
+					{ value: "No", text: "No", checked: checked("canHealthAbility", "No") }			
 				]
 			}) }}
 
@@ -339,8 +346,8 @@
 				fieldset: {
 				legend: { text: "Have you had any health-related absence from work of more than 16 days within the last 2 years?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
 				items: [
-					{ value: "Yes", text: "Yes", conditional: {html: absenceHtml} },
-					{ value: "No", text: "No" }			
+					{ value: "Yes", text: "Yes", conditional: {html: absenceHtml}, checked: checked("canHealthAbsence", "Yes") },
+					{ value: "No", text: "No", checked: checked("canHealthAbsence", "No") }			
 				]
 			}) }}
 
@@ -349,14 +356,15 @@
 				fieldset: {
 				legend: { text: "Do you have any health issues or disabilities which you would like to discuss with our occupational health provider?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
 				items: [
-					{ value: "Yes", text: "Yes", conditional: {html: occupationalHtml} },
-					{ value: "No", text: "No" }			
+					{ value: "Yes", text: "Yes", conditional: {html: occupationalHtml}, checked: checked("canHealthOccupational", "Yes") },
+					{ value: "No", text: "No", checked: checked("canHealthOccupational", "No") }			
 				]
 			}) }}
 
       		<div class="govuk-button-group">
         		{{ govukButton({
-          			text: "Back"
+          			text: "Back",
+					href: "/candidate/bankruptcy-details?navpage=ban"
         		}) }}
       
         		{{ govukButton({
