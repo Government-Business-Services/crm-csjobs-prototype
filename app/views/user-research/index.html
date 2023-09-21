@@ -1,0 +1,32 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+
+
+{% set pageHeading = "User research" %}
+{% set pageSection = "CivilService Jobs Prototype work" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-5">
+
+    <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}  	
+
+    	<h2 class="govuk-heading-m govuk-!-margin-top-5 govuk-!-margin-bottom-1">Candidate application improvements (PEC)</h2>
+		<p class="">September 2023</p>
+		<p class="govuk-!-margin-bottom-5">Analysis and improvements on pre employment checks and other work including references, referee emails and reference forms.</p>		
+
+		<form method="post" action="/candidate/" />		
+			{{ govukButton({
+				text: "Start user research"					
+			}) }}
+		</form>
+
+  	</div>  
+</div>
+
+{% endblock %}

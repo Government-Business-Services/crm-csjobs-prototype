@@ -3,7 +3,7 @@
 {% set showBackLink = false %}
 {% set showNavLinks = true %}
 
-{% set pageHeading = "Application status: Offer accepted" %}
+{% set pageHeading = "Find Civil Service jobs" %}
 {% set pageSection = "" %}
 
 {% block content %}
@@ -20,30 +20,15 @@
     {% else %}
 
     	<div class="govuk-grid-column-full">    
-    		<p>Application For ATS2219 - Reference Checker</p>
-    		<p class="govuk-body-l">Application status: Offer accepted</p>
+    		
+			<h1 class="govuk-heading-xl govuk-!-padding-top-4">Find Civil Service jobs</h1>
 
-			<form method="post" action="/candidate/details?navpage=det" >
 
-			<input type="input" id="preEmploymentChecks" name="preEmploymentChecks" value="Started" class="govuk-visually-hidden" />
-
-    		<div class="govuk-button-group">
-        		{{ govukButton({
-          			text: "Begin pre-employment checks"          			
-        		}) }}
-      
-        		{{ govukButton({
-          			text: "Withdraw Application"                  
-        		}) }}
-
-        		{{ govukButton({
-            		text: "Advert details"                    
-          		}) }}
-      		</div>
-			</form>			
-
-        	<p>We're delighted that you have accepted our job offer.</p>
-        	<p>As part of the onboarding process we require additional information.</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a class="govuk-link" href="https://www.civilservicejobs.service.gov.uk/csr/index.cgi">Search for jobs</a></li>
+				<li><a class="govuk-link" href="/candidate/applications/">Manage your applications</a></li>
+				<li><a class="govuk-link" href="https://www.civilservicejobs.service.gov.uk/csr/support.cgi?pageaction=default">Request help or give feedback</a></li>
+			</ul>
     
     {% endif %}
   
