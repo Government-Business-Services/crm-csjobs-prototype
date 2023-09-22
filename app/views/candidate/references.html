@@ -110,7 +110,23 @@
             }) }}            
             {% endset -%}
             <!-- First referee relationship -->
-            {{ govukRadios({
+
+            {{ govukInput({
+                id: "pecRefOneRelationshipOther",
+                name: "pecRefOneRelationshipOther",                
+                value: data['pecRefOneRelationshipOther'],                                
+                classes: "govuk-!-width-two-thirds",
+                label: {
+                    text: "Relationship to this referee",
+                    classes: "govuk-label"
+                },
+                hint: {
+                    text: "For example friend, someone you worked with, pastor or doctor."
+                }
+
+            }) }}   
+
+            <!-- {{ govukRadios({
                 name: "pecRefOneRelationship",        
                 fieldset: {
                     legend: {
@@ -124,7 +140,7 @@
                     { value: "Someone you worked with", text: "Someone you worked with", checked: checked("pecRefOneRelationship", "Someone you worked with") },
                     { value: "Other manager", text: "Other", conditional: { html: otherOneHtml}, checked: checked("pecRefOneRelationship", "Other manager") } 
                 ]
-            }) }}
+            }) }} -->
             <!-- First referee name -->
             {{ govukInput({
                 label: { text: "Full name", classes: "govuk-label",isPageHeading: false },      
@@ -197,7 +213,7 @@
                     classes: "govuk-visually-hidden"
                 },
                 hint: {
-                    text: "For example, pastor, tutor or doctor."
+                    text: "For example friend, someone you worked with, pastor or doctor."
                 }
             }) }}        
         {% endset -%}
@@ -211,9 +227,9 @@
                     classes: "govuk-fieldset__legend"
                 }
             },
-            items: [                    
-                { value: "Friend", text: "Friend", checked: checked("pecRefTwoRelationship", "Friend") },
-                { value: "Someone you worked with", text: "Someone you worked with", checked: checked("pecRefTwoRelationship", "Someone you worked with") },
+            items: [                                    
+                { value: "Employer", text: "Employer", checked: checked("pecRefTwoRelationship", "Employer") },    
+                { value: "Academic", text: "Academic", checked: checked("pecRefTwoRelationship", "Academic") },                
                 { value: "Other", text: "Other" , conditional: { html: otherTwoHtml }, checked: checked("pecRefTwoRelationship", "Other") }
             ]
         }) }}        
@@ -271,7 +287,7 @@
                 classes: "govuk-visually-hidden"
             },
             hint: {
-                text: "For example, pastor, tutor or doctor."
+                text: "For example friend, someone you worked with, pastor or doctor."
             }
         }) }}
         {% endset -%}
@@ -288,8 +304,8 @@
                 }
             },
             items: [                
-                { value: "Friend", text: "Friend", checked: checked("pecRefThreeRelationship", "Friend") },
-                { value: "Someone you worked with", text: "Someone you worked with", checked: checked("pecRefThreeRelationship", "Someone you worked with") },
+                { value: "Employer", text: "Employer", checked: checked("pecRefThreeRelationship", "Employer") },
+                { value: "Academic", text: "Academic", checked: checked("pecRefThreeRelationship", "Academic") },                    
                 { value: "Other", text: "Other", conditional: { html: otherHtml }, checked: checked("pecRefThreeRelationship", "Other") }
             ]
         }) }}
