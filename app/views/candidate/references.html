@@ -27,12 +27,12 @@
                 <li>not be a member of your family or related to you in any way</li>                
             </ul>
 
-            <p>Any other referee:</p>
+            <p>Any other referee must:</p>
             <ul class="govuk-list govuk-list--bullet">          
-                <li>must have known you for more than 3 years</li>      
-                <li>must not be a member of your family or related to you in any way</li>
+                <li>have known you for more than 3 years</li>      
+                <li>not be a member of your family or related to you in any way</li>
                  
-                <li>can be someone you’ve previously worked with</li>
+                <!-- <li>can be someone you’ve previously worked with</li> -->
             </ul>
         </div>        
 
@@ -104,7 +104,7 @@
                     classes: "govuk-visually-hidden"
                 },
                 hint: {
-                    text: "For example, doctor, pastor or tutor."
+                    text: "For example, doctor, pastor, friend or someone you worked with."
                 }
 
             }) }}            
@@ -121,7 +121,7 @@
                     classes: "govuk-label"
                 },
                 hint: {
-                    text: "For example friend, someone you worked with, pastor or doctor."
+                    text: "For example, doctor, pastor, friend or someone you worked with."
                 }
 
             }) }}   
@@ -209,12 +209,9 @@
                 value: data['pecRefTwoRelationshipOther'],
                 classes: "govuk-!-width-two-thirds",
                 label: {
-                    text: "Other relationship to referee",
-                    classes: "govuk-visually-hidden"
-                },
-                hint: {
-                    text: "For example friend, someone you worked with, pastor or doctor."
-                }
+                    text: "What is this referee’s relationship to you?",
+                    classes: "govuk-label"
+                }    
             }) }}        
         {% endset -%}
         <!-- Second referee relationship -->
@@ -230,7 +227,7 @@
             items: [                                    
                 { value: "Employer", text: "Employer", checked: checked("pecRefTwoRelationship", "Employer") },    
                 { value: "Academic", text: "Academic", checked: checked("pecRefTwoRelationship", "Academic") },                
-                { value: "Other", text: "Other" , conditional: { html: otherTwoHtml }, checked: checked("pecRefTwoRelationship", "Other") }
+                    { value: "Other", text: "Other (such as doctor, pastor, friend or someone you worked with)" , conditional: { html: otherTwoHtml }, checked: checked("pecRefTwoRelationship", "Other") }
             ]
         }) }}        
         <!-- Second referee name -->
@@ -283,12 +280,9 @@
             value: data['pecRefThreeRelationshipOther'],                        
             classes: "govuk-!-width-two-thirds",
             label: {
-                text: "Other relationship to referee",
-                classes: "govuk-visually-hidden"
-            },
-            hint: {
-                text: "For example friend, someone you worked with, pastor or doctor."
-            }
+                text: "What is their relationship to you?",
+                classes: "govuk-label"
+            }            
         }) }}
         {% endset -%}
         <!-- // End of conditionals -->
@@ -306,7 +300,7 @@
             items: [                
                 { value: "Employer", text: "Employer", checked: checked("pecRefThreeRelationship", "Employer") },
                 { value: "Academic", text: "Academic", checked: checked("pecRefThreeRelationship", "Academic") },                    
-                { value: "Other", text: "Other", conditional: { html: otherHtml }, checked: checked("pecRefThreeRelationship", "Other") }
+                { value: "Other", text: "Other (such as doctor, pastor, friend or someone you worked with)", conditional: { html: otherHtml }, checked: checked("pecRefThreeRelationship", "Other") }
             ]
         }) }}
         <!-- Third referee name -->
