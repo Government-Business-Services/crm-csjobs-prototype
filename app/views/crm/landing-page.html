@@ -11,51 +11,49 @@
 
 {% block content %}
 
-
-
-
-
-
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
-
-        <div class="hero">
-            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-two-thirds">
-                    <p class="govuk-body-l">GRS was set up in 2017 as a one-stop-shop to meet recruitment needs across government. Recognising that recruitment is central to building the Civil Service we want to be, through our platforms and services we offer innovative solutions that attract, select and recruit talented individuals to deliver transformational outcomes across government.</p>
-                </div>
+    <div class="govuk-grid-column-full">                                
+        
+    
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds ">
+                <h2 class="govuk-heading-m">What we are working on </h2>
+                <p class="govuk-body">Content about what might be releasing, ability to obtain UR, etc etc:</p>     
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>constructing, altering, repairing, extending, demolishing or dismantling buildings or structures</li>
+                    <li>installing heating, lighting, air-conditioning, ventilation, power supply, drainage, sanitation, water supply or fire protection systems in any building or structure</li>
+                    <li>internal cleaning of buildings and structures, so far as carried out in the course of their construction, alteration, repair, extension or restoration</li>  
+                </ul>
             </div>
-            
-            <p>We are uniquely placed to deliver expert recruitment services to every part of government. Run by civil servants for civil servants, we have an unrivaled understanding of government.</p>
-            
-            
-            <button class="govuk-button govuk-button--inverse" data-module="govuk-button">
-                Button content
-              </button>
+            <div class="govuk-grid-column-one-third">
+                {{ xGovukRelatedNavigation({
+                    sections: [{
+                        items: [
+                            { text: "Content about something", href: "#" }, 
+                            { text: "Further content about something else", href: "#" }
+                        ]                                            
+                    }]
+                }) }}
+            </div>
+
+
         </div>
 
-        
-
-        <!-- <h2 class="govuk-heading-l">Who we are</h2> -->
-        
-        
-
-        <div class="govuk-grid-row govuk-!-margin-top-9">
+        <div class="govuk-grid-row govuk-!-margin-top-5">
             <div class="govuk-grid-column-one-half">
-                <h2 class="govuk-heading-m">Vacancy holder</h2>
+                <h2 class="govuk-heading-m">Vacancy holders</h2>
                 <p>Content relating to vacancy holder, could be authentication or any other relevant information.</p>
+                <p class="govuk-link govuk-link--no-visited-state"><a href="/crm/vacancy-holder">Find out how we can help you </a></p>
             </div>
             <div class="govuk-grid-column-one-half">
                 <h2 class="govuk-heading-m">Candidates</h2>
                 <p>Content relating to candidates, could be authentication or any other relevant non sensitive information.</p>
+                <p class="govuk-link govuk-link--no-visited-state"><a href="/crm/candidates">Find out how we can help you </a></p>
             </div>      
         </div>
-    </div>
 
-    <div class="govuk-grid-column-full govuk-!-margin-top-5">
-        <div class="govuk-grid-row">
+
+        <!-- <div class="govuk-grid-row govuk-!-margin-top-5">
             <div class="govuk-grid-column-one-third ">
                 <h2 class="govuk-heading-m">Query 1</h2>
                 <p>govuk-grid-column-one-quarter</p>
@@ -68,38 +66,11 @@
                 <h2 class="govuk-heading-m">Query 3</h2>
                 <p>govuk-grid-column-one-quarter</p>
             </div>            
-        </div>
-            
-        <!-- <div class="govuk-grid-row gouvk-!-margin-top-5">
-            <div class="govuk-grid-column-one-quarter">
-                <h2 class="govuk-heading-m">Query 4</h2>
-                <p>govuk-grid-column-one-quarter</p>
-            </div>
-            <div class="govuk-grid-column-one-quarter">
-                <h2 class="govuk-heading-m">Query 5</h2>
-                <p>govuk-grid-column-one-quarter</p>
-            </div>        
-            <div class="govuk-grid-column-one-quarter">
-                <h2 class="govuk-heading-m">Query 6</h2>
-                <p>govuk-grid-column-one-quarter</p>
-            </div>
-            <div class="govuk-grid-column-one-quarter">
-                <h2 class="govuk-heading-m">Query 7</h2>
-                <p>govuk-grid-column-one-quarter</p>
-            </div>
-        </div> -->
+        </div>                     -->
 
-        <div class="govuk-grid-row govuk-!-margin-top-5">
-            <div class="govuk-grid-column-full ">
-                <h2 class="govuk-heading-m">What we are working on </h2>
-                <p>Content about what might be releasing, ability to obtain UR, etc etc.</p>
-            </div>
+        
 
-
-            
-        </div>
-    </div>
-    
+    </div>    
 </div>
 
 

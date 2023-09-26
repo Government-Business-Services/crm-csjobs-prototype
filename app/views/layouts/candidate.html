@@ -1,0 +1,54 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% import "macros/page-title.njk" as macroPageTitle %}
+{% import "macros/page-header.njk" as macroPageHeader %}
+
+
+{% block header %}
+
+    {{ govukHeader({
+        homepageUrl: "/",
+        classes: "",
+        serviceName: "Government Recruitment Service (GRS)",
+        serviceUrl: "/"                    
+    }) }}
+
+    {{ xGovukMasthead({
+        classes: "x-govuk-masthead--large",
+        phaseBanner: {
+            text: "This is a new service"
+        },
+        breadcrumbs: {
+            items: [            
+                { href: "/crm/landing-page", text: "Government Recruitment Service" },
+                { href: "/crm/vacancy-holder", text: "Candidates" }                
+            ]
+        },
+        title: {
+            text: "Candidates"
+        },
+        description: {
+            html: "We are passionate about diversity and inclusion ensuring it is at the heart of our service. We adhere to best practice guidance on diverse interview panels for SCS roles, which has become a benchmark across the Civil Service, as have the processes we devised to ensure that reasonable adjustments are fairly and effectively implemented across all grades."
+        },
+        startButton: {
+            text: "Log in",
+            href: "/get-started/"
+        },
+            image: {
+                src: "/images/homepage-illustration.svg"
+            }
+    }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+
+
+
+{% endblock %}

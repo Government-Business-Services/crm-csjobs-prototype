@@ -14,28 +14,40 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
     {{ govukHeader({
         homepageUrl: "/",
         classes: "",
-        serviceName: "Government Recruitment Service (GRS)",
+        serviceName: "Civil Service Jobs",
         serviceUrl: "/"                    
     }) }}
+
+    
+
 
     {{ xGovukMasthead({
         classes: "x-govuk-masthead--large",
         phaseBanner: {
-            text: "This is an updated service"
-        },        
+            text: "This is a new service"
+        },      
+        breadcrumbs: {
+            items: [            
+                { href: "/crm/landing-page", text: "Home" },
+                { href: "/crm/what-we-do", text: "What we do" }                
+            ]
+        },  
         title: {
-            text: "Government Recruitment Service (GRS)"
+            text: "What we do"
         },
         description: {
-            html: "Our vision remains to be the recruitment partner of choice for departments, agencies and non-departmental public bodies (NDPBs). By increasing our capacity and reach, developing deep expertise, and providing excellent value for money we are moving forward with this ambition."            
+            html: "Run by civil servants for civil servants, we have an unrivalled understanding of government and we are uniquely placed to deliver expert recruitment services to every department."
         },        
-        image: {
-            src: "/images/pay-top-image-5f2b3404.png"
+            image: {
+                src: "/images/homepage-illustration.svg"
         }
     }) }}
 
 {% endblock %}
 
 {% block beforeContent %}
+
+
+
 
 {% endblock %}

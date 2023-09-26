@@ -1,0 +1,53 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% import "macros/page-title.njk" as macroPageTitle %}
+{% import "macros/page-header.njk" as macroPageHeader %}
+
+
+{% block header %}
+
+    {{ govukHeader({
+        homepageUrl: "/",
+        classes: "",
+        serviceName: "Civil Service Jobs",
+        serviceUrl: "/"                    
+    }) }}
+
+    
+
+
+    {{ xGovukMasthead({
+        classes: "x-govuk-masthead--large",
+        phaseBanner: {
+            text: "This is a new service"
+        },      
+        breadcrumbs: {
+            items: [            
+                { href: "/crm/landing-page", text: "Home" },
+                { href: "/crm/who-we-are", text: "Who we are" }                
+            ]
+        },  
+        title: {
+            text: "Who we are"
+        },
+        description: {
+            html: "GRS was set up in 2017 to meet recruitment needs across government. Recognising that recruitment is central to building the best Civil Service it can be, we offer innovative solutions through our platforms and services that attract, select and recruit talented individuals to deliver transformational outcomes across government."
+        },        
+            image: {
+                src: "/images/homepage-illustration.svg"
+        }
+    }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+
+
+
+{% endblock %}

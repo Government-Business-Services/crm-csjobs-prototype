@@ -1,0 +1,57 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% import "macros/page-title.njk" as macroPageTitle %}
+{% import "macros/page-header.njk" as macroPageHeader %}
+
+
+{% block header %}
+
+    {{ govukHeader({
+        homepageUrl: "/",
+        classes: "",
+        serviceName: "Civil Service Jobs",
+        serviceUrl: "/"                    
+    }) }}
+
+    {{ xGovukMasthead({
+        classes: "x-govuk-masthead--large",
+        phaseBanner: {
+            text: "This is a new service"
+        },
+        breadcrumbs: {
+            items: [            
+                { href: "/crm/landing-page", text: "Government Recruitment Service" },
+                { href: "/crm/vacancy-holder", text: "Vacancy holders" }                
+            ]
+        },
+        title: {
+            text: "Vacancy holders"
+        },
+        description: {
+            html: "We recruit for all Civil Service roles and grades up to SCS2, and have the flexibility to support as much or as little of your recruitment needs and can develop bespoke products at your request."
+        },
+        startButton: {
+            text: "Log in",
+            href: "#"
+        },
+            image: {
+                src: "/images/homepage-illustration.svg"
+        }
+    }) }}
+
+
+    
+
+{% endblock %}
+
+{% block beforeContent %}
+
+
+
+
+{% endblock %}

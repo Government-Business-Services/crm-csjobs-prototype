@@ -5,7 +5,8 @@
 
 // Add extra styles here
 
-
+// @import "node_modules/@x-govuk/govuk-prototype-components/x-govuk/all";
+@import "node_modules/@x-govuk/govuk-prototype-components/x-govuk/components/masthead/masthead";
 
 
 .cabo-side-navigation {
@@ -186,12 +187,3 @@
     margin-bottom: 12px;
 }
 
-.hero {
-    background-color: #1d70b8;
-    p {color: #fff;}
-    padding: 20px;    
-}
-
-.hero h1 {
-    color: #fff;
-}
