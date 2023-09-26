@@ -1,23 +1,46 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/landing.html" %}
 
+{% set serviceName = "Government Recruitment Service" %}
+{% set showPhaseBanner = false %}
 {% set showBackLink = false %}
 
-{% set pageHeading = "Customer Relationship Management (CRM)" %}
-{% set pageSection = "Prototype" %}
+{% set pageHeading = "Government Recruitment Service (GRS)" %}
+{% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
+
 {% block content %}
+
+
+
+
+
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
+        <div class="hero">
+            {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <p class="govuk-body-l">GRS was set up in 2017 as a one-stop-shop to meet recruitment needs across government. Recognising that recruitment is central to building the Civil Service we want to be, through our platforms and services we offer innovative solutions that attract, select and recruit talented individuals to deliver transformational outcomes across government.</p>
+                </div>
+            </div>
+            
+            <p>We are uniquely placed to deliver expert recruitment services to every part of government. Run by civil servants for civil servants, we have an unrivaled understanding of government.</p>
+            
+            
+            <button class="govuk-button govuk-button--inverse" data-module="govuk-button">
+                Button content
+              </button>
+        </div>
 
-        {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+        
 
         <!-- <h2 class="govuk-heading-l">Who we are</h2> -->
-        <p>GRS was set up in 2017 as a one-stop-shop to meet recruitment needs across government. Recognising that recruitment is central to building the Civil Service we want to be, through our platforms and services we offer innovative solutions that attract, select and recruit talented individuals to deliver transformational outcomes across government.</p>
-        <p>We are uniquely placed to deliver expert recruitment services to every part of government. Run by civil servants for civil servants, we have an unrivaled understanding of government.</p>
+        
+        
 
         <div class="govuk-grid-row govuk-!-margin-top-9">
             <div class="govuk-grid-column-one-half">
