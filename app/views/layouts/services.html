@@ -1,0 +1,53 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% import "macros/page-title.njk" as macroPageTitle %}
+{% import "macros/page-header.njk" as macroPageHeader %}
+
+
+{% block header %}
+
+    {{ govukHeader({
+        homepageUrl: "/",
+        classes: "",
+        serviceName: "Civil Service Jobs",
+        serviceUrl: "/"                    
+    }) }}
+
+    
+
+
+    {{ xGovukMasthead({
+        classes: "x-govuk-masthead--large",
+        phaseBanner: {
+            text: "This is a new service"
+        },      
+        breadcrumbs: {
+            items: [            
+                { href: "/crm/landing-page", text: "Home" },
+                { href: "/crm/services-and-functionality", text: "Services and functionality" }                
+            ]
+        },  
+        title: {
+            text: "Services and functionality"
+        },
+        description: {
+            html: "GRS provides premium service at a public sector price, with unique access to best-in-class sifting and selection tools, and exclusive access to innovative pre-employment screening."
+        },        
+            image: {
+                src: "/images/homepage-illustration.svg"
+        }
+    }) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+
+
+
+{% endblock %}

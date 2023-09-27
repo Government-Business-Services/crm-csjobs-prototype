@@ -18,7 +18,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
         serviceUrl: "/"                    
     }) }}
 
-    {{ xGovukMasthead({
+    <!-- {{ xGovukMasthead({
         classes: "x-govuk-masthead--large",
         phaseBanner: {
             text: "This is an updated service"
@@ -28,11 +28,18 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
         },
         description: {
             html: "Our vision remains to be the recruitment partner of choice for departments, agencies and non-departmental public bodies (NDPBs). By increasing our capacity and reach, developing deep expertise, and providing excellent value for money we are moving forward with this ambition."            
-        },        
+        },  
+        startButton: {
+            text: "Who we are",
+            href: "/crm/who-we-are"
+        },      
         image: {
             src: "/images/pay-top-image-5f2b3404.png"
         }
-    }) }}
+    }) }} -->
+
+
+    {% include "includes/masthead.html" %}
 
 {% endblock %}
 
