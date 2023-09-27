@@ -1,0 +1,47 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "GRS" %}
+
+{% set pageHeading = "Authentication" %}
+{% set pageSection = "Self-serve" %}
+
+{% block pageTitle %}Session data - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    <p>Details to authenticate to follow</p>
+
+
+    {% if data['user'] == "vh" %} 
+
+    {{ govukButton({
+      text: "Sign in",
+      href: "/crm/vacancy-holder"
+    }) }}
+
+    {% elif data['user'] == "can" %}
+
+    {{ govukButton({
+      text: "Sign in",
+      href: "/crm/candidates"
+    }) }}    
+
+    {% else %}
+
+    
+
+
+    {% endif %}
+
+    
+
+  
+  </div>
+</div>
+
+
+{% endblock %}
