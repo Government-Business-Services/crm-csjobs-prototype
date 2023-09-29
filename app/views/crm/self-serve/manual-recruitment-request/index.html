@@ -2,8 +2,8 @@
 {% set showBackLink = false %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "What we need" %}
-{% set pageSection = "Manual recruitment request" %}
+{% set pageHeading = "Manual recruitment request" %}
+{% set pageSection = "" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
 {% block content %}
@@ -13,13 +13,26 @@
 
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-    	<p>Flow and pattern to be confirmed.</p>
+
+
+		<p>This self-serve option allows you to...</p>
+
+		<h2 class="govuk-heading-m">What you will need to tell us</h2>
+		<p>To complete a manual recuritment request you would need to provide us with:</p>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>information about the vacancy holder</li>
+			<li>details of the vacancy, type, role and salary</li>
+			<li>your requirements for pre-employment checks if needed</li>
+
+		</ul>
 
 		<form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-holder-details/" >
 
 		
     	{{ govukButton({
-      		text: "Continue"			
+      		text: "Start now",
+			isStartButton: true,
+			classes: "govuk-!-margin-top-5"
     	}) }}
 
 		</form>
