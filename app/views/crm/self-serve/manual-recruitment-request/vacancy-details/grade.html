@@ -13,10 +13,27 @@
 
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-    	<p>Flow and pattern to be confirmed.</p>
+    	
 
         <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/salary" >
-    	
+			
+			{{ govukRadios({
+				name: "mmrRoleGrade",        
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Grade 5", text: "Grade 5", checked: checked("mmrRoleGrade", "Grade 5") },					
+					{ value: "Grade 6", text: "Grade 6", checked: checked("mmrRoleGrade", "Grade 6") },															
+					{ value: "Grade 7", text: "Grade 7", checked: checked("mmrRoleGrade", "Grade 7") }														
+				]
+			}) }}
+
+
             {{ govukButton({
       	    	text: "Continue"			    
     	    }) }}

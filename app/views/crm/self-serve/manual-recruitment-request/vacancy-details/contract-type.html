@@ -13,10 +13,36 @@
 
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-    	<p>Flow and pattern to be confirmed.</p>
+    
 
         <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/contract-type/length-of-employment" >
-    	
+			
+			{{ govukRadios({
+				name: "mmrRoleContractType",   				     
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Apprenticeship", text: "Apprenticeship", checked: checked("mmrRoleContractType", "Apprenticeship") },	
+					{ value: "Assisted Transfer", text: "Assisted Transfer", checked: checked("mmrRoleContractType", "Assisted Transfer") },
+					{ value: "Fixed Term", text: "Fixed Term", checked: checked("mmrRoleContractType", "Fixed Term") },
+					{ value: "Internship", text: "Internship", checked: checked("mmrRoleContractType", "Internship") },
+					{ value: "Loan", text: "Loan", checked: checked("mmrRoleContractType", "Loan") },
+					{ value: "Overseas", text: "Overseas", checked: checked("mmrRoleContractType", "Overseas") },
+					{ value: "Permanent", text: "Permanent", checked: checked("mmrRoleContractType", "Permanent") },
+					{ value: "Returner", text: "Returner", checked: checked("mmrRoleContractType", "Returner") },					
+					{ value: "Secondment", text: "Secondment", checked: checked("mmrRoleContractType", "Secondment") },
+					{ value: "Short Notice Appointment", text: "Short Notice Appointment", checked: checked("mmrRoleContractType", "Short Notice Appointment") },
+					{ value: "Temporary", text: "Temporary", checked: checked("mmrRoleContractType", "Temporary") },					
+					{ value: "Temporary (Not Fair and Open)", text: "Temporary (Not Fair and Open)", checked: checked("mmrRoleContractType", "Temporary (Not Fair and Open)") },
+					{ value: "Work Experience", text: "Work Experience", checked: checked("mmrRoleContractType", "Work Experience") }
+				]
+			}) }}
+
             {{ govukButton({
       	    	text: "Continue"			    
     	    }) }}

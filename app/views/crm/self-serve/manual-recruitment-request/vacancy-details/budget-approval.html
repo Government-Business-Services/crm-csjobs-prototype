@@ -16,7 +16,24 @@
     	<p>Flow and pattern to be confirmed.</p>
 
         <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/contract-type" >
-    	
+			
+			{{ govukRadios({
+				name: "mmrRoleBudget",   
+				classes: "govuk-radios--inline",     
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Yes", text: "Yes", checked: checked("mmrRoleBudget", "Yes") },					
+					{ value: "No", text: "No", checked: checked("mmrRoleBudget", "No") }																			
+				]
+			}) }}
+
+
             {{ govukButton({
       	    	text: "Continue"			    
     	    }) }}

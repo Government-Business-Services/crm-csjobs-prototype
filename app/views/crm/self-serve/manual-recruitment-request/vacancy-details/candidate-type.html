@@ -12,11 +12,29 @@
 	<div class="govuk-grid-column-two-thirds">
 
 
-    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-    	<p>Flow and pattern to be confirmed.</p>
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}    	
 
         <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/budget-approval" >
-    	
+			
+			{{ govukRadios({
+				name: "mmrRoleType",        
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Across Government", text: "Across Government", checked: checked("mmrRoleType", "Across Government") },					
+					{ value: "Internal", text: "Internal", checked: checked("mmrRoleType", "Internal") },															
+					{ value: "External", text: "External", checked: checked("mmrRoleType", "External") }														
+				]
+			}) }}
+
+
+
+
             {{ govukButton({
       	    	text: "Continue"			    
     	    }) }}
