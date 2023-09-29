@@ -15,15 +15,18 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	<p>Flow and pattern to be confirmed.</p>
 
+		<form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/">
+
         <div class="govuk-button-group">
     	{{ govukButton({
-      		text: "Confirm and continue",
-			href: "/crm/self-serve/manual-recruitment-request/vacancy-holder-details/"
+      		text: "Confirm and continue"			
 
     	}) }}
 
         <a class="govuk-link" href="/crm/self-serve/manual-recruitment-request/vacancy-holder-details/name">This is not me</a>
         </div>
+
+		</form>
   
 	</div>
 </div>
