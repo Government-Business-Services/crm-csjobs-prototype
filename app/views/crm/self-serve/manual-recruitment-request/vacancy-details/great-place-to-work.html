@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Check your answers" %}
+{% set pageHeading = "Is the role part of the Great Place to work for veterans initiative?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
@@ -15,12 +15,13 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	<p>Flow and pattern to be confirmed.</p>
 
-        <form method="post" action="/crm/self-serve/manual-recruitment-request/confirmation" >
+        <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/pension" >
             
             
             {{ govukButton({
-      	    	text: "Accept and send"			    
-    	    }) }}            
+      	    	text: "Continue"			    
+    	    }) }}
+            
             
         </form>
 

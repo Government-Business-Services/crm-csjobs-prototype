@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Check your answers" %}
+{% set pageHeading = "What is the salary?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
@@ -15,12 +15,15 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	<p>Flow and pattern to be confirmed.</p>
 
-        <form method="post" action="/crm/self-serve/manual-recruitment-request/confirmation" >
+        <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/prison-leavers" >
             
-            
+            <div class="govuk-button-group">
             {{ govukButton({
-      	    	text: "Accept and send"			    
-    	    }) }}            
+      	    	text: "Continue"			    
+    	    }) }}
+            <a class="govuk-link" href="/crm/self-serve/manual-recruitment-request/vacancy-holder-details/prison-leavers">This is not a paid role</a>
+            </div>
+
             
         </form>
 

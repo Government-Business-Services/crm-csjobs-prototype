@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Check your answers" %}
+{% set pageHeading = "Which pre-employment checks are required?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
@@ -15,11 +15,11 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	<p>Flow and pattern to be confirmed.</p>
 
-        <form method="post" action="/crm/self-serve/manual-recruitment-request/confirmation" >
+        <form method="post" action="/crm/self-serve/manual-recruitment-request/check-your-answers" >
             
             
             {{ govukButton({
-      	    	text: "Accept and send"			    
+      	    	text: "Confirm and continue"			    
     	    }) }}            
             
         </form>

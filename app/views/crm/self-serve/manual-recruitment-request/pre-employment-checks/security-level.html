@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Check your answers" %}
+{% set pageHeading = "What security level is required?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
@@ -15,12 +15,16 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	<p>Flow and pattern to be confirmed.</p>
 
-        <form method="post" action="/crm/self-serve/manual-recruitment-request/confirmation" >
+        <form method="post" action="/crm/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/regulated-activity" >
             
-            
+            <div class="govuk-button-group">
             {{ govukButton({
-      	    	text: "Accept and send"			    
-    	    }) }}            
+      	    	text: "Continue"			    
+    	    }) }}
+
+            <a class="govuk-link" href="/crm/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/regulated-activity">No security level required</a>
+
+            </div>
             
         </form>
 

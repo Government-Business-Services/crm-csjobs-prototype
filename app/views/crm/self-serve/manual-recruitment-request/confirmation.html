@@ -1,0 +1,31 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "GRS" %}
+
+{% set pageHeading = "Manual recruitment request accepted" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %}Session data - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ govukPanel({
+            titleText: pageHeading,
+            html: "Your reference number<br><strong>HDJ2123F</strong>"
+          }) }}
+
+
+    	<p>Flow and pattern to be confirmed.</p>
+
+        
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

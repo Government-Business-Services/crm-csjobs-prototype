@@ -2,8 +2,8 @@
 {% set showBackLink = false %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Manual recruitment request" %}
-{% set pageSection = "Self-serve" %}
+{% set pageHeading = "What we need" %}
+{% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
 {% block content %}
@@ -13,13 +13,16 @@
 
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-    	<p>Flow would follow.</p>
+    	<p>Flow and pattern to be confirmed.</p>
 
+		<form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-holder-details/" >
+
+		
     	{{ govukButton({
-      		text: "Save and continue",
-			href: "/crm/self-serve/manual-recruitment-request/vacancy-details/"
-
+      		text: "Continue"			
     	}) }}
+
+		</form>
   
 	</div>
 </div>
