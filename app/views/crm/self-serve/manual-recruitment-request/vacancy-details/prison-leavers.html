@@ -13,11 +13,27 @@
 
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-    	<p>Flow and pattern to be confirmed.</p>
+    	
 
         <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/great-place-to-work" >
             
-            
+            {{ govukRadios({
+				name: "mmrRolePrisonLeavers",   
+				classes: "govuk-radios--inline",     
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Yes", text: "Yes", checked: checked("mmrRolePrisonLeavers", "Yes") },					
+					{ value: "No", text: "No", checked: checked("mmrRolePrisonLeavers", "No") }																			
+				]
+			}) }}
+
+
             {{ govukButton({
       	    	text: "Continue"			    
     	    }) }}

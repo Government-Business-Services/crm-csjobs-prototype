@@ -17,7 +17,23 @@
 
         <form method="post" action="/crm/self-serve/manual-recruitment-request/pre-employment-checks/criminal-record" >
             
-            
+            {{ govukRadios({
+				name: "mmrPreChecksReserved",   
+				classes: "govuk-radios--inline",     
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Yes", text: "Yes", checked: checked("mmrPreChecksReserved", "Yes") },					
+					{ value: "No", text: "No", checked: checked("mmrPreChecksReserved", "No") }																			
+				]
+			}) }}
+
+
             {{ govukButton({
       	    	text: "Continue"			    
     	    }) }}

@@ -13,11 +13,28 @@
 
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-    	<p>Flow and pattern to be confirmed.</p>
+    	
 
         <form method="post" action="/crm/self-serve/manual-recruitment-request/pre-employment-checks/reserved-status" >
             
-            
+			{{ govukRadios({
+				name: "mmrPreChecks",   
+				classes: "govuk-radios--inline",     
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Yes", text: "Yes", checked: checked("mmrPreChecks", "Yes") },					
+					{ value: "No", text: "No", checked: checked("mmrPreChecks", "No") }																			
+				]
+			}) }}
+
+
+
             {{ govukButton({
       	    	text: "Continue"			    
     	    }) }}

@@ -13,10 +13,23 @@
 
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-    	<p>Flow and pattern to be confirmed.</p>
+    	
 
         <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/prison-leavers" >
             
+
+            {{ govukInput({
+				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+				classes: "govuk-!-width-two-thirds",
+                prefix: {
+                    text: "£"
+                  },
+				id: "mmrRoleSalary",
+				name: "mmrRoleSalary",
+				value: data['mmrRoleSalary']
+			}) }}
+
+
             <div class="govuk-button-group">
             {{ govukButton({
       	    	text: "Continue"			    

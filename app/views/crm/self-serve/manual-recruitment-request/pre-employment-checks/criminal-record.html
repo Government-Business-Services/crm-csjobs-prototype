@@ -17,6 +17,26 @@
 
         <form method="post" action="/crm/self-serve/manual-recruitment-request/pre-employment-checks/security-level" >
             
+
+            {{ govukRadios({
+				name: "mmrPreChecksReserved",   				     
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Basic", text: "Basic", checked: checked("mmrPreChecksReserved", "Basic") },					
+					{ value: "Enhanced", text: "Enhanced", checked: checked("mmrPreChecksReserved", "Enhanced") },
+                    { value: "Standard", text: "Standard", checked: checked("mmrPreChecksReserved", "Standard") }
+                    
+				]
+			}) }}
+
+
+
             <div class="govuk-button-group">
             {{ govukButton({
       	    	text: "Continue"			    

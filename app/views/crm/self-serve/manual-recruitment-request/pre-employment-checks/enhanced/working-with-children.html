@@ -13,11 +13,26 @@
 
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-    	<p>Flow and pattern to be confirmed.</p>
+    	
 
         <form method="post" action="/crm/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/home-address" >
             
-            
+			{{ govukRadios({
+				name: "mmrPreChecksChildren",   
+				classes: "govuk-radios--inline",     
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Yes", text: "Yes", checked: checked("mmrPreChecksChildren", "Yes") },					
+					{ value: "No", text: "No", checked: checked("mmrPreChecksChildren", "No") }																			
+				]
+			}) }}
+
             {{ govukButton({
       	    	text: "Continue"			    
     	    }) }}            
