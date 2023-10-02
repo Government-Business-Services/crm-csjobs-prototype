@@ -18,7 +18,7 @@
         <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/job-type" >
 			
 			{{ govukRadios({
-				name: "mmrRoleProfession",        
+				name: "mmrVacancyProfession",        
 				fieldset: {
 					legend: {
 						text: "Which profession is the role in",
@@ -27,33 +27,33 @@
 					}
 				},
 				items: [                
-					{ value: "Counter Fraud Professions", text: "Counter Fraud Professions", checked: checked("mmrRoleProfession", "Counter Fraud Professions") },					
-					{ value: "Digital, Data and Technology Profession", text: "Digital, Data and Technology Profession", checked: checked("mmrRoleProfession", "Digital, Data and Technology Profession") },					
-					{ value: "Government Communication Service", text: "Government Communication Service", checked: checked("mmrRoleProfession", "Government Communication Service") },					
-					{ value: "Government Corporate Finance", text: "Government Corporate Finance", checked: checked("mmrRoleProfession", "Government Corporate Finance") },					
-					{ value: "Government Economic Service", text: "Government Economic Service", checked: checked("mmrRoleProfession", "Government Economic Service") },					
-					{ value: "Government Finance", text: "Government Finance", checked: checked("mmrRoleProfession", "Government Finance") },					
-					{ value: "Government Legal Service", text: "Government Legal Service", checked: checked("mmrRoleProfession", "Government Legal Service") },					
-					{ value: "Government Operational Research Services", text: "Government Operational Research Services", checked: checked("mmrRoleProfession", "Government Operational Research Services") },					
-					{ value: "Government Project Delivery Profession", text: "Government Project Delivery Profession", checked: checked("mmrRoleProfession", "Government Project Delivery Profession") },					
-					{ value: "Government Property Profession", text: "Government Property Profession", checked: checked("mmrRoleProfession", "Government Property Profession") },					
-					{ value: "Government Science and Engineering", text: "Government Science and Engineering", checked: checked("mmrRoleProfession", "Government Science and Engineering") },					
-					{ value: "Government Social Research", text: "Government Social Research", checked: checked("mmrRoleProfession", "Government Social Research") },					
-					{ value: "Government Statistical Service", text: "Government Statistical Service", checked: checked("mmrRoleProfession", "Government Statistical Service") },					
-					{ value: "Government Veterinary Profession", text: "Government Veterinary Profession", checked: checked("mmrRoleProfession", "Government Veterinary Profession") },					
-					{ value: "Human Resources", text: "Human Resources", checked: checked("mmrRoleProfession", "Human Resources") },					
-					{ value: "Intelligence Analysis", text: "Intelligence Analysis", checked: checked("mmrRoleProfession", "Intelligence Analysis") },					
-					{ value: "Internal Audit", text: "Internal Audit", checked: checked("mmrRoleProfession", "Internal Audit") },					
-					{ value: "International Trade Profession", text: "International Trade Profession", checked: checked("mmrRoleProfession", "International Trade Profession") },					
-					{ value: "Knowledge and Information Management", text: "Knowledge and Information Management", checked: checked("mmrRoleProfession", "Knowledge and Information Management") },					
-					{ value: "Medical Profession", text: "Medical Profession", checked: checked("mmrRoleProfession", "Medical Profession") },					
-					{ value: "Operational Delivery Profession", text: "Operational Delivery Profession", checked: checked("mmrRoleProfession", "Operational Delivery Profession") },					
-					{ value: "Planning Inspectors", text: "Planning Inspectors", checked: checked("mmrRoleProfession", "Planning Inspectors") },					
-					{ value: "Planning Profession", text: "Planning Profession", checked: checked("mmrRoleProfession", "Planning Profession") },					
-					{ value: "Policy Profession", text: "Policy Profession", checked: checked("mmrRoleProfession", "Policy Profession") },					
-					{ value: "Psychology Profession", text: "Psychology Profession", checked: checked("mmrRoleProfession", "Psychology Profession") },					
-					{ value: "Security Profession", text: "Security Profession", checked: checked("mmrRoleProfession", "Security Profession") },					
-					{ value: "Tax Profession", text: "Tax Profession", checked: checked("mmrRoleProfession", "Tax Profession") }														
+					{ value: "Counter Fraud Professions", text: "Counter Fraud Professions", checked: checked("mmrVacancyProfession", "Counter Fraud Professions") },					
+					{ value: "Digital, Data and Technology Profession", text: "Digital, Data and Technology Profession", checked: checked("mmrVacancyProfession", "Digital, Data and Technology Profession") },					
+					{ value: "Government Communication Service", text: "Government Communication Service", checked: checked("mmrVacancyProfession", "Government Communication Service") },					
+					{ value: "Government Corporate Finance", text: "Government Corporate Finance", checked: checked("mmrVacancyProfession", "Government Corporate Finance") },					
+					{ value: "Government Economic Service", text: "Government Economic Service", checked: checked("mmrVacancyProfession", "Government Economic Service") },					
+					{ value: "Government Finance", text: "Government Finance", checked: checked("mmrVacancyProfession", "Government Finance") },					
+					{ value: "Government Legal Service", text: "Government Legal Service", checked: checked("mmrVacancyProfession", "Government Legal Service") },					
+					{ value: "Government Operational Research Services", text: "Government Operational Research Services", checked: checked("mmrVacancyProfession", "Government Operational Research Services") },					
+					{ value: "Government Project Delivery Profession", text: "Government Project Delivery Profession", checked: checked("mmrVacancyProfession", "Government Project Delivery Profession") },					
+					{ value: "Government Property Profession", text: "Government Property Profession", checked: checked("mmrVacancyProfession", "Government Property Profession") },					
+					{ value: "Government Science and Engineering", text: "Government Science and Engineering", checked: checked("mmrVacancyProfession", "Government Science and Engineering") },					
+					{ value: "Government Social Research", text: "Government Social Research", checked: checked("mmrVacancyProfession", "Government Social Research") },					
+					{ value: "Government Statistical Service", text: "Government Statistical Service", checked: checked("mmrVacancyProfession", "Government Statistical Service") },					
+					{ value: "Government Veterinary Profession", text: "Government Veterinary Profession", checked: checked("mmrVacancyProfession", "Government Veterinary Profession") },					
+					{ value: "Human Resources", text: "Human Resources", checked: checked("mmrVacancyProfession", "Human Resources") },					
+					{ value: "Intelligence Analysis", text: "Intelligence Analysis", checked: checked("mmrVacancyProfession", "Intelligence Analysis") },					
+					{ value: "Internal Audit", text: "Internal Audit", checked: checked("mmrVacancyProfession", "Internal Audit") },					
+					{ value: "International Trade Profession", text: "International Trade Profession", checked: checked("mmrVacancyProfession", "International Trade Profession") },					
+					{ value: "Knowledge and Information Management", text: "Knowledge and Information Management", checked: checked("mmrVacancyProfession", "Knowledge and Information Management") },					
+					{ value: "Medical Profession", text: "Medical Profession", checked: checked("mmrVacancyProfession", "Medical Profession") },					
+					{ value: "Operational Delivery Profession", text: "Operational Delivery Profession", checked: checked("mmrVacancyProfession", "Operational Delivery Profession") },					
+					{ value: "Planning Inspectors", text: "Planning Inspectors", checked: checked("mmrVacancyProfession", "Planning Inspectors") },					
+					{ value: "Planning Profession", text: "Planning Profession", checked: checked("mmrVacancyProfession", "Planning Profession") },					
+					{ value: "Policy Profession", text: "Policy Profession", checked: checked("mmrVacancyProfession", "Policy Profession") },					
+					{ value: "Psychology Profession", text: "Psychology Profession", checked: checked("mmrVacancyProfession", "Psychology Profession") },					
+					{ value: "Security Profession", text: "Security Profession", checked: checked("mmrVacancyProfession", "Security Profession") },					
+					{ value: "Tax Profession", text: "Tax Profession", checked: checked("mmrVacancyProfession", "Tax Profession") }														
 				]
 			}) }}
 

@@ -17,7 +17,7 @@
         <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/budget-approval" >
 			
 			{{ govukRadios({
-				name: "mmrRoleType",        
+				name: "mmrVacancyType",        
 				fieldset: {
 					legend: {
 						text: "Which profession is the role in",
@@ -26,9 +26,9 @@
 					}
 				},
 				items: [                
-					{ value: "Across Government", text: "Across Government", checked: checked("mmrRoleType", "Across Government") },					
-					{ value: "Internal", text: "Internal", checked: checked("mmrRoleType", "Internal") },															
-					{ value: "External", text: "External", checked: checked("mmrRoleType", "External") }														
+					{ value: "Across Government", text: "Across Government", checked: checked("mmrVacancyType", "Across Government") },					
+					{ value: "Internal", text: "Internal", checked: checked("mmrVacancyType", "Internal") },															
+					{ value: "External", text: "External", checked: checked("mmrVacancyType", "External") }														
 				]
 			}) }}
 

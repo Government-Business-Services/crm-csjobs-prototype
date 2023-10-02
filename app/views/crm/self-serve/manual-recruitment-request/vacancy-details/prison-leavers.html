@@ -18,7 +18,7 @@
         <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/great-place-to-work" >
             
             {{ govukRadios({
-				name: "mmrRolePrisonLeavers",   
+				name: "mmrVacancyPrisonLeavers",   
 				classes: "govuk-radios--inline",     
 				fieldset: {
 					legend: {
@@ -28,8 +28,8 @@
 					}
 				},
 				items: [                
-					{ value: "Yes", text: "Yes", checked: checked("mmrRolePrisonLeavers", "Yes") },					
-					{ value: "No", text: "No", checked: checked("mmrRolePrisonLeavers", "No") }																			
+					{ value: "Yes", text: "Yes", checked: checked("mmrVacancyPrisonLeavers", "Yes") },					
+					{ value: "No", text: "No", checked: checked("mmrVacancyPrisonLeavers", "No") }																			
 				]
 			}) }}
 

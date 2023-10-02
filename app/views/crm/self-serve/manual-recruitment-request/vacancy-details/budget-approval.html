@@ -18,7 +18,7 @@
         <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/contract-type" >
 			
 			{{ govukRadios({
-				name: "mmrRoleBudget",   
+				name: "mmrVacancyBudget",   
 				classes: "govuk-radios--inline",     
 				fieldset: {
 					legend: {
@@ -28,8 +28,8 @@
 					}
 				},
 				items: [                
-					{ value: "Yes", text: "Yes", checked: checked("mmrRoleBudget", "Yes") },					
-					{ value: "No", text: "No", checked: checked("mmrRoleBudget", "No") }																			
+					{ value: "Yes", text: "Yes", checked: checked("mmrVacancyBudget", "Yes") },					
+					{ value: "No", text: "No", checked: checked("mmrVacancyBudget", "No") }																			
 				]
 			}) }}
 

@@ -18,7 +18,7 @@
         <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/salary" >
 			
 			{{ govukRadios({
-				name: "mmrRoleGrade",        
+				name: "mmrVacancyGrade",        
 				fieldset: {
 					legend: {
 						text: "Which profession is the role in",
@@ -27,9 +27,9 @@
 					}
 				},
 				items: [                
-					{ value: "Grade 5", text: "Grade 5", checked: checked("mmrRoleGrade", "Grade 5") },					
-					{ value: "Grade 6", text: "Grade 6", checked: checked("mmrRoleGrade", "Grade 6") },															
-					{ value: "Grade 7", text: "Grade 7", checked: checked("mmrRoleGrade", "Grade 7") }														
+					{ value: "Grade 5", text: "Grade 5", checked: checked("mmrVacancyGrade", "Grade 5") },					
+					{ value: "Grade 6", text: "Grade 6", checked: checked("mmrVacancyGrade", "Grade 6") },															
+					{ value: "Grade 7", text: "Grade 7", checked: checked("mmrVacancyGrade", "Grade 7") }														
 				]
 			}) }}
 

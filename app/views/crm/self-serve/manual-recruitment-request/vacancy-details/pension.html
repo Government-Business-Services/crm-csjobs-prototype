@@ -18,7 +18,7 @@
         <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/check-your-answers" >
             
             {{ govukRadios({
-				name: "mmrRolePension",   
+				name: "mmrVacancyPension",   
 				classes: "govuk-radios--inline",     
 				fieldset: {
 					legend: {
@@ -28,8 +28,8 @@
 					}
 				},
 				items: [                
-					{ value: "Yes", text: "Yes", checked: checked("mmrRolePension", "Yes") },					
-					{ value: "No", text: "No", checked: checked("mmrRolePension", "No") }																			
+					{ value: "Yes", text: "Yes", checked: checked("mmrVacancyPension", "Yes") },					
+					{ value: "No", text: "No", checked: checked("mmrVacancyPension", "No") }																			
 				]
 			}) }}
 
