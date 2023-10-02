@@ -9,33 +9,36 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-column-two-thirds">
 
 
-    {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-    <p>Details to authenticate to follow</p>
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	<p>Details to authenticate to follow</p>
 
 
-    {% if data['user'] == "vh" %} 
+    	{% if data['user'] == "vh" %} 
 
-    {{ govukButton({
-      text: "Sign in",
-      href: "/crm/vacancy-holder"
-    }) }}
+		<form method="post" action="/crm/vacancy-holder" >
 
-    {% elif data['user'] == "can" %}
+			<input type="text" name="authenticated" id="authenticated" value="Yes" class="govuk-visually-hidden"/>
 
-    {{ govukButton({
-      text: "Sign in",
-      href: "/crm/candidates"
-    }) }}    
+    		{{ govukButton({
+      			text: "Sign in"      			
+    		}) }}
+		</form>
 
-    {% else %}
+    	{% elif data['user'] == "can" %}
 
+    		{{ govukButton({
+      			text: "Sign in",
+      			href: "/crm/candidates"
+    		}) }}    
+
+    	{% else %}
     
+			<p>Do not need to authenticate.</p>
 
-
-    {% endif %}
+    	{% endif %}
 
     
 
