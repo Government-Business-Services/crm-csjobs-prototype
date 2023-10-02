@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Has the budget for the role been approved?" %}
+{% set pageHeading = "Is this a permanent role?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
@@ -13,13 +13,13 @@
 
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-    	
+    
 
-        <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/permanent-role" >
+        <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/location" >
 			
 			{{ govukRadios({
-				name: "mmrVacancyBudget",   
-				classes: "govuk-radios--inline",     
+				name: "mmrVacancyPermanent",   	
+				classes: "govuk-radios--inline",			     
 				fieldset: {
 					legend: {
 						text: "Which profession is the role in",
@@ -28,11 +28,11 @@
 					}
 				},
 				items: [                
-					{ value: "Yes", text: "Yes", checked: checked("mmrVacancyBudget", "Yes") },					
-					{ value: "No", text: "No", checked: checked("mmrVacancyBudget", "No") }																			
+					{ value: "Yes", text: "Yes", checked: checked("mmrVacancyPermanent", "Yes") },	
+					{ value: "No, redirect(/crm/self-serve/manual-recruitment-request/vacancy-details/contract-type)", text: "No", checked: checked("mmrVacancyPermanent", "No") }
+					
 				]
 			}) }}
-
 
             {{ govukButton({
       	    	text: "Continue"			    
