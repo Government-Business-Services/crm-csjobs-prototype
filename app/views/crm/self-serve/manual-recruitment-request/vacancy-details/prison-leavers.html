@@ -1,8 +1,8 @@
 {% extends "layouts/main.html" %}
-{% set showBackLink = false %}
+
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Is the role open to prison leavers as part of the Prison Leavers Project?" %}
+{% set pageHeading = "Is this vacancy open to prison leavers as part of the Prison Leavers Project?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
@@ -14,7 +14,7 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
-
+		<p>The Civil Service welcomes applications from recent prison leavers or those with an unspent conviction.</p>
         <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/great-place-to-work" >
             
             {{ govukRadios({

@@ -2,7 +2,7 @@
 
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Are you the vacancy holder for this role?" %}
+{% set pageHeading = "Are you the vacancy holder for this request?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
@@ -14,7 +14,7 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
-		<p class="govuk-body">These are the contact details we will use.</p>
+		<p class="govuk-body">These are the contact details we will use on the vacancy.</p>
 
 		<div class="govuk-inset-text">
 			<p>Hugo Furst
@@ -30,7 +30,7 @@
       				text: "Confirm and continue"			
     			}) }}
 
-        		<a class="govuk-link" href="/crm/self-serve/manual-recruitment-request/vacancy-holder-details/name">It’s a different vacancy holder</a>
+        		<a class="govuk-link" href="/crm/self-serve/manual-recruitment-request/vacancy-holder-details/name">These contact details are not correct</a>
         	</div>
 
 		</form>

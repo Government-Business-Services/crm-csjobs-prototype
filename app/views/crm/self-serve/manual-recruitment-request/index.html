@@ -1,4 +1,5 @@
 {% extends "layouts/main.html" %}
+{% set showBackLink = false %}
 {% set serviceName = "GRS" %}
 
 {% set pageHeading = "Manual recruitment request" %}
@@ -14,13 +15,14 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-		<p>This self-serve process allows you to make a manual recruitment request. You can fill in the relevant information about a vacancy to create the request yourself and proceed with recruitment.</p>
+		<p>This self-serve process allows you to make a manual recruitment request.</p>
+		<p>You need to fill in the relevant information about a vacancy to create the request yourself and proceed with recruitment.</p>
 
 		<h2 class="govuk-heading-m">What you will need to tell us</h2>
 		<p>To complete a manual recruitment request you will need to provide the following information:</p>
 		<ul class="govuk-list govuk-list--bullet">
 			<li>details about the vacancy holder</li>
-			<li>details of the vacancy, including the type of role, location and salary</li>
+			<li>details of the vacancy, including the type, location and salary</li>
 			<li>your requirements for pre-employment checks, if needed</li>
 		</ul>
 
@@ -29,13 +31,14 @@
 			<input type="text" name="mmr" id="mmr" value="Started" class="govuk-visually-hidden" />
 		
     		{{ govukButton({
-      			text: "Continue",				
-				classes: "govuk-!-margin-top-5"
+      			text: "Start request",				
+				classes: "govuk-!-margin-top-5",
+				isStartButton: true
     		}) }}
 
 		</form>
 
-		<p class="govuk-body"><a href="/crm/vacancy-holder" class="govuk-link">Cancel and return to vacancy holders</a></p>
+		<p class="govuk-body"><a href="/crm/vacancy-holder" class="govuk-link">Return to vacancy holders</a></p>
   
 	</div>
 </div>

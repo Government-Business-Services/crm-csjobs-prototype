@@ -2,8 +2,8 @@
 {% set showBackLink = false %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Authentication" %}
-{% set pageSection = "Self-serve" %}
+{% set pageHeading = "Sign in with your departmental details" %}
+{% set pageSection = "Vacancy holders" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
 {% block content %}
@@ -13,7 +13,7 @@
 
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-    	<p>Details to authenticate to follow</p>
+    	
 
 
     	{% if data['user'] == "vh" %} 
@@ -21,6 +21,24 @@
 		<form method="post" action="/crm/vacancy-holder" >
 
 			<input type="text" name="authenticated" id="authenticated" value="Yes" class="govuk-visually-hidden"/>
+
+			{{ govukInput({
+				label: { text: "Email address", classes: "govuk-label", isPageHeading: false },      
+				classes: "govuk-!-width-two-thirds",
+				id: "signInVHEmail",
+				name: "signInVHEmail",
+				value: data['signInVHEmail']
+			}) }}
+
+			{{ govukInput({
+				label: { text: "Password", classes: "govuk-label", isPageHeading: false },      
+				classes: "govuk-!-width-two-thirds",
+				id: "signinVHPassword",
+				name: "signinVHPassword",
+				value: data['signinVHPassword']
+			}) }}
+
+
 
     		{{ govukButton({
       			text: "Sign in"      			

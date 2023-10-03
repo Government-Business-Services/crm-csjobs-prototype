@@ -2,7 +2,7 @@
 
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Has the budget for this role been approved?" %}
+{% set pageHeading = "Has the budget for this vacancy been approved?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
@@ -15,14 +15,14 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
 
-        <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/permanent-role" >
+        <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/location" >
 			
 			{{ govukRadios({
 				name: "mmrVacancyBudget",   
 				classes: "govuk-radios--inline",     
 				fieldset: {
 					legend: {
-						text: "Which profession is the role in",
+						text: pageHeading,
 						isPageHeading: false,
 						classes: "govuk-visually-hidden"
 					}

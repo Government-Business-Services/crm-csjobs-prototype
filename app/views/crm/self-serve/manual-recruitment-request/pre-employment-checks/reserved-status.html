@@ -2,7 +2,7 @@
 {% set showBackLink = false %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Is this a reserved role?" %}
+{% set pageHeading = "Is this a ‘reserved post’?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
@@ -14,7 +14,7 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
-
+		<p>Additional restrictions apply in relation to certain sensitive Civil Service posts. These are known as 'reserved posts'. Only UK nationals are eligible for employment in reserved posts.</p>
         <form method="post" action="/crm/self-serve/manual-recruitment-request/pre-employment-checks/criminal-record" >
             
             {{ govukRadios({

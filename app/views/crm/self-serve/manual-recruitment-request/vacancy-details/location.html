@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Where is the role located?" %}
+{% set pageHeading = "Where is the vacancy located?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
@@ -13,12 +13,17 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
-		<p class="govuk-body">This could be the main office for the government department or branch. Please state this location even if the role is classed as ‘work from home’.</p>
-        <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/pattern" >
+		<p class="govuk-body">This should be the main office for the government department or branch, even if it’s classed as ‘work from home’.</p>
+        <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/permanent-role" >
+
+
 			
 			{{ govukInput({
 				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
 				classes: "govuk-!-width-two-thirds",
+				hint: {
+					text: "For example, Sheffield, Newcastle or South East England"
+				},
 				id: "mmrVacancyLocation",
 				name: "mmrVacancyLocation",
 				value: data['mmrVacancyLocation']

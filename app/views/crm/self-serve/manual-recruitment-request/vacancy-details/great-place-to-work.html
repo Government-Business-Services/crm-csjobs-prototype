@@ -1,8 +1,8 @@
 {% extends "layouts/main.html" %}
-{% set showBackLink = false %}
+
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Is the role part of the Great Place to Work for Veterans scheme?" %}
+{% set pageHeading = "Is this vacancy part of the Great Place to Work for Veterans scheme?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
@@ -14,6 +14,7 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
+		<p>This initiative aims to encourage more veterans to apply for roles at all grades, functions and professions across the Civil Service.</p>
 
         <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/pension" >
 			

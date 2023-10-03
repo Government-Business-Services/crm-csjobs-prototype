@@ -1,8 +1,7 @@
 {% extends "layouts/main.html" %}
-{% set showBackLink = false %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "What is the salary?" %}
+{% set pageHeading = "What’s this vacancy’s salary?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
@@ -24,6 +23,9 @@
                 prefix: {
                     text: "£"
                   },
+				hint: {
+					text: "For example, 21131 or 38724 - 44393"
+				},
 				type: "number",
 				id: "mmrVacancySalary",
 				name: "mmrVacancySalary",
@@ -35,7 +37,7 @@
             {{ govukButton({
       	    	text: "Continue"			    
     	    }) }}
-            <a class="govuk-link" href="/crm/self-serve/manual-recruitment-request/vacancy-details/prison-leavers?mmrVacancySalary=NA">This is not a paid role</a>
+            <a class="govuk-link" href="/crm/self-serve/manual-recruitment-request/vacancy-details/prison-leavers?mmrVacancySalary=NA">This vacancy does not have a salary</a>
             </div>
 
             

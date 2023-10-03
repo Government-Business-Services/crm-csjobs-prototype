@@ -29,20 +29,19 @@
 				items: [                
 					{ value: "Counter Terrorist Check (CTC)", text: "Counter Terrorist Check (CTC)", checked: checked("mmrPreChecksSecurity", "Counter Terrorist Check (CTC)") },					
 					{ value: "Developed Vetting (DV)", text: "Developed Vetting (DV)", checked: checked("mmrPreChecksSecurity", "Developed Vetting (DV)") },
-                    { value: "Secuirty Check (SC)", text: "Secuirty Check (SC)", checked: checked("mmrPreChecksSecurity", "Secuirty Check (SC)") }                    
+                    { value: "Secuirty Check (SC)", text: "Secuirty Check (SC)", checked: checked("mmrPreChecksSecurity", "Secuirty Check (SC)") },
+					{ divider: "or" },
+					{ value: "None", text: "None", checked: checked("mmrPreChecksSecurity", "None") }                    
                     
 				]
 			}) }}
 
 
-            <div class="govuk-button-group">
+
             {{ govukButton({
       	    	text: "Continue"			    
     	    }) }}
 
-            <a class="govuk-link" href="/crm/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/regulated-activity">No security check required</a>
-
-            </div>
             
         </form>
 

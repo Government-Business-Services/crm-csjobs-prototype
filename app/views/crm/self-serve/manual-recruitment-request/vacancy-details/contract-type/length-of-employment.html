@@ -1,8 +1,8 @@
 {% extends "layouts/main.html" %}
-{% set showBackLink = false %}
+{% set showBackLink = true %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "What is the length of employment?" %}
+{% set pageHeading = "How long is this vacancy’s length of employment?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
@@ -15,14 +15,14 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     		
 
-        <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/location" >
+        <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/grade" >
 			
 			{{ govukInput({
 				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
-				classes: "govuk-!-width-one-third",
-				suffix: {
-                	text: "months"
-                },
+				classes: "govuk-!-width-two-thirds",				
+				hint: {
+					text: "For example, Fixed Term Contract ending 31 March 2024."
+				},
 				id: "mmrVacancyLengthEmployment",
 				name: "mmrVacancyLengthEmployment",
 				value: data['mmrVacancyLengthEmployment']

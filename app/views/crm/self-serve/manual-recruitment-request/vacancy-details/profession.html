@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Which profession does this role belong to?" %}
+{% set pageHeading = "Which profession does this vacancy belong to?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
@@ -14,7 +14,7 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
 
-        <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/job-type" >
+        <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/candidate-type" >
 			
 
 			{% set financeHtml %}

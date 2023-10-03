@@ -1,8 +1,8 @@
 {% extends "layouts/main.html" %}
-{% set showBackLink = false %}
+
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Does this role offer a Civil Service pension?" %}
+{% set pageHeading = "Does this vacancy offer a Civil Service pension?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
@@ -15,7 +15,7 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
 
-        <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/check-your-answers" >
+        <form method="post" action="/crm/self-serve/manual-recruitment-request/pre-employment-checks/" >
             
             {{ govukRadios({
 				name: "mmrVacancyPension",   
