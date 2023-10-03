@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Which department is this role based in?" %}
+{% set pageHeading = "Which department is this role for?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
@@ -13,7 +13,7 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
+		<!-- <p>This is the department that the vacancy will be based in.</p> -->
         <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/business-area" >
 			
 			{{ govukInput({
