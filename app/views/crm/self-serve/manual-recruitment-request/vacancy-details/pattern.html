@@ -1,8 +1,7 @@
 {% extends "layouts/main.html" %}
-{% set showBackLink = false %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "What is the role’s working pattern?" %}
+{% set pageHeading = "What is the role’s expected working pattern?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
@@ -14,6 +13,7 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
+		<p class="govuk-body">This could be full-time office hours, part-time or shift work.</p>
 
         <form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/grade" >
 			
