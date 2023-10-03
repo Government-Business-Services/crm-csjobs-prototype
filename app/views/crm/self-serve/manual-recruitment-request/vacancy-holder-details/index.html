@@ -2,7 +2,7 @@
 
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Confirm vacancy holder details" %}
+{% set pageHeading = "Are you the vacancy holder for this role?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
@@ -14,7 +14,7 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
-		<p class="govuk-body">Please confirm your contact details as a vacancy holder.</p>
+		<p class="govuk-body">These are the contact details we will use.</p>
 
 		<div class="govuk-inset-text">
 			<p>Hugo Furst
@@ -25,14 +25,13 @@
 
 		<form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-details/">
 
-        <div class="govuk-button-group">
-    	{{ govukButton({
-      		text: "Confirm and continue"			
+        	<div class="govuk-button-group">
+    			{{ govukButton({
+      				text: "Confirm and continue"			
+    			}) }}
 
-    	}) }}
-
-        <a class="govuk-link" href="/crm/self-serve/manual-recruitment-request/vacancy-holder-details/name">This isn’t me</a>
-        </div>
+        		<a class="govuk-link" href="/crm/self-serve/manual-recruitment-request/vacancy-holder-details/name">It’s a different vacancy holder</a>
+        	</div>
 
 		</form>
   

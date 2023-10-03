@@ -1,8 +1,11 @@
 {% extends "layouts/main.html" %}
-{% set showBackLink = false %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "What’s your email address?" %}
+{% if data['mmrVHName'] %}
+	{% set pageHeading = 'What’s ' + data.mmrVHName + '’s email address?' %}
+{% else %}
+	{% set pageHeading = "What’s the vacancy holders email address?" %}
+{% endif %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %}Session data - Prototype{% endblock %}
