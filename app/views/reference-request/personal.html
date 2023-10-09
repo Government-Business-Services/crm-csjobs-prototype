@@ -230,15 +230,15 @@
 					  html: "This must be a UK landline or mobile. <br>For example, +44 020 7450 4000 or 07771 900 900"
 					},
 					
-					id: "refThirdPhone",
-					name: "refThirdPhone"
+					id: "refPersonalRequestPhoneNumber",
+					name: "refPersonalRequestPhoneNumber"
 				  }) }}
 
 				  {% endset -%}
 
 
 				  {{ govukRadios({
-        			name: "refPersonalRequestRelated",        			
+        			name: "refPersonalRequestPhone",        			
         			fieldset: {
           				legend: { text: "Do you want to provide your telephone number?", isPageHeading: false, classes: "govuk-fieldset__legend" }
         			},
