@@ -28,7 +28,9 @@
 			
 			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-			<div class="govuk-inset-text">				
+
+			<p>We need your assistance to confirm some information about (NAME). <br>This is not a character reference, but you can help us by confirming some identity and suitability details about them.  </p>
+			<div class="govuk-inset-text govuk-!-margin-bottom-7">				
 				<p>This form cannot be saved and retrieved later on. If you close the form without submitting it, you will have to start again.</p>				
 			</div>
 
@@ -50,6 +52,9 @@
         			fieldset: {
           				legend: { text: "Are you related to {NAME}", isPageHeading: false, classes: "govuk-fieldset__legend" }
         			},
+					hint: {
+						text: "You must not be related to the applicant in any way."
+					},
         			items: [
           				{ value: "Yes", text: "Yes" },
           				{ value: "No", text: "No" }          
@@ -75,6 +80,9 @@
         			fieldset: {
           				legend: { text: "Have you known {NAME} for more than 3 years?", isPageHeading: true, classes: "govuk-fieldset__legend" }
         			},
+					hint: {
+						text: "It’s a requirement to have known the applicant for at least this long."
+					},
         			items: [
           				{ value: "Yes", text: "Yes" },
           				{ value: "No", text: "No" }          
@@ -129,10 +137,10 @@
 					{{ govukCharacterCount({
 						name: "refRequestColleaguesCount",
 						id: "refRequestColleaguesCount",
-						maxlength: 500,
+						maxlength: 200,
 						label: { text: "Provide details of their work with you during the last 3 years", classes: "govuk-label", isPageHeading: false, classes: "govuk-visually-hidden" },
 						hint: {
-						  text: "Include what work they did, how long for and where, if possible. We encourage you to be honest and factual. You can include positive and negative points as you see fit."
+						  html: "Include what work they did, how long for and where, if possible. <br>We encourage you to be honest and factual."
 						}
 					}) }}
 
@@ -151,10 +159,10 @@
 					{{ govukCharacterCount({
 						name: "refRequestOtherWorkCount",
 						id: "refRequestOtherWorkCount",
-						maxlength: 500,
-						label: { text: "Provide details of their work for other employers or their self-employment during the last 3 years, if possible.", classes: "govuk-label", isPageHeading: true },
+						maxlength: 200,
+						label: { text: "Provide details of their work for other employers or their self-employment during this time, if possible.", classes: "govuk-label", isPageHeading: true },
 						hint: {
-							text: "Include what work they did, how long for and where. We encourage you to be honest and factual. You can include positive and negative points as you see fit."
+							text: "Include what work they did, how long for and where."
 						}
 					}) }}
 
@@ -172,7 +180,7 @@
 					{{ govukCharacterCount({
 						name: "refRequestUnsuitableCount",
 						id: "refRequestUnsuitableCount",
-						maxlength: 500,
+						maxlength: 200,
 						label: { text: "Provide details of their skills, conduct or reliability", classes: "govuk-label", isPageHeading: false, classes: "govuk-visually-hidden" },
 						hint: {
 						  text: "Include any details of their methods of working, their professional behaviour and their abilities that you feel is important.
@@ -303,7 +311,7 @@
 
 
       			{{ govukButton({
-        			text: "Send reference",
+        			text: "Submit reference",
         			href: "complete"        
       			}) }}    
     		

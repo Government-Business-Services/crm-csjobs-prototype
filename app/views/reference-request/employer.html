@@ -29,7 +29,12 @@
 
           {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-        	<div class="govuk-inset-text">
+
+          <p>We need your assistance to confirm some information about (NAME).
+          <br>This is not a character reference, but you can help us by confirming some identity and employment details about them.</p>
+
+
+        	<div class="govuk-inset-text govuk-!-margin-bottom-7">				
           		<p>This form cannot be saved and retrieved later on. If you close the form without sending it, you will have to start again.</p>
         	</div>
 
@@ -45,6 +50,9 @@
         			fieldset: {
           				legend: { text: "Are you related to {NAME}", isPageHeading: false, classes: "govuk-fieldset__legend" }
         			},
+              hint: {
+                text: "You must not be related to the applicant in any way."
+              },
         			items: [
           				{ value: "Yes", text: "Yes" },
           				{ value: "No", text: "No" }          
@@ -81,7 +89,7 @@
                 }
               },
               hint: {
-                text: "For example, 27 3 2007"
+                html: "For example, 27 10 2019.<br> If you do not know the exact date, you can estimate it."
               }
             }) }}
 
@@ -99,7 +107,7 @@
                   }
                 },
                 hint: {
-                  text: "For example, 27 3 2007"
+                  html: "For example, 27 10 2019.<br> If you do not know the exact date, you can estimate it."
                 }
               }) }}
             {% endset -%}
@@ -110,7 +118,7 @@
               name: "refTwoRelationship",        
               fieldset: {
                 legend: {
-                  text: "Are they still working there?",
+                  text: "Is {NAME} still working there?",
                   isPageHeading: false,
                   classes: "govuk-fieldset__legend"
                 }
@@ -134,10 +142,10 @@
             {{ govukCharacterCount({
               name: "refRequestWorkCapacity",
               id: "refRequestWorkCapacity",
-              maxlength: 500,
+              maxlength: 100,
               label: { text: "Describe {NAME}’s role in your organisation", classes: "govuk-label", isPageHeading: false },
               hint: {
-                text: "Include what type of work, how long for and where. We encourage you to be honest and factual. For example, forklift driver for 2 years based in Cardiff."
+                text: "Include what type of work, how long for and where. For example, they worked as a forklift driver for 2 years based in Cardiff."
               }
             }) }}
 
@@ -185,7 +193,7 @@
       			<!-- <p class="govuk-body">Please click submit once you've completed all mandatory fields</p> -->
 
       			{{ govukButton({
-        			text: "Send reference",
+        			text: "Submit reference",
         			href: "complete"        
       			}) }}    
     		</form>
