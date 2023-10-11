@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "GRS" %}
+
+{% set pageHeading = "Sign in with your departmental details" %}
+{% set pageSection = "Vacancy holders" %}
+
+{% block pageTitle %} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	
+
+
+    	{% if data['user'] == "vh" %} 
+
+		<form method="post" action="/voldemort/vacancy-holder" >
+
+			<input type="text" name="authenticated" id="authenticated" value="Yes" class="govuk-visually-hidden"/>
+
+			{{ govukInput({
+				label: { text: "Email address", classes: "govuk-label", isPageHeading: false },      
+				classes: "govuk-!-width-two-thirds",
+				id: "signInVHEmail",
+				name: "signInVHEmail",
+				value: data['signInVHEmail']
+			}) }}
+
+			{{ govukInput({
+				label: { text: "Password", classes: "govuk-label", isPageHeading: false },      
+				classes: "govuk-!-width-two-thirds",
+				id: "signinVHPassword",
+				name: "signinVHPassword",
+				value: data['signinVHPassword']
+			}) }}
+
+
+
+    		{{ govukButton({
+      			text: "Sign in"      			
+    		}) }}
+		</form>
+
+    	{% elif data['user'] == "can" %}
+
+    		{{ govukButton({
+      			text: "Sign in",
+      			href: "/voldemort/candidates"
+    		}) }}    
+
+    	{% else %}
+    
+			<p>Do not need to authenticate.</p>
+
+    	{% endif %}
+
+    
+
+  
+  </div>
+</div>
+
+
+{% endblock %}

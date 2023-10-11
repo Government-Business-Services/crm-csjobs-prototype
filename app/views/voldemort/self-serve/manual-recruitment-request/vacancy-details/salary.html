@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "GRS" %}
+
+{% set pageHeading = "What’s this vacancy’s salary?" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	
+
+        <form method="post" action="/voldemort/self-serve/manual-recruitment-request/vacancy-details/prison-leavers" >
+            
+
+            {{ govukInput({
+				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+				classes: "govuk-!-width-two-thirds",
+                prefix: {
+                    text: "£"
+                  },
+				hint: {
+					text: "For example, 21131 or 38724 - 44393"
+				},
+				type: "number",
+				id: "mmrVacancySalary",
+				name: "mmrVacancySalary",
+				value: data['mmrVacancySalary']
+			}) }}
+
+
+            <div class="govuk-button-group">
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+            <a class="govuk-link" href="/voldemort/self-serve/manual-recruitment-request/vacancy-details/prison-leavers?mmrVacancySalary=NA">This vacancy does not have a salary</a>
+            </div>
+
+            
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

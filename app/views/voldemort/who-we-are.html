@@ -1,0 +1,41 @@
+{% extends "layouts/who-we-are.html" %}
+
+{% set serviceName = "Government Recruitment Service" %}
+{% set showPhaseBanner = false %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "Who we are" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+
+
+
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+                
+        
+        <p class="govuk-body">We’ve welcomed over 209 organisations to use our services since 2011. The success of our platforms has largely been due to continuous improvement linked to customer feedback.</p>
+        <p class="govuk-body">Alongside the digital platform, the evolution and growth of our recruitment delivery services has seen us supporting the majority of government departments. We’ve achieved significant efficiencies and performance outcomes in areas including pre-employment checking and the overall time taken to hire.</p>
+        <p class="govuk-body">Collectively, with a range of internal and external operational and digital partners, our highly professional teams have in-depth knowledge right across the recruitment spectrum.</p>
+        <p class="govuk-body">Renowned for our flexibility, with no scale, size or scope beyond us, we are at the heart of many major changes that are high on the government’s roadmap. Our end to end data, smart innovations and highly tuned processes are built on our unparalleled understanding of Civil Service life.</p>
+        <p class="govuk-body">Change in the Civil Service is a certainty so our knowledge of recruitment trends, customer and candidate appetite and our automation agenda puts us in prime position to respond to the recruitment questions of tomorrow.</p>            
+        
+    </div>   
+    <div class="govuk-grid-column-one-third">
+        {{ xGovukRelatedNavigation({
+            sections: [{
+                items: [                    
+                    { text: "Services and functionality", href: "/voldemort/services-and-functionality" },    
+                    { text: "What we do", href: "/voldemort/what-we-do" }
+                ]
+            }]
+        }) }}
+    </div>    
+</div>
+
+{% endblock %}

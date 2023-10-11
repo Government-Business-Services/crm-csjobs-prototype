@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "GRS" %}
+
+{% set pageHeading = "Which department is this vacancy in?" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+		
+        <form method="post" action="/voldemort/self-serve/manual-recruitment-request/vacancy-details/business-area" >
+			
+			{{ govukInput({
+				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+				classes: "govuk-!-width-two-thirds",
+				hint: {
+					text: "For example, HM Revenue & Customs or DWP"
+				},
+				id: "mmrVacancyDepartment",
+				name: "mmrVacancyDepartment",
+				value: data['mmrVacancyDepartment']
+			}) }}
+
+
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

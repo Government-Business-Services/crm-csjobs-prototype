@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "GRS" %}
+
+{% set pageHeading = "What is the vacancy’s expected working pattern?" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	
+		<p class="govuk-body">This could be full-time office hours, part-time or flexible working.</p>
+
+        <form method="post" action="/voldemort/self-serve/manual-recruitment-request/vacancy-details/grade" >
+			
+			{{ govukInput({
+				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+				classes: "govuk-!-width-two-thirds",
+				id: "mmrVacancyPattern",
+				name: "mmrVacancyPattern",
+				value: data['mmrVacancyPattern']
+			}) }}
+
+
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

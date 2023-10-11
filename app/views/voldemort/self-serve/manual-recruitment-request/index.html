@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "GRS" %}
+
+{% set pageHeading = "Manual recruitment request" %}
+{% set pageSection = "Vacancy advertisements" %}
+
+{% block pageTitle %} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+		<p>This self-serve process allows you to make a manual recruitment request.</p>
+		<p>You need to fill in the relevant information about a vacancy to create the request yourself and proceed with recruitment.</p>
+
+		<h2 class="govuk-heading-m">What you will need to tell us</h2>
+		<p>To complete a manual recruitment request you will need to provide the following information:</p>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>details about the vacancy holder</li>
+			<li>details of the vacancy, including the type, location and salary</li>
+			<li>your requirements for pre-employment checks, if needed</li>
+		</ul>
+		
+		{{ govukButton({
+			text: "Start request",				
+			classes: "govuk-!-margin-top-5",
+			isStartButton: true,
+			href: "/voldemort/self-serve/manual-recruitment-request/vacancy-holder-details/"
+		}) }}		
+
+		<p class="govuk-body"><a href="/voldemort/vacancy-holder" class="govuk-link govuk-link--no-visited-state">Return to vacancy holders</a></p>
+  
+	</div>
+</div>
+
+{% endblock %}

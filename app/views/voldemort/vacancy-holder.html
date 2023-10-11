@@ -1,0 +1,169 @@
+{% extends "layouts/vacancy.html" %}
+
+{% set serviceName = "Government Recruitment Service" %}
+{% set showPhaseBanner = false %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "Vacancy" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">        
+        
+        <div class="govuk-grid-row govuk-!-margin-top-5"> 
+            <div class="govuk-grid-column-one-third">
+                <h2 class="govuk-heading-m">Vacancy advertisements</h2>
+                <p>Advertise a vacancy, manage advertisements and access information about vacancy campaigns.</p>
+                <ul class="govuk-list ">
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="#">Ad Hoc request form</a></li>
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="#">Advertisement approvals</a></li>
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="#">Amend a vacancy advertisement</a></li>
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="/voldemort/self-serve/manual-recruitment-request/?query=mrr">Manual recruitment request</a></li>
+                    
+                    
+                    
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="#">Vacancy campaign planning</a></li>
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="#">Vacancy supporting documents</a></li>
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="#">Vacancy request form</a></li>
+                </ul>
+            </div>
+
+            <div class="govuk-grid-column-two-thirds ">
+
+                <h2 class="govuk-heading-m">Recruitment process</h2>                
+                <p>Find out about Success Profiles and the recruitment process, candidate interviews, tests and assessments.</p>
+
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-half">  
+                        <ul class="govuk-list">                           
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#">Candidate assessment</a></li>
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#">Candidate interviews</a></li>
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#">Making an offer from the Reserve List</a></li>
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#">Online tests</a></li>
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#">Pre-Sift</a></li>
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#">Sift</a></li>                            
+                        </ul>                        
+                    </div>
+
+                    <div class="govuk-grid-column-one-half">                        
+                        <ul class="govuk-list">                                                       
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#">Provisional offer</a></li>
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#">Reasonable adjustments</a></li>
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#">Reserve List query</a></li>
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#">Withdrawal request</a></li>
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#">Update to candidate application</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+        
+        </div>
+
+        <div class="govuk-grid-row govuk-!-margin-top-5">
+            
+            <div class="govuk-grid-column-two-thirds">
+                <h2 class="govuk-heading-m">Pre-employment checks</h2>
+                <p>Review and record the progress of pre-employment checks, and manage candidate applications and authentications.</p>
+
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-half">  
+                        <ul class="govuk-list">                                                       
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#" >Criminal record check</a></li>
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#" >Enhanced integrity check</a></li>
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#" >Health check</a></li>
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#" >NSV</a></li>
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#" >OGD check</a></li>                                    
+                        </ul>
+                    </div>                            
+                    <div class="govuk-grid-column-one-half">  
+                        <ul class="govuk-list">                                                                                       
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#" >Overseas check</a></li>
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#" >Pension</a></li>
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#" >Self employment</a></li>
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#" >EEHC check</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <h2 class="govuk-heading-m">Right to work checks</h2>
+                <p>Carry out right to work checks and verify candidates’ identity.</p>
+                <ul class="govuk-list">
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="#">Driving licence checks</a></li>
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="#">National Insurance Number Check (NINO)</a></li>
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="#">Right to Work and identity verification</a> </li>                
+                </ul>
+            </div>   
+            
+            
+        </div>
+
+
+        <div class="govuk-grid-row govuk-!-margin-top-5">
+            
+            <div class="govuk-grid-column-one-third ">
+                <h2 class="govuk-heading-m">Candidate onboarding</h2>
+                <p>Use the Applicant Tracking System, onboard and help candidates further their career with the Civil Service.</p>
+                <ul class="govuk-list">                                                       
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="#"> Candidate pack to HR</a></li>
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="#"> Conditional appointment</a></li>
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="#"> Employment contract</a></li>
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="#"> Formal offer</a></li>
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="#"> New entrant notification</a></li>
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="#"> Posting notice</a></li>
+                </ul>
+            </div>
+            <div class="govuk-grid-column-two-thirds ">
+                <h2 class="govuk-heading-m">Guidance, information and feedback</h2>                                                   
+                <p>Find out more about recruitment processes, the Civil Service recruitment system and make information requests.</p>
+                        
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-half">                        
+                        <ul class="govuk-list">
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#">Freedom of Information (FOI) request/Subject Access Request (SAR) </a></li>                                                                        
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#">Recruitment general enquiry</a></li>                                                                       
+                        </ul>
+                    </div>
+                    <div class="govuk-grid-column-one-half">                        
+                        <ul class="govuk-list">                                                                        
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#">System guidance</a></li>
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#">Give feedback</a></li> 
+                            <li><a class="govuk-link govuk-link--no-visited-state" href="#">Make a complaint</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                                                      
+        </div>  
+
+        
+            
+        <!-- <div class="govuk-grid-row govuk-!-margin-top-5">
+            <div class="govuk-grid-column-two-thirds">
+                
+                <h2 class="govuk-heading-m">Guidance, information and feedback</h2>                                                   
+                <p>Find out more about recruitment processes, the Civil Service recruitment system and make information requests.</p>
+            
+                <ul class="govuk-list">            
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="#">Recruitment general enquiry</a></li>                                                                                   
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="#">System guidance</a></li>
+                    <li><a class="govuk-link govuk-link--no-visited-state" href="#">Give feedback</a></li> 
+            
+                </ul>
+            </div>
+        </div> -->
+
+    
+        
+    </div>    
+</div>
+
+
+
+{% endblock %}
