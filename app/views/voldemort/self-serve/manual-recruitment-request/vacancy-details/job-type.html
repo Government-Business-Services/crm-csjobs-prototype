@@ -30,83 +30,96 @@
 
         <form method="post" action="/voldemort/self-serve/manual-recruitment-request/vacancy-details/profession" >
 
-				<div class="govuk-form-group">
-					<select id="mmrVacancyJobType" name="mmrVacancyJobType" value="" >
-						<option value=""></option>
-						<option value="Accountancy">Accountancy</option>
-						<option value="Administration / Corporate Support">Administration / Corporate Support</option>
-						<option value="Analytical">Analytical</option>
-						<option value="Architechture and Data">Architechture and Data</option>
-						<option value="Audit">Audit</option>
-						<option value="Business Management and Improvement">Business Management and Improvement</option>
-						<option value="Commercial">Commercial</option>
-						<option value="Communications / Marketing">Communications / Marketing</option>
-						<option value="Conflict Advisors">Conflict Advisors</option>
-						<option value="Contact Centre">Contact Centre</option>
-						<option value="Corporate Finance">Corporate Finance</option>
-						<option value="Customer Insight">Customer Insight</option>
-						<option value="Debt Management">Debt Management</option>
-						<option value="Defence Operations">Defence Operations</option>
-						<option value="Digital">Digital</option>
-						<option value="Economist">Economist</option>
-						<option value="Education and Training">Education and Training</option>
-						<option value="Engineering">Engineering</option>
-						<option value="Environment and Sustainabiltiy">Environment and Sustainabiltiy</option>
-						<option value="Estates">Estates</option>
-						<option value="European Opportunities">European Opportunities</option>
-						<option value="Fast Stream">Fast Stream</option>
-						<option value="Finance">Finance</option>
-						<option value="Governance">Governance</option>
-						<option value="Health Adviser">Health Adviser</option>
-						<option value="Health and Safety">Health and Safety</option>
-						<option value="Health Professionals">Health Professionals</option>
-						<option value="Human Resources">Human Resources</option>
-						<option value="Humanitarian">Humanitarian</option>
-						<option value="Industrial">Industrial</option>
-						<option value="Information Technology">Information Technology</option>
-						<option value="Inspector of Education and Training">Inspector of Education and Training</option>
-						<option value="Intelligence">Intelligence</option>
-						<option value="Internal Audit">Internal Audit</option>
-						<option value="International Trade">International Trade</option>
-						<option value="Investigation">Investigation</option>
-						<option value="Knowledge and Information Management">Knowledge and Information Management</option>
-						<option value="Legal Services">Legal Services</option>
-						<option value="Library">Library</option>
-						<option value="Logistics">Logistics</option>
-						<option value="Market Research">Market Research</option>
-						<option value="Medical">Medical</option>
-						<option value="Operational Delivery">Operational Delivery</option>
-						<option value="Operational Research">Operational Research</option>
-						<option value="Planning">Planning</option>
-						<option value="Planning Inspector">Planning Inspector</option>
-						<option value="Policing">Policing</option>
-						<option value="Policy">Policy</option>
-						<option value="Press Relations">Press Relations</option>
-						<option value="Private Sector Development">Private Sector Development</option>
-						<option value="Procure,emt amd Contracts Management">Procure,emt amd Contracts Management</option>
-						<option value="Project Delivery">Project Delivery</option>
-						<option value="Property">Property</option>
-						<option value="Psychology">Psychology</option>
-						<option value="Quality">Quality</option>
-						<option value="Risk Management">Risk Management</option>
-						<option value="Science">Science</option>
-						<option value="Secondary Education Teacher">Secondary Education Teacher</option>
-						<option value="Secretarial">Secretarial</option>
-						<option value="Security">Security</option>
-						<option value="Senior Leadership">Senior Leadership</option>
-						<option value="Social Development">Social Development</option>
-						<option value="Social Research">Social Research</option>
-						<option value="Social Survey Interviewer">Social Survey Interviewer</option>
-						<option value="Sponsorship">Sponsorship</option>
-						<option value="Statistics">Statistics</option>
-						<option value="Strategy">Strategy</option>
-						<option value="Surveying">Surveying</option>
-						<option value="Tax Profession">Tax Profession</option>
-						<option value="Valuation">Valuation</option>
-						<option value="Veterinary Services">Veterinary Services</option>
-						<option value="Other">Other</option>						
-					</select>
-				</div>
+		{{ xGovukAutocomplete({
+			id: "mmrVacancyJobType",
+			name: "mmrVacancyJobType",
+			allowEmpty: false,
+			label: {
+			  classes: "govuk-visually-hidden",
+			  isPageHeading: false,
+			  text: pageHeading
+			},			
+			items: [
+			  { text: "Accountancy" },
+			  { text: "Administration / Corporate Support" },
+			  { text: "Analytical" },
+			  { text: "Architechture and Data" },
+			  { text: "Audit" },
+			  { text: "Business Management and Improvement" },
+			  { text: "Commercial" },
+			  { text: "Communications / Marketing" },
+			  { text: "Conflict Advisors" },
+			  { text: "Contact Centre" },
+			  { text: "Corporate Finance" },
+			  { text: "Customer Insight" },
+			  { text: "Debt Management" },
+			  { text: "Defence Operations" },
+			  { text: "Digital" },
+			  { text: "Economist" },
+			  { text: "Education and Training" },
+			  { text: "Engineering" },
+			  { text: "Environment and Sustainabiltiy" },
+			  { text: "Estates" },
+			  { text: "European Opportunities" },
+			  { text: "Fast Stream" },
+			  { text: "Finance" },
+			  { text: "Governance" },
+			  { text: "Health Adviser" },
+			  { text: "Health and Safety" },
+			  { text: "Health Professionals" },
+			  { text: "Human Resources" },
+			  { text: "Humanitarian" },
+			  { text: "Industrial" },
+			  { text: "Information Technology" },
+			  { text: "Inspector of Education and Training" },
+			  { text: "Intelligence" },
+			  { text: "Internal Audit" },
+			  { text: "International Trade" },
+			  { text: "Investigation" },
+			  { text: "Knowledge and Information Management" },
+			  { text: "Legal Services" },
+			  { text: "Library" },
+			  { text: "Logistics" },
+			  { text: "Market Research" },
+			  { text: "Medical" },
+			  { text: "Operational Delivery" },
+			  { text: "Operational Research" },
+			  { text: "Planning" },
+			  { text: "Planning Inspector" },
+			  { text: "Policing" },
+			  { text: "Policy" },
+			  { text: "Press Relations" },
+			  { text: "Private Sector Development" },
+			  { text: "Procure,emt amd Contracts Management" },
+			  { text: "Project Delivery" },
+			  { text: "Property" },
+			  { text: "Psychology" },
+			  { text: "Quality" },
+			  { text: "Risk Management" },
+			  { text: "Science" },
+			  { text: "Secondary Education Teacher" },
+			  { text: "Secretarial" },
+			  { text: "Security" },
+			  { text: "Senior Leadership" },
+			  { text: "Social Development" },
+			  { text: "Social Research" },
+			  { text: "Social Survey Interviewer" },
+			  { text: "Sponsorship" },
+			  { text: "Statistics" },
+			  { text: "Strategy" },
+			  { text: "Surveying" },
+			  { text: "Tax Profession" },
+			  { text: "Valuation" },
+			  { text: "Veterinary Services" },
+			  { text: "Other" }
+			]
+		  }) }}
+
+
+
+
+
+				
     	
             {{ govukButton({
       	    	text: "Continue"			    
@@ -123,110 +136,3 @@
 {% endblock %}
 
 
-<!-- AUTOCOMPLETE SCRIPT -->
-
-<script>
-	function autocomplete(inp, arr) {
-	  /*the autocomplete function takes two arguments,
-	  the text field element and an array of possible autocompleted values:*/
-	  var currentFocus;
-	  /*execute a function when someone writes in the text field:*/
-	  inp.addEventListener("input", function (e) {
-		var a, b, i, val = this.value;
-		/*close any already open lists of autocompleted values*/
-		closeAllLists();
-		if (!val) { return false; }
-		currentFocus = -1;
-		/*create a DIV element that will contain the items (values):*/
-		a = document.createElement("DIV");
-		a.setAttribute("id", this.id + "autocomplete-list");
-		a.setAttribute("class", "autocomplete-items");
-		/*append the DIV element as a child of the autocomplete container:*/
-		this.parentNode.appendChild(a);
-		/*for each item in the array...*/
-		for (i = 0; i < arr.length; i++) {
-		  /*check if the item starts with the same letters as the text field value:*/
-		  if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-			/*create a DIV element for each matching element:*/
-			b = document.createElement("DIV");
-			/*make the matching letters bold:*/
-			b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-			b.innerHTML += arr[i].substr(val.length);
-			/*insert a input field that will hold the current array item's value:*/
-			b.innerHTML += "<input type='hidden' placeholder='kdkskfj' value=''>";
-			/*execute a function when someone clicks on the item value (DIV element):*/
-			b.addEventListener("click", function (e) {
-			  /*insert the value for the autocomplete text field:*/
-			  inp.value = this.getElementsByTagName("input")[0].value;
-			  /*close the list of autocompleted values,
-			  (or any other open lists of autocompleted values:*/
-			  closeAllLists();
-			});
-			a.appendChild(b);
-		  }
-		}
-	  });
-	  /*execute a function presses a key on the keyboard:*/
-	  inp.addEventListener("keydown", function (e) {
-		var x = document.getElementById(this.id + "autocomplete-list");
-		if (x) x = x.getElementsByTagName("div");
-		if (e.keyCode == 40) {
-		  /*If the arrow DOWN key is pressed,
-		  increase the currentFocus variable:*/
-		  currentFocus++;
-		  /*and and make the current item more visible:*/
-		  addActive(x);
-		} else if (e.keyCode == 38) { //up
-		  /*If the arrow UP key is pressed,
-		  decrease the currentFocus variable:*/
-		  currentFocus--;
-		  /*and and make the current item more visible:*/
-		  addActive(x);
-		} else if (e.keyCode == 13) {
-		  /*If the ENTER key is pressed, prevent the form from being submitted,*/
-		  e.preventDefault();
-		  if (currentFocus > -1) {
-			/*and simulate a click on the "active" item:*/
-			if (x) x[currentFocus].click();
-		  }
-		}
-	  });
-	  function addActive(x) {
-		/*a function to classify an item as "active":*/
-		if (!x) return false;
-		/*start by removing the "active" class on all items:*/
-		removeActive(x);
-		if (currentFocus >= x.length) currentFocus = 0;
-		if (currentFocus < 0) currentFocus = (x.length - 1);
-		/*add class "autocomplete-active":*/
-		x[currentFocus].classList.add("autocomplete-active");
-	  }
-	  function removeActive(x) {
-		/*a function to remove the "active" class from all autocomplete items:*/
-		for (var i = 0; i < x.length; i++) {
-		  x[i].classList.remove("autocomplete-active");
-		}
-	  }
-	  function closeAllLists(elmnt) {
-		/*close all autocomplete lists in the document,
-		except the one passed as an argument:*/
-		var x = document.getElementsByClassName("autocomplete-items");
-		for (var i = 0; i < x.length; i++) {
-		  if (elmnt != x[i] && elmnt != inp) {
-			x[i].parentNode.removeChild(x[i]);
-		  }
-		}
-	  }
-	  /*execute a function when someone clicks in the document:*/
-	  document.addEventListener("click", function (e) {
-		closeAllLists(e.target);
-	  });
-	}
-  
-	
-  
-	
-
-  
-  
-  </script>
