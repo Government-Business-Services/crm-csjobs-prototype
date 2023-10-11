@@ -14,7 +14,6 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
 		<p>This self-serve process allows you to make a manual recruitment request.</p>
 		<p>You need to fill in the relevant information about a vacancy to create the request yourself and proceed with recruitment.</p>
 
@@ -25,20 +24,15 @@
 			<li>details of the vacancy, including the type, location and salary</li>
 			<li>your requirements for pre-employment checks, if needed</li>
 		</ul>
-
-		<form method="post" action="/crm/self-serve/manual-recruitment-request/vacancy-holder-details/" >
-
-			<input type="text" name="mmr" id="mmr" value="Started" class="govuk-visually-hidden" />
 		
-    		{{ govukButton({
-      			text: "Start request",				
-				classes: "govuk-!-margin-top-5",
-				isStartButton: true
-    		}) }}
+		{{ govukButton({
+			text: "Start request",				
+			classes: "govuk-!-margin-top-5",
+			isStartButton: true,
+			href: "/voldemort/self-serve/manual-recruitment-request/vacancy-holder-details/"
+		}) }}		
 
-		</form>
-
-		<p class="govuk-body"><a href="/crm/vacancy-holder" class="govuk-link govuk-link--no-visited-state">Return to vacancy holders</a></p>
+		<p class="govuk-body"><a href="/voldemort/vacancy-holder" class="govuk-link govuk-link--no-visited-state">Return to vacancy holders</a></p>
   
 	</div>
 </div>

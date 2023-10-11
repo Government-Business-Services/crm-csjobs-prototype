@@ -18,7 +18,7 @@
 
     	{% if data['user'] == "vh" %} 
 
-		<form method="post" action="/crm/vacancy-holder" >
+		<form method="post" action="/voldemort/vacancy-holder" >
 
 			<input type="text" name="authenticated" id="authenticated" value="Yes" class="govuk-visually-hidden"/>
 
@@ -49,7 +49,7 @@
 
     		{{ govukButton({
       			text: "Sign in",
-      			href: "/crm/candidates"
+      			href: "/voldemort/candidates"
     		}) }}    
 
     	{% else %}
