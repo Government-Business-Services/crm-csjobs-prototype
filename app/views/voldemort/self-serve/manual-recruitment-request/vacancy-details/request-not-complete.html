@@ -1,0 +1,25 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName = "GRS" %}
+
+{% set pageHeading = "You cannot make this recruitment request" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	
+
+        <p>It is not possible to make a manual recruitment request if the budget has not been approved.</p>
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

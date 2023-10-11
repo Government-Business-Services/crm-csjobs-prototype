@@ -110,6 +110,21 @@
         	]
       	}) }}
 
+		{% if data['mmrPreChecks'] == "No" %}
+			<h2 class="govuk-heading-m">Pre-employment checks</h2>
+			{{ govukSummaryList({
+				classes: "govuk-!-margin-bottom-9",
+				rows: [   
+					  {
+						key: { text: "Required" },
+						value: { text: data['mmrPreChecks'] },
+						actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: " if pre-employment checks are required" } ] }
+					  }			  
+				]
+			  }) }}
+
+		{% else %}
+
 		  <h2 class="govuk-heading-m">Pre-employment checks</h2>
 		  {{ govukSummaryList({
         	classes: "govuk-!-margin-bottom-9",
@@ -160,6 +175,8 @@
         		
         	]
       	}) }}
+
+		{% endif %}
 
 
         <form method="post" action="/voldemort/self-serve/manual-recruitment-request/confirmation" >
