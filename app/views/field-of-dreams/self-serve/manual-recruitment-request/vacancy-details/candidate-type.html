@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName = "GRS" %}
+
+{% set pageHeading = "Which candidates can apply for this vacancy?" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}    	
+
+        <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/budget-approval" >
+			
+			{{ govukRadios({
+				name: "mmrVacancyApproach",        
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Across government", text: "Across government", checked: checked("mmrVacancyApproach", "Across government") },					
+					{ value: "External", text: "External", checked: checked("mmrVacancyApproach", "External") },
+					{ value: "Internal", text: "Internal", checked: checked("mmrVacancyApproach", "Internal") }															
+					
+				]
+			}) }}
+
+
+
+
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

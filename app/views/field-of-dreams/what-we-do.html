@@ -1,0 +1,42 @@
+{% extends "layouts/what-we-do.html" %}
+
+{% set serviceName = "Government Recruitment Service" %}
+{% set showPhaseBanner = false %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "What we do" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+
+{% block content %}
+
+
+
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+                
+
+<p class="govuk-body">Our professional recruitment expertise is second to none. Not only can we draw on a wealth of experience but many of our staff are accredited to UK industry standards, meaning we can offer levels of expertise which exceed those of external providers. </p>
+<p class="govuk-body">We recruit for all Civil Service roles and grades up to SCS2, and have the flexibility to support as much or as little of your recruitment needs and can develop bespoke products at your request. </p>
+<p class="govuk-body">We work closely with occupational psychologists who are experts in best in class sifting and selection tools, including online psychometric tests and assessments. All of these tests comply with Government Digital Service standards and are integrated with Success Profiles and Civil Service Jobs in the recruitment process. </p>
+<p class="govuk-body">We are passionate about diversity and inclusion ensuring it is at the heart of our service. We adhere to best practice guidance on diverse interview panels for SCS roles, which has become a benchmark across the Civil Service, as have the processes we devised to ensure that reasonable adjustments are fairly and effectively implemented across all grades. </p>
+<p class="govuk-body">Our in-house experts have developed insight and data services to help our customers reach and attract a diverse pool of candidates and we apply our extensive knowledge of recruiters’ needs to anticipate future requirements. </p>
+
+        
+    </div>        
+    <div class="govuk-grid-column-one-third">
+        {{ xGovukRelatedNavigation({
+            sections: [{
+                items: [                    
+                    { text: "Services and functionality", href: "/field-of-dreams/services-and-functionality" },
+                    { text: "Who we are", href: "/field-of-dreams/who-we-are" }                    
+                ]
+            }]
+        }) }}
+    </div>
+</div>
+
+{% endblock %}

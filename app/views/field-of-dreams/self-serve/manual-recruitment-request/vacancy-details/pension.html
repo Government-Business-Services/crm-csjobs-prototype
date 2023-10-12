@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName = "GRS" %}
+
+{% set pageHeading = "Does this vacancy offer a Civil Service pension?" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	
+
+        <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/" >
+            
+            {{ govukRadios({
+				name: "mmrVacancyPension",   
+				classes: "govuk-radios--inline",     
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Yes", text: "Yes", checked: checked("mmrVacancyPension", "Yes") },					
+					{ value: "No", text: "No", checked: checked("mmrVacancyPension", "No") }																			
+				]
+			}) }}
+
+
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+            
+            
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

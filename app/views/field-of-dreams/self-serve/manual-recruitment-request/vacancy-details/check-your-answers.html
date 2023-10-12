@@ -1,0 +1,130 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "GRS" %}
+
+{% set pageHeading = "Check your answers" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}    	
+
+		<h2 class="govuk-heading-m">Vacancy details</h2>
+
+      	{{ govukSummaryList({
+        	classes: "govuk-!-margin-bottom-9",
+        	rows: [
+          		{
+            		key: { text: "Role" },
+            		value: { text: data['mmrVacancy'] },
+            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "the role" } ] }
+          		}, 
+				  {
+            		key: { text: "Department" },
+            		value: { text: data['mmrVacancyDepartment'] },
+            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "department" } ] }
+          		}, 
+				  {
+            		key: { text: "Area" },
+            		value: { text: data['mmrVacancyArea'] },
+            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "name" } ] }
+          		}, 
+				  {
+            		key: { text: "Profession" },
+            		value: { text: data['mmrVacancyProfession'] },
+            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "profession" } ] }
+          		}, 
+				  {
+            		key: { text: "Approach" },
+            		value: { text: data['mmrVacancyApproach'] },
+            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "approach" } ] }
+          		}, 
+				  {
+            		key: { text: "Budget approved" },
+            		value: { text: data['mmrVacancyBudget'] },
+            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "budget approval" } ] }
+          		}, 
+				  {
+            		key: { text: "Permanent Role" },
+            		value: { text: data['mmrVacancyPermanent'] },
+            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "permanent role" } ] }
+          		}, 
+
+				  
+				  {
+            		key: { text: "Contract type" },
+            		value: { text: data['mmrVacancyContractType'] },
+            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "contract type" } ] }
+          		}, 
+				
+
+				  {
+            		key: { text: "Employment length" },
+            		value: { text: data['mmrVacancyLengthEmployment'] },
+            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "length of employment" } ] }
+          		}, 				  
+				  {
+            		key: { text: "Location" },
+            		value: { text: data['mmrVacancyLocation'] },
+            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "location" } ] }
+          		}, 
+				  {
+            		key: { text: "Pattern" },
+            		value: { text: data['mmrVacancyPattern'] },
+            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "working pattern" } ] }
+          		}, 
+				  {
+            		key: { text: "Grade" },
+            		value: { text: data['mmrVacancyGrade'] },
+            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "grade" } ] }
+          		}, 
+				  {
+            		key: { text: "Salary" },
+            		value: { text: data['mmrVacancySalary'] },
+            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "salary" } ] }
+          		}, 
+				  {
+            		key: { text: "Prison leavers" },
+            		value: { text: data['mmrVacancyPrisonLeavers'] },
+            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "prison leavers" } ] }
+          		},
+				  {
+            		key: { text: "Veterans" },
+            		value: { text: data['mmrVacancyVeterans'] },
+            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "veterans" } ] }
+          		},
+				  {
+            		key: { text: "Pension" },
+            		value: { text: data['mmrVacancyPension'] },
+            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "pension" } ] }
+          		}
+				
+				
+
+        		
+        	]
+      	}) }}
+
+
+        <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/" >
+            
+            
+            {{ govukButton({
+      	    	text: "Accept and continue"			    
+    	    }) }}
+            
+            
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

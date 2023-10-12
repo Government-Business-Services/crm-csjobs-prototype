@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "GRS" %}
+
+{% if data['mmrVHName'] %}
+	{% set pageHeading = 'What’s ' + data.mmrVHName + '’s email address?' %}
+{% else %}
+	{% set pageHeading = "What’s the vacancy holders email address?" %}
+{% endif %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	
+
+        <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/telephone" >
+
+			{{ govukInput({
+				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+				classes: "govuk-!-width-two-thirds",
+				id: "mmrVHEmail",
+				name: "mmrVHEmail",
+				value: data['mmrVHEmail']
+			}) }}
+    	
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

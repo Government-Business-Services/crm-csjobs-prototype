@@ -1,0 +1,132 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName = "GRS" %}
+
+{% set pageHeading = "What job type is this vacancy?" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} - Prototype{% endblock %}
+
+{% block pageScripts %}
+    <script type="text/javascript" src="/public/javascripts/accessible-autocomplete.js"></script>
+    <script type="text/javascript">
+        accessibleAutocomplete.enhanceSelectElement({
+            defaultValue: '',
+            selectElement: document.querySelector('#mmrVacancyJobType' name="mmrVacancyJobType" value="" )
+        })
+    </script>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}    	
+
+		<p class="govuk-hint">For example, Accountancy, Legal or Policing.</p>
+
+        <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/profession" >
+
+			{{ xGovukAutocomplete({
+				id: "mmrVacancyJobType",
+				name: "mmrVacancyJobType",
+				allowEmpty: false,
+				label: {
+				classes: "govuk-visually-hidden",
+				isPageHeading: false,
+				text: pageHeading
+				},			
+				items: [
+				{ text: "Accountancy" },
+				{ text: "Administration / Corporate Support" },
+				{ text: "Analytical" },
+				{ text: "Architechture and Data" },
+				{ text: "Audit" },
+				{ text: "Business Management and Improvement" },
+				{ text: "Commercial" },
+				{ text: "Communications / Marketing" },
+				{ text: "Conflict Advisors" },
+				{ text: "Contact Centre" },
+				{ text: "Corporate Finance" },
+				{ text: "Customer Insight" },
+				{ text: "Debt Management" },
+				{ text: "Defence Operations" },
+				{ text: "Digital" },
+				{ text: "Economist" },
+				{ text: "Education and Training" },
+				{ text: "Engineering" },
+				{ text: "Environment and Sustainabiltiy" },
+				{ text: "Estates" },
+				{ text: "European Opportunities" },
+				{ text: "Fast Stream" },
+				{ text: "Finance" },
+				{ text: "Governance" },
+				{ text: "Health Adviser" },
+				{ text: "Health and Safety" },
+				{ text: "Health Professionals" },
+				{ text: "Human Resources" },
+				{ text: "Humanitarian" },
+				{ text: "Industrial" },
+				{ text: "Information Technology" },
+				{ text: "Inspector of Education and Training" },
+				{ text: "Intelligence" },
+				{ text: "Internal Audit" },
+				{ text: "International Trade" },
+				{ text: "Investigation" },
+				{ text: "Knowledge and Information Management" },
+				{ text: "Legal Services" },
+				{ text: "Library" },
+				{ text: "Logistics" },
+				{ text: "Market Research" },
+				{ text: "Medical" },
+				{ text: "Operational Delivery" },
+				{ text: "Operational Research" },
+				{ text: "Planning" },
+				{ text: "Planning Inspector" },
+				{ text: "Policing" },
+				{ text: "Policy" },
+				{ text: "Press Relations" },
+				{ text: "Private Sector Development" },
+				{ text: "Procure,emt amd Contracts Management" },
+				{ text: "Project Delivery" },
+				{ text: "Property" },
+				{ text: "Psychology" },
+				{ text: "Quality" },
+				{ text: "Risk Management" },
+				{ text: "Science" },
+				{ text: "Secondary Education Teacher" },
+				{ text: "Secretarial" },
+				{ text: "Security" },
+				{ text: "Senior Leadership" },
+				{ text: "Social Development" },
+				{ text: "Social Research" },
+				{ text: "Social Survey Interviewer" },
+				{ text: "Sponsorship" },
+				{ text: "Statistics" },
+				{ text: "Strategy" },
+				{ text: "Surveying" },
+				{ text: "Tax Profession" },
+				{ text: "Valuation" },
+				{ text: "Veterinary Services" },
+				{ text: "Other" }
+				]
+			}) }}				
+    	
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "GRS" %}
+
+{% set pageHeading = "What National Security Level is required?" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	
+
+        <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/regulated-activity" >
+            
+            {{ govukRadios({
+				name: "mmrPreChecksSecurity",   				     
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Counter Terrorist Check (CTC)", text: "Counter Terrorist Check (CTC)", checked: checked("mmrPreChecksSecurity", "Counter Terrorist Check (CTC)") },					
+					{ value: "Developed Vetting (DV)", text: "Developed Vetting (DV)", checked: checked("mmrPreChecksSecurity", "Developed Vetting (DV)") },
+                    { value: "Secuirty Check (SC)", text: "Secuirty Check (SC)", checked: checked("mmrPreChecksSecurity", "Secuirty Check (SC)") },
+					{ divider: "or" },
+					{ value: "None", text: "None", checked: checked("mmrPreChecksSecurity", "None") }                    
+                    
+				]
+			}) }}
+
+
+
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+            
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

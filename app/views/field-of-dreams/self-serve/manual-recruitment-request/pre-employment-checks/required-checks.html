@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "GRS" %}
+
+{% set pageHeading = "Which pre-employment checks are required for this vacancy?" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	<p>Select all that apply.</p>
+
+        <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
+            
+            {{ govukCheckboxes({
+				name: "mmrPreChecksRequired",   				
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Contract", text: "Contract", checked: checked("mmrPreChecksRequired", "Contract") },
+					{ value: "Criminal Record Check", text: "Criminal Record Check", checked: checked("mmrPreChecksRequired", "Criminal Record Check") },	
+					{ value: "Employment History Check", text: "Employment History Check", checked: checked("mmrPreChecksRequired", "Employment History Check") },
+					{ value: "Health Check", text: "Health Check", checked: checked("mmrPreChecksRequired", "Health Check") },
+					{ value: "Internal Fraud Check", text: "Internal Fraud Check", checked: checked("mmrPreChecksRequired", "Internal Fraud Check") },
+					{ value: "New Entrant Notification", text: "New Entrant Notification", checked: checked("mmrPreChecksRequired", "New Entrant Notification") },
+					{ value: "Pensions Check", text: "Pensions Check", checked: checked("mmrPreChecksRequired", "Pensions Check") },
+					{ value: "Posting Notice", text: "Posting Notice", checked: checked("mmrPreChecksRequired", "Posting Notice") },
+					{ value: "Previous Civil Service Check", text: "Previous Civil Service Check", checked: checked("mmrPreChecksRequired", "Previous Civil Service Check") },
+					{ value: "References", text: "References", checked: checked("mmrPreChecksRequired", "References") },
+					{ value: "Right to work check", text: "Right to work check", checked: checked("mmrPreChecksRequired", "Right to work check") },										
+					{ value: "Self-Employment Check", text: "Self-Employment Check", checked: checked("mmrPreChecksRequired", "Self-Employment Check") },
+					{ value: "Overseas Check", text: "Overseas Check", checked: checked("mmrPreChecksRequired", "Overseas Check") }
+					
+					
+					
+					
+					
+					
+					
+				]
+			}) }}
+
+
+
+            {{ govukButton({
+      	    	text: "Confirm and continue"			    
+    	    }) }}            
+            
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}
