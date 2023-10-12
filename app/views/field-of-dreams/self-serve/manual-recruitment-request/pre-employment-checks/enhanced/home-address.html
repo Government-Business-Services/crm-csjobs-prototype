@@ -2,7 +2,16 @@
 {% set showBackLink = false %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Does this vacancy involve working with children or regulated activity with adults at the applicant’s home address?" %}
+
+{% if ((data['mmrPreChecksRegulatedActivity'] == "Yes") and ( data['mmrPreChecksChildren'] == "Yes" )) %}
+	{% set pageHeading = "Does this vacancy involve working with children or regulated activity with adults at the applicant’s home address?" %}
+{% elif data['mmrPreChecksRegulatedActivity'] == "Yes" %}
+	{% set pageHeading = "Does this vacancy involve regulated activity with adults at the applicant’s home address?" %}
+{% elif data['mmrPreChecksChildren'] == "Yes" %}
+	{% set pageHeading = "Does this vacancy involve working with children at the applicant’s home address?" %}
+{% else %}
+	{% set pageHeading = "" %}
+{% endif %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %} - Prototype{% endblock %}

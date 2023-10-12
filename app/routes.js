@@ -10,30 +10,35 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 
 // Budget Approval
-router.post('/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/budget-approval', function(request, response) {
+
+router.post('/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/location', function(request, response) {
 
     var mmrVacancyBudget = request.session.data['mmrVacancyBudget']
     if (mmrVacancyBudget == "Yes"){
         response.redirect("/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/location")
-    } else {
-        response.redirect("/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/request-not-complete")
-    }
+    }  else {
+        response.redirect("/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/request-not-complete")    
+    } 
 })
 
 
 // Permanent Role
-router.post('/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/permanent-role', function(request, response) {
+router.post('/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/grade', function(request, response) {
 
     var mmrVacancyPermanent = request.session.data['mmrVacancyPermanent']
-    if (mmrVacancyPermanent == "Yes"){
+    var mmrVacancyContractType = request.session.data['mmrVacancyContractType']
+
+    if (mmrVacancyContractType != ""){
         response.redirect("/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/grade")
-    } else {
+    } else if (mmrVacancyPermanent == "Yes"){
+        response.redirect("/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/grade")
+    } else if (mmrVacancyPermanent == "No"){
         response.redirect("/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/contract-type")
     }
 })
 
 // Re-employment checks
-router.post('/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/', function(request, response) {
+router.post('/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/reserved-status', function(request, response) {
 
     var mmrPreChecks = request.session.data['mmrPreChecks']
     if (mmrPreChecks == "Yes"){
@@ -44,5 +49,25 @@ router.post('/field-of-dreams/self-serve/manual-recruitment-request/pre-employme
 })
 
 
+// Working with children
+router.post('/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/home-address', function(request, response) {
+
+    var mmrPreChecksRegulatedActivity = request.session.data['mmrPreChecksRegulatedActivity']
+    var mmrPreChecksChildren = request.session.data['mmrPreChecksChildren']
+
+    if (mmrPreChecksRegulatedActivity == "Yes"){
+        response.redirect("/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/home-address")
+    } else if (mmrPreChecksChildren == "Yes"){
+        response.redirect("/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/home-address")
+    } else {
+        response.redirect("/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers")
+    }
+})
 
 
+
+
+
+
+
+  

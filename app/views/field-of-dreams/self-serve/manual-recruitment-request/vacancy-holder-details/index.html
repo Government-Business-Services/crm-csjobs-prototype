@@ -25,12 +25,14 @@
 
 		<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/">
 
+			<input type="hidden" id="mmrVHconfirm" name="mmrVHConfirm" value="Yes" />
+
         	<div class="govuk-button-group">
     			{{ govukButton({
       				text: "Confirm and continue"			
     			}) }}
 
-        		<a class="govuk-link" href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/name">These contact details are not correct</a>
+        		<a class="govuk-link" href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/name?mmrVHConfirm=No">These contact details are not correct</a>
         	</div>
 
 		</form>
