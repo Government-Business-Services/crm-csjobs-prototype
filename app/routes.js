@@ -23,15 +23,15 @@ router.post('/field-of-dreams/self-serve/manual-recruitment-request/vacancy-deta
 
 
 // Permanent Role
-router.post('/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/grade', function(request, response) {
+router.post('/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/pattern', function(request, response) {
 
     var mmrVacancyPermanent = request.session.data['mmrVacancyPermanent']
     var mmrVacancyContractType = request.session.data['mmrVacancyContractType']
 
     if (mmrVacancyContractType != ""){
-        response.redirect("/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/grade")
+        response.redirect("/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/pattern")
     } else if (mmrVacancyPermanent == "Yes"){
-        response.redirect("/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/grade")
+        response.redirect("/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/pattern")
     } else if (mmrVacancyPermanent == "No"){
         response.redirect("/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/contract-type")
     }

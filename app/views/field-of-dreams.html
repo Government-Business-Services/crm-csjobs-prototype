@@ -3,8 +3,8 @@
 {% set showBackLink = false %}
 
 
-{% set pageHeading = "Customer Relationship Management (CRM) improvements" %}
-{% set pageSection = "Prototype" %}
+{% set pageHeading = "Field of Dreams" %}
+{% set pageSection = "Customer Relationship Management (CRM) improvements" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
@@ -14,17 +14,29 @@
 
     <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
 
-    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}        
 
     	<ul class="govuk-list govuk-body-s">
-      		<li>September 2023</li>      		
+      		<li>Last updated: September 2023</li>      		
     	</ul>
     
   	</div>
 
-  	<div class="govuk-grid-column-two-thirds">
+  	<div class="govuk-grid-column-two-thirds">        
 
-		<p>Content to follow.</p>
+        <h2 class="govuk-heading-m">Landing pages</h2>
+        <ul class="govuk-list">
+            <li><a href="/field-of-dreams/landing-page" class="govuk-link govuk-link--no-visited-state" >Main landing page</a></li>
+            <li><a href="/field-of-dreams/vacancy-holder" class="govuk-link govuk-link--no-visited-state" >Vacancy holders</a></li>
+            <li><a href="/field-of-dreams/candidates" class="govuk-link govuk-link--no-visited-state" >Canddidates</a></li>            
+        </ul>
+
+        <h2 class="govuk-heading-m">Other pages</h2>
+        <ul class="govuk-list">
+            <li><a href="/field-of-dreams/authentication" class="govuk-link govuk-link--no-visited-state" >Sign in with departmental details</a></li>            
+        </ul>
+
+
     	
 		
 		
@@ -33,12 +45,15 @@
 
 
   <div class="govuk-grid-column-one-third">
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1" id="subsection-title">Assets </h2>
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-1" id="subsection-title">Assets</h2>
             <nav class="govuk-!-margin-bottom-7">
                 <ul class="govuk-list">
-                    <!-- <li><a href="https://app.mural.co/t/civilservicerecruitment8943/m/civilservicerecruitment8943/1689584400444/06781d001a5fa73a5c6e5b33db503320a5fa0434?sender=ub98a52257bdf547e502c3033" class="govuk-link govuk-link--no-visited-state" target="_blank" >Mural board</a></li>                     -->
+                    <li><a href="#" class="govuk-link govuk-link--no-visited-state" target="_blank" >Mural board</a></li>
+
                 </ul>
             </nav>
+
+            
         </div>   
 </div>
 
