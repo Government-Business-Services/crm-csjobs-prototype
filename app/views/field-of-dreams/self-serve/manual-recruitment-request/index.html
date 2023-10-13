@@ -22,9 +22,11 @@
 
 		<ul class="govuk-list govuk-list--bullet">
             <li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/" class="govuk-link govuk-link--no-visited-state" >Are you the vacancy holder for this request?</a></li>
-			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/name" class="govuk-link govuk-link--no-visited-state" >What’s the vacancy holder’s full name?</a></li>
-			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/email" class="govuk-link govuk-link--no-visited-state" >What’s the vacancy holders email address?</a></li>
-			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/telephone" class="govuk-link govuk-link--no-visited-state" >What’s your telephone number?</a></li>
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+				<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/name" class="govuk-link govuk-link--no-visited-state" >What’s the vacancy holder’s full name?</a></li>
+				<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/email" class="govuk-link govuk-link--no-visited-state" >What’s the vacancy holders email address?</a></li>
+				<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/telephone" class="govuk-link govuk-link--no-visited-state" >What’s your telephone number?</a></li>
+			</ul>
             
         </ul>
 
@@ -73,10 +75,13 @@
 			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/security-level" class="govuk-link govuk-link--no-visited-state" >What National Security Level is required?</a></li>			
 			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
 				<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/regulated-activity" class="govuk-link govuk-link--no-visited-state" >Does this vacancy involve working with adults requiring regulated activity to be provided to them?</a></li>			
-			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/working-with-children" class="govuk-link govuk-link--no-visited-state" >Does this vacancy involve working with children?</a></li>			
-			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/home-address" class="govuk-link govuk-link--no-visited-state" >Does this vacancy involve working with children or regulated activity with adults at the applicant’s home address?</a></li>			
-			</ul>
-			
+				<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/working-with-children" class="govuk-link govuk-link--no-visited-state" >Does this vacancy involve working with children?</a></li>							
+				<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+					<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/home-address" class="govuk-link govuk-link--no-visited-state" >Does this vacancy involve regulated activity with adults at the applicant’s home address?</a></li>			
+					<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/home-address" class="govuk-link govuk-link--no-visited-state" >Does this vacancy involve working with children at the applicant’s home address?</a></li>			
+					<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/home-address" class="govuk-link govuk-link--no-visited-state" >Does this vacancy involve working with children or regulated activity with adults at the applicant’s home address?</a></li>			
+				</ul>
+			</ul>			
 			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/volunteer" class="govuk-link govuk-link--no-visited-state" >Will the applicant be a volunteer?</a></li>			
 			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/required-checks" class="govuk-link govuk-link--no-visited-state" >Which pre-employment checks are required for this vacancy?</a></li>			
             
@@ -114,7 +119,11 @@
 		  }) }}
 
 
-
+		  {{ govukButton({
+			text: "Return to Field of Dreams overview",
+			classes: "govuk-button--secondary",
+			href: "/field-of-dreams"
+		  }) }}
 
 
 	</div>
