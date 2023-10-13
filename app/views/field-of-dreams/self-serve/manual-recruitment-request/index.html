@@ -3,37 +3,120 @@
 {% set serviceName = "GRS" %}
 
 {% set pageHeading = "Manual recruitment request" %}
-{% set pageSection = "Vacancy advertisements" %}
+{% set pageSection = "Self-serve query" %}
 
 {% block pageTitle %} - Prototype{% endblock %}
 {% block content %}
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-column-full">
 
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-		<p>This self-serve process allows you to make a manual recruitment request.</p>
-		<p>You need to fill in the relevant information about a vacancy to create the request yourself and proceed with recruitment.</p>
+		<p class="govuk-body-s">Last updated 13 October 2023</p>
+		<p class="govuk-body govuk-!-margin-bottom-7">Some pages have dynamic content, so if using the links and not going through the flows that lead to each page, its not always possible to show the right content for all scenarios.</p>
 
-		<h2 class="govuk-heading-m">What you will need to tell us</h2>
-		<p>To complete a manual recruitment request you will need to provide the following information:</p>
+
+		{% set vacancyHtml %}
+
 		<ul class="govuk-list govuk-list--bullet">
-			<li>details about the vacancy holder</li>
-			<li>details of the vacancy, including the type, location and salary</li>
-			<li>your requirements for pre-employment checks, if needed</li>
-		</ul>
-		
-		{{ govukButton({
-			text: "Start request",				
-			classes: "govuk-!-margin-top-5",
-			isStartButton: true,
-			href: "/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/"
-		}) }}		
+            <li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/" class="govuk-link govuk-link--no-visited-state" >Are you the vacancy holder for this request?</a></li>
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/name" class="govuk-link govuk-link--no-visited-state" >What’s the vacancy holder’s full name?</a></li>
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/email" class="govuk-link govuk-link--no-visited-state" >What’s the vacancy holders email address?</a></li>
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/telephone" class="govuk-link govuk-link--no-visited-state" >What’s your telephone number?</a></li>
+            
+        </ul>
 
-		<p class="govuk-body"><a href="/field-of-dreams/vacancy-holder?query=" class="govuk-link govuk-link--no-visited-state">Return to vacancy holders</a></p>
-  
+		{% endset -%}
+
+		{% set vacancyDetailsHtml %}
+
+		<ul class="govuk-list govuk-list--bullet">
+            <li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/" class="govuk-link govuk-link--no-visited-state" >What’s this vacancy’s job title?</a></li>
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/department" class="govuk-link govuk-link--no-visited-state" >Which department is this vacancy in?</a></li>
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/business-area" class="govuk-link govuk-link--no-visited-state" >Which business area of the department is this vacancy in?</a></li>
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/job-type" class="govuk-link govuk-link--no-visited-state" >What job type is this vacancy?</a></li>
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/profession" class="govuk-link govuk-link--no-visited-state" >Which profession does this vacancy belong to?</a></li>
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/candidate-type" class="govuk-link govuk-link--no-visited-state" >Which candidates can apply for this vacancy?</a></li>
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/budget-approval" class="govuk-link govuk-link--no-visited-state" >Has the budget for this vacancy been approved?</a></li>
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+				<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/request-not-complete" class="govuk-link govuk-link--no-visited-state" >You cannot make this recruitment request</a></li>
+			</ul>
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/location" class="govuk-link govuk-link--no-visited-state" >Where is the vacancy located?</a></li>
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/permanent-role" class="govuk-link govuk-link--no-visited-state" >Is this a permanent vacancy?</a></li>
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+				<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/contract-type" class="govuk-link govuk-link--no-visited-state" >What is the vacancy’s contract type?</a></li>
+				<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/contract-type/length-of-employment" class="govuk-link govuk-link--no-visited-state" >How long is this vacancy’s length of employment?</a></li>
+			</ul>
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/pattern" class="govuk-link govuk-link--no-visited-state" >What is the vacancy’s expected working pattern?</a></li>
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/grade" class="govuk-link govuk-link--no-visited-state" >What’s this vacancy’s grade?</a></li>
+
+
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/salary" class="govuk-link govuk-link--no-visited-state" >What’s this vacancy’s salary?</a></li>
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/prison-leavers" class="govuk-link govuk-link--no-visited-state" >Is this vacancy open to prison leavers as part of the Prison Leavers Project?</a></li>
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/great-place-to-work" class="govuk-link govuk-link--no-visited-state" >Is this vacancy part of the Great Place to Work for Veterans scheme?</a></li>
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/pension" class="govuk-link govuk-link--no-visited-state" >Does this vacancy offer a Civil Service pension?</a></li>
+			
+
+            
+        </ul>
+
+		{% endset -%}
+
+		{% set preEmploymentHtml %}
+
+		<ul class="govuk-list govuk-list--bullet">
+            <li><a href="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/" class="govuk-link govuk-link--no-visited-state" >Are pre-employment checks required?</a></li>			
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/reserved-status" class="govuk-link govuk-link--no-visited-state" >Is this a ‘reserved post’?</a></li>			
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/criminal-record" class="govuk-link govuk-link--no-visited-state" >What type of Criminal Record Check (CRC) is required?</a></li>			
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/security-level" class="govuk-link govuk-link--no-visited-state" >What National Security Level is required?</a></li>			
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+				<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/regulated-activity" class="govuk-link govuk-link--no-visited-state" >Does this vacancy involve working with adults requiring regulated activity to be provided to them?</a></li>			
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/working-with-children" class="govuk-link govuk-link--no-visited-state" >Does this vacancy involve working with children?</a></li>			
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/home-address" class="govuk-link govuk-link--no-visited-state" >Does this vacancy involve working with children or regulated activity with adults at the applicant’s home address?</a></li>			
+			</ul>
+			
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/volunteer" class="govuk-link govuk-link--no-visited-state" >Will the applicant be a volunteer?</a></li>			
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/required-checks" class="govuk-link govuk-link--no-visited-state" >Which pre-employment checks are required for this vacancy?</a></li>			
+            
+        </ul>
+
+		{% endset -%}
+
+
+
+
+		{% set otherHtml %}
+		
+        <ul class="govuk-list govuk-list--bullet">
+            <li><a href="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" class="govuk-link govuk-link--no-visited-state" >Check your answers</a></li>
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/confirmation" class="govuk-link govuk-link--no-visited-state" >Manual recruitment request completed</a></li>
+            
+        </ul>
+
+		{% endset -%}
+
+
+		
+
+
+
+		{{ govukTabs({
+			items: [
+				
+				{ label: "Vacancy holder", id: "past-day", panel: { html: vacancyHtml } },
+			  	{ label: "Vacancy details", id: "past-week", panel: { html: vacancyDetailsHtml } },
+			  	{ label: "Pre-employment checks", id: "past-month", panel: { html: preEmploymentHtml } },
+				{ label: "Other", id: "past-year", panel: { html: otherHtml } }
+			  
+			]
+		  }) }}
+
+
+
+
+
 	</div>
 </div>
 

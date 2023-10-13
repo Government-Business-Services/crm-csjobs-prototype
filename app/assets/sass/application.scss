@@ -8,7 +8,10 @@
 // @import "node_modules/@x-govuk/govuk-prototype-components/x-govuk/all";
 @import "node_modules/@x-govuk/govuk-prototype-components/x-govuk/components/masthead/masthead";
 
-
+.js-enabled .govuk-tabs__panel {
+    border: 0;
+    padding-left: 0;
+}
 
 .cabo-side-navigation {
     font-family: "GDS Transport",arial,sans-serif;
