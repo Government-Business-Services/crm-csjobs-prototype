@@ -15,7 +15,11 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
 
-        <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/regulated-activity" >
+		{% if data['mmrPreChecksCriminalRecord'] == "Enhanced" %}
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/regulated-activity" >
+		{% else %}
+        	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/required-checks" >
+		{% endif %}
             
             {{ govukRadios({
 				name: "mmrPreChecksSecurity",   				     
