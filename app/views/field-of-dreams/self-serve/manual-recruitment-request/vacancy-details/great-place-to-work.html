@@ -16,7 +16,12 @@
     	
 		<p>This initiative aims to encourage more veterans to apply for roles at all grades, functions and professions across the Civil Service.</p>
 
-        <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/pension" >
+		{% if data['status'] == "change" %}
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
+<input type="hidden"  id="status" name="status" value="" />
+		{% else %}
+        	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/pension" >
+		{% endif %}
 			
 			{{ govukRadios({
 				name: "mmrVacancyVeterans",   

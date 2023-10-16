@@ -14,8 +14,12 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
-
-        <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/" >
+		{% if data['status'] == "change" %}
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
+<input type="hidden"  id="status" name="status" value="" />
+		{% else %}
+        	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/" >
+		{% endif %}
             
             {{ govukRadios({
 				name: "mmrVacancyPension",   

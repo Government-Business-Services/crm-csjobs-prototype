@@ -28,7 +28,12 @@
 
 		<p class="govuk-hint">For example, Accountancy, Legal or Policing.</p>
 
-        <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/profession" >
+		{% if data['status'] == "change" %}
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
+				<input type="hidden"  id="status" name="status" value="" />
+		{% else %}
+        	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/profession" >
+		{% endif %}
 
 			{{ xGovukAutocomplete({
 				id: "mmrVacancyJobType",

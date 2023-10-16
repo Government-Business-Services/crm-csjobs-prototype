@@ -15,7 +15,13 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
 		<p>Pre-employment checks are carried out to help the Civil Service make informed decisions about the suitability of individuals for vacancies.</p>
-        <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/reserved-status" >
+       
+		{% if data['status'] == "change" %}
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
+<input type="hidden"  id="status" name="status" value="" />
+		{% else %}
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/reserved-status" >
+		{% endif %}
             
 			{{ govukRadios({
 				name: "mmrPreChecks",   

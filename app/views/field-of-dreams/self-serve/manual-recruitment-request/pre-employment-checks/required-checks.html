@@ -15,7 +15,13 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	<p>Select all that apply.</p>
 
-        <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
+		{% if data['status'] == "change" %}
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
+<input type="hidden"  id="status" name="status" value="" />
+		{% else %}
+        	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
+<input type="hidden"  id="status" name="status" value="" />
+		{% endif %}
             
             {{ govukCheckboxes({
 				name: "mmrPreChecksRequired",   				

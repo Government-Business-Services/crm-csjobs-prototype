@@ -13,8 +13,12 @@
 
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-    	
-		{% if data['mmrPreChecksRegulatedActivity'] == "No" %}
+		
+
+		{% if data['status'] == "change" %}
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
+				<input type="hidden"  id="status" name="status" value="" />	
+		{% elif data['mmrPreChecksRegulatedActivity'] == "No" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/volunteer" >
 		{% else %}
         	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/home-address" >
