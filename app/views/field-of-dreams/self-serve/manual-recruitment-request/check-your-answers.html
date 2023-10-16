@@ -117,69 +117,27 @@
 
 		{% if data['mmrPreChecks'] == "No" %}
 			<h2 class="govuk-heading-m">Pre-employment checks</h2>
-			{{ govukSummaryList({
-				classes: "govuk-!-margin-bottom-9",
-				rows: [   
-					  {
-						key: { text: "Required" },
-						value: { text: data['mmrPreChecks'] },
-						actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: " if pre-employment checks are required" } ] }
-					  }			  
-				]
-			  }) }}
+			<dl class="govuk-summary-list govuk-!-margin-bottom-9">			
+				{% include "includes/query/mrr/pre-employment.html" %}
+			</dl>
 
 		{% else %}
 
-		  <h2 class="govuk-heading-m">Pre-employment checks</h2>
-		  {{ govukSummaryList({
-        	classes: "govuk-!-margin-bottom-9",
-        	rows: [   
-				  {
-            		key: { text: "Reserved role" },
-            		value: { text: data['mmrPreChecksReserved'] },
-            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "length of employment" } ] }
-          		}, 				  
-				  {
-            		key: { text: "Criminal Record Check (CRC)" },
-            		value: { text: data['mmrPreChecksCriminalRecord'] },
-            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "location" } ] }
-          		}, 
-				  {
-            		key: { text: "Security Level" },
-            		value: { text: data['mmrPreChecksSecurity'] },
-            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "working pattern" } ] }
-          		}, 
-				  {
-            		key: { text: "Working with adults requiring regulated activity" },
-            		value: { text: data['mmrPreChecksRegulatedActivity'] },
-            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "grade" } ] }
-          		}, 
-				  {
-            		key: { text: "Working with children" },
-            		value: { text: data['mmrPreChecksChildren'] },
-            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "salary" } ] }
-          		}, 
-				  {
-            		key: { text: "Home address" },
-            		value: { text: data['mmrVacancyPrisonLeavers'] },
-            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "prison leavers" } ] }
-          		},
-				  {
-            		key: { text: "Volunteer" },
-            		value: { text: data['mmrPreChecksVolunteer'] },
-            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "veterans" } ] }
-          		},
-				  {
-            		key: { text: "Checks required" },
-            		value: { text: data['mmrPreChecksRequired'] },
-            		actions: { items: [ { href: "#", text: "Change", visuallyHiddenText: "pension" } ] }
-          		}
-				
-				
-
-        		
-        	]
-      	}) }}
+			<h2 class="govuk-heading-m">Pre-employment checks</h2>
+			<dl class="govuk-summary-list govuk-!-margin-bottom-9">			
+				{% include "includes/query/mrr/reserved_role.html" %}
+				{% include "includes/query/mrr/criminal_record.html" %}
+				{% include "includes/query/mrr/security_level.html" %}
+				<!-- Only need these if CRC is enhanced -->
+				{% if data['mmrPreChecksCriminalRecord'] == "Enhanced" %}
+					{% include "includes/query/mrr/regulated_adults.html" %}
+					{% include "includes/query/mrr/regulated_children.html" %}
+					{% include "includes/query/mrr/home_address.html" %}
+					{% include "includes/query/mrr/volunteer.html" %}
+				{% endif %}
+				<!-- // -->				
+				{% include "includes/query/mrr/checks_required.html" %}			
+			</dl>
 
 		{% endif %}
 
