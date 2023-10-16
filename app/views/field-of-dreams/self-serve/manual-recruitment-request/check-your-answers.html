@@ -132,7 +132,9 @@
 				{% if data['mmrPreChecksCriminalRecord'] == "Enhanced" %}
 					{% include "includes/query/mrr/regulated_adults.html" %}
 					{% include "includes/query/mrr/regulated_children.html" %}
-					{% include "includes/query/mrr/home_address.html" %}
+					{% if (data['mmrPreChecksRegulatedActivity'] == "Yes" or data['mmrPreChecksChildren'] == "Yes")  %}
+						{% include "includes/query/mrr/home_address.html" %}
+					{% endif %}
 					{% include "includes/query/mrr/volunteer.html" %}
 				{% endif %}
 				<!-- // -->				
