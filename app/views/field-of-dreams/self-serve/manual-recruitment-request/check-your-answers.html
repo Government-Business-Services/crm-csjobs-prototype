@@ -37,17 +37,11 @@
 			{% include "includes/query/mrr/salary.html" %}
 			{% include "includes/query/mrr/prison.html" %}
 			{% include "includes/query/mrr/veterans.html" %}
-			{% include "includes/query/mrr/pension.html" %}
+			{% include "includes/query/mrr/pension.html" %}			
+			{% include "includes/query/mrr/pre-employment.html" %}			
 		</dl>
 
-		{% if data['mmrPreChecks'] == "No" %}
-			<h2 class="govuk-heading-m">Pre-employment checks</h2>
-			<dl class="govuk-summary-list govuk-!-margin-bottom-9">			
-				{% include "includes/query/mrr/pre-employment.html" %}
-			</dl>
-
-		{% else %}
-
+		{% if data['mmrPreChecks'] == "Yes" %}			
 			<h2 class="govuk-heading-m">Pre-employment checks</h2>
 			<dl class="govuk-summary-list govuk-!-margin-bottom-9">			
 				{% include "includes/query/mrr/reserved_role.html" %}
