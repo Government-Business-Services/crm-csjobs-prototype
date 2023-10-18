@@ -18,14 +18,14 @@
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
 <input type="hidden"  id="status" name="status" value="" />
 		{% else %}
-        	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/grade" >
+        	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/pattern" >
 		{% endif %}
 			
 			{{ govukInput({
 				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
 				classes: "govuk-!-width-two-thirds",				
 				hint: {
-					text: "For example, Fixed Term Contract ending 31 March 2024."
+					text: "For example, 12 months."
 				},
 				id: "mmrVacancyLengthEmployment",
 				name: "mmrVacancyLengthEmployment",
