@@ -17,13 +17,13 @@
 
 		<h2 class="govuk-heading-m">Vacancy details</h2>
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">			
+			{% include "includes/query/mrr/budget.html" %}
 			{% include "includes/query/mrr/vacancy.html" %}
 			{% include "includes/query/mrr/department.html" %}
 			{% include "includes/query/mrr/area.html" %}
 			{% include "includes/query/mrr/job_type.html" %}
 			{% include "includes/query/mrr/profession.html" %}
-			{% include "includes/query/mrr/approach.html" %}
-			{% include "includes/query/mrr/budget.html" %}
+			{% include "includes/query/mrr/approach.html" %}			
 			{% include "includes/query/mrr/permanent.html" %}
 			<!-- Only show is not permanent role -->
 			{% if data['mmrVacancyPermanent'] == "No" %}
