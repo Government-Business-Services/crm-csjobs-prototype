@@ -9,8 +9,24 @@
 @import "node_modules/@x-govuk/govuk-prototype-components/x-govuk/components/masthead/masthead";
 
 
+.bottom-border-blue {
+    border-bottom: #f3f2f1 6px solid; 
+    margin-bottom: 30px;    
+}
 
+.grey {
+    background-color: #f3f2f1;
+    padding-bottom: 15px;
 
+}
+
+// .hmrc-timeline {
+//     border-left: 5px solid #b1b4b6;
+// }
+
+// .hmrc-timeline__event-title::before {
+//     background-color: #b1b4b6
+// }
 
 .js-enabled .govuk-tabs__panel {
     border: 0;

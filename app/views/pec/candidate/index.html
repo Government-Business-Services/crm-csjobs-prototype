@@ -1,0 +1,38 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showNavLinks = true %}
+
+{% set pageHeading = "Find Civil Service jobs" %}
+{% set pageSection = "" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    
+    {% if data['iteration'] == "new" %}
+
+    	<div class="govuk-grid-column-two-thirds"> 
+    		<h1 class="govuk-heading-l">Your details</h1>    	
+		</div>
+      
+    	<!-- ////////////// END OF NEW ////////////////// -->
+    {% else %}
+
+    	<div class="govuk-grid-column-full">    
+    		
+			<h1 class="govuk-heading-xl govuk-!-padding-top-4">Find Civil Service jobs</h1>
+
+
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a class="govuk-link" href="https://www.civilservicejobs.service.gov.uk/csr/index.cgi">Search for jobs</a></li>
+				<li><a class="govuk-link" href="/pec/candidate/applications/">Manage your applications</a></li>
+				<li><a class="govuk-link" href="https://www.civilservicejobs.service.gov.uk/csr/support.cgi?pageaction=default">Request help or give feedback</a></li>
+			</ul>
+    
+    {% endif %}
+  
+	</div>
+</div>
+
+{% endblock %}

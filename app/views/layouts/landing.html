@@ -1,7 +1,4 @@
-{#
-For guidance on how to use layouts see:
-https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
-#}
+
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
@@ -18,7 +15,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
         serviceUrl: "/"                    
     }) }}
 
-    <!-- {{ xGovukMasthead({
+    {{ xGovukMasthead({
         classes: "x-govuk-masthead--large",
         phaseBanner: {
             text: "This is an updated service"
@@ -27,16 +24,13 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
             text: "Government Recruitment Service (GRS)"
         },
         description: {
-            html: "Our vision remains to be the recruitment partner of choice for departments, agencies and non-departmental public bodies (NDPBs). By increasing our capacity and reach, developing deep expertise, and providing excellent value for money we are moving forward with this ambition."            
+            html: "We are the recruitment partner of choice for government departments, agencies and non-departmental public bodies (NDPBs). We provide deep expertise, capacity, reach and excellent value for money."            
         },  
-        startButton: {
-            text: "Who we are",
-            href: "/field-of-dreams/who-we-are"
-        },      
+        
         image: {
-            src: "/images/pay-top-image-5f2b3404.png"
+            src: "/public/images/JoinNow2.svg"
         }
-    }) }} -->
+    }) }}
 
 
     {% include "includes/masthead.html" %}

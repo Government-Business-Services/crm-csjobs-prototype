@@ -1,7 +1,4 @@
-{#
-For guidance on how to use layouts see:
-https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
-#}
+
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
@@ -35,14 +32,14 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
         description: {
             html: "Access your Civil Service Jobs account, and find guidance and advice about using Civil Service Jobs."
         },
-        startButton: {
-            text: "Sign in",
-            href: "/get-started/"
-        },
+        
             image: {
-                src: "/public/images/pay-top-image-5f2b3404.png"
+                src: "/public/images/candidates2.svg"
             }
     }) }}
+
+
+    {% include "includes/masthead_3.html" %}
 
 {% endblock %}
 

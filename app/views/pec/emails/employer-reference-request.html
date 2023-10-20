@@ -1,0 +1,95 @@
+{% extends "layouts/email.html" %}
+
+{% set serviceName = "" %}
+
+{% if data['iteration'] == "new" %}
+  {% set pageHeading = "Reference request" %}
+{% else %}
+  {% set pageHeading = "Reference Request" %}
+{% endif %}
+
+{% block pageTitle %}Email - {{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-bottom-9">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if data['iteration'] == "new" %}
+
+      <h1 class="govuk-heading-m">{{ pageHeading }}</h1>
+      <p>Dear Katie Watson,</p>
+      <h2 class="govuk-heading-s">Why you have received this email</h2>
+
+
+      <!-- <p>You have been nominated as a referee to give a character reference for Hugo Furst.</p> -->
+      <!-- <p>You have been nominated by Hugo Furst as a character reference referee.</p> -->
+
+
+      <!-- <p>They have been successful in a provisional offer for the position of Project Manager.</p> -->
+      <p>Hugo Furst has been given a provisional offer for the position of Project Manager.</p>
+      <p>As part of the employment process we are doing pre-employment checks and they have nominated you as a referee to give a reference.</p>
+
+      <!-- <p>As part of the employment process we are doing pre-employment checks and the applicant needs to provide character references.</p> -->
+
+      <h2 class="govuk-heading-s">We need your help to proceed with our checks</h2>
+      <p>By giving a reference you are helping someone start a new job.</p>
+
+      
+      <p>Your reference will not decide if Hugo Furst is successfully offered the job but it does play a role in the employment process. Your participation is very much appreciated.</p>
+      <!-- <h2 class="govuk-heading-s">Complete the character reference form</h2> -->
+      <!-- <p>We need your help to proceed with our checks.</p> -->
+
+
+      <p class="govuk-heading-s">A quick process</p>
+      <p>The reference form is simple and will only take 5 minutes to fill in. We would appreciate it if you could complete the form within 48 hours, or as soon as possible, to avoid any delays in the application.</p>
+      
+
+      <p>This form cannot be saved and retrieved later on. If you close the form without sending it, you will have to start again.</p>
+      <div class="govuk-inset-text">
+        <p>Please complete <a class="govuk-link govuk-link--no-visited-state" href="/pec/reference-request/employer">a reference form for Hugo Furst</a>.</p>
+      </div>
+    
+      <!-- <p>Please complete <a class="govuk-link govuk-link--no-visited-state" href="/pec/reference-request/employer">this character reference form</a>.</p> -->
+      <!-- <p>This will send your character reference to us and we can proceed with Hugo Furst’s employment process.</p> -->
+      
+      <!-- <h2 class="govuk-heading-s">What the reference is for</h2>
+      <p>By giving a character reference you are helping someone to start a new job. Your participation is very much appreciated.</p>
+      <p>A reference may not decide if the candidate is offered the job but it does play a role in the employment process.</p> -->
+      <h2 class="govuk-heading-s">How we use the reference</h2>
+      <p>Any reference provided will not be actively shared, but Hugo Furst can request a copy at a later date if they wish.</p>
+      <p>Thank you very much in advance for your time. If you have any queries please email <a class="govuk-link govuk-link--no-visited-state" href="#">test@test.com</a>.</p>
+
+      <!-- <p>Your participation is very much appreciated.</p> -->
+      <p class="govuk-!-margin-top-9">Kind regards,</p>
+      <p>HM Revenue and Customs recruitment team</p>
+
+    {% else %}
+  
+    <h1 class="govuk-heading-m">{{ pageHeading }}</h1>
+  <p class="govuk-body">Dear Katie Watson ,</p>
+  <p class="govuk-body">Re: A8 testing PH</p>
+  <p class="govuk-body">We are undertaking pre-employment checks tor Hugo Furst</p>
+  <p class="govuk-body">They have been successful in the above vacancy and have nominated you as a referee.</p>
+  <p class="govuk-body">To enable us to complete our checks, please <a href="/pec/reference-request/employer">access the reference form</a>. We would appreciate it if you could complete the form within 48 hours to avoid any delay</p>
+  <p class="govuk-body">An unfavourable reply does not necessarily mean that the applicant won't be offered a job; your reference IS very valuable to us and we will take it into consideration in the strictest confidence.</p>
+  <p class="govuk-body">Thank you very much in advance tor your time. It you have any queries please email <a href="#">test@test.com</a>.</p>
+  <p class="govuk-body"></p>
+  <p class="govuk-body">Kind regards,
+  <br>HM Revenue and Customs recruitment team</p>
+
+    {% endif %}
+
+</div>
+<div class="grid-column-one-third">
+
+  
+
+  <ul class="govuk-list govuk-!-text-align-right govuk-!-margin-top-2 ">        
+      <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 " href="/pec/emails/employer-reference-request?iteration=">Current view</a></li>
+      <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/pec/emails/employer-reference-request?iteration=new">New iteration</a></li>
+  </ul>  
+</div>
+</div>
+
+{% endblock %}

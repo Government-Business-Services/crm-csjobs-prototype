@@ -1,7 +1,4 @@
-{#
-For guidance on how to use layouts see:
-https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
-#}
+
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
@@ -33,16 +30,16 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
             text: "Vacancy holders"
         },
         description: {
-            html: "Access pre-employment checking, manage applications, authentications and statuses of candidates."
+            html: "Find out about pre-employment checking, manage applications, authentications and statuses of candidates.<br><br>As a vacancy holder you work on the recruitment process from creating advertisements through to final candidate onboarding."
         },     
         
         image: {
-            src: "/public/images/pay-top-image-5f2b3404.png"
+            src: "/public/images/Chair.svg"
         }
     }) }}
 
 
-    
+    {% include "includes/masthead_2.html" %}
 
 {% endblock %}
 
