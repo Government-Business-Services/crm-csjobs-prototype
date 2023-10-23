@@ -7,7 +7,7 @@
 {% set showBackLink = false %}
 
 {% if data['iteration'] == "new" %}
-  {% set pageHeading = "Reference request" %}
+  {% set pageHeading = "Request for information" %}
   {% set pageSection = "Hugo Furst" %}
 {% else %}
   {% set pageHeading = "Reference Request" %}
@@ -30,8 +30,8 @@
           {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-          <p>We need your assistance to confirm some information about (NAME).
-          <br>This is not a character reference, but you can help us by confirming some identity and employment details about them.</p>
+          <p>We need some details about (NAME).</p>
+          <p>This is not a character reference, but you can help us by confirming some identity and employment details about them.</p>
 
 
         	<div class="govuk-inset-text govuk-!-margin-bottom-7">				
@@ -51,7 +51,7 @@
           				legend: { text: "Are you related to {NAME}", isPageHeading: false, classes: "govuk-fieldset__legend" }
         			},
               hint: {
-                text: "You must not be related to the applicant in any way."
+                text: "You must not be related to them by birth or marriage."
               },
         			items: [
           				{ value: "Yes", text: "Yes" },
@@ -89,7 +89,7 @@
                 }
               },
               hint: {
-                html: "For example, 27 10 2019.<br> If you do not know the exact date, you can estimate it."
+                html: "For example, 27 10 2019."
               }
             }) }}
 
@@ -107,7 +107,7 @@
                   }
                 },
                 hint: {
-                  html: "For example, 27 10 2019.<br> If you do not know the exact date, you can estimate it."
+                  html: "For example, 27 10 2019."
                 }
               }) }}
             {% endset -%}
@@ -143,9 +143,9 @@
               name: "refRequestWorkCapacity",
               id: "refRequestWorkCapacity",
               maxlength: 200,
-              label: { text: "Describe {NAME}’s role in your organisation", classes: "govuk-label", isPageHeading: false },
+              label: { text: "Describe what type of work {NAME} did in your organisation", classes: "govuk-label", isPageHeading: false },
               hint: {
-                text: "Include what type of work, how long for and where. For example, they worked as a forklift driver for 2 years based in Cardiff."
+                text: "For example, they worked as a call handler in our call centre."
               }
             }) }}
 
@@ -193,7 +193,7 @@
       			<!-- <p class="govuk-body">Please click submit once you've completed all mandatory fields</p> -->
 
       			{{ govukButton({
-        			text: "Submit reference",
+        			text: "Submit",
         			href: "complete"        
       			}) }}    
     		</form>

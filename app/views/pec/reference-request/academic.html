@@ -7,10 +7,10 @@
 {% set showBackLink = false %}
 
 {% if data['iteration'] == "new" %}
-  {% set pageHeading = "Reference request" %}
+  {% set pageHeading = "Request for information" %}
   {% set pageSection = "Hugo Furst" %}
 {% else %}
-  {% set pageHeading = "Reference Request" %}
+  {% set pageHeading = "Request for information" %}
 {% endif %}
 {% set pageSection = "" %}
 
@@ -45,6 +45,9 @@
         			fieldset: {
           				legend: { text: "Are you related to {NAME}", isPageHeading: false, classes: "govuk-fieldset__legend" }
         			},
+              hint: {
+                text: "You must not be related to them by birth or marriage."
+              },
         			items: [
           				{ value: "Yes", text: "Yes" },
           				{ value: "No", text: "No" }          
@@ -52,7 +55,7 @@
       			}) }}
 
             {{ govukInput({
-        			label: { text: "Your position at the educational organisation", classes: "govuk-label",isPageHeading: false },      
+        			label: { text: "Your position at the place of education", classes: "govuk-label",isPageHeading: false },      
         			classes: "govuk-!-width-two-thirds",
         			id: "refRequestPositionAcademic",
         			name: "refRequestPositionAcademic"
@@ -82,13 +85,13 @@
               namePrefix: "refRequestStartDateAcademic",
               fieldset: {
                 legend: {
-                  text: "When did {NAME} start at your educational organisation?",
+                  text: "When did {NAME} start at your place of education?",
                   isPageHeading: true,
                   classes: "govuk-fieldset__legend"
                 }
               },
               hint: {
-                text: "For example, 27 3 2007"
+                text: "For example, 27 10 2019."
               }
             }) }}
 
@@ -100,7 +103,7 @@
                 namePrefix: "passport-issued",
                 fieldset: {
                   legend: {
-                    text: "When did {NAME} leave your educational organisation?",
+                    text: "When did {NAME} leave?",
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend"
                   }
@@ -184,7 +187,7 @@
       			<!-- <p class="govuk-body">Please click submit once you've completed all mandatory fields</p> -->
 
       			{{ govukButton({
-        			text: "Send reference",
+        			text: "Submit",
         			href: "complete"        
       			}) }}    
     		</form>

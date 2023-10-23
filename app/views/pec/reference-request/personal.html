@@ -7,7 +7,7 @@
 {% set showBackLink = false %}
 
 {% if data['iteration'] == "new" %}
-  {% set pageHeading = "Reference request" %}
+  {% set pageHeading = "Request for information" %}
   {% set pageSection = "Hugo Furst" %}
 {% else %}
   {% set pageHeading = "Reference Request" %}
@@ -29,7 +29,8 @@
 			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-			<p>We need your assistance to confirm some information about (NAME). <br>This is not a character reference, but you can help us by confirming some identity and suitability details about them.  </p>
+			<p>We need some details about (NAME).</p>
+			<p>This is not a character reference, but you can help us by confirming some identity and suitability details about them.  </p>
 			<div class="govuk-inset-text govuk-!-margin-bottom-7">				
 				<p>This form cannot be saved and retrieved later on. If you close the form without submitting it, you will have to start again.</p>				
 			</div>
@@ -53,7 +54,7 @@
           				legend: { text: "Are you related to {NAME}", isPageHeading: false, classes: "govuk-fieldset__legend" }
         			},
 					hint: {
-						text: "You must not be related to the applicant in any way."
+						text: "You must not be related to them by birth or marriage."
 					},
         			items: [
           				{ value: "Yes", text: "Yes" },
@@ -311,7 +312,7 @@
 
 
       			{{ govukButton({
-        			text: "Submit reference",
+        			text: "Submit",
         			href: "complete"        
       			}) }}    
     		
