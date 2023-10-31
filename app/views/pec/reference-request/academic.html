@@ -79,39 +79,79 @@
       			}) }} -->
 
 
+            
 
-            {{ govukDateInput({
-              id: "refRequestStartDateAcademic",
-              namePrefix: "refRequestStartDateAcademic",
-              fieldset: {
-                legend: {
-                  text: "When did {NAME} start at your place of education?",
-                  isPageHeading: true,
-                  classes: "govuk-fieldset__legend"
-                }
-              },
-              hint: {
-                text: "For example, 27 10 2019."
-              }
-            }) }}
+
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" role="group" aria-describedby="refRequestWorkDateAcademic-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend">
+                  <p class="govuk-fieldset__heading">
+                    When did {NAME} start at your place of education?
+                  </p>
+                </legend>
+                <div id="refRequestWorkDateAcademic-hint" class="govuk-hint">
+                  For example, 27 10 2019
+                </div>
+                <div class="govuk-date-input" id="refRequestWorkDateAcademic">
+                  
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="refRequestWorkDateAcademic-month">
+                        Month
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="refRequestWorkDateAcademic-month" name="refRequestWorkDateAcademic-month" type="text" inputmode="numeric">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="refRequestWorkDateAcademic-year">
+                        Year
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="refRequestWorkDateAcademic-year" name="refRequestWorkDateAcademic-year" type="text" inputmode="numeric">
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
 
             
 
             {% set notWorkingHtml %}
-              {{ govukDateInput({
-                id: "passport-issued",
-                namePrefix: "passport-issued",
-                fieldset: {
-                  legend: {
-                    text: "When did {NAME} leave?",
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend"
-                  }
-                },
-                hint: {
-                  text: "For example, 27 3 2007"
-                }
-              }) }}
+
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset" role="group" aria-describedby="refRequestWorkDateAcademicLeave-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend">
+                  <p class="govuk-fieldset__heading">
+                    When did {NAME} leave?
+                  </p>
+                </legend>
+                <div id="refRequestWorkDateAcademicLeave-hint" class="govuk-hint">
+                  For example, 27 10 2019
+                </div>
+                <div class="govuk-date-input" id="refRequestWorkDateAcademicLeave">
+                  
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="refRequestWorkDateAcademicLeave-month">
+                        Month
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="refRequestWorkDateAcademicLeave-month" name="refRequestWorkDateAcademicLeave-month" type="text" inputmode="numeric">
+                    </div>
+                  </div>
+                  <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-date-input__label" for="refRequestWorkDateAcademicLeave-year">
+                        Year
+                      </label>
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="refRequestWorkDateAcademicLeave-year" name="refRequestWorkDateAcademicLeave-year" type="text" inputmode="numeric">
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+
+              
             {% endset -%}
 
 
