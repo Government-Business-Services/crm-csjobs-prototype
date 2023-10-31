@@ -1,4 +1,4 @@
-{% if ((data['iteration'] == "new") or (data['iteration'] == "related")) %}
+{% if ((data['iteration'] == "new") or (data['iteration'] == "related") or (data['iteration'] == "years")) %}
   {% extends "layouts/main.html" %}
 {% else %}
   {% extends "govuk-prototype-kit/layouts/unbranded.html" %}
@@ -6,7 +6,7 @@
 
 {% set showBackLink = false %}
 
-{% if ((data['iteration'] == "new") or (data['iteration'] == "related")) %}
+{% if ((data['iteration'] == "new") or (data['iteration'] == "related") or (data['iteration'] == "years")) %}
   {% set pageHeading = "Request for information" %}
   {% set pageSection = "Hugo Furst" %}
 {% else %}
@@ -24,7 +24,68 @@
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-    	{% if data['iteration'] == "related" %}
+    	{% if data['iteration'] == "years" %}
+
+			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+			<p>We need some details about (NAME).</p>
+			<p>This is not a character reference, but you can help us by confirming some identity and suitability details about them.  </p>
+			<div class="govuk-inset-text govuk-!-margin-bottom-7">				
+				<p>This form cannot be saved and retrieved later on. If you close the form without submitting it, you will have to start again.</p>				
+			</div>
+
+			<form method="post" action="time-known" >							
+
+				{{ govukRadios({
+				  name: "refPersonalRequestRelated",
+				  classes: "govuk-radios--inline",
+				  fieldset: {
+						legend: { text: "Are you related to {NAME}", isPageHeading: false, classes: "govuk-fieldset__legend" }
+				  },
+				  hint: {
+					  text: "You must not be related to them by birth or marriage."
+				  },
+				  items: [
+						{ value: "Yes", text: "Yes",  checked: checked },
+						{ value: "No", text: "No" }          
+				  ]
+				}) }}		
+				
+				{{ govukRadios({
+        			name: "refPersonalRequestTimeKnown",
+					classes: "govuk-radios--inline",
+        			fieldset: {
+          				legend: { text: "Have you known {NAME} for more than 3 years?", isPageHeading: true, classes: "govuk-fieldset__legend" }
+        			},
+					hint: {
+						text: "It’s a requirement to have known the applicant for at least this long."
+					},
+        			items: [
+          				{ value: "Yes", text: "Yes" },
+          				{ value: "No", text: "No", checked: checked }          
+        			]
+      			}) }}
+
+
+				<p class="govuk-!-margin-bottom-7">You have stated that you have not known the applicant for 3 years. This means you can't progress as the applicant's referee. Submit the form using the button below.</p>
+
+				{{ govukButton({
+        			text: "Submit",
+        			href: "complete"        
+      			}) }}
+			</form>
+		</div>
+		<div class="grid-column-one-third">
+		  <ul class="govuk-list govuk-!-text-align-right govuk-!-margin-top-2 ">        
+			  <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 " href="/pec/reference-request/personal?iteration=">Current view</a></li>
+				<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/pec/reference-request/personal?iteration=new">New iteration</a></li>
+				<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/pec/reference-request/personal?iteration=related">Related error</a></li>
+				<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/pec/reference-request/personal?iteration=years">Not know 3 years</a></li>
+			</ul>  
+		
+		
+		{% elif data['iteration'] == "related" %}
 
 			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
@@ -53,9 +114,12 @@
 				}) }}			  
 
 
-				<p>You cannot continue to provide information ..... </p>
+				<p class="govuk-!-margin-bottom-7">You have stated that you are related to the applicant. This means you can’t progress as the applicant’s referee. Submit the form using the button below</p>
 
-
+				{{ govukButton({
+        			text: "Submit",
+        			href: "complete"        
+      			}) }}
 			</form>
 		</div>
 		<div class="grid-column-one-third">
@@ -63,6 +127,7 @@
 			  <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 " href="/pec/reference-request/personal?iteration=">Current view</a></li>
 				<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/pec/reference-request/personal?iteration=new">New iteration</a></li>
 				<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/pec/reference-request/personal?iteration=related">Related error</a></li>
+				<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/pec/reference-request/personal?iteration=years">Not know 3 years</a></li>
 			</ul>  
 
 		
