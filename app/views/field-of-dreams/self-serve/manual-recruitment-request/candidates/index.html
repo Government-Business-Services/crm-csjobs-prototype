@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "You have added 1 candidate" %}
+{% set pageHeading = "What is the candidates full name?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %} - Prototype{% endblock %}
@@ -17,34 +17,17 @@
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
 <input type="hidden"  id="status" name="status" value="" />
 		{% else %}
-			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/email" >
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/candidates/email" >
 		{% endif %}
 		
-			
-        
-        {{
-            hmrcAddToAList({
-            
-                isPageHeading: false,
-              itemList: [
-                {
-                  name: 'Sydney Russell',
-                  changeUrl: '#',
-                  removeUrl: '#'
-                }                
-              ],
-              itemType: {
-                singular: 'candidate',
-                plural: 'candidates',
-                formAction: '#'
-              },
-              hintText: 'You must tell us about all your candidates.'
-            })
-          }}
-        
-        
-        
-        
+			{{ govukInput({
+				label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+				classes: "govuk-!-width-two-thirds",
+				id: "mmrCandidate1Name",
+				name: "mmrCandidate1Name",
+				value: data['mmrCandidate1Name']
+			}) }}
+    	
             {{ govukButton({
       	    	text: "Continue"			    
     	    }) }}

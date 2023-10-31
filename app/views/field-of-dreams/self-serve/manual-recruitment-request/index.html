@@ -92,7 +92,15 @@
 
 		{% endset -%}
 
+		{% set candidatesHtml %}
 
+		<ul class="govuk-list govuk-list--bullet">			
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/start?query=manualRecruitmentRequest" class="govuk-link govuk-link--no-visited-state" >Manual recruitment request</a></li>
+            <li><a href="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" class="govuk-link govuk-link--no-visited-state" >Check your answers</a></li>
+			<li><a href="/field-of-dreams/self-serve/manual-recruitment-request/confirmation" class="govuk-link govuk-link--no-visited-state" >Manual recruitment request completed</a></li>            
+        </ul>
+
+		{% endset -%}
 
 
 		{% set otherHtml %}
@@ -120,6 +128,7 @@
 				{ label: "Vacancy holder", id: "past-day", panel: { html: vacancyHtml } },
 			  	{ label: "Vacancy details", id: "past-week", panel: { html: vacancyDetailsHtml } },
 			  	{ label: "Pre-employment checks", id: "past-month", panel: { html: preEmploymentHtml } },
+				{ label: "Candidates", id: "candidates", panel: { html: candidatesHtml } },
 				{ label: "Other", id: "past-year", panel: { html: otherHtml } }
 			  
 			]
