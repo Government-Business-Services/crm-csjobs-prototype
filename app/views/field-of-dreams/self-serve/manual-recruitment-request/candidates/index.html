@@ -19,14 +19,40 @@
 		{% else %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/candidates/email" >
 		{% endif %}
-		
-			{{ govukInput({
-				label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
-				classes: "govuk-!-width-two-thirds",
-				id: "mmrCandidate1Name",
-				name: "mmrCandidate1Name",
-				value: data['mmrCandidate1Name']
-			}) }}
+        
+
+    {% if data['mmrCandidate2Name'] %}  
+
+        {{ govukInput({
+          label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+          classes: "govuk-!-width-two-thirds",
+          id: "mmrCandidate3Name",
+          name: "mmrCandidate3Name",
+          value: data['mmrCandidate3Name']
+        }) }}
+
+
+      {% elif data['mmrCandidate1Name'] %}  
+
+        {{ govukInput({
+          label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+          classes: "govuk-!-width-two-thirds",
+          id: "mmrCandidate2Name",
+          name: "mmrCandidate2Name",
+          value: data['mmrCandidate2Name']
+        }) }}
+
+      {% else %}
+
+        {{ govukInput({
+          label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+          classes: "govuk-!-width-two-thirds",
+          id: "mmrCandidate1Name",
+          name: "mmrCandidate1Name",
+          value: data['mmrCandidate1Name']
+        }) }}
+
+      {% endif %}
     	
             {{ govukButton({
       	    	text: "Continue"			    

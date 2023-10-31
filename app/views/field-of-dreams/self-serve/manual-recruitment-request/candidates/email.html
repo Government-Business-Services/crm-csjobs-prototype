@@ -1,7 +1,11 @@
 {% extends "layouts/main.html" %}
 {% set serviceName = "GRS" %}
 
-{% if data['mmrCandidate1Name'] %}
+{% if data['mmrCandidate3Name'] %}
+	{% set pageHeading = 'What is ' + data.mmrCandidate3Name + '’s email address?' %}
+{% elif data['mmrCandidate2Name'] %}
+	{% set pageHeading = 'What is ' + data.mmrCandidate2Name + '’s email address?' %}
+{% elif data['mmrCandidate1Name'] %}
 	{% set pageHeading = 'What is ' + data.mmrCandidate1Name + '’s email address?' %}
 {% else %}
 	{% set pageHeading = "What is the candidates email address?" %}
@@ -24,6 +28,31 @@
         	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/candidates/telephone" >
 		{% endif %}
 
+
+		{% if data['mmrCandidate2Email'] %}  
+
+        {{ govukInput({
+          label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+          classes: "govuk-!-width-two-thirds",
+          id: "mmrCandidate3Email",
+          name: "mmrCandidate3Email",
+          value: data['mmrCandidate3Email']
+        }) }}
+
+
+      {% elif data['mmrCandidate1Email'] %}  
+
+        {{ govukInput({
+          label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+          classes: "govuk-!-width-two-thirds",
+          id: "mmrCandidate2Email",
+          name: "mmrCandidate2Email",
+          value: data['mmrCandidate2Email']
+        }) }}
+
+      {% else %}
+
+
 			{{ govukInput({
 				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
 				classes: "govuk-!-width-two-thirds",
@@ -31,6 +60,8 @@
 				name: "mmrCandidate1Email",
 				value: data['mmrCandidate1Email']
 			}) }}
+
+		{% endif %}
     	
             {{ govukButton({
       	    	text: "Continue"			    

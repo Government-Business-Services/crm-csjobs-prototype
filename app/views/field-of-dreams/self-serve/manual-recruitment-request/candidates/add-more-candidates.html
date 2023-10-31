@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "You have added 1 candidate" %}
+{% set pageHeading = "You have added 1 candidate to this vacancy" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %} - Prototype{% endblock %}
@@ -16,7 +16,33 @@
 
 		<div class="govuk-form-group govuk-!-margin-bottom-7">
 			<dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
+				
+				{% if data['mmrCandidate3Name'] %}
 				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">{{ data.mmrCandidate3Name }}</dt>
+					<dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+				  		<ul class="govuk-summary-list__actions-list">
+							<li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change </span></a></li>
+							<li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove Sydney Russell from the list</span></a></li>
+				  		</ul>
+					</dd>
+			  	</div>			  	
+				{% endif %}
+
+				{% if data['mmrCandidate2Name'] %}
+				  <div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">{{ data.mmrCandidate2Name }}</dt>
+					<dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+				  		<ul class="govuk-summary-list__actions-list">
+							<li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change </span></a></li>
+							<li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove Sydney Russell from the list</span></a></li>
+				  		</ul>
+					</dd>
+			  	</div>			  	
+				{% endif %}
+
+				{% if data['mmrCandidate1Name'] %}
+				  <div class="govuk-summary-list__row">
 					<dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">{{ data.mmrCandidate1Name }}</dt>
 					<dd class="govuk-summary-list__actions hmrc-summary-list__actions">
 				  		<ul class="govuk-summary-list__actions-list">
@@ -25,6 +51,9 @@
 				  		</ul>
 					</dd>
 			  	</div>			  	
+				  {% endif %}
+
+
 			</dl>		  
 		</div>
 		
@@ -34,40 +63,70 @@
 		{% else %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" novalidate action="" >
 		{% endif %}
-				        
+
 				
-				  
-			<div class="govuk-form-group">
-			  <fieldset class="govuk-fieldset" aria-describedby="add-another-hint">
-				<legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
-				  Do you need to add another candidate for this vacancy?
-				</legend>
-				<!-- <div id="add-another-hint" class="govuk-hint">
-				  You must tell us about all your candidates.
-				</div> -->
-				<div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-				  <div class="govuk-radios__item">
-					<input class="govuk-radios__input" id="add-another" name="add-another" type="radio" value="Yes">
-					<label class="govuk-label govuk-radios__label" for="add-another">
-					  Yes
-					</label>
-				  </div>
-				  <div class="govuk-radios__item">
-					<input class="govuk-radios__input" id="add-another-2" name="add-another" type="radio" value="No">
-					<label class="govuk-label govuk-radios__label" for="add-another-2">
-					  No
-					</label>
-				  </div>
-				</div>
-		  
-			  </fieldset>
-			</div>
-		  
-			<button class="govuk-button" data-module="govuk-button">
-			  Continue
-			</button>
-		  </form>
+		{% if data['mmrCandidate3Name'] %}
+
+		{{ govukRadios({
+			name: "mmrAddCandidate4",   
+			classes: "govuk-radios--inline",     
+			fieldset: {
+				legend: {
+					text: "Do you need to add another candidate?",
+					isPageHeading: false,
+					classes: "govuk-label--m"
+				}
+			},
+			items: [                
+				{ value: "Yes~/field-of-dreams/self-serve/manual-recruitment-request/candidates/", text: "Yes", checked: checked("mmrAddCandidate4", "Yes") },					
+				{ value: "No", text: "No", checked: checked("mmrAddCandidate4", "No") }																			
+			]
+		}) }}
+
+
+		{% elif data['mmrCandidate2Name'] %}
+
+		{{ govukRadios({
+			name: "mmrAddCandidate3",   
+			classes: "govuk-radios--inline",     
+			fieldset: {
+				legend: {
+					text: "Do you need to add another candidate?",
+					isPageHeading: false,
+					classes: "govuk-label--m"
+				}
+			},
+			items: [                
+				{ value: "Yes~/field-of-dreams/self-serve/manual-recruitment-request/candidates/", text: "Yes", checked: checked("mmrAddCandidate3", "Yes") },					
+				{ value: "No", text: "No", checked: checked("mmrAddCandidate3", "No") }																			
+			]
+		}) }}
+
+
+		{% elif data['mmrCandidate1Name'] %}
+			
+			{{ govukRadios({
+				name: "mmrAddCandidate",   
+				classes: "govuk-radios--inline",     
+				fieldset: {
+					legend: {
+						text: "Do you need to add another candidate?",
+						isPageHeading: false,
+						classes: "govuk-label--m"
+					}
+				},
+				items: [                
+					{ value: "Yes~/field-of-dreams/self-serve/manual-recruitment-request/candidates/", text: "Yes", checked: checked("mmrAddCandidate", "Yes") },					
+					{ value: "No", text: "No", checked: checked("mmrAddCandidate", "No") }																			
+				]
+			}) }}
 		
+		{% endif %}
+
+			{{ govukButton({
+				text: "Continue"			    
+			}) }}    		
+				  					
       		
 
         </form>        
