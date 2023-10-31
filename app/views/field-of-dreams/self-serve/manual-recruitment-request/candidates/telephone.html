@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "GRS" %}
+
+{% if data['mmrCandidate1Name'] %}
+	{% set pageHeading = 'What is ' + data.mmrCandidate1Name + '’s telephone number?' %}
+{% else %}
+	{% set pageHeading = "What is the candidates telephone number?" %}
+{% endif %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	
+		{% if data['status'] == "change" %}
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
+				<input type="hidden"  id="status" name="status" value="" />
+		{% else %}
+        	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/candidates/" >
+		{% endif %}
+			
+			{{ govukInput({
+				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+				classes: "govuk-!-width-two-thirds",
+				id: "mmrCandidate1Phone",
+				name: "mmrCandidate1Phone",
+				value: data['mmrCandidate1Phone']
+			}) }}
+
+
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

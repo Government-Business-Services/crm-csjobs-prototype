@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "GRS" %}
+
+{% set pageHeading = "You have added 1 candidate" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+		
+		{% if data['status'] == "change" %}
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
+<input type="hidden"  id="status" name="status" value="" />
+		{% else %}
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/email" >
+		{% endif %}
+		
+			
+        
+        {{
+            hmrcAddToAList({
+            
+                isPageHeading: false,
+              itemList: [
+                {
+                  name: 'Sydney Russell',
+                  changeUrl: '#',
+                  removeUrl: '#'
+                }                
+              ],
+              itemType: {
+                singular: 'candidate',
+                plural: 'candidates',
+                formAction: '#'
+              },
+              hintText: 'You must tell us about all your candidates.'
+            })
+          }}
+        
+        
+        
+        
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}
