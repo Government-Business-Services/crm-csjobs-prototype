@@ -67,8 +67,10 @@
         			]
       			}) }}
 
-
-				<p class="govuk-!-margin-bottom-7">You have stated that you have not known the applicant for 3 years. This means you can’t progress as the applicant’s referee. Submit the form using the button below.</p>
+				<div class="govuk-inset-text">
+				<p>You can’t proceed as the applicant’s referee because you have told us you have not know them for more than 3 years.</p>
+				<p>We still need you to submit this form.</p>
+				</div>
 
 				{{ govukButton({
         			text: "Submit",
@@ -113,8 +115,10 @@
 				  ]
 				}) }}			  
 
-
-				<p class="govuk-!-margin-bottom-7">You have stated that you are related to the applicant. This means you can’t progress as the applicant’s referee. Submit the form using the button below</p>
+				<div class="govuk-inset-text">
+				<p>You can’t proceed as the applicant’s referee because you have told us you are related.</p>
+				<p class="govuk-!-margin-bottom-">We still need you to submit this form.</p>
+			</div>
 
 				{{ govukButton({
         			text: "Submit",

@@ -60,7 +60,13 @@
         			]
       			}) }}
 
-            <p class="govuk-!-margin-bottom-7">You have stated that you have not known the applicant for 3 years. This means you can’t progress as the applicant’s referee. Submit the form using the button below.</p>
+
+            <div class="govuk-inset-text">
+              <p>You can’t proceed as the applicant’s referee because you have told us you are related.</p>
+              <p class="govuk-!-margin-bottom-">We still need you to submit this form.</p>
+            </div>
+
+            
 
 				{{ govukButton({
         			text: "Submit",
@@ -142,7 +148,7 @@
                   </p>
                 </legend>
                 <div id="refRequestWorkDate-hint" class="govuk-hint">
-                  For example, 27 10 2019
+                  For example, 10 2019
                 </div>
                 <div class="govuk-date-input" id="refRequestWorkDate">
                   
@@ -178,7 +184,7 @@
                   </p>
                 </legend>
                 <div id="refRequestWorkDateLeave-hint" class="govuk-hint">
-                  For example, 27 10 2019
+                  For example, 10 2019
                 </div>
                 <div class="govuk-date-input" id="refRequestWorkDateLeave">
                   
