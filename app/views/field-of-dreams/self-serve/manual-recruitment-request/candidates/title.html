@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "GRS" %}
+
+{% set pageHeading = "What is the candidates title?" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+		
+		  {% if data['status'] == "change" %}
+			  <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
+          <input type="hidden"  id="status" name="status" value="" />
+		  {% else %}
+			  <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/candidates/name" >
+		  {% endif %}
+        
+
+      {% set textHtml %}
+        
+        {{ govukInput({
+          id: "mmrCandidate1TitleOther",
+          name: "mmrCandidate1TitleOther",
+          type: "tel",
+          autocomplete: "tel",
+          classes: "govuk-!-width-two-thirds",
+          label: {
+            text: "What is the candidates title?", classes: "govuk-visually-hidden"
+          },
+          hint: {
+            text: "For example Dr, Professor or Reverend"
+          }
+        }) }}
+
+       {% endset -%} 
+
+
+    {{ govukRadios({
+      name: "mmrCandidate1Title",        
+      fieldset: {
+        legend: {
+          text: "Which profession is the role in",
+          isPageHeading: false,
+          classes: "govuk-visually-hidden"
+        }
+      },
+      items: [                
+        { value: "Miss", text: "Miss", checked: checked("mmrCandidate1Title", "Miss") },					        
+        { value: "Mr", text: "Mr", checked: checked("mmrCandidate1Title", "Mr") },					
+        { value: "Mrs", text: "Mrs", checked: checked("mmrCandidate1Title", "Mrs") },					
+        { value: "Ms", text: "Ms", checked: checked("mmrCandidate1Title", "Ms") },						  
+        { value: "Other", text: "Other", checked: checked("mmrCandidate1Title", "Other"), conditional: { html: textHtml } }					              
+      ]
+    }) }}
+
+
+
+    	
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

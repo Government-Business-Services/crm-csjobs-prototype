@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "GRS" %}
+
+{% set pageHeading = "What is the candidates reference number?" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+		
+		{% if data['status'] == "change" %}
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
+<input type="hidden"  id="status" name="status" value="" />
+		{% else %}
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/candidates/add-more-candidates" >
+		{% endif %}
+        
+
+    {% if data['mmrCandidate2Name'] %}  
+
+        {{ govukInput({
+          label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+          classes: "govuk-!-width-two-thirds",
+          id: "mmrCandidate3Name",
+          name: "mmrCandidate3Name",
+          value: data['mmrCandidate3Name']
+        }) }}
+
+
+      {% elif data['mmrCandidate1Name'] %}  
+
+        {{ govukInput({
+          label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+          classes: "govuk-!-width-two-thirds",
+          id: "mmrCandidate2Name",
+          name: "mmrCandidate2Name",
+          value: data['mmrCandidate2Name']
+        }) }}
+
+      {% else %}
+
+        {{ govukInput({
+          label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+          classes: "govuk-!-width-two-thirds",
+          id: "mmrCandidate1Name",
+          name: "mmrCandidate1Name",
+          value: data['mmrCandidate1Name']
+        }) }}
+
+      {% endif %}
+    	
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

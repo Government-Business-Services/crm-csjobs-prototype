@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "GRS" %}
+
+{% set pageHeading = "What type of candiate are they?" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+		
+		  {% if data['status'] == "change" %}
+			  <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
+          <input type="hidden"  id="status" name="status" value="" />
+		  {% else %}
+			  <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/candidates/reference-number" >
+		  {% endif %}
+
+    {{ govukRadios({
+      name: "mmrCandidate1Title",        
+      fieldset: {
+        legend: {
+          text: "Which profession is the role in",
+          isPageHeading: false,
+          classes: "govuk-visually-hidden"
+        }
+      },
+      items: [                
+        { value: "Internal - Current employee of advertising department", text: "Internal - Current employee of advertising department", checked: checked("mmrCandidate1Title", "Internal - Current employee of advertising department") },					        
+        { value: "OGD - Current employee of another Civil Service department", text: "OGD - Current employee of another Civil Service department", checked: checked("mmrCandidate1Title", "OGD - Current employee of another Civil Service department") },					
+        { value: "NDPB - Current employee of accredited NDPB", text: "NDPB - Current employee of accredited NDPB", checked: checked("mmrCandidate1Title", "NDPB - Current employee of accredited NDPB") },					
+        { value: "External - non Civil Servant", text: "External - non Civil Servant", checked: checked("mmrCandidate1Title", "External - non Civil Servant") }					          
+      ]
+    }) }}
+
+
+
+    	
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}
