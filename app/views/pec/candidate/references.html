@@ -92,7 +92,7 @@
             label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
             classes: "govuk-!-width-two-thirds",    
             hint: {
-                text: "We’ll only use this to ask for the reference."
+                text: "We’ll only use this to ask them to confirm your information."
             },    
             id: "pecRefOneEmail",
             name: "pecRefOneEmail",
@@ -176,7 +176,7 @@
                 label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
                 classes: "govuk-!-width-two-thirds",
                 hint: {
-                    text: "We’ll only use this to ask for the reference."
+                    text: "We’ll only use this to ask them to confirm your information."
                 },
                 id: "pecRefOneEmailAlt",
                 name: "pecRefOneEmailAlt",
@@ -263,7 +263,10 @@
         <!-- Second referee email -->
         {{ govukInput({
             label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
-            classes: "govuk-!-width-two-thirds",        
+            classes: "govuk-!-width-two-thirds", 
+            hint: {
+                text: "We’ll only use this to ask them to confirm your information."
+            },           
             id: "pecRefTwoEmail",
             name: "pecRefTwoEmail",
             value: data['pecRefTwoEmail']
@@ -336,7 +339,10 @@
         <!-- Third referee email -->
         {{ govukInput({
             label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
-            classes: "govuk-!-width-two-thirds",        
+            classes: "govuk-!-width-two-thirds",  
+            hint: {
+                text: "We’ll only use this to ask them to confirm your information."
+            },          
             id: "pecRefThreeEmail",
             name: "pecRefThreeEmail",
             value: data['pecRefThreeEmail']
@@ -358,7 +364,7 @@
         <div class="govuk-inset-text govuk-!-margin-top-9">
             <h2 class="govuk-heading-m">Before you continue</h2>
             <p>By providing the details for these referees you are confirming that they are not a member of your family, or related to you in any way. This includes being in a relationship with or living at the same address as you.</p>
-            <p>We will only contact them if we need to. We are asking for them in advance to avoid any delays in your pre-employment checks.</p>
+            <p>We will only contact your referees if we need to. We are asking for their details in advance to avoid any delays in your pre-employment checks.</p>
             <p>We will ask them to provide information for the name that you have applied under.</p>
         </div>
 

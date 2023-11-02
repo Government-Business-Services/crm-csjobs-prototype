@@ -22,7 +22,7 @@
 	
 	<p>We ask about your health because:</p>
 	<ul class="govuk-list govuk-list--bullet govuk-list--spaced govuk-!-margin-bottom-9">
-		<li>if you have a disability of health condition we need to understand how it could affect your ability to carry out the tasks of the job you’re appying for</li>
+		<li>if you have a disability or health condition we need to understand how it could affect your ability to carry out the tasks of the job you’re applying for</li>
 		<li>it enables us to consider adjustments we could make to help you take up employment with us and carry out the duties of the job effectively</li>
 		<li>we must be confident that your attendance record will be good</li>
 	</ul>
@@ -38,7 +38,7 @@
 				name: "canHealthAdjustmentsDetails",
 				type: "text",  
 				classes: "govuk-!-width-full",
-				label: { text: "Provide details about any adjustments (including adaptions to the workplace) required to assist you at work." }
+				label: { text: "Provide details about any adjustments (including adaptations to the workplace) required to assist you at work." }
 			}) }}
 		{% endset -%}
 
@@ -100,7 +100,7 @@
 				name: "canHealthOccupationalDetails",
 				type: "text",  
 				classes: "govuk-!-width-full",
-				label: { text: "Give details of the health issues or disabilities you would like to discuss with our occupational health provider.." }
+				label: { text: "Give details of the health issues or disabilities you would like to discuss with our occupational health provider." }
 			}) }}
 		{% endset -%}
 
@@ -151,7 +151,7 @@
 		{{ govukRadios({
 			name: "canHealthAbility",
 			fieldset: {
-			legend: { text: "Have you ever had any health issues which may have been caused or made worse by work (including an educational setting) and which you think may affect your ability to undertake the new role or place you at any risk in the workplace??", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			legend: { text: "Have you ever had any health issues which may have been caused or made worse by work (including an educational setting) and which you think may affect your ability to undertake the new role or place you at any risk in the workplace?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
 			items: [
 				{ value: "Yes", text: "Yes", conditional: {html: abilityHtml} },
 				{ value: "No", text: "No" }			
@@ -198,7 +198,7 @@
 		<p>We ask about your health because:</p>
 		<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
 
-			<li>if you have a disability of health condition we need to understand how it could affect your ability to carry out the tasks of the job you’re appying for</li>
+			<li>if you have a disability or health condition we need to understand how it could affect your ability to carry out the tasks of the job you’re applying for</li>
 			<li>it enables us to consider adjustments we could make to help you take up employment with us and carry out the duties of the job effectively</li>
 			<li>we must be confident that your attendance record will be good</li>
 		</ul>
@@ -214,7 +214,7 @@
 					name: "canHealthAdjustmentsDetails",
 					type: "text",  
 					classes: "govuk-!-width-full",
-					label: { text: "Provide details about any adjustments (including adaptions to the workplace) required to assist you at work." },
+					label: { text: "Provide details about any adjustments (including adaptations to the workplace) required to assist you at work." },
 					value: data['canHealthAdjustmentsDetails']
 				}) }}
 			{% endset -%}
@@ -282,7 +282,7 @@
 					name: "canHealthOccupationalDetails",
 					type: "text",  
 					classes: "govuk-!-width-full",
-					label: { text: "Give details of the health issues or disabilities you would like to discuss with our occupational health provider.." },
+					label: { text: "Give details of the health issues or disabilities you would like to discuss with our occupational health provider." },
 					value: data['canHealthOccupationalDetails']
 				}) }}
 			{% endset -%}
@@ -334,7 +334,7 @@
 			{{ govukRadios({
 				name: "canHealthAbility",
 				fieldset: {
-				legend: { text: "Have you ever had any health issues which may have been caused or made worse by work (including an educational setting) and which you think may affect your ability to undertake the new role or place you at any risk in the workplace??", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+				legend: { text: "Have you ever had any health issues which may have been caused or made worse by work (including an educational setting) and which you think may affect your ability to undertake the new role or place you at any risk in the workplace?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
 				items: [
 					{ value: "Yes", text: "Yes", conditional: {html: abilityHtml}, checked: checked("canHealthAbility", "Yes") },
 					{ value: "No", text: "No", checked: checked("canHealthAbility", "No") }			
