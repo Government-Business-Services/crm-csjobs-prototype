@@ -19,7 +19,8 @@
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
 <input type="hidden"  id="status" name="status" value="" />
 		{% else %}
-        	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
+        	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/criminal-record" >
+				<!-- <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" > -->
 <input type="hidden"  id="status" name="status" value="" />
 		{% endif %}
             
@@ -46,14 +47,6 @@
 					{ value: "References", text: "References", checked: checked("mmrPreChecksRequired", "References") },
 					{ value: "Right to work check", text: "Right to work check", checked: checked("mmrPreChecksRequired", "Right to work check") },										
 					{ value: "Self-employment check", text: "Self-employment check", checked: checked("mmrPreChecksRequired", "Self-employment check") }
-					
-					
-					
-					
-					
-					
-					
-					
 				]
 			}) }}
 
