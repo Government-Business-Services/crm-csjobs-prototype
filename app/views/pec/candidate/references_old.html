@@ -18,18 +18,18 @@
     {% if data['iteration'] == "new" %}
 
         <h1 class="govuk-heading-l govuk-!-padding-top-4">References</h1>
-        <p>As part of the recruitment process, you are required to provide 3 referees.</p>        
-        <!-- <p>We may contact these referees to ask them to give us a reference about you.</p>     -->
-        <p>You should ask your referees for their consent before supplying their name and email address to us.</p>
+        <p class="govuk-body">As part of the recruitment process, you are required to provide 3 referees.</p>        
+        <!-- <p class="govuk-body">We may contact these referees to ask them to give us a reference about you.</p>     -->
+        <p class="govuk-body">You should ask your referees for their consent before supplying their name and email address to us.</p>
         
         <div class="govuk-inset-text">
-            <p>An employer or academic referee:</p>
+            <p class="govuk-body">An employer or academic referee:</p>
             <ul class="govuk-list govuk-list--bullet">          
                 <li>must be from within the last 3 years</li>      
                 <li>must not be a member of your family or related to you in any way</li>                
             </ul>
 
-            <p>Any other referee:</p>
+            <p class="govuk-body">Any other referee:</p>
             <ul class="govuk-list govuk-list--bullet">          
                 <li>must have known you for more than 3 years</li>      
                 <li>must not be a member of your family or related to you in any way</li>
@@ -258,7 +258,7 @@
 
         <h2 class="govuk-heading-m govuk-!-margin-top-7">Third Referee</h2>
         <!-- <div class="govuk-inset-text">
-            <p>To avoid a delay in your application we require a third referee who can be used if we are not able to reach the other two referees.</p>
+            <p class="govuk-body">To avoid a delay in your application we require a third referee who can be used if we are not able to reach the other two referees.</p>
         </div> -->
 
         {% set otherHtml %}
@@ -327,9 +327,9 @@
 
         <div class="govuk-inset-text govuk-!-margin-top-9">
             <h2 class="govuk-heading-m">Before you continue</h2>
-            <p>By providing these referees you are confirming that they are not a member of your family or related to you in any way.</p>
-            <p>We will only contact referees if we need to. We are asking for them in advance to avoid any delays in your pre-employment checks.</p>
-            <p>We will ask them to provide a reference for the name that you have applied under.</p>
+            <p class="govuk-body">By providing these referees you are confirming that they are not a member of your family or related to you in any way.</p>
+            <p class="govuk-body">We will only contact referees if we need to. We are asking for them in advance to avoid any delays in your pre-employment checks.</p>
+            <p class="govuk-body">We will ask them to provide a reference for the name that you have applied under.</p>
         </div>
 
 
@@ -352,10 +352,10 @@
     <h1 class="govuk-heading-l govuk-!-padding-top-4">References</h1>
 
     <p class="govuk-body-l">First Referee - Personal</p>
-    <p>A personal referee must not be a member of your family or related to you in any way.</p>
-    <p>Ther personal referee must have known you for more than 3 years.</p>
-    <p>By providing the requested referee details in this form, you give consent to us to contact all of the referees as required.</p>
-    <p>You must provide details of 2 personal referees.</p>
+    <p class="govuk-body">A personal referee must not be a member of your family or related to you in any way.</p>
+    <p class="govuk-body">Ther personal referee must have known you for more than 3 years.</p>
+    <p class="govuk-body">By providing the requested referee details in this form, you give consent to us to contact all of the referees as required.</p>
+    <p class="govuk-body">You must provide details of 2 personal referees.</p>
 
     <form method="post" action="time-known" >
     
@@ -390,9 +390,9 @@
 
 
       <p class="govuk-body-l">Second Referee - Personal</p>
-      <p>A personal referee must not be a member of your family or related to you in any way.</p>
-      <p>Ther personal referee must have known you for more than 3 years.</p>
-      <p>You must provide details of 2 personal referees.</p>
+      <p class="govuk-body">A personal referee must not be a member of your family or related to you in any way.</p>
+      <p class="govuk-body">Ther personal referee must have known you for more than 3 years.</p>
+      <p class="govuk-body">You must provide details of 2 personal referees.</p>
       
         {{ govukInput({
           label: { text: "Relationship to referee", classes: "govuk-label--m",isPageHeading: false },      

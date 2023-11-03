@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set serviceName = "GRS" %}
+{% set serviceName = "Government Recruitment Service" %}
 
 {% set pageHeading = "Are you the vacancy holder for this request?" %}
 {% set pageSection = "Manual recruitment request" %}
@@ -17,15 +17,14 @@
 		<p class="govuk-body">These are the contact details we will use on the vacancy.</p>
 
 		<div class="govuk-inset-text">
-			<p>Hugo Furst
+			<p class="govuk-body">Hugo Furst
 			<br>hugo.furst@cabinetoffice.gov.uk
 			<br>0191 456789</p>
-
 		</div>
 
 		{% if data['status'] == "change" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
-<input type="hidden"  id="status" name="status" value="" />
+				{% include "includes/status_null.html" %}
 		{% else %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/vacancy-approved">
 		{% endif %}
