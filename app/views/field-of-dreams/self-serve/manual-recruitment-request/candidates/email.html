@@ -1,12 +1,12 @@
 {% extends "layouts/main.html" %}
 {% set serviceName = "GRS" %}
 
-{% if data['mmrCandidate3Name'] %}
-	{% set pageHeading = 'What is ' + data.mmrCandidate3Name + '’s email address?' %}
-{% elif data['mmrCandidate2Name'] %}
-	{% set pageHeading = 'What is ' + data.mmrCandidate2Name + '’s email address?' %}
-{% elif data['mmrCandidate1Name'] %}
-	{% set pageHeading = 'What is ' + data.mmrCandidate1Name + '’s email address?' %}
+{% if data['mrrCandidate3Name'] %}
+	{% set pageHeading = 'What is ' + data.mrrCandidate3Name + '’s email address?' %}
+{% elif data['mrrCandidate2Name'] %}
+	{% set pageHeading = 'What is ' + data.mrrCandidate2Name + '’s email address?' %}
+{% elif data['mrrCandidate1Name'] %}
+	{% set pageHeading = 'What is ' + data.mrrCandidate1Name + '’s email address?' %}
 {% else %}
 	{% set pageHeading = "What is the candidates email address?" %}
 {% endif %}
@@ -31,25 +31,25 @@
 		{% endif %}
 
 
-		{% if data['mmrCandidate2Email'] %}  
+		{% if data['mrrCandidate2Email'] %}  
 
         {{ govukInput({
           label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
           classes: "govuk-!-width-two-thirds",
-          id: "mmrCandidate3Email",
-          name: "mmrCandidate3Email",
-          value: data['mmrCandidate3Email']
+          id: "mrrCandidate3Email",
+          name: "mrrCandidate3Email",
+          value: data['mrrCandidate3Email']
         }) }}
 
 
-      {% elif data['mmrCandidate1Email'] %}  
+      {% elif data['mrrCandidate1Email'] %}  
 
         {{ govukInput({
           label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
           classes: "govuk-!-width-two-thirds",
-          id: "mmrCandidate2Email",
-          name: "mmrCandidate2Email",
-          value: data['mmrCandidate2Email']
+          id: "mrrCandidate2Email",
+          name: "mrrCandidate2Email",
+          value: data['mrrCandidate2Email']
         }) }}
 
       {% else %}
@@ -58,9 +58,9 @@
 			{{ govukInput({
 				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
 				classes: "govuk-!-width-two-thirds",
-				id: "mmrCandidate1Email",
-				name: "mmrCandidate1Email",
-				value: data['mmrCandidate1Email']
+				id: "mrrCandidate1Email",
+				name: "mrrCandidate1Email",
+				value: data['mrrCandidate1Email']
 			}) }}
 
 		{% endif %}

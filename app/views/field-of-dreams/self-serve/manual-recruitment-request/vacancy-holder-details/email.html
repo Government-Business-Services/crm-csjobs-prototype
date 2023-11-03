@@ -1,8 +1,8 @@
 {% extends "layouts/main.html" %}
 {% set serviceName = "GRS" %}
 
-{% if data['mmrVHName'] %}
-	{% set pageHeading = 'What is ' + data.mmrVHName + '’s email address?' %}
+{% if data['mrrVHName'] %}
+	{% set pageHeading = 'What is ' + data.mrrVHName + '’s email address?' %}
 {% else %}
 	{% set pageHeading = "What is the vacancy holders email address?" %}
 {% endif %}
@@ -27,9 +27,9 @@
 			{{ govukInput({
 				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
 				classes: "govuk-!-width-two-thirds",
-				id: "mmrVHEmail",
-				name: "mmrVHEmail",
-				value: data['mmrVHEmail']
+				id: "mrrVHEmail",
+				name: "mrrVHEmail",
+				value: data['mrrVHEmail']
 			}) }}
     	
             {{ govukButton({

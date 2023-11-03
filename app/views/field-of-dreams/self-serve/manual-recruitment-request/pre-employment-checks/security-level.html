@@ -18,14 +18,14 @@
 		{% if data['status'] == "change" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
 				<input type="hidden"  id="status" name="status" value="" />		
-		{% elif data['mmrPreChecksCriminalRecord'] == "Enhanced" %}
+		{% elif data['mrrPreChecksCriminalRecord'] == "Enhanced" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/regulated-activity" >
 		{% else %}
         	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
 		{% endif %}
             
             {{ govukRadios({
-				name: "mmrPreChecksSecurity",   				     
+				name: "mrrPreChecksSecurity",   				     
 				fieldset: {
 					legend: {
 						text: "Which profession is the role in",
@@ -34,11 +34,11 @@
 					}
 				},
 				items: [                
-					{ value: "Counter Terrorist Check (CTC)", text: "Counter Terrorist Check (CTC)", checked: checked("mmrPreChecksSecurity", "Counter Terrorist Check (CTC)") },					
-					{ value: "Developed Vetting (DV)", text: "Developed Vetting (DV)", checked: checked("mmrPreChecksSecurity", "Developed Vetting (DV)") },
-                    { value: "Security Check (SC)", text: "Security Check (SC)", checked: checked("mmrPreChecksSecurity", "Security Check (SC)") },
+					{ value: "Counter Terrorist Check (CTC)", text: "Counter Terrorist Check (CTC)", checked: checked("mrrPreChecksSecurity", "Counter Terrorist Check (CTC)") },					
+					{ value: "Developed Vetting (DV)", text: "Developed Vetting (DV)", checked: checked("mrrPreChecksSecurity", "Developed Vetting (DV)") },
+                    { value: "Security Check (SC)", text: "Security Check (SC)", checked: checked("mrrPreChecksSecurity", "Security Check (SC)") },
 					{ divider: "or" },
-					{ value: "None", text: "None", checked: checked("mmrPreChecksSecurity", "None") }                    
+					{ value: "None", text: "None", checked: checked("mrrPreChecksSecurity", "None") }                    
                     
 				]
 			}) }}

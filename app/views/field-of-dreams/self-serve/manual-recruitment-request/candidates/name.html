@@ -21,25 +21,25 @@
 		{% endif %}
         
 
-    {% if data['mmrCandidate2Name'] %}  
+    {% if data['mrrCandidate2Name'] %}  
 
         {{ govukInput({
           label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
           classes: "govuk-!-width-two-thirds",
-          id: "mmrCandidate3Name",
-          name: "mmrCandidate3Name",
-          value: data['mmrCandidate3Name']
+          id: "mrrCandidate3Name",
+          name: "mrrCandidate3Name",
+          value: data['mrrCandidate3Name']
         }) }}
 
 
-      {% elif data['mmrCandidate1Name'] %}  
+      {% elif data['mrrCandidate1Name'] %}  
 
         {{ govukInput({
           label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
           classes: "govuk-!-width-two-thirds",
-          id: "mmrCandidate2Name",
-          name: "mmrCandidate2Name",
-          value: data['mmrCandidate2Name']
+          id: "mrrCandidate2Name",
+          name: "mrrCandidate2Name",
+          value: data['mrrCandidate2Name']
         }) }}
 
       {% else %}
@@ -47,9 +47,9 @@
         {{ govukInput({
           label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
           classes: "govuk-!-width-two-thirds",
-          id: "mmrCandidate1Name",
-          name: "mmrCandidate1Name",
-          value: data['mmrCandidate1Name']
+          id: "mrrCandidate1Name",
+          name: "mrrCandidate1Name",
+          value: data['mrrCandidate1Name']
         }) }}
 
       {% endif %}

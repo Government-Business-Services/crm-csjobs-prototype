@@ -3,11 +3,11 @@
 {% set serviceName = "GRS" %}
 
 
-{% if ((data['mmrPreChecksRegulatedActivity'] == "Yes") and ( data['mmrPreChecksChildren'] == "Yes" )) %}
+{% if ((data['mrrPreChecksRegulatedActivity'] == "Yes") and ( data['mrrPreChecksChildren'] == "Yes" )) %}
 	{% set pageHeading = "Does this vacancy involve working with children or regulated activity with adults at the applicant’s home address?" %}
-{% elif data['mmrPreChecksRegulatedActivity'] == "Yes" %}
+{% elif data['mrrPreChecksRegulatedActivity'] == "Yes" %}
 	{% set pageHeading = "Does this vacancy involve regulated activity with adults at the applicant’s home address?" %}
-{% elif data['mmrPreChecksChildren'] == "Yes" %}
+{% elif data['mrrPreChecksChildren'] == "Yes" %}
 	{% set pageHeading = "Does this vacancy involve working with children at the applicant’s home address?" %}
 {% else %}
 	{% set pageHeading = "" %}
@@ -31,7 +31,7 @@
 		{% endif %}
             
             {{ govukRadios({
-				name: "mmrPreChecksActivityAtAddress",   
+				name: "mrrPreChecksActivityAtAddress",   
 				classes: "govuk-radios--inline",     
 				fieldset: {
 					legend: {
@@ -41,8 +41,8 @@
 					}
 				},
 				items: [                
-					{ value: "Yes", text: "Yes", checked: checked("mmrPreChecksActivityAtAddress", "Yes") },					
-					{ value: "No", text: "No", checked: checked("mmrPreChecksActivityAtAddress", "No") }																			
+					{ value: "Yes", text: "Yes", checked: checked("mrrPreChecksActivityAtAddress", "Yes") },					
+					{ value: "No", text: "No", checked: checked("mrrPreChecksActivityAtAddress", "No") }																			
 				]
 			}) }}
 

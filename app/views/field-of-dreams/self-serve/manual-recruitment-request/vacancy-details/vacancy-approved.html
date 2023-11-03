@@ -22,7 +22,7 @@
 		{% endif %}
 			
 			{{ govukRadios({
-				name: "mmrVacancyBudget",   
+				name: "mrrVacancyBudget",   
 				classes: "govuk-radios--inline",     
 				fieldset: {
 					legend: {
@@ -32,8 +32,8 @@
 					}
 				},
 				items: [                
-					{ value: "Yes", text: "Yes", checked: checked("mmrVacancyBudget", "Yes") },					
-					{ value: "No~/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/request-not-complete", text: "No", checked: checked("mmrVacancyBudget", "No") }																			
+					{ value: "Yes", text: "Yes", checked: checked("mrrVacancyBudget", "Yes") },					
+					{ value: "No~/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/request-not-complete", text: "No", checked: checked("mrrVacancyBudget", "No") }																			
 				]
 			}) }}
 
@@ -42,7 +42,7 @@
       	    	text: "Continue"			    
     	    }) }}
 
-			<a class="govuk-link" href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/?mmrVacancyBudget=Not required">Not required</a>
+			<a class="govuk-link" href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/?mrrVacancyBudget=Not required">Not required</a>
 		</div>
 
         </form>

@@ -24,8 +24,8 @@
       {% set textHtml %}
         
         {{ govukInput({
-          id: "mmrCandidate1TitleOther",
-          name: "mmrCandidate1TitleOther",
+          id: "mrrCandidate1TitleOther",
+          name: "mrrCandidate1TitleOther",
           type: "tel",
           autocomplete: "tel",
           classes: "govuk-!-width-two-thirds",
@@ -41,7 +41,7 @@
 
 
     {{ govukRadios({
-      name: "mmrCandidate1Title",        
+      name: "mrrCandidate1Title",        
       fieldset: {
         legend: {
           text: "Which profession is the role in",
@@ -50,11 +50,11 @@
         }
       },
       items: [                
-        { value: "Miss", text: "Miss", checked: checked("mmrCandidate1Title", "Miss") },					        
-        { value: "Mr", text: "Mr", checked: checked("mmrCandidate1Title", "Mr") },					
-        { value: "Mrs", text: "Mrs", checked: checked("mmrCandidate1Title", "Mrs") },					
-        { value: "Ms", text: "Ms", checked: checked("mmrCandidate1Title", "Ms") },						  
-        { value: "Other", text: "Other", checked: checked("mmrCandidate1Title", "Other"), conditional: { html: textHtml } }					              
+        { value: "Miss", text: "Miss", checked: checked("mrrCandidate1Title", "Miss") },					        
+        { value: "Mr", text: "Mr", checked: checked("mrrCandidate1Title", "Mr") },					
+        { value: "Mrs", text: "Mrs", checked: checked("mrrCandidate1Title", "Mrs") },					
+        { value: "Ms", text: "Ms", checked: checked("mrrCandidate1Title", "Ms") },						  
+        { value: "Other", text: "Other", checked: checked("mrrCandidate1Title", "Other"), conditional: { html: textHtml } }					              
       ]
     }) }}
 

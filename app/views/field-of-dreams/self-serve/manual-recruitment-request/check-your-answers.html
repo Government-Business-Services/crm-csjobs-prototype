@@ -26,7 +26,7 @@
 			{% include "includes/query/mrr/approach.html" %}			
 			{% include "includes/query/mrr/permanent.html" %}
 			<!-- Only show is not permanent role -->
-			{% if data['mmrVacancyPermanent'] == "No" %}
+			{% if data['mrrVacancyPermanent'] == "No" %}
 				{% include "includes/query/mrr/contract_type.html" %}
 				{% include "includes/query/mrr/length.html" %}
 			{% endif %}
@@ -41,17 +41,17 @@
 			{% include "includes/query/mrr/pre-employment.html" %}			
 		</dl>
 
-		{% if data['mmrPreChecks'] == "Yes" %}			
+		{% if data['mrrPreChecks'] == "Yes" %}			
 			<h2 class="govuk-heading-m">Pre-employment checks</h2>
 			<dl class="govuk-summary-list govuk-!-margin-bottom-9">			
 				{% include "includes/query/mrr/reserved_role.html" %}
 				{% include "includes/query/mrr/criminal_record.html" %}
 				{% include "includes/query/mrr/security_level.html" %}
 				<!-- Only need these if CRC is enhanced -->
-				{% if data['mmrPreChecksCriminalRecord'] == "Enhanced" %}
+				{% if data['mrrPreChecksCriminalRecord'] == "Enhanced" %}
 					{% include "includes/query/mrr/regulated_adults.html" %}
 					{% include "includes/query/mrr/regulated_children.html" %}
-					{% if (data['mmrPreChecksRegulatedActivity'] == "Yes" or data['mmrPreChecksChildren'] == "Yes")  %}
+					{% if (data['mrrPreChecksRegulatedActivity'] == "Yes" or data['mrrPreChecksChildren'] == "Yes")  %}
 						{% include "includes/query/mrr/home_address.html" %}
 					{% endif %}
 					{% include "includes/query/mrr/volunteer.html" %}

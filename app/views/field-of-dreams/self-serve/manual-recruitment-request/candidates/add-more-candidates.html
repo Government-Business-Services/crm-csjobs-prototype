@@ -17,9 +17,9 @@
 		<div class="govuk-form-group govuk-!-margin-bottom-7">
 			<dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
 				
-				{% if data['mmrCandidate3Name'] %}
+				{% if data['mrrCandidate3Name'] %}
 				<div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">{{ data.mmrCandidate3Name }}</dt>
+					<dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">{{ data.mrrCandidate3Name }}</dt>
 					<dd class="govuk-summary-list__actions hmrc-summary-list__actions">
 				  		<ul class="govuk-summary-list__actions-list">
 							<li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change </span></a></li>
@@ -29,9 +29,9 @@
 			  	</div>			  	
 				{% endif %}
 
-				{% if data['mmrCandidate2Name'] %}
+				{% if data['mrrCandidate2Name'] %}
 				  <div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">{{ data.mmrCandidate2Name }}</dt>
+					<dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">{{ data.mrrCandidate2Name }}</dt>
 					<dd class="govuk-summary-list__actions hmrc-summary-list__actions">
 				  		<ul class="govuk-summary-list__actions-list">
 							<li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change </span></a></li>
@@ -41,9 +41,9 @@
 			  	</div>			  	
 				{% endif %}
 
-				{% if data['mmrCandidate1Name'] %}
+				{% if data['mrrCandidate1Name'] %}
 				  <div class="govuk-summary-list__row">
-					<dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">{{ data.mmrCandidate1Name }}</dt>
+					<dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">{{ data.mrrCandidate1Name }}</dt>
 					<dd class="govuk-summary-list__actions hmrc-summary-list__actions">
 				  		<ul class="govuk-summary-list__actions-list">
 							<li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change </span></a></li>
@@ -65,10 +65,10 @@
 		{% endif %}
 
 				
-		{% if data['mmrCandidate3Name'] %}
+		{% if data['mrrCandidate3Name'] %}
 
 		{{ govukRadios({
-			name: "mmrAddCandidate4",   
+			name: "mrrAddCandidate4",   
 			classes: "govuk-radios--inline",     
 			fieldset: {
 				legend: {
@@ -78,16 +78,16 @@
 				}
 			},
 			items: [                
-				{ value: "Yes~/field-of-dreams/self-serve/manual-recruitment-request/candidates/", text: "Yes", checked: checked("mmrAddCandidate4", "Yes") },					
-				{ value: "No", text: "No", checked: checked("mmrAddCandidate4", "No") }																			
+				{ value: "Yes~/field-of-dreams/self-serve/manual-recruitment-request/candidates/", text: "Yes", checked: checked("mrrAddCandidate4", "Yes") },					
+				{ value: "No", text: "No", checked: checked("mrrAddCandidate4", "No") }																			
 			]
 		}) }}
 
 
-		{% elif data['mmrCandidate2Name'] %}
+		{% elif data['mrrCandidate2Name'] %}
 
 		{{ govukRadios({
-			name: "mmrAddCandidate3",   
+			name: "mrrAddCandidate3",   
 			classes: "govuk-radios--inline",     
 			fieldset: {
 				legend: {
@@ -97,16 +97,16 @@
 				}
 			},
 			items: [                
-				{ value: "Yes~/field-of-dreams/self-serve/manual-recruitment-request/candidates/", text: "Yes", checked: checked("mmrAddCandidate3", "Yes") },					
-				{ value: "No", text: "No", checked: checked("mmrAddCandidate3", "No") }																			
+				{ value: "Yes~/field-of-dreams/self-serve/manual-recruitment-request/candidates/", text: "Yes", checked: checked("mrrAddCandidate3", "Yes") },					
+				{ value: "No", text: "No", checked: checked("mrrAddCandidate3", "No") }																			
 			]
 		}) }}
 
 
-		{% elif data['mmrCandidate1Name'] %}
+		{% elif data['mrrCandidate1Name'] %}
 			
 			{{ govukRadios({
-				name: "mmrAddCandidate",   
+				name: "mrrAddCandidate",   
 				classes: "govuk-radios--inline",     
 				fieldset: {
 					legend: {
@@ -116,8 +116,8 @@
 					}
 				},
 				items: [                
-					{ value: "Yes~/field-of-dreams/self-serve/manual-recruitment-request/candidates/", text: "Yes", checked: checked("mmrAddCandidate", "Yes") },					
-					{ value: "No", text: "No", checked: checked("mmrAddCandidate", "No") }																			
+					{ value: "Yes~/field-of-dreams/self-serve/manual-recruitment-request/candidates/", text: "Yes", checked: checked("mrrAddCandidate", "Yes") },					
+					{ value: "No", text: "No", checked: checked("mrrAddCandidate", "No") }																			
 				]
 			}) }}
 		

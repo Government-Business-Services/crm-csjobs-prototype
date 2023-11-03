@@ -18,7 +18,7 @@
 		{% if data['status'] == "change" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
 				<input type="hidden"  id="status" name="status" value="" />	
-		{% elif data['mmrPreChecksRegulatedActivity'] == "No" %}
+		{% elif data['mrrPreChecksRegulatedActivity'] == "No" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/volunteer" >
 		{% else %}
         	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/home-address" >
@@ -26,7 +26,7 @@
 
 
 			{{ govukRadios({
-				name: "mmrPreChecksChildren",   
+				name: "mrrPreChecksChildren",   
 				classes: "govuk-radios--inline",     
 				fieldset: {
 					legend: {
@@ -36,8 +36,8 @@
 					}
 				},
 				items: [                
-					{ value: "Yes~/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/home-address", text: "Yes", checked: checked("mmrPreChecksChildren", "Yes") },					
-					{ value: "No", text: "No", checked: checked("mmrPreChecksChildren", "No") }																			
+					{ value: "Yes~/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/home-address", text: "Yes", checked: checked("mrrPreChecksChildren", "Yes") },					
+					{ value: "No", text: "No", checked: checked("mrrPreChecksChildren", "No") }																			
 				]
 			}) }}
 

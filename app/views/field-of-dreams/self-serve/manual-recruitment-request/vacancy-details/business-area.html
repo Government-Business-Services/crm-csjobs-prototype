@@ -12,7 +12,7 @@
     <script type="text/javascript">
         accessibleAutocomplete.enhanceSelectElement({
             defaultValue: '',
-            selectElement: document.querySelector('#mmrVacancyArea' name="mmrVacancyArea" value="" )
+            selectElement: document.querySelector('#mrrVacancyArea' name="mrrVacancyArea" value="" )
         })
     </script>
 {% endblock %}
@@ -26,7 +26,7 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
-		<!-- <p class="govuk-body">You’ve told us the department is {{data['mmrVacancyDepartment']}} </p> -->
+		<!-- <p class="govuk-body">You’ve told us the department is {{data['mrrVacancyDepartment']}} </p> -->
 
 		{% if data['status'] == "change" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
@@ -36,8 +36,8 @@
 		{% endif %}
 			
 		{{ xGovukAutocomplete({
-			id: "mmrVacancyJobType",
-			name: "mmrVacancyJobType",
+			id: "mrrVacancyJobType",
+			name: "mrrVacancyJobType",
 			allowEmpty: false,
 			hint: {
 				text: "For example, HM Revenue & Customs or DWP"
