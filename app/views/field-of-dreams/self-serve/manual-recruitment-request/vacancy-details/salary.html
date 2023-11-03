@@ -15,7 +15,7 @@
     	
 		{% if data['status'] == "change" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
-{% include "includes/status_null.html" %}
+				{% include "includes/status_null.html" %}
 		{% else %}
         	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/prison-leavers" >
 		{% endif %}
@@ -23,14 +23,14 @@
 
             {{ govukInput({
 				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
-				classes: "govuk-!-width-two-thirds",
+				classes: "govuk-!-width-one-third",
                 prefix: {
                     text: "£"
                   },
 				hint: {
 					text: "For example, 21131 or 38724 - 44393"
 				},
-				type: "number",
+				type: "text",
 				id: "mrrVacancySalary",
 				name: "mrrVacancySalary",
 				value: data['mrrVacancySalary']
