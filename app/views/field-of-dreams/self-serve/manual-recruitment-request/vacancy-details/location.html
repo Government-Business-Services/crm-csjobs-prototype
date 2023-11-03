@@ -13,18 +13,18 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
-		<p class="govuk-body">This should be the main office for the government department or branch, even if it’s classed as ‘work from home’.</p>
+		<p class="govuk-body">This should be the main office for {{data['mrrVacancyDepartment'] }} or branch, even if it’s classed as ‘work from home’.</p>
         
 		{% if data['status'] == "change" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
-<input type="hidden"  id="status" name="status" value="" />
+				{% include "includes/status_null.html" %}
 		{% else %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/permanent-role" >
 		{% endif %}
 
 
 			{{ govukInput({
-				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+				label: { text: "Where is the vacancy located?", classes: "govuk-visually-hidden", isPageHeading: false },      
 				classes: "govuk-!-width-two-thirds",
 				hint: {
 					text: "For example, Sheffield, Newcastle or South East England"
@@ -33,7 +33,6 @@
 				name: "mrrVacancyLocation",
 				value: data['mrrVacancyLocation']
 			}) }}
-
 
             {{ govukButton({
       	    	text: "Continue"			    

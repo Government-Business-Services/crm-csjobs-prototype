@@ -2,7 +2,7 @@
 
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Which business area of the department is this vacancy in?" %}
+{% set pageHeading = "Which business area is this vacancy in?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %} - Prototype{% endblock %}
@@ -12,7 +12,7 @@
     <script type="text/javascript">
         accessibleAutocomplete.enhanceSelectElement({
             defaultValue: '',
-            selectElement: document.querySelector('#mrrVacancyArea' name="mrrVacancyArea" value="" )
+            selectElement: document.querySelector('#mrrVacancyBusinessArea' name="mrrVacancyBusinessArea" value="" )
         })
     </script>
 {% endblock %}
@@ -26,21 +26,21 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
-		<!-- <p class="govuk-body">You’ve told us the department is {{data['mrrVacancyDepartment']}} </p> -->
+		<p class="govuk-body">You have told us the vacancy is with {{data['mrrVacancyDepartment']}}.</p>
 
 		{% if data['status'] == "change" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
-<input type="hidden"  id="status" name="status" value="" />
+				{% include "includes/status_null.html" %}
 		{% else %}
         	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/job-type" >
 		{% endif %}
 			
 		{{ xGovukAutocomplete({
-			id: "mrrVacancyJobType",
-			name: "mrrVacancyJobType",
+			id: "mrrVacancyBusinessArea",
+			name: "mrrVacancyBusinessArea",
 			allowEmpty: false,
 			hint: {
-				text: "For example, HM Revenue & Customs or DWP"
+				text: "For example, Finance, Digital or Policy"
 			},
 			label: {
 			classes: "govuk-visually-hidden",

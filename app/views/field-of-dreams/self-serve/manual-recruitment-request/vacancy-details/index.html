@@ -15,13 +15,13 @@
     	
 		{% if data['status'] == "change" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
-				<input type="hidden"  id="status" name="status" value="" />
+				{% include "includes/status_null.html" %}
 		{% else %}
         	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/department" >
 		{% endif %}
             
             {{ govukInput({
-				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+				label: { text: "What is this vacancy’s job title?", classes: "govuk-visually-hidden", isPageHeading: false },      
 				classes: "govuk-!-width-two-thirds",
 				id: "mrrVacancy",
 				name: "mrrVacancy",

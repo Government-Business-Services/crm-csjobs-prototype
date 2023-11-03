@@ -17,7 +17,7 @@
 
 		{% if data['status'] == "change" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
-				<input type="hidden"  id="status" name="status" value="" />		
+				{% include "includes/status_null.html" %}		
 		{% elif data['mrrPreChecksCriminalRecord'] == "Enhanced" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/regulated-activity" >
 		{% else %}

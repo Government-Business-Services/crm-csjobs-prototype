@@ -13,16 +13,18 @@
 
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+		<p>Do we need guidance adding here?</p>
     	
 		{% if data['status'] == "change" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
-<input type="hidden"  id="status" name="status" value="" />
+				{% include "includes/status_null.html" %}
 		{% else %}
         	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/approval-confirmation" >
 		{% endif %}
 			
 			{{ govukRadios({
-				name: "mrrVacancyBudget",   
+				name: "mrrVacancyApproved",   
 				classes: "govuk-radios--inline",     
 				fieldset: {
 					legend: {
@@ -32,8 +34,8 @@
 					}
 				},
 				items: [                
-					{ value: "Yes", text: "Yes", checked: checked("mrrVacancyBudget", "Yes") },					
-					{ value: "No~/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/request-not-complete", text: "No", checked: checked("mrrVacancyBudget", "No") }																			
+					{ value: "Yes", text: "Yes", checked: checked("mrrVacancyApproved", "Yes") },					
+					{ value: "No~/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/request-not-complete", text: "No", checked: checked("mrrVacancyApproved", "No") }																			
 				]
 			}) }}
 
@@ -42,7 +44,7 @@
       	    	text: "Continue"			    
     	    }) }}
 
-			<a class="govuk-link" href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/?mrrVacancyBudget=Not required">Not required</a>
+			<a class="govuk-link" href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/?mrrVacancyApproved=NotRequired">Not required</a>
 		</div>
 
         </form>

@@ -3,7 +3,7 @@
 
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "You cannot make this recruitment request" %}
+{% set pageHeading = "You cannot make this request" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %} - Prototype{% endblock %}
@@ -16,7 +16,12 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
 
-        <p class="govuk-body">It is not possible to make a manual recruitment request if the vacancy has not been approved.</p>
+        <p class="govuk-body">It is not possible to create this vacancy as it has not been approved.</p>
+		<p>Content to instruct them what to do?</p>
+
+
+		<p><a href="#">Return to ...</a></p>
+
         
   
 	</div>
