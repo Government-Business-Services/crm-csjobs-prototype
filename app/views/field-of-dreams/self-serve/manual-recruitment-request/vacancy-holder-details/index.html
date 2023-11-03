@@ -30,14 +30,14 @@
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/vacancy-approved">
 		{% endif %}
 			<!-- Line confirms that details are correct -->
-			<input type="hidden" id="mrrVHconfirm" name="mrrVHConfirm" value="Yes" />
+			<input type="hidden" id="mrrVhconfirm" name="mrrVhConfirm" value="Yes" />
 
         	<div class="govuk-button-group">
     			{{ govukButton({
       				text: "Confirm and continue"			
     			}) }}
 
-        		<a class="govuk-link" href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/name?mrrVHConfirm=No">These contact details are not correct</a>
+        		<a class="govuk-link" href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/name?mrrVhConfirm=No">These contact details are not correct</a>
         	</div>
 
 		</form>

@@ -1,8 +1,8 @@
 {% extends "layouts/main.html" %}
 {% set serviceName = "GRS" %}
 
-{% if data['mrrVHName'] %}
-	{% set pageHeading = 'What is ' + data.mrrVHName + '’s telephone number?' %}
+{% if data['mrrVhName'] %}
+	{% set pageHeading = 'What is ' + data.mrrVhName + '’s telephone number?' %}
 {% else %}
 	{% set pageHeading = "What is your telephone number?" %}
 {% endif %}
@@ -27,9 +27,9 @@
 			{{ govukInput({
 				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
 				classes: "govuk-!-width-two-thirds",
-				id: "mrrVHPhone",
-				name: "mrrVHPhone",
-				value: data['mrrVHPhone']
+				id: "mrrVhPhone",
+				name: "mrrVhPhone",
+				value: data['mrrVhPhone']
 			}) }}
 
 
