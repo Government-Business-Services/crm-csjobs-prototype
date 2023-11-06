@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Final page" %}
+{% set pageHeading = "Complete request" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %} - Prototype{% endblock %}
@@ -15,21 +15,22 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
 
-		<p>You are about to submit the following manual recruitment request.</p>
+		<p>You are about to submit the following manual recruitment request:</p>
 
-		<p><span class="govuk-!-font-weight-bold">Vacancy: </span>{{ data['mrrVacancy'] }}</p>
+		<p><span class="govuk-!-font-weight-bold">Vacancy: </span>{{ data['mrrVacancy'] }}
 
 
-		<p><span class="govuk-!-font-weight-bold">Vacancy holder: </span>{{ data['mrrVhName'] }}</p>
+		<br><span class="govuk-!-font-weight-bold">Vacancy holder: </span>{{ data['mrrVhName'] }}
 
-		<p><span class="govuk-!-font-weight-bold">Department: </span>{{ data['mrrVacancyDepartment'] }}</p>
+		<br><span class="govuk-!-font-weight-bold">Department: </span>{{ data['mrrVacancyDepartment'] }}</p>
 		
-		<p class="govuk-body">Information of consequences or what happens...</p>
+		<p class="govuk-body">When you submit this manual recruitment request, it will be sent to the correct recipient and processed.</p>
 		
 		<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/confirmation" >
 		
 			{{ govukButton({
-				text: "Send recruitment request"
+				text: "Submit recruitment request",
+				classes: "govuk-!-margin-top-5"
 			}) }}		
 
 		</form>
