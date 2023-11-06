@@ -2,7 +2,7 @@
 
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "Does this vacancy offer a Civil Service pension?" %}
+{% set pageHeading = "What is the amount for the Civil Service pension?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %} - Prototype{% endblock %}
@@ -13,30 +13,31 @@
 
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+		<p>This is usually 27% if the minimum salary.</p>
+		
+		<div class="govuk-inset-text">
+		<p>You told us the salary was: &pound;{{ data['mrrVacancySalary']}}</p>
+	</div>
     	
 		{% if data['status'] == "change" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
-{% include "includes/status_null.html" %}
+				{% include "includes/status_null.html" %}
 		{% else %}
         	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/" >
 		{% endif %}
 				
 		
-            {{ govukRadios({
-				name: "mrrVacancyPension",   
-				classes: "govuk-radios--inline",     
-				fieldset: {
-					legend: {
-						text: "Which profession is the role in",
-						isPageHeading: false,
-						classes: "govuk-visually-hidden"
-					}
-				},
-				items: [                
-					{ value: "Yes~/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/minimum-pension", text: "Yes", checked: checked("mrrVacancyPension", "Yes"), conditional: { html: otherHtml } },					
-					{ value: "No", text: "No", checked: checked("mrrVacancyPension", "No") }																			
-				]
-			}) }}
+		{{ govukInput({
+			label: { text: "Where is the vacancy located?", classes: "govuk-visually-hidden", isPageHeading: false },      
+			classes: "govuk-!-width-one-third",			
+			prefix: {
+				text: "£"
+			  },
+			id: "mrrVacancyPensionAmount",
+			name: "mrrVacancyPensionAmount",
+			value: data['mrrVacancyPensionAmount']
+		}) }}
 
 
             {{ govukButton({
