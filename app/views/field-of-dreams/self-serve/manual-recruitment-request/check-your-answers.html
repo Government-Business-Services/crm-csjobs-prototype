@@ -65,7 +65,8 @@
 
         <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/candidates/title" >
             
-            
+            <input type="hidden" id="vacancyDetailsConfirmed" name="vacancyDetailsConfirmed" value="Yes" />
+			
             {{ govukButton({
       	    	text: "Confirm and add candidates"			    
     	    }) }}            
