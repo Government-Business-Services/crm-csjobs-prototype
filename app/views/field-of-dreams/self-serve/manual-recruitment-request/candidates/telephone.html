@@ -30,48 +30,44 @@
 		{% endif %}
 			
 
-		{% if data['mrrCandidate2Phone'] %}  
+			{% if data['mrrCandidate2Phone'] %}  
 
-        {{ govukInput({
-			label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
-			classes: "govuk-!-width-two-thirds",
-			id: "mrrCandidate3Phone",
-			name: "mrrCandidate3Phone",
-			value: data['mrrCandidate3Phone']
-		}) }}
+				{{ govukInput({
+					label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+					classes: "govuk-!-width-two-thirds",
+					id: "mrrCandidate3Phone",
+					name: "mrrCandidate3Phone",
+					value: data['mrrCandidate3Phone']
+				}) }}
 
+			{% elif data['mrrCandidate1Phone'] %}  
 
-      {% elif data['mrrCandidate1Phone'] %}  
+				{{ govukInput({
+					label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+					classes: "govuk-!-width-two-thirds",
+					id: "mrrCandidate2Phone",
+					name: "mrrCandidate2Phone",
+					value: data['mrrCandidate2Phone']
+				}) }}
 
-	  {{ govukInput({
-		label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
-		classes: "govuk-!-width-two-thirds",
-		id: "mrrCandidate2Phone",
-		name: "mrrCandidate2Phone",
-		value: data['mrrCandidate2Phone']
-	}) }}
+			{% else %}
 
-      {% else %}
-
-
-			{{ govukInput({
-				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
-				classes: "govuk-!-width-two-thirds",
-				id: "mrrCandidate1Phone",
-				name: "mrrCandidate1Phone",
-				value: data['mrrCandidate1Phone']
-			}) }}
+				{{ govukInput({
+					label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+					classes: "govuk-!-width-two-thirds",
+					id: "mrrCandidate1Phone",
+					name: "mrrCandidate1Phone",
+					value: data['mrrCandidate1Phone']
+				}) }}
 
 			{% endif %}
 
 
-            {{ govukButton({
+        	{{ govukButton({
       	    	text: "Continue"			    
-    	    }) }}
+    		}) }}
 
         </form>
-
-        
   
 	</div>
 </div>

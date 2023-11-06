@@ -13,41 +13,79 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 		
-		  {% if data['status'] == "change" %}
-			  <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
-          {% include "includes/status_null.html" %}
-		  {% else %}
-			  <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/candidates/reference-number" >
-		  {% endif %}
-
-    {{ govukRadios({
-      name: "mrrCandidate1Title",        
-      fieldset: {
-        legend: {
-          text: "Which profession is the role in",
-          isPageHeading: false,
-          classes: "govuk-visually-hidden"
-        }
-      },
-      items: [                
-        { value: "Internal - current employee of advertising department", text: "Internal - current employee of advertising department", checked: checked("mrrCandidate1Title", "Internal - current employee of advertising department") },					        
-        { value: "OGD - current employee of another Civil Service department", text: "OGD - current employee of another Civil Service department", checked: checked("mrrCandidate1Title", "OGD - current employee of another Civil Service department") },					
-        { value: "NDPB - current employee of accredited NDPB", text: "NDPB - current employee of accredited NDPB", checked: checked("mrrCandidate1Title", "NDPB - current employee of accredited NDPB") },					
-        { value: "External - not working in the Civil Service", text: "External - not working in the Civil Service", checked: checked("mrrCandidate1Title", "External - not working in the Civil Service") }					          
-      ]
-    }) }}
+		{% if data['status'] == "change" %}
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
+          	{% include "includes/status_null.html" %}
+		{% else %}
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/candidates/reference-number" >
+		{% endif %}
 
 
+			{% if data['mrrCandidate2Type'] %}
 
-    	
-            {{ govukButton({
-      	    	text: "Continue"			    
-    	    }) }}
+				{{ govukRadios({
+					name: "mrrCandidate3Type",        
+					fieldset: {
+						legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+						}
+					},
+					items: [                
+						{ value: "Internal - current employee of advertising department", text: "Internal - current employee of advertising department", checked: checked("mrrCandidate3Type", "Internal - current employee of advertising department") },					        
+						{ value: "OGD - current employee of another Civil Service department", text: "OGD - current employee of another Civil Service department", checked: checked("mrrCandidate3Type", "OGD - current employee of another Civil Service department") },					
+						{ value: "NDPB - current employee of accredited NDPB", text: "NDPB - current employee of accredited NDPB", checked: checked("mrrCandidate3Type", "NDPB - current employee of accredited NDPB") },					
+						{ value: "External - not working in the Civil Service", text: "External - not working in the Civil Service", checked: checked("mrrCandidate3Type", "External - not working in the Civil Service") }					          
+					]
+				}) }}
+
+			{% elif data['mrrCandidate1Type'] %}
+		
+				{{ govukRadios({
+					name: "mrrCandidate2Type",        
+					fieldset: {
+						legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+						}
+					},
+					items: [                
+						{ value: "Internal - current employee of advertising department", text: "Internal - current employee of advertising department", checked: checked("mrrCandidate2Type", "Internal - current employee of advertising department") },					        
+						{ value: "OGD - current employee of another Civil Service department", text: "OGD - current employee of another Civil Service department", checked: checked("mrrCandidate2Type", "OGD - current employee of another Civil Service department") },					
+						{ value: "NDPB - current employee of accredited NDPB", text: "NDPB - current employee of accredited NDPB", checked: checked("mrrCandidate2Type", "NDPB - current employee of accredited NDPB") },					
+						{ value: "External - not working in the Civil Service", text: "External - not working in the Civil Service", checked: checked("mrrCandidate2Type", "External - not working in the Civil Service") }					          
+					]
+				}) }}
+
+			{% else %}
+
+    			{{ govukRadios({
+					name: "mrrCandidate1Type",        
+					fieldset: {
+						legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+						}
+					},
+					items: [                
+						{ value: "Internal - current employee of advertising department", text: "Internal - current employee of advertising department", checked: checked("mrrCandidate1Type", "Internal - current employee of advertising department") },					        
+						{ value: "OGD - current employee of another Civil Service department", text: "OGD - current employee of another Civil Service department", checked: checked("mrrCandidate1Type", "OGD - current employee of another Civil Service department") },					
+						{ value: "NDPB - current employee of accredited NDPB", text: "NDPB - current employee of accredited NDPB", checked: checked("mrrCandidate1Type", "NDPB - current employee of accredited NDPB") },					
+						{ value: "External - not working in the Civil Service", text: "External - not working in the Civil Service", checked: checked("mrrCandidate1Type", "External - not working in the Civil Service") }					          
+					]
+				}) }}
+			
+			{% endif %}
+
+			{{ govukButton({
+				text: "Continue"			    
+			}) }}
 
         </form>
 
-        
-  
 	</div>
 </div>
 

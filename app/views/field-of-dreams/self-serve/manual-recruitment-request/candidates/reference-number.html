@@ -15,52 +15,50 @@
 		
 		{% if data['status'] == "change" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
-{% include "includes/status_null.html" %}
+			{% include "includes/status_null.html" %}
 		{% else %}
-			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/candidates/add-more-candidates" >
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/candidates/check-your-answers" >
 		{% endif %}
         
 
-    {% if data['mrrCandidate2Name'] %}  
+    		{% if data['mrrCandidate2Reference'] %}  
 
-        {{ govukInput({
-          label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
-          classes: "govuk-!-width-two-thirds",
-          id: "mrrCandidate3Name",
-          name: "mrrCandidate3Name",
-          value: data['mrrCandidate3Name']
-        }) }}
+				{{ govukInput({
+					label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+					classes: "govuk-!-width-two-thirds",
+					id: "mrrCandidate3Reference",
+					name: "mrrCandidate3Reference",
+					value: data['mrrCandidate3Reference']
+				}) }}
 
 
-      {% elif data['mrrCandidate1Name'] %}  
+      		{% elif data['mrrCandidate1Reference'] %}  
 
-        {{ govukInput({
-          label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
-          classes: "govuk-!-width-two-thirds",
-          id: "mrrCandidate2Name",
-          name: "mrrCandidate2Name",
-          value: data['mrrCandidate2Name']
-        }) }}
+        		{{ govukInput({
+          			label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+					classes: "govuk-!-width-two-thirds",
+					id: "mrrCandidate2Reference",
+					name: "mrrCandidate2Reference",
+					value: data['mrrCandidate2Reference']
+        		}) }}
 
-      {% else %}
+      		{% else %}
 
-        {{ govukInput({
-          label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
-          classes: "govuk-!-width-two-thirds",
-          id: "mrrCandidate1Name",
-          name: "mrrCandidate1Name",
-          value: data['mrrCandidate1Name']
-        }) }}
+        		{{ govukInput({
+          			label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+					classes: "govuk-!-width-two-thirds",
+					id: "mrrCandidate1Reference",
+					name: "mrrCandidate1Reference",
+					value: data['mrrCandidate1Reference']
+        		}) }}
 
-      {% endif %}
+      		{% endif %}
     	
             {{ govukButton({
       	    	text: "Continue"			    
     	    }) }}
 
         </form>
-
-        
   
 	</div>
 </div>

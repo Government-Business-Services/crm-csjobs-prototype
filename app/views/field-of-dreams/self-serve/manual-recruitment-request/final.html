@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "GRS" %}
+
+{% set pageHeading = "Final page" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+		<p>You are about to submit the following manual recruitment request.</p>
+
+		<p><span class="govuk-!-font-weight-bold">Vacancy: </span>{{ data['mrrVacancy'] }}</p>
+
+
+		<p><span class="govuk-!-font-weight-bold">Vacancy holder: </span>{{ data['mrrVhName'] }}</p>
+
+		<p><span class="govuk-!-font-weight-bold">Department: </span>{{ data['mrrVacancyDepartment'] }}</p>
+		
+		<p class="govuk-body">Information of consequences or what happens...</p>
+		
+		<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/confirmation" >
+		
+			{{ govukButton({
+				text: "Send recruitment request"
+			}) }}		
+
+		</form>
+
+		<!-- <p class="govuk-body"><a href="/field-of-dreams/vacancy-holder?query=" class="govuk-link govuk-link--no-visited-state">Return to vacancy holders</a></p> -->
+  
+	</div>
+</div>
+
+{% endblock %}
