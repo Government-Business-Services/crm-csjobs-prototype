@@ -51,7 +51,12 @@
             <div class="govuk-grid-column-two-thirds ">                
                  <h2 class="govuk-heading-m">GRS selection and assessment services</h2>
                  <p class="govuk-body">GRS offers bespoke selection and assessment services for a specific and diverse candidate market, with end-to-end recruitment data and insight. Our highly-skilled workforce has an in-depth understanding of Civil Service regulations with access to best-in-class sifting and selection tools, and exclusive access to innovative pre-employment screening.</p>
-                 <p class="govuk-link"><a class="govuk-link govuk-link--no-visited-state" href="/field-of-dreams/services-and-functionality">Find out more about GRS</a></p>
+                 <p class="govuk-link"><a class="govuk-link govuk-link--no-visited-state" href="/field-of-dreams/services-and-functionality">Find out more about GRS selection and assessment services</a></p>
+
+                 <h2 class="govuk-heading-m">GRS who we are and what we do</h2>
+                 <p class="govuk-body">Our teams have in-depth knowledge across the recruitment spectrum. The success of our platforms is due to continuous improvement linked to customer feedback.</p>
+                 <p class="govuk-link"><a class="govuk-link govuk-link--no-visited-state" href="/field-of-dreams/who-we-are">Find out more about who we are and what we do</a></p>
+
             </div>
 
             <!-- <div class="govuk-grid-column-two-thirds ">
@@ -68,6 +73,8 @@
             
             <div class="govuk-grid-column-one-third">
 
+
+                
                 <h2 class="govuk-heading-m">Did you know?</h2>
                 <p class="govuk-body">You can now chat to us online and we can give you live help.</p>
                 {{ govukButton({
@@ -75,7 +82,7 @@
                 }) }}
 
 
-                {{ xGovukRelatedNavigation({
+                <!-- {{ xGovukRelatedNavigation({
                     
                     sections: [{
                         title: "GRS Information",                        
@@ -85,12 +92,14 @@
                             
                         ]                                            
                     }]
-                }) }}
+                }) }} -->
+
+                {% include "/includes/guidance.html" %}
             </div>                        
 
         </div>
 
-        {% include "/includes/guidance.html" %}
+        
 
 
     </div>    
