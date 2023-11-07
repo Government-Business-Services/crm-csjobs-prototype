@@ -16,12 +16,9 @@
 
 		<p class="govuk-body">Select all that apply.</p>
     
-		{% if data['status'] == "change" %}
-			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
-				{% include "includes/status_null.html" %}
-		{% else %}
+		
         	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/contract-type/length-of-employment" >
-		{% endif %}
+		
 			
 			{{ govukCheckboxes({
 				name: "mrrVacancyContractType",   				     

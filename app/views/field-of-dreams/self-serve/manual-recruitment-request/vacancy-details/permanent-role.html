@@ -15,8 +15,7 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     
 		{% if data['status'] == "change" %}
-			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
-{% include "includes/status_null.html" %}
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >			
 		{% else %}
         	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/pattern" >
 		{% endif %}
