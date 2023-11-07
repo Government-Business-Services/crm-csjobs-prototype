@@ -2,7 +2,7 @@
 
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "What is the amount for the Civil Service pension?" %}
+{% set pageHeading = "What is the employers contribution to the pension for this vacancy?" %}
 {% set pageSection = "Manual recruitment request" %}
 
 {% block pageTitle %} - Prototype{% endblock %}
@@ -14,7 +14,7 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-		<p>This is usually 27% if the minimum salary.</p>
+		<p>This is usually 27% of the minimum salary.</p>
 		
 		<div class="govuk-inset-text">
 		<p>You told us the salary was: &pound;{{ data['mrrVacancySalary']}}</p>
