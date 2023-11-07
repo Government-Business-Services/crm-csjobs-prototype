@@ -38,13 +38,19 @@
 			{% include "includes/query/mrr/prison.html" %}
 			{% include "includes/query/mrr/veterans.html" %}
 			{% include "includes/query/mrr/pension.html" %}			
+			{% if data['mrrPreChecks'] == "No" %}
 			{% include "includes/query/mrr/pre-employment.html" %}			
+			{% endif %}
 		</dl>
 
 		{% if data['mrrPreChecks'] == "Yes" %}			
 			<h2 class="govuk-heading-m">Pre-employment checks</h2>
 			<dl class="govuk-summary-list govuk-!-margin-bottom-9">			
+				{% if data['mrrPreChecks'] == "Yes" %}
+				{% include "includes/query/mrr/pre-employment.html" %}			
+				{% endif %}
 				{% include "includes/query/mrr/reserved_role.html" %}
+				{% include "includes/query/mrr/checks_required.html" %}			
 				{% include "includes/query/mrr/criminal_record.html" %}
 				{% include "includes/query/mrr/security_level.html" %}
 				<!-- Only need these if CRC is enhanced -->
@@ -57,7 +63,7 @@
 					{% include "includes/query/mrr/volunteer.html" %}
 				{% endif %}
 				<!-- // -->				
-				{% include "includes/query/mrr/checks_required.html" %}			
+				
 			</dl>
 
 		{% endif %}

@@ -15,9 +15,12 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
 
-		{% if data['status'] == "change" %}
+		{% if data['status'] == "changeSection" %}
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >			
+
+		{% elif data['status'] == "change" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
-				{% include "includes/status_null.html" %}		
+				{% include "includes/status_null.html" %}						
 		{% elif data['mrrPreChecksCriminalRecord'] == "Enhanced" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/regulated-activity" >
 		{% else %}

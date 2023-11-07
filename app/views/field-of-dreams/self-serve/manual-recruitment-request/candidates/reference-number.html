@@ -1,7 +1,6 @@
 {% extends "layouts/main.html" %}
 {% set serviceName = "GRS" %}
 
-{% set pageHeading = "What is the candidate’s applicant reference number?" %}
 {% set pageHeading = "Is the candidate on the existing reserve list?" %}
 {% set pageSection = "Manual recruitment request" %}
 
@@ -22,36 +21,105 @@
 		{% endif %}
         
 
-    		{% if data['mrrCandidate2Reference'] %}  
+    		{% if data['mrrCandidate2Reserve'] %}  
 
-				{{ govukInput({
-					label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
-					classes: "govuk-!-width-two-thirds",
-					id: "mrrCandidate3Reference",
-					name: "mrrCandidate3Reference",
-					value: data['mrrCandidate3Reference']
-				}) }}
+				{% set referenceNumHtml %}
+					
+					{{ govukInput({
+						id: "mrrCandidate3Reference",
+						name: "mrrCandidate3Reference",
+						type: "text",
+						autocomplete: "text",
+						classes: "govuk-!-width-two-thirds",
+						label: {
+							text: "What is the candidate’s applicant reference number?"
+						},
+						value: data['mrrCandidate3Reference']
+					}) }}
+				
+				{% endset -%}
+
+				{{ govukRadios({
+					name: "mrrCandidate3Reserve",        
+					fieldset: {
+						legend: {
+							text: "Which profession is the role in",
+							isPageHeading: false,
+							classes: "govuk-visually-hidden"
+						}
+					},
+					items: [                					
+						{ value: "Yes", text: "Yes", checked: checked("mrrCandidate3Reserve", "Yes"), conditional: { html: referenceNumHtml } },																				
+						{ value: "No", text: "No", checked: checked("mrrCandidate3Reserve", "No") }
+					]
+				}) }} 
 
 
-      		{% elif data['mrrCandidate1Reference'] %}  
+      		{% elif data['mrrCandidate1Reserve'] %}  
 
-        		{{ govukInput({
-          			label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
-					classes: "govuk-!-width-two-thirds",
-					id: "mrrCandidate2Reference",
-					name: "mrrCandidate2Reference",
-					value: data['mrrCandidate2Reference']
-        		}) }}
+			  	{% set referenceNumHtml %}
+			  
+					{{ govukInput({
+						id: "mrrCandidate2Reference",
+						name: "mrrCandidate2Reference",
+						type: "text",
+						autocomplete: "text",
+						classes: "govuk-!-width-two-thirds",
+						label: {
+							text: "What is the candidate’s applicant reference number?"
+						},
+						value: data['mrrCandidate2Reference']
+					}) }}
+					
+				{% endset -%}
+
+				{{ govukRadios({
+					name: "mrrCandidate2Reserve",        
+					fieldset: {
+						legend: {
+							text: "Which profession is the role in",
+							isPageHeading: false,
+							classes: "govuk-visually-hidden"
+						}
+					},
+					items: [                					
+						{ value: "Yes", text: "Yes", checked: checked("mrrCandidate2Reserve", "Yes"), conditional: { html: referenceNumHtml } },																				
+						{ value: "No", text: "No", checked: checked("mrrCandidate2Reserve", "No") }
+					]
+				}) }} 
 
       		{% else %}
 
-        		{{ govukInput({
-          			label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
-					classes: "govuk-!-width-two-thirds",
-					id: "mrrCandidate1Reference",
-					name: "mrrCandidate1Reference",
-					value: data['mrrCandidate1Reference']
-        		}) }}
+			  	{% set referenceNumHtml %}
+			  
+					{{ govukInput({
+						id: "mrrCandidate1Reference",
+						name: "mrrCandidate1Reference",
+						type: "text",
+						autocomplete: "text",
+						classes: "govuk-!-width-two-thirds",
+						label: {
+							text: "What is the candidate’s applicant reference number?"
+						},
+						value: data['mrrCandidate1Reference']
+					}) }}
+		  		
+				{% endset -%}
+
+				{{ govukRadios({
+					name: "mrrCandidate1Reserve",        
+					fieldset: {
+						legend: {
+							text: "Which profession is the role in",
+							isPageHeading: false,
+							classes: "govuk-visually-hidden"
+						}
+					},
+					items: [                					
+						{ value: "Yes", text: "Yes", checked: checked("mrrCandidate1Reserve", "Yes"), conditional: { html: referenceNumHtml } },																				
+						{ value: "No", text: "No", checked: checked("mrrCandidate1Reserve", "No") }
+					]
+				}) }}        		
 
       		{% endif %}
     	

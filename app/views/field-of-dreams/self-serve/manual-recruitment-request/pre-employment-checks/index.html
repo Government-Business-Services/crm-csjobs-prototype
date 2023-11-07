@@ -16,12 +16,9 @@
     	
 		<p class="govuk-body">Pre-employment checks are carried out to help the Civil Service make informed decisions about the suitability of individuals for vacancies.</p>
        
-		{% if data['status'] == "change" %}
-			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
-{% include "includes/status_null.html" %}
-		{% else %}			
+		
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/reserved-status" >	
-		{% endif %}
+		
             
 			{{ govukRadios({
 				name: "mrrPreChecks",   

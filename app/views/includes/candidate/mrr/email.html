@@ -1,7 +1,16 @@
 <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">Email address</dt>
-    <dd class="govuk-summary-list__value">{{data['mrrCandidate1Email']}}</dd>
+    <dd class="govuk-summary-list__value">
+        {% if data['mrrCandidate3Title'] %}
+            {{data['mrrCandidate3Email']}}
+        {% elif data['mrrCandidate2Title'] %}
+            {{data['mrrCandidate2Email']}}
+        {% else %}        
+            {{data['mrrCandidate1Email']}}
+        {% endif %}
+        
+        </dd>
     <dd class="govuk-summary-list__actions">
-        <a class="govuk-link" href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/vacancy-approved?status=change">Change<span class="govuk-visually-hidden"> the vacancy’s budget approval status</span></a>
+        <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> the vacancy’s budget approval status</span></a>
     </dd>
 </div>

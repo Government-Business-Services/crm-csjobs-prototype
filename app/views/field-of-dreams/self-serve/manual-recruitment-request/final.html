@@ -20,7 +20,12 @@
 		<p><span class="govuk-!-font-weight-bold">Vacancy: </span>{{ data['mrrVacancy'] }}
 
 
-		<br><span class="govuk-!-font-weight-bold">Vacancy holder: </span>{{ data['mrrVhName'] }}
+		<br><span class="govuk-!-font-weight-bold">Vacancy holder: </span>
+		{% if data['mrrVhConfirm'] == "Yes" %}
+			Hugo Furst
+		{% else %}
+			{{ data['mrrVhName'] }}
+		{% endif %}
 
 		<br><span class="govuk-!-font-weight-bold">Department: </span>{{ data['mrrVacancyDepartment'] }}</p>
 		
