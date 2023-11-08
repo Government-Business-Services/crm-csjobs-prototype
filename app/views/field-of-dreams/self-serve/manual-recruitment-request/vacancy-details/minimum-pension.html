@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set serviceName = "GRS" %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
 
 {% set pageHeading = "What is the employer’s contribution to the pension for this vacancy?" %}
 {% set pageSection = "Manual recruitment request" %}
@@ -14,10 +14,10 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-		<p>This is usually 27% of the minimum salary.</p>
+		<p class="govuk-body">This is usually 27% of the minimum salary.</p>
 		
 		<div class="govuk-inset-text">
-		<p>You told us the salary was: &pound;{{ data['mrrVacancySalary']}}</p>
+		<p class="govuk-body">You told us the salary was: &pound;{{ data['mrrVacancySalary']}}</p>
 	</div>
     	
 		{% if data['status'] == "change" %}

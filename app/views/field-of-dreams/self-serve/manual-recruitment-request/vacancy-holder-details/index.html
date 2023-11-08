@@ -1,27 +1,23 @@
 {% extends "layouts/main.html" %}
 
-{% set serviceName = "Government Recruitment Service" %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
 
 {% set pageHeading = "Are you the vacancy holder for this request?" %}
 {% set pageSection = "Manual recruitment request" %}
-
 {% block pageTitle %} - Prototype{% endblock %}
 {% block content %}
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
 		<p class="govuk-body">These are the contact details we will use on the vacancy.</p>
-
 		<div class="govuk-inset-text">
 			<p class="govuk-body">Ray Kinsella
 			<br>ray.kinsella@cabinetoffice.gov.uk
 			<br>0191 456789</p>
 		</div>
-
 
 		{% if data['status'] == "change" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
@@ -29,14 +25,12 @@
 		{% else %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/vacancy-approved">
 		{% endif %}
-			<!-- Line confirms that details are correct -->
 			<input type="hidden" id="mrrVhconfirm" name="mrrVhConfirm" value="Yes" />
 
         	<div class="govuk-button-group">
     			{{ govukButton({
-      				text: "Confirm and continue"			
+      				text: "Confirm and continue"
     			}) }}
-
         		<a class="govuk-link" href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-holder-details/name?mrrVhConfirm=No">These contact details are not correct</a>
         	</div>
 
@@ -44,6 +38,5 @@
   
 	</div>
 </div>
-
 
 {% endblock %}

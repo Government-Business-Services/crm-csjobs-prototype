@@ -1,6 +1,6 @@
 {% extends "layouts/landing.html" %}
 
-{% set serviceName = "Government Recruitment Service" %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
 {% set showPhaseBanner = false %}
 {% set showBackLink = false %}
 
@@ -8,103 +8,28 @@
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
-
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">                                
-        
-        <!-- <h2 class="govuk-heading-l govuk-!-margin-top-5">Self serve</h2> -->
-        <!-- <div class="govuk-grid-row ">
-            <div class="govuk-grid-column-one-half">
-                <h2 class="govuk-heading-m">Vacancy holders</h2>
-                <p class="govuk-body">Access pre-employment checking, manage applications, authentications and statuses of candidates.</p>
-                <p class="govuk-body"></p>
-                <p class="govuk-link"><a class="govuk-link govuk-link--no-visited-state" href="/field-of-dreams/authentication/?user=vh">Sign in to access vacancy holder services </a></p>
-            </div>
-            <div class="govuk-grid-column-one-half">
-                <h2 class="govuk-heading-m">Candidates</h2>
-                <p class="govuk-body">Access your Civil Service Jobs account, and find guidance and advice about using Civil Service Jobs.</p>
-                <p class="govuk-link"><a class="govuk-link govuk-link--no-visited-state" href="/field-of-dreams/candidates">Access candidate services </a></p>
-            </div>    
-                   
-        </div> -->
+    <div class="govuk-grid-column-full">
 
-        <!-- <div class="govuk-grid-row govuk-!-margin-top-5">
-            <div class="govuk-grid-column-one-third ">
-                <h2 class="govuk-heading-m">Query 1</h2>
-                <p class="govuk-body">govuk-grid-column-one-quarter</p>
-            </div>
-            <div class="govuk-grid-column-one-third">
-                <h2 class="govuk-heading-m">Query 2</h2>
-                <p class="govuk-body">govuk-grid-column-one-quarter</p>
-            </div>        
-            <div class="govuk-grid-column-one-third">
-                <h2 class="govuk-heading-m">Query 3</h2>
-                <p class="govuk-body">govuk-grid-column-one-quarter</p>
-            </div>            
-        </div>                     -->
-
-        
         <div class="govuk-grid-row govuk-!-margin-top-5">
+            <div class="govuk-grid-column-two-thirds ">
+                <h2 class="govuk-heading-m">GRS selection and assessment services</h2>
+                <p class="govuk-body">GRS offers bespoke selection and assessment services for a specific and diverse candidate market, with end-to-end recruitment data and insight. Our highly-skilled workforce has an in-depth understanding of Civil Service regulations with access to best-in-class sifting and selection tools, and exclusive access to innovative pre-employment screening.</p>
+                <p class="govuk-link"><a class="govuk-link govuk-link--no-visited-state" href="/field-of-dreams/services-and-functionality">Find out more about GRS selection and assessment services</a></p>
 
-            <div class="govuk-grid-column-two-thirds ">                
-                 <h2 class="govuk-heading-m">GRS selection and assessment services</h2>
-                 <p class="govuk-body">GRS offers bespoke selection and assessment services for a specific and diverse candidate market, with end-to-end recruitment data and insight. Our highly-skilled workforce has an in-depth understanding of Civil Service regulations with access to best-in-class sifting and selection tools, and exclusive access to innovative pre-employment screening.</p>
-                 <p class="govuk-link"><a class="govuk-link govuk-link--no-visited-state" href="/field-of-dreams/services-and-functionality">Find out more about GRS selection and assessment services</a></p>
-
-                 <h2 class="govuk-heading-m">GRS who we are and what we do</h2>
-                 <p class="govuk-body">Our teams have in-depth knowledge across the recruitment spectrum. The success of our platforms is due to continuous improvement linked to customer feedback.</p>
-                 <p class="govuk-link"><a class="govuk-link govuk-link--no-visited-state" href="/field-of-dreams/who-we-are">Find out more about who we are and what we do</a></p>
-
+                <h2 class="govuk-heading-m">GRS who we are and what we do</h2>
+                <p class="govuk-body">Our teams have in-depth knowledge across the recruitment spectrum. The success of our platforms is due to continuous improvement linked to customer feedback.</p>
+                <p class="govuk-link"><a class="govuk-link govuk-link--no-visited-state" href="/field-of-dreams/who-we-are">Find out more about who we are and what we do</a></p>
             </div>
-
-            <!-- <div class="govuk-grid-column-two-thirds ">
-                <h2 class="govuk-heading-m">We are working on </h2>
-                <p class="govuk-body">Content about what might be releasing, ability to obtain UR, etc etc:</p>     
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>constructing, altering, repairing, extending, demolishing or dismantling buildings or structures</li>
-                    <li>installing heating, lighting, air-conditioning, ventilation, power supply, drainage, sanitation, water supply or fire protection systems in any building or structure</li>
-                    <li>internal cleaning of buildings and structures, so far as carried out in the course of their construction, alteration, repair, extension or restoration</li>  
-                </ul>
-            </div> -->
-
-
-            
             <div class="govuk-grid-column-one-third">
-
-
-                
-                <h2 class="govuk-heading-m">Did you know?</h2>
-                <p class="govuk-body">You can now chat to us online and we can give you live help.</p>
-                {{ govukButton({
-                    text: "Chat online"
-                }) }}
-
-
-                <!-- {{ xGovukRelatedNavigation({
-                    
-                    sections: [{
-                        title: "GRS Information",                        
-                        items: [                            
-                            { text: "GRS - Who we are and what we do", href: "/field-of-dreams/who-we-are" },                            
-                            { text: "GRS - Selection and assessment services", href: "/field-of-dreams/services-and-functionality" }
-                            
-                        ]                                            
-                    }]
-                }) }} -->
-
+                {% include "/includes/did_youknow.html" %}
                 {% include "/includes/guidance.html" %}
-            </div>                        
-
+            </div>
         </div>
-
-        
-
-
-    </div>    
+    
+    </div>
 </div>
-
-
 
 {% endblock %}
