@@ -4,23 +4,21 @@
 
 {% set pageHeading = "Has this vacancy been approved?" %}
 {% set pageSection = "Manual recruitment request" %}
-
 {% block pageTitle %} - Prototype{% endblock %}
 {% block content %}
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-		<p>You will need to obtain approval in line with your department’s procedures.</p>
+		<p class="govuk-body">You will need to obtain approval in line with your department’s procedures.</p>
     	
 		{% if data['status'] == "change" %}
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
 				{% include "includes/status_null.html" %}
 		{% else %}
-        	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/approval-confirmation" >
+        	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/documentation" >
 		{% endif %}
 			
 			{{ govukRadios({
@@ -39,18 +37,15 @@
 				]
 			}) }}
 
-			<div class="govuk-button-group">
-            {{ govukButton({
-      	    	text: "Continue"			    
-    	    }) }}
-
-			<a class="govuk-link" href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/?mrrVacancyApproved=NotRequired">Approval not required</a>
-		</div>
+			<div class="govuk-button-group">    	
+				{{ govukButton({
+      	    		text: "Continue"			    
+    	    	}) }}
+				<a class="govuk-link" href="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/?mrrVacancyApproved=NotRequired">Approval not required</a>
+			</div>
 
         </form>
 
-        
-  
 	</div>
 </div>
 
