@@ -1,0 +1,73 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "What is the reason for amending this vacancy advertisement?" %}
+{% set pageSection = "Amend a vacancy advertisement" %}
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	
+		{% if data['status'] == "change" %}
+			<form method="post" action="/field-of-dreams/self-serve/amend-vacancy/check-your-answers" >
+				{% include "includes/status_null.html" %}
+		{% else %}
+        	<form method="post" action="/field-of-dreams/self-serve/amend-vacancy/confirmation" >
+		{% endif %}
+            
+            <!-- {{ govukTextarea({
+				label: { text: "What is the vacancy’s reference number??", classes: "govuk-visually-hidden", isPageHeading: false },      
+				classes: "govuk-!-width-two-thirds",
+				id: "amendVacancyRefNum",
+				name: "amendVacancyRefNum",
+				value: data['amendVacancyRefNum']
+			}) }} -->
+
+
+			{% set otherHtml %}
+				{{ govukInput({
+					id: "amendVacancyReasonOther",
+					name: "amendVacancyReasonOther",
+					type: "text",
+					autocomplete: "text",
+					classes: "govuk-!-width-two-thirds",
+					label: {
+						text: "Enter the vacancy’s grade."
+					}
+				}) }}
+			{% endset -%}
+
+
+			{{ govukRadios({
+				name: "amendVacancyReason",        
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Extend closing date", text: "Extend closing date", checked: checked("amendVacancyReason", "Extend closing date") },					
+					{ value: "Change assessment methods", text: "Change assessment methods", checked: checked("amendVacancyReason", "Change assessment methods") },					
+					{ value: "Amend error in advert", text: "Amend error in advert", checked: checked("amendVacancyReason", "Amend error in advert") },										
+					{ value: "Other", text: "Other", checked: checked("amendVacancyReason", "Other"), conditional: { html: otherHtml } }
+				]
+			}) }}
+
+
+
+
+            {{ govukButton({
+      	    	text: "Continue and send amend request"			    
+    	    }) }}
+
+        </form>
+  
+	</div>
+</div>
+
+{% endblock %}

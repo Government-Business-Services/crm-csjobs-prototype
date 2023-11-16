@@ -1,0 +1,31 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "This vacancy advertisement is not live" %}
+{% set pageSection = "Amend a vacancy advertisement" %}
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    			
+            
+		<p>You are not able to amend a vacancy advert IN THIS SYSTEM until it is live. Access vX to start the process of making the vacancy advert live. You can <a href="#">sign in to vX </a> in the usual way and create the advert there.</p>
+
+		<h2 class="govuk-heading-m">Need more help</h2>
+		<p>If you need further help or advice you can <a href="#">fill in a query form and submit it to the GRS team</a>.</p>
+		<p>You can also use our 'Live chat' to ask for help.</p>
+
+            <!-- {{ govukButton({
+      	    	text: "Live chat",    
+				classes: "govuk-button--secondary"
+    	    }) }} -->
+
+        
+  
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = false %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "Amend to advertisement request submitted" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ govukPanel({
+            titleText: pageHeading,
+            html: "Your reference number<br><strong>HDJ2123F</strong>"
+          }) }}    	
+
+		<p class="govuk-body">Thank you for completing this amend advertisement request form.</p>
+		<p class="govuk-body">We may contact you if we need to clarify something, but you do not have to do anything else now.</p>
+
+	
+		<h2 class="govuk-heading-m">What you can do next</h2>
+		<!-- Fill in another form -->
+		<p class="govuk-body">If you have more amendments to make, you can <a href="#">fill in another amend advertisement request form</a>.</p>
+
+		
+		<!-- <p class="govuk-body">You can start a new request form (LINK) at any time.</p> -->
+
+        
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}
