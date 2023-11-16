@@ -4,7 +4,7 @@
 {% set pageHeading = "Which department is this vacancy in?" %}
 {% set pageSection = "Manual recruitment request" %}
 
-{% block pageTitle %} - Prototype{% endblock %}
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
 
 {% block pageScripts %}
     <script type="text/javascript" src="/public/javascripts/accessible-autocomplete.js"></script>
