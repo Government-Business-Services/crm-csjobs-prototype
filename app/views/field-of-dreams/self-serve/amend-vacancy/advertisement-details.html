@@ -23,15 +23,13 @@
 				
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">			
 			
+			{% include "includes/query/amVac/vacancyHolder.html" %}
 
 			{% include "includes/query/amVac/vacancy.html" %}
 			{% include "includes/query/amVac/department.html" %}
 			{% include "includes/query/amVac/area.html" %}
 			{% include "includes/query/amVac/job_type.html" %}
 			{% include "includes/query/amVac/profession.html" %}
-			
-			
-			
 			{% include "includes/query/amVac/location.html" %}
 			{% include "includes/query/amVac/pattern.html" %}
 			<!-- {% include "includes/query/amVac/grade.html" %} -->
@@ -43,32 +41,6 @@
 			{% include "includes/query/amVac/pre-employment.html" %}			
 			{% endif %} -->
 		</dl>
-
-		{% if data['amVacPreChecks'] == "Yes" %}			
-			<h2 class="govuk-heading-m">Pre-employment checks</h2>
-			<dl class="govuk-summary-list govuk-!-margin-bottom-9">			
-				{% if data['amVacPreChecks'] == "Yes" %}
-				{% include "includes/query/amVac/pre-employment.html" %}			
-				{% endif %}
-				{% include "includes/query/amVac/reserved_role.html" %}
-				{% include "includes/query/amVac/checks_required.html" %}			
-				{% include "includes/query/amVac/criminal_record.html" %}
-				{% include "includes/query/amVac/security_level.html" %}
-				<!-- Only need these if CRC is enhanced -->
-				{% if data['amVacPreChecksCriminalRecord'] == "Enhanced" %}
-					{% include "includes/query/amVac/regulated_adults.html" %}
-					{% include "includes/query/amVac/regulated_children.html" %}
-					{% if (data['amVacPreChecksRegulatedActivity'] == "Yes" or data['amVacPreChecksChildren'] == "Yes")  %}
-						{% include "includes/query/amVac/home_address.html" %}
-					{% endif %}
-					{% include "includes/query/amVac/volunteer.html" %}
-				{% endif %}
-				<!-- // -->				
-				
-			</dl>
-
-		{% endif %}
-
 
         <form method="post" action="/field-of-dreams/self-serve/amend-vacancy/reason" >
             
