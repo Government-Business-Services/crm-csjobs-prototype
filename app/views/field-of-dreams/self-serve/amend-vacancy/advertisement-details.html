@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 {% set serviceName = "Government Recruitment Service (GRS)" %}
 
-{% set pageHeading = "Vacancy advertisement details" %}
+{% set pageHeading = "Advertisement details" %}
 {% set pageSection = "Amend a vacancy advertisement" %}
 {% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
 {% block content %}
@@ -20,11 +20,14 @@
 			<br>ray.kinsella@cabinetoffice.gov.uk
 			<br>0191 456789</p>
 		</div>
-				
-		<dl class="govuk-summary-list govuk-!-margin-bottom-9">			
-			
+		
+		<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Vacancy holder</h2>
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">						
 			{% include "includes/query/amVac/vacancyHolder.html" %}
+		</dl>
 
+		<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Vacancy details</h2>
+		<dl class="govuk-summary-list govuk-!-margin-bottom-9">									
 			{% include "includes/query/amVac/vacancy.html" %}
 			{% include "includes/query/amVac/department.html" %}
 			{% include "includes/query/amVac/area.html" %}
