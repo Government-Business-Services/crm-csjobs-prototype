@@ -3,7 +3,7 @@
 
 {% set pageHeading = "What is this vacancy’s job title?" %}
 {% set pageSection = "Manual recruitment request" %}
-{% block pageTitle %} - Prototype{% endblock %}
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
 {% block content %}
 
 <div class="govuk-grid-row">
