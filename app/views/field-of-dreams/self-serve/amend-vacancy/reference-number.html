@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 {% set serviceName = "Government Recruitment Service (GRS)" %}
 
-{% set pageHeading = "What is the vacancy advertisement’s reference number?" %}
+{% set pageHeading = "What is the vacancy’s reference number?" %}
 {% set pageSection = "Amend a vacancy advertisement" %}
 {% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
 {% block content %}
@@ -22,7 +22,7 @@
 				label: { text: "What is the vacancy’s reference number??", classes: "govuk-visually-hidden", isPageHeading: false },      
 				classes: "govuk-!-width-two-thirds",
 				hint: {
-					text: "This is usually 10 digits for example, 2385467294."
+					text: "This is usually 10 digits, for example 2385467294."
 				},
 				id: "amendVacancyRefNum",
 				name: "amendVacancyRefNum",

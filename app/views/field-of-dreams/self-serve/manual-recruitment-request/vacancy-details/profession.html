@@ -21,101 +21,7 @@
 		{% endif %}
 			
 
-			{% set financeHtml %}
-
-				{{ govukRadios({
-					name: "mrrVacancyProfession",        
-					fieldset: {
-						legend: {
-							text: "Which profession is the role in",
-							isPageHeading: false,
-							classes: "govuk-visually-hidden"
-						}
-					},
-					items: [                
-						{ value: "Counter Fraud", text: "Counter Fraud", checked: checked("mrrVacancyProfession", "Counter Fraud") },																
-						{ value: "Government Corporate Finance", text: "Government Corporate Finance", checked: checked("mrrVacancyProfession", "Government Corporate Finance") },					
-						{ value: "Government Economic Service", text: "Government Economic Service", checked: checked("mrrVacancyProfession", "Government Economic Service") },					
-						{ value: "Government Finance", text: "Government Finance", checked: checked("mrrVacancyProfession", "Government Finance") },					
-						{ value: "Government Legal Service", text: "Government Legal Service", checked: checked("mrrVacancyProfession", "Government Legal Service") },																	
-						{ value: "Internal Audit", text: "Internal Audit", checked: checked("mrrVacancyProfession", "Internal Audit") },					
-						{ value: "International Trade", text: "International Trade", checked: checked("mrrVacancyProfession", "International Trade") },											
-						{ value: "Tax Profession", text: "Tax Profession", checked: checked("mrrVacancyProfession", "Tax Profession") }														
-					]
-				}) }}
-
-			{% endset -%}
-
-			{% set digitalHtml %}
-
-				{{ govukRadios({
-					name: "mrrVacancyProfession",        
-					fieldset: {
-						legend: {
-							text: "Which profession is the role in",
-							isPageHeading: false,
-							classes: "govuk-visually-hidden"
-						}
-					},
-					items: [                						
-						{ value: "Digital, Data and Technology", text: "Digital, Data and Technology", checked: checked("mrrVacancyProfession", "Digital, Data and Technology") },					
-						{ value: "Government Communication Service", text: "Government Communication Service", checked: checked("mrrVacancyProfession", "Government Communication Service") },											
-						{ value: "Government Science and Engineering", text: "Government Science and Engineering", checked: checked("mrrVacancyProfession", "Government Science and Engineering") },					
-						{ value: "Government Social Research", text: "Government Social Research", checked: checked("mrrVacancyProfession", "Government Social Research") },					
-						{ value: "Government Statistical Service", text: "Government Statistical Service", checked: checked("mrrVacancyProfession", "Government Statistical Service") },					
-						{ value: "Knowledge and Information Management", text: "Knowledge and Information Management", checked: checked("mrrVacancyProfession", "Knowledge and Information Management") }						
-					]
-				}) }}			
-
-			{% endset -%}
-
-			{% set researchHtml %}
-
-				{{ govukRadios({
-					name: "mrrVacancyProfession",        
-					fieldset: {
-						legend: {
-							text: "Which profession is the role in",
-							isPageHeading: false,
-							classes: "govuk-visually-hidden"
-						}
-					},
-					items: [                
-						{ value: "Government Operational Research Services", text: "Government Operational Research Services", checked: checked("mrrVacancyProfession", "Government Operational Research Services") },					
-						{ value: "Government Project Delivery", text: "Government Project Delivery", checked: checked("mrrVacancyProfession", "Government Project Delivery") },					
-						{ value: "Government Property", text: "Government Property", checked: checked("mrrVacancyProfession", "Government Property") },					
-						{ value: "Operational Delivery", text: "Operational Delivery", checked: checked("mrrVacancyProfession", "Operational Delivery") },					
-						{ value: "Planning Inspectors", text: "Planning Inspectors", checked: checked("mrrVacancyProfession", "Planning Inspectors") },					
-						{ value: "Planning", text: "Planning", checked: checked("mrrVacancyProfession", "Planning") },					
-						{ value: "Policy", text: "Policy", checked: checked("mrrVacancyProfession", "Policy") }						
-					]
-				}) }}			
-
-			{% endset -%}
-
-			{% set resourceHtml %}
-
-				{{ govukRadios({
-					name: "mrrVacancyProfession",        
-					fieldset: {
-						legend: {
-							text: "Which profession is the role in",
-							isPageHeading: false,
-							classes: "govuk-visually-hidden"
-						}
-					},
-					items: [                
-						{ value: "Government Veterinary", text: "Government Veterinary", checked: checked("mrrVacancyProfession", "Government Veterinary") },					
-						{ value: "Human Resources", text: "Human Resources", checked: checked("mrrVacancyProfession", "Human Resources") },					
-						{ value: "Intelligence Analysis", text: "Intelligence Analysis", checked: checked("mrrVacancyProfession", "Intelligence Analysis") },					
-						{ value: "Medical", text: "Medical", checked: checked("mrrVacancyProfession", "Medical") },					
-						{ value: "Psychology", text: "Psychology", checked: checked("mrrVacancyProfession", "Psychology") },					
-						{ value: "Security", text: "Security", checked: checked("mrrVacancyProfession", "Security") }																	
-					]
-				}) }}			
-
-			{% endset -%}
-
+			
 
 
 			{{ govukRadios({
@@ -128,10 +34,35 @@
 					}
 				},
 				items: [                
-					{ value: "Finance, tax and legal professions", text: "Finance, tax and legal professions", checked: checked("mrrVacancyProfessionOption", "Finance, tax and legal professions"), conditional: { html: financeHtml } },
-					{ value: "Digital, data and technology professions", text: "Digital, data and technology professions", checked: checked("mrrVacancyProfessionOption", "Digital, data and technology professions"), conditional: { html: digitalHtml } },
-					{ value: "Research, planning and policy professions", text: "Research, planning and policy professions", checked: checked("mrrVacancyProfessionOption", "Research, planning and policy professions"), conditional: { html: researchHtml } },	
-					{ value: "Human Resources, science and security professions", text: "Human Resources, science and security professions", checked: checked("mrrVacancyProfessionOption", "Human Resources, science and security professions"), conditional: { html: resourceHtml } }				
+				
+
+					{ value: "Counter Fraud", text: "Counter Fraud", checked: checked("mrrVacancyProfession", "Counter Fraud") },																
+					{ value: "Government Corporate Finance", text: "Government Corporate Finance", checked: checked("mrrVacancyProfession", "Government Corporate Finance") },					
+					{ value: "Government Economic Service", text: "Government Economic Service", checked: checked("mrrVacancyProfession", "Government Economic Service") },					
+					{ value: "Government Finance", text: "Government Finance", checked: checked("mrrVacancyProfession", "Government Finance") },					
+					{ value: "Government Legal Service", text: "Government Legal Service", checked: checked("mrrVacancyProfession", "Government Legal Service") },																	
+					{ value: "Internal Audit", text: "Internal Audit", checked: checked("mrrVacancyProfession", "Internal Audit") },					
+					{ value: "International Trade", text: "International Trade", checked: checked("mrrVacancyProfession", "International Trade") },											
+					{ value: "Tax Profession", text: "Tax Profession", checked: checked("mrrVacancyProfession", "Tax Profession") },
+					{ value: "Digital, Data and Technology", text: "Digital, Data and Technology", checked: checked("mrrVacancyProfession", "Digital, Data and Technology") },					
+					{ value: "Government Communication Service", text: "Government Communication Service", checked: checked("mrrVacancyProfession", "Government Communication Service") },											
+					{ value: "Government Science and Engineering", text: "Government Science and Engineering", checked: checked("mrrVacancyProfession", "Government Science and Engineering") },					
+					{ value: "Government Social Research", text: "Government Social Research", checked: checked("mrrVacancyProfession", "Government Social Research") },					
+					{ value: "Government Statistical Service", text: "Government Statistical Service", checked: checked("mrrVacancyProfession", "Government Statistical Service") },					
+					{ value: "Knowledge and Information Management", text: "Knowledge and Information Management", checked: checked("mrrVacancyProfession", "Knowledge and Information Management") },		
+					{ value: "Government Operational Research Services", text: "Government Operational Research Services", checked: checked("mrrVacancyProfession", "Government Operational Research Services") },					
+					{ value: "Government Project Delivery", text: "Government Project Delivery", checked: checked("mrrVacancyProfession", "Government Project Delivery") },					
+					{ value: "Government Property", text: "Government Property", checked: checked("mrrVacancyProfession", "Government Property") },					
+					{ value: "Operational Delivery", text: "Operational Delivery", checked: checked("mrrVacancyProfession", "Operational Delivery") },					
+					{ value: "Planning Inspectors", text: "Planning Inspectors", checked: checked("mrrVacancyProfession", "Planning Inspectors") },					
+					{ value: "Planning", text: "Planning", checked: checked("mrrVacancyProfession", "Planning") },					
+					{ value: "Policy", text: "Policy", checked: checked("mrrVacancyProfession", "Policy") },
+					{ value: "Government Veterinary", text: "Government Veterinary", checked: checked("mrrVacancyProfession", "Government Veterinary") },					
+						{ value: "Human Resources", text: "Human Resources", checked: checked("mrrVacancyProfession", "Human Resources") },					
+						{ value: "Intelligence Analysis", text: "Intelligence Analysis", checked: checked("mrrVacancyProfession", "Intelligence Analysis") },					
+						{ value: "Medical", text: "Medical", checked: checked("mrrVacancyProfession", "Medical") },					
+						{ value: "Psychology", text: "Psychology", checked: checked("mrrVacancyProfession", "Psychology") },					
+						{ value: "Security", text: "Security", checked: checked("mrrVacancyProfession", "Security") }																	
 				]
 			}) }}
 
