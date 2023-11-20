@@ -1,8 +1,8 @@
 {% extends "layouts/main.html" %}
 {% set serviceName = "Government Recruitment Service (GRS)" %}
 
-{% set pageHeading = "What is the reason for amending this advert?" %}
-{% set pageSection = "Amend a vacancy advertisement" %}
+{% set pageHeading = "What is the reason for withdrawing this advert?" %}
+{% set pageSection = "Withdraw a vacancy advertisement" %}
 {% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
 {% block content %}
 
@@ -12,10 +12,10 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
 		{% if data['status'] == "change" %}
-			<form method="post" action="/field-of-dreams/self-serve/amend-vacancy/advertisement-details" >
+			<form method="post" action="/field-of-dreams/self-serve/withdraw-vacancy/advertisement-details" >
 				{% include "includes/status_null.html" %}
 		{% else %}
-        	<form method="post" action="/field-of-dreams/self-serve/amend-vacancy/confirmation" >
+        	<form method="post" action="/field-of-dreams/self-serve/withdraw-vacancy/confirmation" >
 		{% endif %}
             
             <!-- {{ govukTextarea({
@@ -29,8 +29,8 @@
 
 			{% set otherHtml %}
 				{{ govukInput({
-					id: "amendVacancyReasonOther",
-					name: "amendVacancyReasonOther",
+					id: "withdrawVacancyReasonOther",
+					name: "withdrawVacancyReasonOther",
 					type: "text",
 					autocomplete: "text",
 					classes: "govuk-!-width-two-thirds",
@@ -46,7 +46,7 @@
 
 
 			{{ govukRadios({
-				name: "amendVacancyReason",        
+				name: "withdrawVacancyReason",        
 				fieldset: {
 					legend: {
 						text: "Which profession is the role in",
@@ -55,11 +55,10 @@
 					}
 				},
 				items: [                
-					
-					{ value: "Amend an error in the advert", text: "Amend an error in the advert", checked: checked("amendVacancyReason", "Amend an error in the advert") },										
-					{ value: "Change the assessment methods", text: "Change the assessment methods", checked: checked("amendVacancyReason", "Change the assessment methods") },					
-					{ value: "Extend the closing date", text: "Extend the closing date", checked: checked("amendVacancyReason", "Extend the closing date") },					
-					{ value: "Other", text: "Other", checked: checked("amendVacancyReason", "Other"), conditional: { html: otherHtml } }
+					{ value: "Extend the closing date", text: "Extend the closing date", checked: checked("withdrawVacancyReason", "Extend the closing date") },					
+					{ value: "Change the assessment methods", text: "Change the assessment methods", checked: checked("withdrawVacancyReason", "Change the assessment methods") },					
+					{ value: "Amend an error in the advert", text: "Amend an error in the advert", checked: checked("withdrawVacancyReason", "Amend an error in the advert") },										
+					{ value: "Other", text: "Other", checked: checked("withdrawVacancyReason", "Other"), conditional: { html: otherHtml } }
 				]
 			}) }}
 

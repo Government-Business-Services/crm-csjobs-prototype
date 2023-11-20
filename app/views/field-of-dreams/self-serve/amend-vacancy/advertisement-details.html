@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 {% set serviceName = "Government Recruitment Service (GRS)" %}
 
-{% set pageHeading = "Advertisement details" %}
+{% set pageHeading = "Vacancy advert details" %}
 {% set pageSection = "Amend a vacancy advertisement" %}
 {% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
 {% block content %}
@@ -11,15 +11,11 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     			
-            
-		<p>Once a vacancy advert is live, you can only make some limited changes. It may not be possible for you to change everything that you would like to.</p>
-
+        <div class="govuk-inset-text">
+			<p>Once an advert is live, you can only make some limited changes. It may not be possible for you to change everything that you would like to.</p>
+		</div>  
 		
-		<div class="govuk-inset-text">
-			<p class="govuk-body">Ray Kinsella
-			<br>ray.kinsella@cabinetoffice.gov.uk
-			<br>0191 456789</p>
-		</div>
+
 		
 		<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Vacancy holder</h2>
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">						
@@ -49,9 +45,17 @@
             
             <input type="hidden" id="vacancyDetailsConfirmed" name="vacancyDetailsConfirmed" value="Yes" />
 			
+			<div class="govuk-button-group">
             {{ govukButton({
-      	    	text: "Confirm and continue"			    
+      	    	text: "Save and continue"			    
     	    }) }}            
+
+			<!-- {{ govukButton({
+				text: "Withdraw vacancy",
+				classes: "govuk-button--warning",
+				href: "/field-of-dreams/self-serve/withdraw-vacancy/"
+			  }) }} -->
+			</div>
             
         </form>
 
