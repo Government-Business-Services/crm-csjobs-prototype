@@ -1,0 +1,37 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+{% set showBackLink = false %}%}
+
+{% set pageHeading = "This vacancy advertisement is not live" %}
+{% set pageSection = "Withdraw a vacancy advertisement" %}
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    			
+            
+		<p>You are not able to withdraw a vacancy advert until it is live.</p>
+		<p>You need to access vX to change the vacancy advert before making it live. You can <a href="#">sign in to vX</a> in the usual way, create the advert there or make your changes and publish a draft.</p>
+
+		<h2 class="govuk-heading-m">Need more help</h2>
+		<p>If you need help or advice you can <a href="#">fill in a query form</a> and submit it to the GRS team, who will get back to you as soon as possible.</p>
+		<p>You can also use our 'Live chat' function to ask for more help.</p>
+
+            <!-- {{ govukButton({
+      	    	text: "Live chat",    
+				classes: "govuk-button--secondary"
+    	    }) }} -->
+
+        BRIAN
+
+		Return to vacancy holder
+		Return to amend another
+
+		<p></p>
+	</div>
+</div>
+
+{% endblock %}

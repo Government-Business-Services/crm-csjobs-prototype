@@ -39,7 +39,7 @@
 						classes: "govuk-visually-hidden"
 					},
 					hint: {
-						text: "For example, 'Location has changed' or 'It is now a hybrid job'."
+						text: "For example, 'Approval has been rejected' or 'Funding has been cancelled'."
 					}
 				}) }}
 			{% endset -%}
@@ -55,9 +55,9 @@
 					}
 				},
 				items: [                
-					{ value: "Extend the closing date", text: "Extend the closing date", checked: checked("withdrawVacancyReason", "Extend the closing date") },					
-					{ value: "Change the assessment methods", text: "Change the assessment methods", checked: checked("withdrawVacancyReason", "Change the assessment methods") },					
-					{ value: "Amend an error in the advert", text: "Amend an error in the advert", checked: checked("withdrawVacancyReason", "Amend an error in the advert") },										
+					{ value: "The vacancy has been closed", text: "The vacancy has been closed", checked: checked("withdrawVacancyReason", "The vacancy has been closed") },					
+					{ value: "The vacancy has been delayed", text: "The vacancy has been delayed", checked: checked("withdrawVacancyReason", "The vacancy has been delayed") },					
+					{ value: "The advert should not have been made live", text: "The advert should not have been made live", checked: checked("withdrawVacancyReason", "The advert should not have been made live") },										
 					{ value: "Other", text: "Other", checked: checked("withdrawVacancyReason", "Other"), conditional: { html: otherHtml } }
 				]
 			}) }}

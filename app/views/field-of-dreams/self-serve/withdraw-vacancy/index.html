@@ -1,33 +1,58 @@
 {% extends "layouts/main.html" %}
-
+{% set showBackLink = true %}
 {% set serviceName = "Government Recruitment Service (GRS)" %}
 
-{% set pageHeading = "You are about to withdaw this vacancy" %}
-{% set pageSection = "Manual recruitment request" %}
+{% set pageHeading = "Withdraw a vacancy advertisement" %}
+{% set pageSection = "Self-serve query" %}
 
 {% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
 {% block content %}
 
 <div class="govuk-grid-row">
-	<div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-column-full">
 
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
-    	
+
+		<p class="govuk-body-s">Last updated 20 November 2023</p>
+		<p class="govuk-body govuk-!-margin-bottom-7">Some pages have dynamic content; if you are using the links and not going through the flows that lead to each page, it's not always possible to show the right content for all scenarios.</p>
 
 
+		
 
-            {{ govukButton({
-      	    	text: "Confirm and withdraw"			    
-    	    }) }}
+		
+		
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+
+
+			
+			<li><a href="/field-of-dreams/self-serve/withdraw-vacancy/start?query=withdrawAdvertisement" class="govuk-link govuk-link--no-visited-state" >Withdraw a vacancy advertisement (Journey start)</a></li>
+            <li><a href="/field-of-dreams/self-serve/withdraw-vacancy/reference-number" class="govuk-link govuk-link--no-visited-state" >What is the vacancy’s reference number?</a></li>
+			<li><a href="/field-of-dreams/self-serve/withdraw-vacancy/advert-not-live" class="govuk-link govuk-link--no-visited-state" >This vacancy advertisement is not live</a></li>
+
+
+			<li><a href="/field-of-dreams/self-serve/withdraw-vacancy/advertisement-details" class="govuk-link govuk-link--no-visited-state" >Vacancy advert details</a></li>
+			<li><a href="/field-of-dreams/self-serve/withdraw-vacancy/reason" class="govuk-link govuk-link--no-visited-state" >What is the reason for withdrawing this advert?</a></li>
+			<li><a href="/field-of-dreams/self-serve/withdraw-vacancy/confirmation" class="govuk-link govuk-link--no-visited-state" >Withdraw vacancy advert request submitted</a></li>
             
-            
-        </form>
+        </ul>
 
-        
-  
+		
+		
+
+
+
+		
+
+
+		  {{ govukButton({
+			text: "Return to Field of Dreams overview",
+			classes: "govuk-button--secondary",
+			href: "/field-of-dreams"
+		  }) }}
+
+
 	</div>
 </div>
-
 
 {% endblock %}
