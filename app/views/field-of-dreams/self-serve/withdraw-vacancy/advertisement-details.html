@@ -11,18 +11,12 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     			
-        
-		<p class="govuk-body"><span class="govuk-!-font-weight-bold">Vacancy: </span>{{ data['mrrVacancy'] }}
-
-			<br><span class="govuk-!-font-weight-bold">Vacancy reference number: </span>
-			<br><span class="govuk-!-font-weight-bold">Vacancy holder: </span>
-			{% if data['mrrVhConfirm'] == "Yes" %}
-				Ray Kinsella
-			{% else %}
-				{{ data['mrrVhName'] }}
-			{% endif %}
-			<br><span class="govuk-!-font-weight-bold">Department: </span>{{ data['mrrVacancyDepartment'] }}			
-		</p>
+        <div class="govuk-inset-text">
+			<p class="govuk-body govuk-!-margin-bottom-2"><span class="govuk-!-font-weight-bold">Vacancy</span><br>Senior Content Designer</p>
+			<p class="govuk-body govuk-!-margin-bottom-2"><span class="govuk-!-font-weight-bold">Vacancy reference number</span><br>{{ data['withdrawVacancyRefNum'] }}</p>
+			<p class="govuk-body govuk-!-margin-bottom-2"><span class="govuk-!-font-weight-bold">Vacancy holder</span><br>Ray Kinsella</p>
+			<p class="govuk-body"><span class="govuk-!-font-weight-bold">Department</span><br>HM Revenue & Customs			</p>
+		</div>
 		
 
 		
