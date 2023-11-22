@@ -1,9 +1,11 @@
 {% extends "layouts/main.html" %}
 {% set serviceName = "Government Recruitment Service (GRS)" %}
 
-
+{% if data['amendClosingDate'] == "Yes" %}
+	{% set pageHeading = "Do you want to amend anything else on the vacancy’s advert?" %}
+{% else %}
 	{% set pageHeading = "Tell us what you want to amend on the vacancy’s advert" %}
-
+{% endif %}
 {% set pageSection = "Amend a vacancy advertisement" %}
 {% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
 {% block content %}
@@ -28,34 +30,21 @@
 				value: data['amendVacancyRefNum']
 			}) }} -->
 
-				{% if data['amendClosingDate'] == "Yes" %}
-				<div class="govuk-inset-text">
-					<p>You have requested to extend the closing date to  <span class="govuk-!-font-weight-bold">10 February 2024</span>.</p>
-				</div>
-				{% endif %}
-			
-				<p>Once an advert is live, you can only make some limited changes. It’s possible to correct errors or make changes to:</p>
-				<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">				
-					<li>the vacancy’s job title</li>
-					<li>the vacancy holder’s details</li>
-					<li>the vacancy’s department</li>
-					<li>location and salary details</li>
-				</ul>
-			
-			
-
-				{{ govukCharacterCount({
-					name: "amendVacancyDetails",
-					id: "amendVacancyDetails",
-					maxlength: 400,
-					label: {
-						text: "Can you provide more detail?",
-						classes: "govuk-label govuk-visually-hidden",
-						isPageHeading: false
-					  },
-					
-					value: data['amendVacancyDetails']
-				  }) }}
+			{{ govukRadios({
+				classes: "govuk-radios--inline",
+				name: "amendSomethingElse",        
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                					
+					{ value: "Yes~/field-of-dreams/self-serve/amend-vacancy/reason", text: "Yes", checked: checked("amendSomethingElse", "Yes") },	
+					{ value: "No", text: "No", checked: checked("amendSomethingElse", "No") }										
+				]
+			}) }}
 
 
 

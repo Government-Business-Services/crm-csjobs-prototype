@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 {% set serviceName = "Government Recruitment Service (GRS)" %}
 
-{% set pageHeading = "Vacancy advert details" %}
+{% set pageHeading = "Is this the correct vacancy?" %}
 {% set pageSection = "Amend a vacancy advertisement" %}
 {% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
 {% block content %}
@@ -11,13 +11,20 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     			
-        <div class="govuk-inset-text">
-			<p>Once an advert is live, you can only make some limited changes. It may not be possible for you to change everything that you would like to.</p>
-		</div>  
+        
+		
+		
+			<p class="govuk-body govuk-!-margin-bottom-2"><span class="govuk-!-font-weight-bold">Vacancy</span><br>Senior Content Designer</p>
+			<p class="govuk-body govuk-!-margin-bottom-2"><span class="govuk-!-font-weight-bold">Vacancy reference number</span><br>{{ data['withdrawVacancyRefNum'] }} 458745963</p>
+			<p class="govuk-body govuk-!-margin-bottom-2"><span class="govuk-!-font-weight-bold">Vacancy holder</span><br>Ray Kinsella</p>
+			<p class="govuk-body"><span class="govuk-!-font-weight-bold">Department</span><br>HM Revenue & Customs			</p>
+			<p class="govuk-body govuk-!-margin-bottom-7"><span class="govuk-!-font-weight-bold">Closing date</span><br>10 December 2024</p>
 		
 
+
 		
-		<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Vacancy holder</h2>
+		
+		<!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Vacancy holder</h2>
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">						
 			{% include "includes/query/amVac/vacancyHolder.html" %}
 		</dl>
@@ -30,40 +37,22 @@
 			{% include "includes/query/amVac/job_type.html" %}
 			{% include "includes/query/amVac/profession.html" %}
 			{% include "includes/query/amVac/location.html" %}
-			{% include "includes/query/amVac/pattern.html" %}
-			<!-- {% include "includes/query/amVac/grade.html" %} -->
-			<!-- {% include "includes/query/amVac/salary.html" %} -->
-			<!-- {% include "includes/query/amVac/prison.html" %} -->
-			<!-- {% include "includes/query/amVac/veterans.html" %} -->
-			<!-- {% include "includes/query/amVac/pension.html" %}			
-			{% if data['amVacPreChecks'] == "No" %}
-			{% include "includes/query/amVac/pre-employment.html" %}			
-			{% endif %} -->
-		</dl>
+			{% include "includes/query/amVac/pattern.html" %}			
+		</dl> -->
 
-        <form method="post" action="/field-of-dreams/self-serve/amend-vacancy/reason" >
+        <form method="post" action="/field-of-dreams/self-serve/amend-vacancy/closing-date" >
             
             <input type="hidden" id="vacancyDetailsConfirmed" name="vacancyDetailsConfirmed" value="Yes" />
 			
 			<div class="govuk-button-group">
             {{ govukButton({
-      	    	text: "Save and continue"			    
-    	    }) }}            
-
-			<!-- {{ govukButton({
-				text: "Withdraw vacancy",
-				classes: "govuk-button--warning",
-				href: "/field-of-dreams/self-serve/withdraw-vacancy/"
-			  }) }} -->
+      	    	text: "Confirm and continue"			    
+    	    }) }}            	
+			
+			<a class="govuk-link" href="/field-of-dreams/self-serve/amend-vacancy/reference-number">This is not the right vacancy advert</a>
 			</div>
             
-        </form>
-
-            <!-- {{ govukButton({
-      	    	text: "Live chat",    
-				classes: "govuk-button--secondary"
-    	    }) }} -->
-
+        </form>            
         
   
 	</div>

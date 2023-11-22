@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "Do you want to extend the vacancy’s closing date?" %}
+{% set pageSection = "Amend a vacancy advertisement" %}
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	
+		{% if data['status'] == "change" %}
+			<form method="post" action="/field-of-dreams/self-serve/amend-vacancy/advertisement-details" >
+				{% include "includes/status_null.html" %}
+		{% else %}
+        	<form method="post" action="/field-of-dreams/self-serve/amend-vacancy/reason" >
+		{% endif %}
+                        
+			{% set otherHtml %}
+			{{ govukDateInput({
+				id: "newClosingDate",
+				namePrefix: "newClosingDate",
+				fieldset: {
+				  legend: {
+					text: "What is the new closing date?",
+					isPageHeading: false,
+					classes: "govuk-label"
+				  }
+				},
+				hint: {
+				  text: "For example, 20 4 2024"
+				}
+			  }) }}
+			{% endset -%}
+
+
+			{{ govukRadios({
+				name: "amendClosingDate",        
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                					
+					{ value: "Yes~/field-of-dreams/self-serve/amend-vacancy/amend-other", text: "Yes", checked: checked("amendClosingDate", "Yes"), conditional: { html: otherHtml } },	
+					{ value: "No", text: "No", checked: checked("amendClosingDate", "No") }										
+				]
+			}) }}
+
+
+
+
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+        </form>
+  
+	</div>
+</div>
+
+{% endblock %}
