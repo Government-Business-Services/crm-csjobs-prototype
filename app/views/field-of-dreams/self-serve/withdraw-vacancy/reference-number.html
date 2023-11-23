@@ -12,10 +12,10 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
 		{% if data['status'] == "change" %}
-			<form method="post" action="/field-of-dreams/self-serve/withdraw-vacancy/advertisement-details" >
+			<form method="post" action="/field-of-dreams/self-serve/withdraw-vacancy/confirm-vacancy" >
 				{% include "includes/status_null.html" %}
 		{% else %}
-        	<form method="post" action="/field-of-dreams/self-serve/withdraw-vacancy/advertisement-details" >
+        	<form method="post" action="/field-of-dreams/self-serve/withdraw-vacancy/confirm-vacancy" >
 		{% endif %}
             
             {{ govukInput({

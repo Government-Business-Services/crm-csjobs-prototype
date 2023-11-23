@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 {% set serviceName = "Government Recruitment Service (GRS)" %}
 
-{% set pageHeading = "Vacancy advert details" %}
+{% set pageHeading = "Is this the correct vacancy?" %}
 {% set pageSection = "Withdraw a vacancy advertisement" %}
 {% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
 {% block content %}
@@ -32,13 +32,13 @@
 			
 
 
-			<div class="govuk-button-group">
-            {{ govukButton({
-      	    	text: "Confirm and continue"			    
-    	    }) }}            
-
-			
-			</div>
+				<div class="govuk-button-group">
+					{{ govukButton({
+						  text: "Confirm and continue"			    
+					}) }}            	
+					
+					<a class="govuk-link" href="/field-of-dreams/self-serve/withdraw-vacancy/reference-number">This is not the right vacancy advert</a>
+				</div>
             
         </form>
 
