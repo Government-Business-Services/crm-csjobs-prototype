@@ -14,10 +14,10 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
 		{% if data['status'] == "change" %}
-			<form method="post" action="/field-of-dreams/self-serve/amend-vacancy/advertisement-details" >
+			<form method="post" action="/field-of-dreams/self-serve/amend-vacancy/confirm-vacancy" >
 				{% include "includes/status_null.html" %}
 		{% else %}
-        	<form method="post" action="/field-of-dreams/self-serve/amend-vacancy/final" >
+        	<form method="post" action="/field-of-dreams/self-serve/amend-vacancy/complete-request" >
 		{% endif %}
             
             <!-- {{ govukTextarea({
@@ -35,7 +35,7 @@
 				{% endif %}
 			
 				<p>Once an advert is live, you can only make some limited changes. It’s possible to correct errors or make changes to:</p>
-				<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">				
+				<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-">				
 					<li>the vacancy’s job title</li>
 					<li>the vacancy holder’s details</li>
 					<li>the vacancy’s department</li>
@@ -53,7 +53,9 @@
 						classes: "govuk-label govuk-visually-hidden",
 						isPageHeading: false
 					  },
-					
+					hint: {
+						text: "For example, change the location of interviews from London to Bristol."
+					},
 					value: data['amendVacancyDetails']
 				  }) }}
 

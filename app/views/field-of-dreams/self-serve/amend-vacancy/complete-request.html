@@ -19,19 +19,17 @@
 
 		<div class="govuk-inset-text">
 			{% if data['amendClosingDate'] == "Yes" %}
-		<p class="govuk-body"><span class="govuk-!-font-weight-bold">New closing date</span><br>
-			10 February 2024</p>
+				<p class="govuk-body"><span class="govuk-!-font-weight-bold">New closing date</span>
+				<br>10 February 2024</p>
+				
+				{% if data['amendSomethingElse'] != "No" %}
+				<p><span class="govuk-!-font-weight-bold">Amendment</span><br>{{ data['amendVacancyDetails'] }}</p>
+				{% endif %}
+
+			{% else %}			
+			<p><span class="govuk-!-font-weight-bold">Amendment</span><br>{{ data['amendVacancyDetails'] }}</p>
 			{% endif %}
-
-			
-		<p><span class="govuk-!-font-weight-bold">Amendment</span><br>Change the location of interviews from London to Bristol.
-			
-
-
-		
-		
-		
-	</p></div>
+		</div>
 		
 		<p class="govuk-body">When you submit this amend a vacancy advertisement request, it will be sent to the correct recipient and processed.</p>
 		

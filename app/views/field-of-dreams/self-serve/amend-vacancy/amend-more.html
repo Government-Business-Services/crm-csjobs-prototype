@@ -16,10 +16,10 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
 		{% if data['status'] == "change" %}
-			<form method="post" action="/field-of-dreams/self-serve/amend-vacancy/advertisement-details" >
+			<form method="post" action="/field-of-dreams/self-serve/amend-vacancy/confirm-vacancy" >
 				{% include "includes/status_null.html" %}
 		{% else %}
-        	<form method="post" action="/field-of-dreams/self-serve/amend-vacancy/final" >
+        	<form method="post" action="/field-of-dreams/self-serve/amend-vacancy/complete-request" >
 		{% endif %}
             
             <!-- {{ govukTextarea({
@@ -41,7 +41,7 @@
 					}
 				},
 				items: [                					
-					{ value: "Yes~/field-of-dreams/self-serve/amend-vacancy/reason", text: "Yes", checked: checked("amendSomethingElse", "Yes") },	
+					{ value: "Yes~/field-of-dreams/self-serve/amend-vacancy/amendments", text: "Yes", checked: checked("amendSomethingElse", "Yes") },	
 					{ value: "No", text: "No", checked: checked("amendSomethingElse", "No") }										
 				]
 			}) }}
