@@ -1,90 +1,102 @@
 
-<div class="govuk-grid-row govuk-!-padding-top-7 ">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row govuk-!-padding-top-7 grey">
+    <div class="govuk-grid-column-two-thirds">        
+        <h2 class="govuk-heading-l govuk-!-margin-bottom-3">How can we help you?</h2>        
+        <p>Tell us what you need help with to access information, self-service forms, guidance and answers. </p>        
+    
+    
+    
+        <form method="post" action="" >
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
         
-        <h2 class="govuk-heading-l govuk-!-margin-bottom-3">How can we help you?</h2>
         
-        <p>Tell us what you need help with to access information, self-service forms, guidance and answers. </p>
-
+                    {{ xGovukAutocomplete({
+                        id: "mrrVacancyDepartment",
+                        name: "mrrVacancyDepartment",
+                        allowEmpty: false,
+                        hint: {
+                            text: ""
+                        },
+                        label: {
+                            classes: "govuk-visually-hidden",
+                            isPageHeading: false,
+                            text: pageHeading
+                        },			
+                        items: [
+                            { text: "Ad Hoc request form" },
+                            { text: "Advertisement approvals " },                
+                            
+                            { text: "Advertising " },
+                            { text: "Amend a vacancy advertisement", value: "Amend a vacancy advertisement~/field-of-dreams/self-serve/amend-vacancy/start?query=amendVacacny" },
+                            { text: "Change advert", value: "Change advert~/field-of-dreams/self-serve/amend-vacancy/start?query=amendVacacny" },
+                            { text: "Adjust advert", value: "Adjust advert~/field-of-dreams/self-serve/amend-vacancy/start?query=amendVacacny" },
+                            { text: "Cancel advert", value: "Cancel advert~/field-of-dreams/self-serve/amend-vacancy/start?query=withdrawVacacny" },
+                            { text: "Candidate assessment" },
+                            { text: "Candidate interviews" },
+                            { text: "Candidate pack to HR" },
+                            { text: "Criminal record check" },
+                            { text: "Conditional appointment" },
+                            { text: "Delete advert", value: "Delete advert~/field-of-dreams/self-serve/amend-vacancy/start?query=withdrawVacacny" },
+                            { text: "Driving licence checks" },
+                            { text: "EEHC check" },
+                            { text: "Employment contract" },
+                            { text: "Enhanced integrity check" },
+                            { text: "Formal offer" },
+                            { text: "Health check" },
+                            { text: "Making an offer from the Reserve List" },
+                            { text: "Manual recruitment request", value: "Manual recruitment request~/field-of-dreams/self-serve/manual-recruitment-request/start?query=manualRecruitmentRequest" },
+                            { text: "National Insurance Number Check (NINO)" },
+                            { text: "New entrant notification" },
+                            { text: "NSV" },
+                            { text: "OGD check" },
+                            { text: "Online tests" },
+                            { text: "Overseas check" },
+                            { text: "Pension" },        
+                            { text: "Posting notice" },    
+                            { text: "Pre-Sift" },
+                            { text: "Provisional offer" },
+                            { text: "Reasonable adjustments" },
+                            { text: "Remove advert", value: "Remove advert~/field-of-dreams/self-serve/amend-vacancy/start?query=withdrawVacacny" },
+                            { text: "Reserve List query" },
+                            { text: "Right to Work and identity verification" },
+                            { text: "Self employment" },
+                            { text: "Sift" },                
+                            { text: "Update to candidate application" },    
+                            { text: "Vacancies", value: "Vacancies~/field-of-dreams/query" },    
+                            { text: "Vacancy campaign planning" },
+                            { text: "Vacancy supporting documents" },
+                            { text: "Vacancy request form" },
+                            { text: "Withdraw vacancy", value: "Withdraw vacancy~/field-of-dreams/self-serve/amend-vacancy/start?query=withdrawVacacny" },
+                            { text: "Withdrawal request" }
+                        ]
+                    }) }}	
+                
+                </div>
+                <div class="govuk-grid-column-one-third govuk-!-padding-top-2">
         
+                    {{ govukButton({
+                        text: "Get started",
+                        classes: "govuk-button"		    
+                    }) }}
+        
+                </div>
+            </div>
+        
+        </form>
+    
+    
     </div>
+    <div class="govuk-grid-column-one-third"> 
+
+        <h2 class="govuk-heading-l govuk-!-margin-bottom-3">Chat with us</h2>        
+        <p>Ask us online for guidance and answers.</p>        
+    
+    {{ govukButton({
+      text: "Ask GRS Online",
+      classes: "govuk-button--secondary govuk-!-margin-top-2"
+    }) }}  
+    </div>
+
 </div>
 
-
-
-<form method="post" action="" >
-
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-            {{ xGovukAutocomplete({
-                id: "mrrVacancyDepartment",
-                name: "mrrVacancyDepartment",
-                allowEmpty: false,
-                hint: {
-                    text: ""
-                },
-                label: {
-                    classes: "govuk-visually-hidden",
-                    isPageHeading: false,
-                    text: pageHeading
-                },			
-                items: [
-                    { text: "Ad Hoc request form" },
-                    { text: "Advertisement approvals " },                
-                    
-                    { text: "Advertising " },
-                    { text: "Amend a vacancy advertisement", value: "Amend a vacancy advertisement~/field-of-dreams/self-serve/amend-vacancy/start?query=amendVacacny" },
-                    { text: "Change advert", value: "Change advert~/field-of-dreams/self-serve/amend-vacancy/start?query=amendVacacny" },
-                    { text: "Adjust advert", value: "Adjust advert~/field-of-dreams/self-serve/amend-vacancy/start?query=amendVacacny" },
-                    { text: "Cancel advert", value: "Cancel advert~/field-of-dreams/self-serve/amend-vacancy/start?query=withdrawVacacny" },
-                    { text: "Candidate assessment" },
-                    { text: "Candidate interviews" },
-                    { text: "Candidate pack to HR" },
-                    { text: "Criminal record check" },
-                    { text: "Conditional appointment" },
-                    { text: "Delete advert", value: "Delete advert~/field-of-dreams/self-serve/amend-vacancy/start?query=withdrawVacacny" },
-                    { text: "Driving licence checks" },
-                    { text: "EEHC check" },
-                    { text: "Employment contract" },
-                    { text: "Enhanced integrity check" },
-                    { text: "Formal offer" },
-                    { text: "Health check" },
-                    { text: "Making an offer from the Reserve List" },
-                    { text: "Manual recruitment request", value: "Manual recruitment request~/field-of-dreams/self-serve/manual-recruitment-request/start?query=manualRecruitmentRequest" },
-                    { text: "National Insurance Number Check (NINO)" },
-                    { text: "New entrant notification" },
-                    { text: "NSV" },
-                    { text: "OGD check" },
-                    { text: "Online tests" },
-                    { text: "Overseas check" },
-                    { text: "Pension" },        
-                    { text: "Posting notice" },    
-                    { text: "Pre-Sift" },
-                    { text: "Provisional offer" },
-                    { text: "Reasonable adjustments" },
-                    { text: "Remove advert", value: "Remove advert~/field-of-dreams/self-serve/amend-vacancy/start?query=withdrawVacacny" },
-                    { text: "Reserve List query" },
-                    { text: "Right to Work and identity verification" },
-                    { text: "Self employment" },
-                    { text: "Sift" },                
-                    { text: "Update to candidate application" },    
-                    { text: "Vacancies", value: "Vacancies~/field-of-dreams/query" },    
-                    { text: "Vacancy campaign planning" },
-                    { text: "Vacancy supporting documents" },
-                    { text: "Vacancy request form" },
-                    { text: "Withdraw vacancy", value: "Withdraw vacancy~/field-of-dreams/self-serve/amend-vacancy/start?query=withdrawVacacny" },
-                    { text: "Withdrawal request" }
-                ]
-            }) }}	
-        
-        </div>
-        <div class="govuk-grid-column-one-third govuk-!-padding-top-2">
-
-            {{ govukButton({
-                text: "Get started"			    
-            }) }}
-
-        </div>
-    </div>
-
-</form>

@@ -9,19 +9,25 @@
 @import "node_modules/@x-govuk/govuk-prototype-components/x-govuk/components/masthead/masthead";
 
 
+
+.autocomplete__wrapper input {
+    background: #ffffff;
+}
+
 .bottom-border-blue {
     border-bottom: #f3f2f1 6px solid; 
     margin-bottom: 30px;    
 }
 
 .grey {
-    background-color: #f3f2f1;
+    background-color: #dedede;
     padding-bottom: 15px;
 
 }
 
 .white {
-    background-color: #f3f2f1;    
+    background-color: #f3f2f1;
+    
 
 }
 
@@ -201,9 +207,9 @@
 }
 
 
-.grey {
-    background-color: #DEE0E2;
-}
+// .grey {
+//     background-color: #DEE0E2;
+// }
 
 .hint {
     color: #505a5f;
