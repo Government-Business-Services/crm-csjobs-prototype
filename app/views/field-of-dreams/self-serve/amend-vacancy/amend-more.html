@@ -1,11 +1,8 @@
 {% extends "layouts/main.html" %}
 {% set serviceName = "Government Recruitment Service (GRS)" %}
 
-{% if data['amendClosingDate'] == "Yes" %}
-	{% set pageHeading = "Do you want to amend anything else on the vacancy’s advert?" %}
-{% else %}
-	{% set pageHeading = "Tell us what you want to amend on the vacancy’s advert" %}
-{% endif %}
+
+{% set pageHeading = "Do you want to amend anything else on the vacancy’s advert?" %}
 {% set pageSection = "Amend a vacancy advertisement" %}
 {% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
 {% block content %}
