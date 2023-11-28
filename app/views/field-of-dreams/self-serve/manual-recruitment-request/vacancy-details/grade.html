@@ -17,7 +17,8 @@
 			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/check-your-answers" >
 				{% include "includes/status_null.html" %}
 		{% else %}
-        	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/salary" >
+        	<!-- <form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/salary" > -->
+			<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/pre-employment-checks/" >
 		{% endif %}
 			
 
@@ -47,16 +48,16 @@
 				items: [                
 					{ value: "Administrative Assistants (AA)", text: "Administrative Assistants (AA)", checked: checked("mrrVacancyGrade", "Administrative Assistants (AA)") },					
 					{ value: "Administrative Officers (AO)", text: "Administrative Officers (AO)", checked: checked("mrrVacancyGrade", "Administrative Officers (AO)") },					
-					{ value: "Executive Officer (EO)", text: "Executive Officer (EO)", checked: checked("mrrVacancyGrade", "Executive Officer (EO)") },					
-					{ value: "Grade 6", text: "Grade 6", checked: checked("mrrVacancyGrade", "Grade 6") },
-					{ value: "Grade 7", text: "Grade 7", checked: checked("mrrVacancyGrade", "Grade 7") },										
+					{ value: "Executive Officer (EO)", text: "Executive Officer (EO)", checked: checked("mrrVacancyGrade", "Executive Officer (EO)") },														
 					{ value: "Higher Executive Officer (HEO)", text: "Higher Executive Officer (HEO)", checked: checked("mrrVacancyGrade", "Higher Executive Officer (HEO)") },						
-					{ value: "Industrial", text: "Industrial", checked: checked("mrrVacancyGrade", "Industrial") },					
+					{ value: "Senior Executive Officer (SEO)", text: "Senior Executive Officer (SEO)", checked: checked("mrrVacancyGrade", "Senior Executive Officer (SEO)") },																				
+					{ value: "Grade 7", text: "Grade 7", checked: checked("mrrVacancyGrade", "Grade 7") },										
+					{ value: "Grade 6", text: "Grade 6", checked: checked("mrrVacancyGrade", "Grade 6") },					
 					{ value: "SCS Pay Band 1", text: "SCS Pay Band 1", checked: checked("mrrVacancyGrade", "SCS Pay Band 1") },
 					{ value: "SCS Pay Band 2", text: "SCS Pay Band 2", checked: checked("mrrVacancyGrade", "SCS Pay Band 2") },
 					{ value: "SCS Pay Band 3", text: "SCS Pay Band 3", checked: checked("mrrVacancyGrade", "SCS Pay Band 3") },
 					{ value: "SCS Pay Band 4", text: "SCS Pay Band 4", checked: checked("mrrVacancyGrade", "SCS Pay Band 4") },
-					{ value: "Senior Executive Officer (SEO)", text: "Senior Executive Officer (SEO)", checked: checked("mrrVacancyGrade", "Senior Executive Officer (SEO)") },																				
+					{ value: "Industrial", text: "Industrial", checked: checked("mrrVacancyGrade", "Industrial") },					
 					{ value: "Other", text: "Other", checked: checked("mrrVacancyGrade", "Other"), conditional: { html: otherHtml } }
 				]
 			}) }}

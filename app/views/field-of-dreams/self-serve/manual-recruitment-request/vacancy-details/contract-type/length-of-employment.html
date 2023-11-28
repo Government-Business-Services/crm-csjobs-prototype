@@ -21,16 +21,44 @@
         	<form method="post" action="/field-of-dreams/self-serve/manual-recruitment-request/vacancy-details/pattern" >
 		{% endif %}
 			
+
+
+
+			
+
+
+			{% set otherHtml %}
 			{{ govukInput({
 				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
 				classes: "govuk-!-width-two-thirds",				
 				hint: {
 					text: "For example, 12 months."
 				},
-				id: "mrrVacancyEmploymentLength",
-				name: "mrrVacancyEmploymentLength",
-				value: data['mrrVacancyEmploymentLength']
+				id: "mrrVacancyEmploymentLengthOther",
+				name: "mrrVacancyEmploymentLengthOther",
+				value: data['mrrVacancyEmploymentLengthOther']
 			}) }}
+				
+			{% endset -%}
+
+
+			{{ govukRadios({
+				name: "mrrVacancyEmploymentLength",        
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Administrative Assistants (AA)", text: "Administrative Assistants (AA)", checked: checked("mrrVacancyEmploymentLength", "Administrative Assistants (AA)") },					
+					{ value: "Administrative Officers (AO)", text: "Administrative Officers (AO)", checked: checked("mrrVacancyEmploymentLength", "Administrative Officers (AO)") },					
+					{ value: "Executive Officer (EO)", text: "Executive Officer (EO)", checked: checked("mrrVacancyEmploymentLength", "Executive Officer (EO)") },										
+					{ value: "Other", text: "Other", checked: checked("mrrVacancyEmploymentLength", "Other"), conditional: { html: otherHtml } }
+				]
+			}) }}
+
 
 
             {{ govukButton({
