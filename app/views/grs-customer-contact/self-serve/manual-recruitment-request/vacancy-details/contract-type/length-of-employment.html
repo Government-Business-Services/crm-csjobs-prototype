@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "How long is this vacancy’s length of employment?" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    		
+		{% if data['status'] == "change" %}
+			<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/check-your-answers" >
+{% include "includes/status_null.html" %}
+		{% else %}
+        	<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/pattern" >
+		{% endif %}
+			
+
+
+
+			
+
+
+			{% set otherHtml %}
+			{{ govukInput({
+				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+				classes: "govuk-!-width-two-thirds",				
+				hint: {
+					text: "For example, 12 months."
+				},
+				id: "mrrVacancyEmploymentLengthOther",
+				name: "mrrVacancyEmploymentLengthOther",
+				value: data['mrrVacancyEmploymentLengthOther']
+			}) }}
+				
+			{% endset -%}
+
+
+			{{ govukRadios({
+				name: "mrrVacancyEmploymentLength",        
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Administrative Assistants (AA)", text: "Administrative Assistants (AA)", checked: checked("mrrVacancyEmploymentLength", "Administrative Assistants (AA)") },					
+					{ value: "Administrative Officers (AO)", text: "Administrative Officers (AO)", checked: checked("mrrVacancyEmploymentLength", "Administrative Officers (AO)") },					
+					{ value: "Executive Officer (EO)", text: "Executive Officer (EO)", checked: checked("mrrVacancyEmploymentLength", "Executive Officer (EO)") },										
+					{ value: "Other", text: "Other", checked: checked("mrrVacancyEmploymentLength", "Other"), conditional: { html: otherHtml } }
+				]
+			}) }}
+
+
+
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

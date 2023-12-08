@@ -1,0 +1,48 @@
+{% extends "layouts/who-we-are.html" %}
+
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+{% set showPhaseBanner = false %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "Who we are and what we do" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h2 class="govuk-heading-m">Who we are</h2>
+        <p class="govuk-body">Our teams have in-depth knowledge across the recruitment spectrum. The success of our platforms is due to continuous improvement linked to customer feedback.</p>
+        <p class="govuk-body">Alongside the digital platform, our recruitment delivery services have evolved and grown as we support government departments. We’ve achieved significant efficiencies and performance in pre-employment checking and overall ‘time to hire’.</p>
+        <p class="govuk-body">Renowned for our flexibility, our end-to-end data, smart innovations and processes are built on our unparalleled understanding of Civil Service life.</p>
+        <p class="govuk-body">Our knowledge of recruitment trends, customers and candidates, and our automation agenda puts us in prime position to respond to the recruitment questions of tomorrow.</p>
+
+        <h2 class="govuk-heading-m">What we do</h2>
+        <p class="govuk-body">Run by civil servants for civil servants, GRS has an unrivalled understanding of government. We are uniquely placed to deliver expert recruitment services to every department.</p>
+        <p class="govuk-body">GRS draws on a wealth of experience and many of our staff are accredited to UK industry standards. We can offer levels of expertise which exceed those of external providers.</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>We recruit for all Civil Service roles and grades up to SCS2 </li>
+            <li>We have the flexibility to support as much or as little of your recruitment needs </li>
+            <li>We can develop bespoke products at your request</li>
+            <li>We are passionate about ensuring diversity and inclusion are at the heart of our service</li>
+            <li>We work closely with occupational psychologists who are experts in best in class sifting and selection tools, including online psychometric tests and assessments </li>
+        </ul>
+        <p class="govuk-body">All of our tests comply with Government Digital Service standards and are integrated with Success Profiles and Civil Service Jobs in the recruitment process.</p>
+        <p class="govuk-body">We adhere to best practice guidance on diverse interview panels for SCS roles. Both this practice and our processes to ensure that reasonable adjustments are fairly and effectively implemented across all grades have become benchmarks across the Civil Service.</p>
+        <p class="govuk-body">Our in-house experts have developed insight and data services to help our customers reach and attract a diverse pool of candidates. We apply our extensive knowledge of recruiters’ needs to anticipate future requirements.</p>
+    </div>   
+    <div class="govuk-grid-column-one-third">
+        
+        {{ xGovukRelatedNavigation({
+            sections: [{
+                items: [                                        
+                    { text: "GRS - Selection and assessment services", href: "/grs-customer-contact/services-and-functionality" }                    
+                ]
+            }]
+        }) }}
+    </div>    
+</div>
+
+{% endblock %}

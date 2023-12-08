@@ -1,0 +1,42 @@
+{% extends "layouts/services.html" %}
+
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+{% set showPhaseBanner = false %}
+{% set showBackLink = false %}
+
+{% set pageHeading = "Services and functionality" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+                
+        <p class="govuk-body">GRS offers bespoke selection and assessment services for a specific and diverse candidate market, with cutting edge end-to-end recruitment data and insight. Our highly skilled workforce have an in-depth understanding of Civil Service regulations.</p>
+        
+        <h2 class="govuk-heading-m">GRS services</h2>        
+        <p class="govuk-body">GRS offers its users the following functions and services:</p>
+        <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+            <li>Keyword search enables candidates to search for job vacancies using keyword matching</li>
+            <li>Job alert frequency can be adjusted to allow candidates to specify the number of job alerts they receive </li>
+            <li>Welsh language use throughout allows candidates to search and apply in Welsh </li>
+            <li>Job advert gender debiasing allows vacancy holders to automatically debias a job advert to ensure gender neutrality</li>
+            <li>Job advert layout changes provide an improved user experience</li>
+            <li>When candidates close their accounts, the automated candidate withdrawal function withdraws any live applications</li>
+            <li>Improved accessibility adheres to the new WCAG 2.2 Standards</li>
+            <li>Candidate account change tracking ensures that changes are logged to enable improved query handling</li>
+        </ul>
+    </div>        
+    <div class="govuk-grid-column-one-third">
+        {{ xGovukRelatedNavigation({
+            sections: [{
+                items: [                    
+                    { text: "GRS - Who we are and what we do", href: "/grs-customer-contact/who-we-are" }                    
+                ]
+            }]
+        }) }}
+    </div>
+</div>
+
+{% endblock %}

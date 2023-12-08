@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "What is this vacancy’s expected working pattern?" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	
+		<!-- <p class="govuk-body">This could be full-time office hours, part-time or flexible working.</p> -->
+
+		<p class="govuk-body">Selct all that apply.</p>
+		{% if data['status'] == "change" %}
+			<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/check-your-answers" >
+			{% include "includes/status_null.html" %}
+		{% else %}
+        	<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/grade" >
+		{% endif %}
+			
+			{{ govukCheckboxes({
+				name: "mrrVacancyPattern",        
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Annualised hours", text: "Annualised hours", checked: checked("mrrVacancyPattern", "Administrative Assistants/Administrative Officers (AA/AO)") },					
+					{ value: "Compressed hours", text: "Compressed hours", checked: checked("mrrVacancyPattern", "Compressed hours") },					
+					{ value: "Contracted Home Worker", text: "Contracted Home Worker", checked: checked("mrrVacancyPattern", "Contracted Home Worker") },						
+					{ value: "Flexible working", text: "Flexible working", checked: checked("mrrVacancyPattern", "Flexible working") },															
+					{ value: "Full-time", text: "Full-time", checked: checked("mrrVacancyPattern", "Full-time") },
+					{ value: "Homeworking", text: "Homeworking", checked: checked("mrrVacancyPattern", "Homeworking") },
+
+					{ value: "Job share", text: "Job share", checked: checked("mrrVacancyPattern", "Job share") },
+					{ value: "Part Year", text: "Part Year", checked: checked("mrrVacancyPattern", "Part Year") },
+					{ value: "Part-time", text: "Part-time", checked: checked("mrrVacancyPattern", "Part-time") },
+					{ value: "Shift working", text: "Shift working", checked: checked("mrrVacancyPattern", "Shift working") },
+					{ value: "Term time working", text: "Term time working", checked: checked("mrrVacancyPattern", "Term time working") }					
+
+				]
+			}) }}		
+
+
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

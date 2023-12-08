@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "Amend a vacancy advertisement" %}
+{% set pageSection = "Self-serve query" %}
+
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+		<p class="govuk-body-s">Last updated 23 November 2023</p>
+		<p class="govuk-body govuk-!-margin-bottom-7">Some pages have dynamic content; if you are using the links and not going through the flows that lead to each page, it's not always possible to show the right content for all scenarios.</p>
+
+        <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+			<li><a href="/grs-customer-contact/self-serve/amend-vacancy/start?query=amendVacancyRequest" class="govuk-link govuk-link--no-visited-state" >Amend a vacancy advertisement (Journey start)</a></li>
+            <li><a href="/grs-customer-contact/self-serve/amend-vacancy/reference-number" class="govuk-link govuk-link--no-visited-state" >What is the vacancy’s reference number?</a></li>
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+				<li><a href="/grs-customer-contact/self-serve/amend-vacancy/advert-not-live" class="govuk-link govuk-link--no-visited-state" >This vacancy advertisement is not live</a></li>
+				<li><a href="/grs-customer-contact/self-serve/amend-vacancy/not-recognised" class="govuk-link govuk-link--no-visited-state" >Vacancy reference number not recognised</a></li>
+			</ul>			
+			<li><a href="/grs-customer-contact/self-serve/amend-vacancy/confirm-vacancy" class="govuk-link govuk-link--no-visited-state" >Is this the correct vacancy?</a></li>
+			<li><a href="/grs-customer-contact/self-serve/amend-vacancy/extend-closing-date" class="govuk-link govuk-link--no-visited-state" >Do you want to extend the vacancy’s closing date?</a></li>
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+				<li><a href="/grs-customer-contact/self-serve/amend-vacancy/amend-more" class="govuk-link govuk-link--no-visited-state" >Do you want to amend anything else on the vacancy’s advert?</a></li>				
+			</ul>
+			<li><a href="/grs-customer-contact/self-serve/amend-vacancy/amendments" class="govuk-link govuk-link--no-visited-state" >Tell us what you want to amend on the vacancy’s advert</a></li>
+			<li><a href="/grs-customer-contact/self-serve/amend-vacancy/complete-request" class="govuk-link govuk-link--no-visited-state" >Complete request</a></li>			
+			<li><a href="/grs-customer-contact/self-serve/amend-vacancy/confirmation" class="govuk-link govuk-link--no-visited-state" >Amend vacancy advert request submitted</a></li>            
+        </ul>
+
+		{{ govukButton({
+			text: "Return to Field of Dreams overview",
+			classes: "govuk-button--secondary",
+			href: "/grs-customer-contact"
+		}) }}
+
+	</div>
+</div>
+
+{% endblock %}

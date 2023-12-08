@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "Which pre-employment checks are required for this vacancy?" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	<p class="govuk-body">Select all that apply.</p>
+
+		{% if data['status'] == "changeSection" %}
+			<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/check-your-answers" >
+{% include "includes/status_null.html" %}
+		{% else %}
+        	<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/pre-employment-checks/criminal-record" >
+				<!-- <form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/check-your-answers" > -->
+{% include "includes/status_null.html" %}
+		{% endif %}
+            
+            {{ govukCheckboxes({
+				name: "mrrPreChecksRequired",   				
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Contract", text: "Contract", checked: checked("mrrPreChecksRequired", "Contract") },
+					{ value: "Criminal record check", text: "Criminal record check", checked: checked("mrrPreChecksRequired", "Criminal record check") },	
+					{ value: "Employment history check", text: "Employment history check", checked: checked("mrrPreChecksRequired", "Employment history check") },
+					{ value: "Health check", text: "Health check", checked: checked("mrrPreChecksRequired", "Health check") },
+					{ value: "Internal fraud check", text: "Internal fraud check", checked: checked("mrrPreChecksRequired", "Internal fraud check") },
+					{ value: "New Entrant Notification (NEN)", text: "New Entrant Notification (NEN)", checked: checked("mrrPreChecksRequired", "New Entrant Notification (NEN)") },
+					{ value: "Overseas check", text: "Overseas check", checked: checked("mrrPreChecksRequired", "Overseas check") },
+					{ value: "Pensions check", text: "Pensions check", checked: checked("mrrPreChecksRequired", "Pensions check") },
+					{ value: "Posting notice", text: "Posting notice", checked: checked("mrrPreChecksRequired", "Posting notice") },
+					{ value: "Previous Civil Service check", text: "Previous Civil Service check", checked: checked("mrrPreChecksRequired", "Previous Civil Service check") },
+					{ value: "References", text: "References", checked: checked("mrrPreChecksRequired", "References") },
+					{ value: "Right to work check", text: "Right to work check", checked: checked("mrrPreChecksRequired", "Right to work check") },										
+					{ value: "Self-employment check", text: "Self-employment check", checked: checked("mrrPreChecksRequired", "Self-employment check") }
+				]
+			}) }}
+
+
+
+            {{ govukButton({
+      	    	text: "Confirm and continue"			    
+    	    }) }}            
+            
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

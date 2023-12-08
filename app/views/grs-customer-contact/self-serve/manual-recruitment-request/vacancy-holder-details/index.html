@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "Are you the vacancy holder for this request?" %}
+{% set pageSection = "Manual recruitment request" %}
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	
+		<p class="govuk-body">These are the contact details we will use on the vacancy.</p>
+		<div class="govuk-inset-text">
+			<p class="govuk-body">Ray Kinsella
+			<br>ray.kinsella@cabinetoffice.gov.uk
+			<br>0191 456789</p>
+		</div>
+
+		{% if data['status'] == "change" %}
+			<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/check-your-answers" >
+				{% include "includes/status_null.html" %}
+		{% else %}
+			<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/vacancy-approved">
+		{% endif %}
+			<input type="hidden" id="mrrVhconfirm" name="mrrVhConfirm" value="Yes" />
+
+        	<div class="govuk-button-group">
+    			{{ govukButton({
+      				text: "Confirm and continue"
+    			}) }}
+        		<a class="govuk-link" href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-holder-details/name?mrrVhConfirm=No">These contact details are not correct</a>
+        	</div>
+
+		</form>
+  
+	</div>
+</div>
+
+{% endblock %}
