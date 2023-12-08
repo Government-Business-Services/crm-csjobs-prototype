@@ -1,0 +1,96 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "Which business area is this vacancy in?" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+
+{% block pageScripts %}
+    <script type="text/javascript" src="/public/javascripts/accessible-autocomplete.js"></script>
+    <script type="text/javascript">
+        accessibleAutocomplete.enhanceSelectElement({
+            defaultValue: '',
+            selectElement: document.querySelector('#mrrVacancyBusinessArea' name="mrrVacancyBusinessArea" value="" )
+        })
+    </script>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	
+		<p class="govuk-body">You have told us the vacancy is with {{data['mrrVacancyDepartment']}}.</p>
+
+		{% if data['status'] == "change" %}
+			<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/check-your-answers" >
+				{% include "includes/status_null.html" %}
+		{% else %}
+        	<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/location" >
+		{% endif %}
+
+			
+			{% if data['mrrVacancyDepartment'] == "Advisory, Conciliation and Arbitration Service" %}
+				{% include "includes/query/mrr/businessArea/acas.html" %}
+
+			{% elif data['mrrVacancyDepartment'] == "Attorney General's Office" %}
+				{% include "includes/query/mrr/businessArea/ago.html" %}
+
+			{% elif data['mrrVacancyDepartment'] == "Arts and Humanities Research Council" %}
+				{% include "includes/query/mrr/businessArea/ahrc.html" %}
+
+			{% elif data['mrrVacancyDepartment'] == "Animal and Plant Health Agency" %}
+				{% include "includes/query/mrr/businessArea/apha.html" %}
+
+			{% elif data['mrrVacancyDepartment'] == "Active Travel England" %}
+				{% include "includes/query/mrr/businessArea/ate.html" %}
+
+			{% elif data['mrrVacancyDepartment'] == "Biotechnology and Biological Sciences Research Council" %}
+				{% include "includes/query/mrr/businessArea/bbsrc.html" %}
+
+			{% elif data['mrrVacancyDepartment'] == "Department for Business, Energy & Industrial Strategy" %}
+				{% include "includes/query/mrr/businessArea/beis.html" %}
+
+			{% elif data['mrrVacancyDepartment'] == "Cabinet Office" %}
+				{% include "includes/query/mrr/businessArea/co.html" %}	
+			
+			{% elif data['mrrVacancyDepartment'] == "HM Revenue and Customs" %}
+				{% include "includes/query/mrr/businessArea/hmrc.html" %}	
+			
+			{% elif data['mrrVacancyDepartment'] == "Engineering and Physical Sciences Research Council" %}
+				{% include "includes/query/mrr/businessArea/epsrc.html" %}					
+			
+				
+
+				
+
+
+
+
+
+			{% else %}
+
+				{% include "includes/query/mrr/businessArea/all.html" %}	
+
+				
+
+			{% endif %}
+
+
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

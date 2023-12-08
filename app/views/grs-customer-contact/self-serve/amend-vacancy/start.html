@@ -1,0 +1,38 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "Amend a vacancy advertisement" %}
+{% set pageSection = "Vacancy advertisements" %}
+
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}		
+
+		<p class="govuk-body">To request an amendment to a vacancy’s advertisement, you need to provide information about the vacancy. Ensure you have all the relevant details ready, such as the vacancy’s reference number.</p>
+
+
+		<h2 class="govuk-heading-m">What you can amend</h2>
+		<p class="govuk-body">It’s possible to correct errors or make changes to:</p>
+		<ul class="govuk-list govuk-list--bullet">				
+			<li>the vacancy’s job title</li>
+			<li>the vacancy holder’s details</li>
+			<li>the vacancy’s department</li>
+			<li>location and salary details</li>
+		</ul>
+		
+		{{ govukButton({
+			text: "Start request",
+			classes: "govuk-!-margin-top-5",
+			isStartButton: true,
+			href: "/grs-customer-contact/self-serve/amend-vacancy/reference-number"
+		}) }}
+  
+	</div>
+</div>
+
+{% endblock %}

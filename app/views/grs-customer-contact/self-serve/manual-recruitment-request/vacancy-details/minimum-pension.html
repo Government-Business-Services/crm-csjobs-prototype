@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "What is the employer’s contribution to the pension for this vacancy?" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+		<p class="govuk-body">This is usually 27% of the minimum salary.</p>
+		
+		<div class="govuk-inset-text">
+		<p class="govuk-body">You told us the salary was: &pound;{{ data['mrrVacancySalary']}}</p>
+	</div>
+    	
+		{% if data['status'] == "change" %}
+			<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/check-your-answers" >
+				{% include "includes/status_null.html" %}
+		{% else %}
+        	<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/pre-employment-checks/" >
+		{% endif %}
+				
+		
+		{{ govukInput({
+			label: { text: "Where is the vacancy located?", classes: "govuk-visually-hidden", isPageHeading: false },      
+			classes: "govuk-!-width-one-third",			
+			prefix: {
+				text: "£"
+			  },
+			id: "mrrVacancyPensionAmount",
+			name: "mrrVacancyPensionAmount",
+			value: data['mrrVacancyPensionAmount']
+		}) }}
+
+
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+            
+            
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "What would you like help with?" %}
+{% set pageSection = "Query triage" %}
+
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	
+		{% if data['status'] == "change" %}
+			<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/check-your-answers" >
+				{% include "includes/status_null.html" %}
+		{% else %}
+        	<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/salary" >
+		{% endif %}
+			
+
+			{% set otherHtml %}
+				{{ govukInput({
+					id: "queryStringOption",
+					name: "queryStringOption",
+					type: "text",
+					autocomplete: "text",
+					classes: "govuk-!-width-two-thirds",
+					label: {
+						text: "Enter the vacancy’s grade."
+					}
+				}) }}
+			{% endset -%}
+
+
+			{{ govukRadios({
+				name: "mrrVacancyGrade",        
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Advertisement approvals", text: "Advertisement approvals", checked: checked("mrrVacancyGrade", "Advertisement approvals") },					
+					{ value: "Amend a vacancy advertisement, ~/grs-customer-contact/self-serve/amend-vacancy/start?query=amendVacacny", text: "Amend a vacancy advertisement", checked: checked("mrrVacancyGrade", "Amend a vacancy advertisement") },					
+					{ value: "Manual recruitment request, ~/grs-customer-contact/self-serve/manual-recruitment-request/start?query=manualRecruitmentRequest", text: "Manual recruitment request", checked: checked("mrrVacancyGrade", "Manual recruitment request") },					
+					{ value: "Vacancy campaign planning", text: "Vacancy campaign planning", checked: checked("mrrVacancyGrade", "Vacancy campaign planning") },
+					{ value: "Vacancy supporting documents", text: "Vacancy supporting documents", checked: checked("mrrVacancyGrade", "Vacancy supporting documents") },										
+					{ value: "Vacancy request form", text: "Vacancy request form", checked: checked("mrrVacancyGrade", "Vacancy request form") },						
+					{ value: "Withdraw vacancy,~/grs-customer-contact/self-serve/withdraw-vacancy/start?query=amendVacacny", text: "Withdraw vacancy", checked: checked("mrrVacancyGrade", "Withdraw vacancy") }
+					
+				]
+			}) }}
+
+
+
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

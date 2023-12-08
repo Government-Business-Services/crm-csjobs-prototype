@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "Does this vacancy involve working with children?" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+		
+
+		{% if data['status'] == "changeSection" %}
+			<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/home-address" >
+		{% elif data['mrrPreChecksRegulatedActivity'] == "No" %}
+			<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/volunteer" >
+		{% else %}
+        	<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/home-address" >
+        {% endif %}
+
+
+			{{ govukRadios({
+				name: "mrrPreChecksChildren",   
+				classes: "govuk-radios--inline",     
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "Yes~/grs-customer-contact/self-serve/manual-recruitment-request/pre-employment-checks/enhanced/home-address", text: "Yes", checked: checked("mrrPreChecksChildren", "Yes") },					
+					{ value: "No", text: "No", checked: checked("mrrPreChecksChildren", "No") }																			
+				]
+			}) }}
+
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}            
+            
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}
