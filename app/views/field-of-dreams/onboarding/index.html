@@ -1,0 +1,21 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = false %}
+
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "Onboarding" %}
+{% set pageSection = "Sub status" %}
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+		
+
+	</div>
+</div>
+
+{% endblock %}
