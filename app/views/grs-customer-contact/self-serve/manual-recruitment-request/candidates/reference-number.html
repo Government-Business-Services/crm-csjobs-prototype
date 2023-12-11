@@ -1,0 +1,136 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "Is the candidate on the existing reserve list?" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+		
+		{% if data['status'] == "change" %}
+			<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/check-your-answers" >
+			{% include "includes/status_null.html" %}
+		{% else %}
+			<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/candidates/check-your-answers" >
+		{% endif %}
+        
+
+    		{% if data['mrrCandidate2Reserve'] %}  
+
+				{% set referenceNumHtml %}
+					
+					{{ govukInput({
+						id: "mrrCandidate3Reference",
+						name: "mrrCandidate3Reference",
+						type: "text",
+						autocomplete: "text",
+						classes: "govuk-!-width-two-thirds",
+						label: {
+							text: "What is the candidate’s applicant reference number?"
+						},
+						value: data['mrrCandidate3Reference']
+					}) }}
+				
+				{% endset -%}
+
+				{{ govukRadios({
+					name: "mrrCandidate3Reserve",        
+					fieldset: {
+						legend: {
+							text: "Which profession is the role in",
+							isPageHeading: false,
+							classes: "govuk-visually-hidden"
+						}
+					},
+					items: [                					
+						{ value: "Yes", text: "Yes", checked: checked("mrrCandidate3Reserve", "Yes"), conditional: { html: referenceNumHtml } },																				
+						{ value: "No", text: "No", checked: checked("mrrCandidate3Reserve", "No") }
+					]
+				}) }} 
+
+
+      		{% elif data['mrrCandidate1Reserve'] %}  
+
+			  	{% set referenceNumHtml %}
+			  
+					{{ govukInput({
+						id: "mrrCandidate2Reference",
+						name: "mrrCandidate2Reference",
+						type: "text",
+						autocomplete: "text",
+						classes: "govuk-!-width-two-thirds",
+						label: {
+							text: "What is the candidate’s applicant reference number?"
+						},
+						value: data['mrrCandidate2Reference']
+					}) }}
+					
+				{% endset -%}
+
+				{{ govukRadios({
+					name: "mrrCandidate2Reserve",        
+					fieldset: {
+						legend: {
+							text: "Which profession is the role in",
+							isPageHeading: false,
+							classes: "govuk-visually-hidden"
+						}
+					},
+					items: [                					
+						{ value: "Yes", text: "Yes", checked: checked("mrrCandidate2Reserve", "Yes"), conditional: { html: referenceNumHtml } },																				
+						{ value: "No", text: "No", checked: checked("mrrCandidate2Reserve", "No") }
+					]
+				}) }} 
+
+      		{% else %}
+
+			  	{% set referenceNumHtml %}
+			  
+					{{ govukInput({
+						id: "mrrCandidate1Reference",
+						name: "mrrCandidate1Reference",
+						type: "text",
+						autocomplete: "text",
+						classes: "govuk-!-width-two-thirds",
+						label: {
+							text: "What is the candidate’s applicant reference number?"
+						},
+						value: data['mrrCandidate1Reference']
+					}) }}
+		  		
+				{% endset -%}
+
+				{{ govukRadios({
+					name: "mrrCandidate1Reserve",        
+					fieldset: {
+						legend: {
+							text: "Which profession is the role in",
+							isPageHeading: false,
+							classes: "govuk-visually-hidden"
+						}
+					},
+					items: [                					
+						{ value: "Yes", text: "Yes", checked: checked("mrrCandidate1Reserve", "Yes"), conditional: { html: referenceNumHtml } },																				
+						{ value: "No~/grs-customer-contact/self-serve/manual-recruitment-request/candidates/title", text: "No", checked: checked("mrrCandidate1Reserve", "No") }
+					]
+				}) }}        		
+
+      		{% endif %}
+    	
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+        </form>
+  
+	</div>
+</div>
+
+
+{% endblock %}

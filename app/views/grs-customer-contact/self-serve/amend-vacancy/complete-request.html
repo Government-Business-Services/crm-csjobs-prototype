@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "Complete request" %}
+{% set pageSection = "Amend a vacancy advertisement" %}
+
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+
+		<p class="govuk-body">You are about to submit the following amend a vacancy advertisement request:</p>
+
+		<div class="govuk-inset-text">
+			{% if data['amendClosingDate'] == "Yes" %}
+				<p class="govuk-body"><span class="govuk-!-font-weight-bold">New closing date</span>
+				<br>10 February 2024</p>
+				
+				{% if data['amendSomethingElse'] != "No" %}
+				<p><span class="govuk-!-font-weight-bold">Amendment</span><br>{{ data['amendVacancyDetails'] }}</p>
+				{% endif %}
+
+			{% else %}			
+			<p><span class="govuk-!-font-weight-bold">Amendment</span><br>{{ data['amendVacancyDetails'] }}</p>
+			{% endif %}
+		</div>
+		
+		<p class="govuk-body">When you submit this amend a vacancy advertisement request, it will be sent to the correct recipient and processed.</p>
+		
+		<form method="post" action="/grs-customer-contact/self-serve/amend-vacancy/confirmation" >
+		
+			{{ govukButton({
+				text: "Submit amendment request",
+				classes: "govuk-!-margin-top-5"
+			}) }}		
+
+		</form>
+
+		<!-- <p class="govuk-body"><a href="/grs-customer-contact/vacancy-holder?query=" class="govuk-link govuk-link--no-visited-state">Return to vacancy holders</a></p> -->
+  
+	</div>
+</div>
+
+{% endblock %}

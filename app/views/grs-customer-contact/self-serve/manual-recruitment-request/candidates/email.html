@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% if data['mrrCandidate3Name'] %}
+	{% set pageHeading = 'What is ' + data.mrrCandidate3Name + '’s email address?' %}
+{% elif data['mrrCandidate2Name'] %}
+	{% set pageHeading = 'What is ' + data.mrrCandidate2Name + '’s email address?' %}
+{% elif data['mrrCandidate1Name'] %}
+	{% set pageHeading = 'What is ' + data.mrrCandidate1Name + '’s email address?' %}
+{% else %}
+	{% set pageHeading = "What is the candidate’s email address?" %}
+{% endif %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+		<p class="govuk-body">This is the email address used to log in to Civil Service Jobs.</p>
+    	
+		{% if data['status'] == "change" %}
+			<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/check-your-answers" >
+{% include "includes/status_null.html" %}
+		{% else %}
+        	<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/candidates/telephone" >
+		{% endif %}
+
+
+		{% if data['mrrCandidate2Email'] %}  
+
+        {{ govukInput({
+          label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+          classes: "govuk-!-width-two-thirds",
+          id: "mrrCandidate3Email",
+          name: "mrrCandidate3Email",
+          value: data['mrrCandidate3Email']
+        }) }}
+
+
+      {% elif data['mrrCandidate1Email'] %}  
+
+        {{ govukInput({
+          label: { text: "Candidates full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+          classes: "govuk-!-width-two-thirds",
+          id: "mrrCandidate2Email",
+          name: "mrrCandidate2Email",
+          value: data['mrrCandidate2Email']
+        }) }}
+
+      {% else %}
+
+
+			{{ govukInput({
+				label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+				classes: "govuk-!-width-two-thirds",
+				id: "mrrCandidate1Email",
+				name: "mrrCandidate1Email",
+				value: data['mrrCandidate1Email']
+			}) }}
+
+		{% endif %}
+    	
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

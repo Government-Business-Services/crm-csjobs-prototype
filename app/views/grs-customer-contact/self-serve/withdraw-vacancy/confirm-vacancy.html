@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "Is this the correct vacancy?" %}
+{% set pageSection = "Withdraw a vacancy advertisement" %}
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    			
+        <div class="govuk-inset-text">
+			<p class="govuk-body govuk-!-margin-bottom-2"><span class="govuk-!-font-weight-bold">Vacancy</span><br>Senior Content Designer</p>
+			<p class="govuk-body govuk-!-margin-bottom-2"><span class="govuk-!-font-weight-bold">Vacancy reference number</span><br>{{ data['withdrawVacancyRefNum'] }}</p>
+			<p class="govuk-body govuk-!-margin-bottom-2"><span class="govuk-!-font-weight-bold">Vacancy holder</span><br>Ray Kinsella</p>
+			<p class="govuk-body"><span class="govuk-!-font-weight-bold">Department</span><br>HM Revenue & Customs			</p>
+		</div>
+		
+
+		
+		
+
+        <form method="post" action="/grs-customer-contact/self-serve/withdraw-vacancy/reason" >
+            
+            <input type="hidden" id="vacancyDetailsConfirmed" name="vacancyDetailsConfirmed" value="Yes" />
+			
+
+			
+				<p class="govuk-body govuk-!-margin-bottom-7 govuk-!-margin-top-7">Confirm that you want to withdraw this vacancy advert. If you withdraw it, the advert will no longer be live and you will not be able to amend or reactivate it.</p>
+			
+
+
+				<div class="govuk-button-group">
+					{{ govukButton({
+						  text: "Confirm and continue"			    
+					}) }}            	
+					
+					<a class="govuk-link" href="/grs-customer-contact/self-serve/withdraw-vacancy/reference-number">This is not the right vacancy advert</a>
+				</div>
+            
+        </form>
+
+            <!-- {{ govukButton({
+      	    	text: "Live chat",    
+				classes: "govuk-button--secondary"
+    	    }) }} -->
+
+        
+  
+	</div>
+</div>
+
+{% endblock %}

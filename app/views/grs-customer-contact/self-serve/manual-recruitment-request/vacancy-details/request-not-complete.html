@@ -1,0 +1,31 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = false %}
+
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "You cannot create this vacancy request" %}
+{% set pageSection = "Manual recruitment request" %}
+
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	
+
+
+		<p class="govuk-body">You are not able to proceed with this request as it has not been approved yet.</p>
+		<p class="govuk-body">Obtain approval in line with your department’s procedures and <a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/vacancy-approved">continue with this request</a> or return to the <a href="#">vacancy holder page</a>.</p>        
+
+		<p class="govuk-body"></p>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}

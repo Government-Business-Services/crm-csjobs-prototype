@@ -1,0 +1,77 @@
+{% extends "layouts/main.html" %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "What is the reason for withdrawing this advert?" %}
+{% set pageSection = "Withdraw a vacancy advertisement" %}
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	
+		{% if data['status'] == "change" %}
+			<form method="post" action="/grs-customer-contact/self-serve/withdraw-vacancy/confirm-vacancy" >
+				{% include "includes/status_null.html" %}
+		{% else %}
+        	<form method="post" action="/grs-customer-contact/self-serve/withdraw-vacancy/complete-request" >
+		{% endif %}
+            
+            <!-- {{ govukTextarea({
+				label: { text: "What is the vacancy’s reference number??", classes: "govuk-visually-hidden", isPageHeading: false },      
+				classes: "govuk-!-width-two-thirds",
+				id: "amendVacancyRefNum",
+				name: "amendVacancyRefNum",
+				value: data['amendVacancyRefNum']
+			}) }} -->
+
+
+			{% set otherHtml %}
+				{{ govukInput({
+					id: "withdrawVacancyReasonOther",
+					name: "withdrawVacancyReasonOther",
+					type: "text",
+					autocomplete: "text",
+					classes: "govuk-!-width-two-thirds",
+					label: {
+						text: "What is the reason?",
+						classes: "govuk-visually-hidden"
+					},
+					hint: {
+						text: "For example, 'Approval has been rejected' or 'Funding has been cancelled'."
+					}
+				}) }}
+			{% endset -%}
+
+
+			{{ govukRadios({
+				name: "withdrawVacancyReason",        
+				fieldset: {
+					legend: {
+						text: "Which profession is the role in",
+						isPageHeading: false,
+						classes: "govuk-visually-hidden"
+					}
+				},
+				items: [                
+					{ value: "The vacancy has been closed", text: "The vacancy has been closed", checked: checked("withdrawVacancyReason", "The vacancy has been closed") },					
+					{ value: "The vacancy has been delayed", text: "The vacancy has been delayed", checked: checked("withdrawVacancyReason", "The vacancy has been delayed") },					
+					{ value: "The advert should not have been made live", text: "The advert should not have been made live", checked: checked("withdrawVacancyReason", "The advert should not have been made live") },										
+					{ value: "Other", text: "Other", checked: checked("withdrawVacancyReason", "Other"), conditional: { html: otherHtml } }
+				]
+			}) }}
+
+
+
+
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+        </form>
+  
+	</div>
+</div>
+
+{% endblock %}

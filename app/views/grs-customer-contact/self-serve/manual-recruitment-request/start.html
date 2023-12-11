@@ -1,0 +1,37 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = true %}
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "Manual recruitment request" %}
+{% set pageSection = "Vacancy advertisements" %}
+
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+		<p class="govuk-body">Provide the relevant information about a vacancy to create the request and proceed with recruitment.</p>
+
+		<h2 class="govuk-heading-m">Required information</h2>
+		<p class="govuk-body">You need to tell us:</p>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>details about the vacancy holder</li>
+			<li>details about the vacancy, including the type, location and salary</li>
+			<li>the pre-employment checks needed for this vacancy</li>
+			<li>details about the candidate</li>
+		</ul>
+		
+		{{ govukButton({
+			text: "Start request",
+			classes: "govuk-!-margin-top-5",
+			isStartButton: true,
+			href: "/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-holder-details/"
+		}) }}
+  
+	</div>
+</div>
+
+{% endblock %}

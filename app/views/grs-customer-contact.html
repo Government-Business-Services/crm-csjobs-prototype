@@ -1,0 +1,96 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+
+
+{% set pageHeading = "GRS Customer Contact Project" %}
+{% set pageSection = "Prototype" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}        
+
+    	<ul class="govuk-list govuk-body-s">
+      		<li>Last updated: November 2023</li>      		
+    	</ul>
+    
+  	</div>
+
+  	<div class="govuk-grid-column-two-thirds">        
+        <h2 class="govuk-heading-m">Main pages</h2>
+        <ul class="govuk-list">
+            <li><a href="/grs-customer-contact/landing-page" class="govuk-link govuk-link--no-visited-state" >Main landing page</a></li>
+            <li><a href="/grs-customer-contact/vacancy-holder" class="govuk-link govuk-link--no-visited-state" >Vacancy holders</a></li>
+            <li><a href="/grs-customer-contact/candidates" class="govuk-link govuk-link--no-visited-state" >Candidates</a></li>            
+            <li><a href="/grs-customer-contact/who-we-are" class="govuk-link govuk-link--no-visited-state" >Who we are</a></li>            
+            <li><a href="/grs-customer-contact/what-we-do" class="govuk-link govuk-link--no-visited-state" >What we do</a></li>            
+            <li><a href="/grs-customer-contact/services-and-functionality" class="govuk-link govuk-link--no-visited-state" >Services and functionality</a></li>            
+            <li><a href="/grs-customer-contact/authentication" class="govuk-link govuk-link--no-visited-state" >Sign in with departmental details</a></li>            
+        </ul>        		
+  	</div>
+
+
+    <div class="govuk-grid-column-one-third">
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-1" id="subsection-title">Assets</h2>
+        <nav class="govuk-!-margin-bottom-7">
+            <ul class="govuk-list">
+                <li><a href="#" class="govuk-link govuk-link--no-visited-state" target="_blank" >Mural board</a></li>
+                <li><a href="https://docs.google.com/spreadsheets/d/1jqucl3lOEC1VHRn6bOk2b-pTZ5nd9b7PXPX18Rai8JQ/edit#gid=0" class="govuk-link govuk-link--no-visited-state" target="_blank" >Change Log</a></li>
+            </ul>
+        </nav>            
+    </div>   
+</div>
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-full">
+
+        <h2 class="govuk-heading-l govuk-!-margin-bottom-0 govuk-!-margin-top-7">Query flows</h2>        
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-third">        
+                <h3 class="govuk-heading-s govuk-!-margin-top-5 govuk-!-margin-bottom-1">Manual Recruitment Request</h3>
+                <p class="govuk-body-s">October 2023</p>
+                <p class="govuk-!-margin-bottom-2">Allows a vacancy holder to create a vacancy request and proceed with recruitment.</p>		
+                <ul class="govuk-list">
+                    <li><a href="/grs-customer-contact/self-serve/manual-recruitment-request" class="govuk-link govuk-link--no-visited-state" >View pages</a></li>            
+                </ul>
+            </div>
+            <div class="govuk-grid-column-one-third">        
+                <h3 class="govuk-heading-s govuk-!-margin-top-5 govuk-!-margin-bottom-1">Amend a vacancy advertisement</h3>
+                <p class="govuk-body-s">November 2023</p>
+                <p class="govuk-!-margin-bottom-2">Request an amendment to a vacancy’s advertisement.</p>		
+                <ul class="govuk-list">
+                    <li><a href="/grs-customer-contact/self-serve/amend-vacancy" class="govuk-link govuk-link--no-visited-state" >View pages</a></li>            
+                </ul>
+            </div>
+        </div>
+
+        <div class="govuk-grid-row">            
+            <div class="govuk-grid-column-one-third">        
+                <h3 class="govuk-heading-s govuk-!-margin-top-5 govuk-!-margin-bottom-1">Withdraw a vacancy advertisement</h3>
+                <p class="govuk-body-s">November 2023</p>
+                <p class="govuk-!-margin-bottom-2">Request an amendment to a vacancy’s advertisement.</p>		
+                <ul class="govuk-list">
+                    <li><a href="/grs-customer-contact/self-serve/withdraw-vacancy" class="govuk-link govuk-link--no-visited-state" >View pages</a></li>                    
+                </ul>
+            </div>
+            <div class="govuk-grid-column-one-third">        
+                <!-- <h3 class="govuk-heading-s govuk-!-margin-top-5 govuk-!-margin-bottom-1">Manual Recruitment Request</h3>
+                <p class="govuk-body-s">October 2023</p>
+                <p class="govuk-!-margin-bottom-2">Allows a vacancy holder to create a vacancy request and proceed with recruitment.</p>		
+                <ul class="govuk-list">
+                    <li><a href="/grs-customer-contact/self-serve/manual-recruitment-request" class="govuk-link govuk-link--no-visited-state" >View pages</a></li>            
+                </ul> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
