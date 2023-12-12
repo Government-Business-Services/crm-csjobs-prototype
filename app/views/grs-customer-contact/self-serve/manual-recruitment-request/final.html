@@ -28,7 +28,11 @@
 		{% endif %}
 		<br><span class="govuk-!-font-weight-bold">Department: </span>{{ data['mrrVacancyDepartment'] }}
 		{% if data['mrrAddCandidates'] != "No" %}
-		<br><span class="govuk-!-font-weight-bold">Candidate: </span>{{ data['mrrCandidate1Name'] }}
+		<br><span class="govuk-!-font-weight-bold">Candidates: </span>{{ data['mrrCandidate1Name'] }}
+		{% if data['mrrCandidate2Name'] %}, {{ data['mrrCandidate2Name'] }}{% endif %}
+		{% if data['mrrCandidate3Name'] %}, {{ data['mrrCandidate3Name'] }}{% endif %}
+
+
 		{% endif %}
 	</p>
 		

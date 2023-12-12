@@ -17,12 +17,13 @@
 
 		<!-- <h2 class="govuk-heading-m">Candidate’s details</h2> -->
 		<dl class="govuk-summary-list govuk-!-margin-bottom-9">			
+			{% include "includes/candidate/mrr/reference.html" %}
 			{% include "includes/candidate/mrr/title.html" %}
 			{% include "includes/candidate/mrr/name.html" %}
 			{% include "includes/candidate/mrr/email.html" %}
 			{% include "includes/candidate/mrr/telephone.html" %}
 			{% include "includes/candidate/mrr/type.html" %}
-			{% include "includes/candidate/mrr/reference.html" %}
+			
 		</dl>		
 
         <form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/candidates/add-more-candidates" >
