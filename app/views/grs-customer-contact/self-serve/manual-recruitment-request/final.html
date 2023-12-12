@@ -27,7 +27,9 @@
 			{{ data['mrrVhName'] }}
 		{% endif %}
 		<br><span class="govuk-!-font-weight-bold">Department: </span>{{ data['mrrVacancyDepartment'] }}
+		{% if data['mrrAddCandidates'] != "No" %}
 		<br><span class="govuk-!-font-weight-bold">Candidate: </span>{{ data['mrrCandidate1Name'] }}
+		{% endif %}
 	</p>
 		
 		<p class="govuk-body">When you submit this manual recruitment request, it will be sent to the correct recipient and processed.</p>
