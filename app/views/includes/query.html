@@ -12,8 +12,8 @@
         
         
                     {{ xGovukAutocomplete({
-                        id: "mrrVacancyDepartment",
-                        name: "mrrVacancyDepartment",
+                        id: "triageAsk",
+                        name: "triageAsk",
                         allowEmpty: false,
                         hint: {
                             text: ""
@@ -23,13 +23,12 @@
                             isPageHeading: false,
                             text: pageHeading
                         },			
-                        items: [
-                            { text: "Ad Hoc request form" },
+                        items: [                            
                             { text: "Advertisement approvals " },                                            
                             { text: "Advertising", value: "Advertising~/grs-customer-contact/triage/advertising/" },
                             { text: "Amend a vacancy advertisement", value: "Amend a vacancy advertisement~/grs-customer-contact/self-serve/amend-vacancy/start?query=amendVacacny" },
                             { text: "Change advert", value: "Change advert~/grs-customer-contact/triage/multi" },
-                            { text: "Adjust advert", value: "Adjust advert~/grs-customer-contact/self-serve/amend-vacancy/start?query=amendVacacny" },
+                            { text: "Adjust advert", value: "Adjust advert~/grs-customer-contact/triage/multi" },
                             { text: "Cancel advert", value: "Cancel advert~/grs-customer-contact/self-serve/amend-vacancy/start?query=withdrawVacacny" },                                               
                             { text: "Candidates", value: "Candidates~/grs-customer-contact/triage/candidates/" },
                             { text: "Candidate assessment" },
@@ -77,7 +76,9 @@
                 
                 </div>
                 <div class="govuk-grid-column-one-third govuk-!-padding-top-2">
-        
+                    
+                    <input type="hidden" name="triageMulti" id="triageMulti" value="" />
+
                     {{ govukButton({
                         text: "Get started",
                         classes: "govuk-button"		    

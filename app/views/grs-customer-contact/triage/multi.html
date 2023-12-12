@@ -14,7 +14,7 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
 		<div class="govuk-inset-text">
-       <p>You told us you would like to <span class="govuk-!-font-weight-bold">Change an advert</span>.</p>
+       <p>You told us you would like to <span class="govuk-!-font-weight-bold">{{ data['triageAsk'] }}</span>.</p>
 	</div>
 		
 			<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/candidates/reference-number" >	
@@ -23,7 +23,7 @@
 
             
 			{{ govukRadios({
-				name: "mrrAddCandidates",   				
+				name: "triageMulti",   				
 				fieldset: {
 					legend: {
 						text: "Do you want to add candidates to this vacancy?",
@@ -32,16 +32,16 @@
 					}
 				},
 				items: [                
-					{ value: "Amend a vacancy advertisement~/grs-customer-contact/self-serve/amend-vacancy/start?query=amendVacacny", text: "Amend a vacancy advertisement", checked: checked("mrrAddCandidates", "Amend a vacancy advertisement" ), hint: {
+					{ value: "Amend a vacancy advertisement~/grs-customer-contact/self-serve/amend-vacancy/start?query=amendVacacny", text: "Amend a vacancy advertisement", checked: checked("triageMulti", "Amend a vacancy advertisement" ), hint: {
 						text: "You can request to make an ammendment to some parts of the vacancy advertisement."
 					  } },
-					{ value: "Withdraw a vacancy advertisement~/grs-customer-contact/self-serve/withdraw-vacancy/start?query=withdrawVacacny", text: "Withdraw a vacancy advertisement", checked: checked("mrrAddCandidates", "Withdraw a vacancy advertisement"), hint: {
+					{ value: "Withdraw a vacancy advertisement~/grs-customer-contact/self-serve/withdraw-vacancy/start?query=withdrawVacacny", text: "Withdraw a vacancy advertisement", checked: checked("triageMulti", "Withdraw a vacancy advertisement"), hint: {
 						text: "You can request that the vacancy advertisement is withdrawn and no longer live."
 					  } },
 					  {
 						divider: "or"
 					  },
-					{ value: "None~/grs-customer-contact/triage/advertising/", text: "Another option/something else", checked: checked("mrrAddCandidates", "None"), hint: {
+					{ value: "None~/grs-customer-contact/triage/advertising/", text: "Another option/something else", checked: checked("triageMulti", "None"), hint: {
 						text: "You want to know how to do something else with the vacancy advertisement."
 					  } }
 				]
