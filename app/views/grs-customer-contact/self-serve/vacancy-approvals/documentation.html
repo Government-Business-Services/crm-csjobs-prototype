@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "Upload documentation confirming your approval" %}
+{% set pageSection = "Vacancy approvals" %}
+
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	
+		{% if data['status'] == "change" %}
+			<form method="post" action="#" >
+				{% include "includes/status_null.html" %}
+		{% else %}
+        	<form method="post" action="#" >
+		{% endif %}
+			
+		{{ govukFileUpload({
+			id: "mrrVacancyDocumentation",
+			name: "mrrVacancyDocumentation",
+			label: {
+			  text: "Upload documentation confirming your approval", classes: "govuk-visually-hidden"
+			}			
+		  }) }}
+
+
+            {{ govukButton({
+      	    	text: "Continue"			    
+    	    }) }}
+
+        </form>
+
+        
+  
+	</div>
+</div>
+
+
+{% endblock %}
