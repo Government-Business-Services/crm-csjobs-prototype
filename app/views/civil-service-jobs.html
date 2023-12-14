@@ -1,0 +1,168 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+
+{% set pageHeading = "Candidate application improvements (PEC)" %}
+{% set pageSection = "Prototype" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+    	<!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}    	
+		
+		<p>Improvements to user flows including job search, sign on and account mangement including additional content changes to candidate application form (PEC).</p>
+  	
+	
+	
+	
+	
+	
+	
+	</div>
+
+	<div class="govuk-grid-column-full">
+
+		<p class="govuk-body-s">Last updated 6 November 2023</p>
+		<p class="govuk-body govuk-!-margin-bottom-7">Some pages have dynamic content, so if using the links and not going through the flows that lead to each page, its not always possible to show the right content for all scenarios.</p>
+
+
+		{% set vacancyHtml %}
+
+		<ul class="govuk-list govuk-list--bullet">
+            <li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-holder-details/" class="govuk-link govuk-link--no-visited-state" >Are you the vacancy holder for this request?</a></li>
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+				<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-holder-details/name" class="govuk-link govuk-link--no-visited-state" >What is the vacancy holder’s full name?</a></li>
+				<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-holder-details/email" class="govuk-link govuk-link--no-visited-state" >What is the vacancy holders email address?</a></li>
+				<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-holder-details/telephone" class="govuk-link govuk-link--no-visited-state" >What is your telephone number?</a></li>
+			</ul>
+            
+        </ul>
+
+		{% endset -%}
+
+		{% set vacancyDetailsHtml %}
+
+		<ul class="govuk-list govuk-list--bullet">
+            <li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/vacancy-approved" class="govuk-link govuk-link--no-visited-state" >Has this vacancy been approved?</a></li>
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+				<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/request-not-complete" class="govuk-link govuk-link--no-visited-state" >You cannot make this recruitment request</a></li>
+			</ul>
+			<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/documentation" class="govuk-link govuk-link--no-visited-state" >Upload documentation confirming your approval</a></li>
+			<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/" class="govuk-link govuk-link--no-visited-state" >What is this vacancy’s job title?</a></li>
+			<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/department" class="govuk-link govuk-link--no-visited-state" >Which department is this vacancy in?</a></li>
+			<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/business-area" class="govuk-link govuk-link--no-visited-state" >Which business area of the department is this vacancy in?</a></li>
+			<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/job-type" class="govuk-link govuk-link--no-visited-state" >What job type is this vacancy?</a></li>
+			<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/profession" class="govuk-link govuk-link--no-visited-state" >Which profession does this vacancy belong to?</a></li>
+			<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/candidate-type" class="govuk-link govuk-link--no-visited-state" >Which candidates can apply for this vacancy?</a></li>
+			
+			<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/location" class="govuk-link govuk-link--no-visited-state" >Where is the vacancy located?</a></li>
+			<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/permanent-role" class="govuk-link govuk-link--no-visited-state" >Is this a permanent vacancy?</a></li>
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
+				<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/contract-type" class="govuk-link govuk-link--no-visited-state" >What is the vacancy’s contract type?</a></li>
+				<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/contract-type/length-of-employment" class="govuk-link govuk-link--no-visited-state" >How long is this vacancy’s length of employment?</a></li>
+			</ul>
+			<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/pattern" class="govuk-link govuk-link--no-visited-state" >What is this vacancy’s expected working pattern?</a></li>
+			<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/grade" class="govuk-link govuk-link--no-visited-state" >What is this vacancy’s grade?</a></li>
+
+
+			<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/salary" class="govuk-link govuk-link--no-visited-state" >What is this vacancy’s salary?</a></li>
+			<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/prison-leavers" class="govuk-link govuk-link--no-visited-state" >Is this vacancy open to prison leavers as part of the Prison Leavers Project?</a></li>
+			<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/great-place-to-work" class="govuk-link govuk-link--no-visited-state" >Is this vacancy part of the Great Place to Work for Veterans scheme?</a></li>
+			<li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-details/pension" class="govuk-link govuk-link--no-visited-state" >Does this vacancy offer a Civil Service pension?</a></li>
+			
+
+            
+        </ul>
+
+		{% endset -%}
+
+		{% set preEmploymentHtml %}
+
+		<ul class="govuk-list govuk-list--bullet">
+            <li><a href="/pec/candidate/applications?iteration=" class="govuk-link govuk-link--no-visited-state" >Applications</a></li>
+					<li><a href="/pec/candidate/?iteration=" class="govuk-link govuk-link--no-visited-state" >Application status</a></li>
+			        
+        </ul>
+
+		{% endset -%}
+
+		{% set candidatesHtml %}
+
+		
+
+		<ul class="govuk-list govuk-list--bullet">		
+					<li><a href="/pec/candidate/details?iteration=" class="govuk-link govuk-link--no-visited-state" >Your details</a></li>
+					<li><a href="/pec/candidate/right-to-work?iteration=" class="govuk-link govuk-link--no-visited-state" >Right to work</a></li>
+					<li><a href="/pec/candidate/employment-history?iteration=" class="govuk-link govuk-link--no-visited-state" >Employment History</a></li>
+					<li><a href="/pec/candidate/transfer-of-staff?iteration=" class="govuk-link govuk-link--no-visited-state" >Transfer of Staff Form</a></li>
+					<li><a href="/pec/candidate/references?iteration=new" class="govuk-link govuk-link--no-visited-state" >References</a></li>			
+					<li><a href="/pec/candidate/pension?iteration=" class="govuk-link govuk-link--no-visited-state" >Pension Questionnaire</a></li>
+					<li><a href="/pec/candidate/overseas?iteration=" class="govuk-link govuk-link--no-visited-state" >Overseas</a></li>
+					<li><a href="/pec/candidate/bankruptcy-details?iteration=" class="govuk-link govuk-link--no-visited-state" >Bankruptcy Details</a></li>
+					<li><a href="/pec/candidate/health-declaration?iteration=" class="govuk-link govuk-link--no-visited-state" >Health Declaration</a></li>
+					
+					<li><a href="/pec/candidate/self-employment?iteration=" class="govuk-link govuk-link--no-visited-state" >Self Employment</a></li>					
+					<li><a href="/pec/candidate/previous-civil-service?iteration=" class="govuk-link govuk-link--no-visited-state" >Previous Civil Service Employment</a></li>
+					<li><a href="/pec/candidate/national-security-vetting?iteration=" class="govuk-link govuk-link--no-visited-state" >National Security Vetting</a></li>
+					<li><a href="/pec/candidate/identity-documents?iteration=" class="govuk-link govuk-link--no-visited-state" >Upload identity documents</a></li>
+					<li><a href="/pec/candidate/dbs-personal-information?iteration=" class="govuk-link govuk-link--no-visited-state" >DBS - Personal Information</a></li>
+					<li><a href="/pec/candidate/dbs-address-details?iteration=" class="govuk-link govuk-link--no-visited-state" >DBS - Address Details</a></li>
+					<li><a href="/pec/candidate/digital-identity-check?iteration=" class="govuk-link govuk-link--no-visited-state" >Digital identity check</a></li>
+					<li><a href="/pec/candidate/declaration?iteration=" class="govuk-link govuk-link--no-visited-state" >Declaration</a></li>
+			
+			
+        </ul>
+
+		{% endset -%}
+
+
+		{% set otherHtml %}
+		
+        <ul class="govuk-list govuk-list--bullet">
+
+			<li><a href="/pec/emails/personal-reference-request?iteration=new" class="govuk-link govuk-link--no-visited-state" >Email reference request - personal</a></li>			
+			<li><a href="/pec/emails/employer-reference-request?iteration=new" class="govuk-link govuk-link--no-visited-state" >Email reference request - employer</a></li>						  
+			<li><a href="/pec/emails/academic-reference-request?iteration=new" class="govuk-link govuk-link--no-visited-state" >Email reference request - academic</a></li>						  
+			<li><a href="/pec/reference-request/personal?iteration=new" class="govuk-link govuk-link--no-visited-state" >Reference form - personal</a></li>			
+			<li><a href="/pec/reference-request/employer?iteration=new" class="govuk-link govuk-link--no-visited-state" >Reference form - employer</a></li>			
+			<li><a href="/pec/reference-request/academic?iteration=new" class="govuk-link govuk-link--no-visited-state" >Reference form - academic</a></li>			
+			<li><a href="/pec/reference-request/complete?iteration=new" class="govuk-link govuk-link--no-visited-state" >Reference submitted</a></li>						
+
+		          
+        </ul>
+
+		{% endset -%}
+
+
+		
+
+
+
+		{{ govukTabs({
+			items: [
+				
+				{ label: "Search", id: "past-day", panel: { html: vacancyHtml } },
+			  	{ label: "Sign in", id: "past-week", panel: { html: vacancyDetailsHtml } },
+			  	{ label: "Account", id: "past-month", panel: { html: preEmploymentHtml } },
+				{ label: "PEC", id: "candidates", panel: { html: candidatesHtml } },
+				{ label: "Other", id: "past-year", panel: { html: otherHtml } }
+			  
+			]
+		  }) }}
+
+
+		  <!-- {{ govukButton({
+			text: "Return to GRS customer contact overview",
+			classes: "govuk-button--secondary",
+			href: "/grs-customer-contact"
+		  }) }} -->
+
+
+
+	</div>
+</div>
+
+{% endblock %}
