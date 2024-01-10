@@ -26,9 +26,10 @@
 		{% set vacancyHtml %}
 
 		<ul class="govuk-list govuk-list--bullet">
-            <li><a href="/grs-customer-contact/self-serve/manual-recruitment-request/vacancy-holder-details/" class="govuk-link govuk-link--no-visited-state" >Are you the vacancy holder for this request?</a></li>
-			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-2">
-				
+            <li><a href="/csjobs/search" class="govuk-link govuk-link--no-visited-state" >Civil Service Job search</a></li>
+			<li><a href="/csjobs/search/results" class="govuk-link govuk-link--no-visited-state" >Search results</a></li>
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-1 govuk-!-margin-bottom-2">				
+				<li><a href="/csjobs/search/advertisement" class="govuk-link govuk-link--no-visited-state" >Job advertisement</a></li>
 			</ul>
             
         </ul>
@@ -37,29 +38,53 @@
 
 		{% set vacancyDetailsHtml %}
 
-		<ul class="govuk-list govuk-list--bullet">
-            	
+		<ul class="govuk-list govuk-list--bullet">			
+			<li><a href="/csjobs/account/" class="govuk-link govuk-link--no-visited-state" >Create an account</a></li>
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-1">				
+				<li><a href="/csjobs/search" class="govuk-link govuk-link--no-visited-state" >Account created</a></li>
+				<li><a href="/csjobs/account/details" class="govuk-link govuk-link--no-visited-state" >Account details</a></li>
+				<li><a href="/csjobs/account/close" class="govuk-link govuk-link--no-visited-state" >Close account</a></li>
+			</ul>
+            <li><a href="/csjobs/sign-in" class="govuk-link govuk-link--no-visited-state" >Sign in</a></li>			
+			<li><a href="/csjobs/sign-out" class="govuk-link govuk-link--no-visited-state" >Sign out</a></li>			
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-1 govuk-!-margin-bottom-2">				
+				<li><a href="/csjobs/password/" class="govuk-link govuk-link--no-visited-state" >Password reset</a></li>
+				<li><a href="/csjobs/password/reset" class="govuk-link govuk-link--no-visited-state" >Password reset (page 2)</a></li>
+			</ul>                        
+			<li><a href="/csjobs/account/job-alerts" class="govuk-link govuk-link--no-visited-state" >Job alerts</a></li>
+			<li><a href="/csjobs/account/job-alerts/add" class="govuk-link govuk-link--no-visited-state" >Create job alert</a></li>
+			<li><a href="/csjobs/account/job-alerts/edit" class="govuk-link govuk-link--no-visited-state" >Edit job alert</a></li>
+			<li><a href="/csjobs/account/job-alerts/updated" class="govuk-link govuk-link--no-visited-state" >Job alert updated</a></li>
+			<li><a href="/csjobs/account/job-alerts/deleted" class="govuk-link govuk-link--no-visited-state" >Job alert deleted</a></li>
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-1 govuk-!-margin-bottom-2">								
+				<li><a href="/csjobs/account/job-alerts/created" class="govuk-link govuk-link--no-visited-state" >Job alert created</a></li>
+				<li><a href="/csjobs/account/job-alerts/paused" class="govuk-link govuk-link--no-visited-state" >Job alerts paused</a></li>
+				<li><a href="/csjobs/account/job-alerts/restarted" class="govuk-link govuk-link--no-visited-state" >Job alerts restarted</a></li>
+				<li><a href="/csjobs/account/job-alerts/restarted" class="govuk-link govuk-link--no-visited-state" >Job alert deleted</a></li>
+			</ul>			
+			<li><a href="/csjobs/account/applications/" class="govuk-link govuk-link--no-visited-state" >Applications</a></li>			
+			<li><a href="/csjobs/account/applications/inactive" class="govuk-link govuk-link--no-visited-state" >Withdrawn, unsuccessful and archived applications</a></li>
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-1 govuk-!-margin-bottom-2">
+				<li><a href="/csjobs/account/applications/update" class="govuk-link govuk-link--no-visited-state" >Application status (provisional offer)</a></li>
+				<li><a href="/csjobs/account/applications/update" class="govuk-link govuk-link--no-visited-state" >Application status (help with process)</a></li>
+				<li><a href="/csjobs/account/applications/update" class="govuk-link govuk-link--no-visited-state" >Application status (withdraw application)</a></li>
+				<li><a href="/csjobs/account/applications/update" class="govuk-link govuk-link--no-visited-state" >Application status (unsuccessful application)</a></li>
+			</ul>
 
-            
+
+			
         </ul>
 
 		{% endset -%}
-
-		{% set preEmploymentHtml %}
-
-		<ul class="govuk-list govuk-list--bullet">
-            <li><a href="/csjobs/pec/candidate/applications?iteration=" class="govuk-link govuk-link--no-visited-state" >Applications</a></li>
-					<li><a href="/csjobs/pec/candidate/?iteration=" class="govuk-link govuk-link--no-visited-state" >Application status</a></li>
-			        
-        </ul>
-
-		{% endset -%}
-
+		
 		{% set candidatesHtml %}
 
 		
 
 		<ul class="govuk-list govuk-list--bullet">		
+					
+					<li><a href="/csjobs/pec/candidate/details?iteration=" class="govuk-link govuk-link--no-visited-state" >Job description*</a></li>
+			
 					<li><a href="/csjobs/pec/candidate/details?iteration=" class="govuk-link govuk-link--no-visited-state" >Your details</a></li>
 					<li><a href="/csjobs/pec/candidate/right-to-work?iteration=" class="govuk-link govuk-link--no-visited-state" >Right to work</a></li>
 					<li><a href="/csjobs/pec/candidate/employment-history?iteration=" class="govuk-link govuk-link--no-visited-state" >Employment History</a></li>
@@ -97,7 +122,7 @@
 			<li><a href="/csjobs/pec/reference-request/academic?iteration=new" class="govuk-link govuk-link--no-visited-state" >Reference form - academic</a></li>			
 			<li><a href="/csjobs/pec/reference-request/complete?iteration=new" class="govuk-link govuk-link--no-visited-state" >Reference submitted</a></li>						
 
-		          
+		    <li><a href="/csjobs/account/terms-and-conditions" class="govuk-link govuk-link--no-visited-state" >Terms and conditions</a></li>      
         </ul>
 
 		{% endset -%}
@@ -110,10 +135,9 @@
 		{{ govukTabs({
 			items: [
 				
-				{ label: "Search", id: "past-day", panel: { html: vacancyHtml } },
-			  	{ label: "Sign in", id: "past-week", panel: { html: vacancyDetailsHtml } },
-			  	{ label: "Account management", id: "past-month", panel: { html: preEmploymentHtml } },
-				{ label: "PEC", id: "candidates", panel: { html: candidatesHtml } },
+				{ label: "Job Search", id: "past-day", panel: { html: vacancyHtml } },
+			  	{ label: "Sign in and Account", id: "past-week", panel: { html: vacancyDetailsHtml } },			  	
+				{ label: "PEC Form", id: "candidates", panel: { html: candidatesHtml } },
 				{ label: "Other", id: "past-year", panel: { html: otherHtml } }
 			  
 			]
