@@ -12,7 +12,7 @@
 	<div class="govuk-grid-column-two-thirds">
     	<!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}    	
-		<p class="govuk-body-s">Last updated 9 January 2024</p>
+		<p class="govuk-body-s">Last updated 10 January 2024</p>
 		<p>Improvements to user flows including job search, sign on, job alerts, password reset and account mangement including possible additional content changes to candidate application form (PEC).</p>	
 	</div>
 
@@ -26,61 +26,62 @@
 		{% set vacancyHtml %}
 
 		<ul class="govuk-list govuk-list--bullet">
-            <li><a href="/csjobs/search" class="govuk-link govuk-link--no-visited-state" >Civil Service Job search</a></li>
+            <li><a href="/csjobs/search?account-status=" class="govuk-link govuk-link--no-visited-state" >Civil Service Job search</a></li>
 			<li><a href="/csjobs/search/results" class="govuk-link govuk-link--no-visited-state" >Search results</a></li>
 			<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-1 govuk-!-margin-bottom-2">				
-				<li><a href="/csjobs/search/advertisement" class="govuk-link govuk-link--no-visited-state" >Job advertisement</a></li>
-			</ul>
-            
+				<li><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state" >Job advertisement</a></li>
+			</ul>            
         </ul>
 
 		{% endset -%}
 
-		{% set vacancyDetailsHtml %}
-
-		<ul class="govuk-list govuk-list--bullet">			
-			<li><a href="/csjobs/account/" class="govuk-link govuk-link--no-visited-state" >Create an account</a></li>
-			<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-1">				
-				<li><a href="/csjobs/search" class="govuk-link govuk-link--no-visited-state" >Account created</a></li>
-				<li><a href="/csjobs/account/details" class="govuk-link govuk-link--no-visited-state" >Account details</a></li>
-				<li><a href="/csjobs/account/close" class="govuk-link govuk-link--no-visited-state" >Close account</a></li>
-			</ul>
-            <li><a href="/csjobs/sign-in" class="govuk-link govuk-link--no-visited-state" >Sign in</a></li>			
-			<li><a href="/csjobs/sign-out" class="govuk-link govuk-link--no-visited-state" >Sign out</a></li>			
-			<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-1 govuk-!-margin-bottom-2">				
-				<li><a href="/csjobs/password/" class="govuk-link govuk-link--no-visited-state" >Password reset</a></li>
-				<li><a href="/csjobs/password/reset" class="govuk-link govuk-link--no-visited-state" >Password reset (page 2)</a></li>
-			</ul>                        
-			<li><a href="/csjobs/account/job-alerts" class="govuk-link govuk-link--no-visited-state" >Job alerts</a></li>
-			<li><a href="/csjobs/account/job-alerts/add" class="govuk-link govuk-link--no-visited-state" >Create job alert</a></li>
-			<li><a href="/csjobs/account/job-alerts/edit" class="govuk-link govuk-link--no-visited-state" >Edit job alert</a></li>
-			<li><a href="/csjobs/account/job-alerts/updated" class="govuk-link govuk-link--no-visited-state" >Job alert updated</a></li>
-			<li><a href="/csjobs/account/job-alerts/deleted" class="govuk-link govuk-link--no-visited-state" >Job alert deleted</a></li>
-			<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-1 govuk-!-margin-bottom-2">								
-				<li><a href="/csjobs/account/job-alerts/created" class="govuk-link govuk-link--no-visited-state" >Job alert created</a></li>
-				<li><a href="/csjobs/account/job-alerts/paused" class="govuk-link govuk-link--no-visited-state" >Job alerts paused</a></li>
-				<li><a href="/csjobs/account/job-alerts/restarted" class="govuk-link govuk-link--no-visited-state" >Job alerts restarted</a></li>
-				<li><a href="/csjobs/account/job-alerts/restarted" class="govuk-link govuk-link--no-visited-state" >Job alert deleted</a></li>
-			</ul>			
-			<li><a href="/csjobs/account/applications/" class="govuk-link govuk-link--no-visited-state" >Applications</a></li>			
-			<li><a href="/csjobs/account/applications/inactive" class="govuk-link govuk-link--no-visited-state" >Withdrawn, unsuccessful and archived applications</a></li>
-			<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-1 govuk-!-margin-bottom-2">
-				<li><a href="/csjobs/account/applications/update" class="govuk-link govuk-link--no-visited-state" >Application status (provisional offer)</a></li>
-				<li><a href="/csjobs/account/applications/update" class="govuk-link govuk-link--no-visited-state" >Application status (help with process)</a></li>
-				<li><a href="/csjobs/account/applications/update" class="govuk-link govuk-link--no-visited-state" >Application status (withdraw application)</a></li>
-				<li><a href="/csjobs/account/applications/update" class="govuk-link govuk-link--no-visited-state" >Application status (unsuccessful application)</a></li>
-			</ul>
-
-
+		{% set vacancyDetailsHtml %}				
+			<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Sign in and account</h2>		
+			<ul class="govuk-list govuk-list--bullet">				
+				<li><a href="/csjobs/sign-in" class="govuk-link govuk-link--no-visited-state" >Sign in</a></li>							
+				<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-1 govuk-!-margin-bottom-2">				
+					<li><a href="/csjobs/password/" class="govuk-link govuk-link--no-visited-state" >Password reset</a></li>
+					<li><a href="/csjobs/password/reset" class="govuk-link govuk-link--no-visited-state" >Password reset (page 2)</a></li>
+				</ul>      
+				<li><a href="/csjobs/account/" class="govuk-link govuk-link--no-visited-state" >Create an account</a></li>
+				<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-1 govuk-!-margin-bottom-2">				
+					<li><a href="/csjobs/search?account-status=created" class="govuk-link govuk-link--no-visited-state" >Account created</a></li>
+					<li><a href="/csjobs/account/details" class="govuk-link govuk-link--no-visited-state" >Account details</a></li>
+					<li><a href="/csjobs/account/close" class="govuk-link govuk-link--no-visited-state" >Close account</a></li>
+				</ul>
+				<li><a href="/csjobs/sign-out" class="govuk-link govuk-link--no-visited-state" >Sign out</a></li>		
+			</ul>		
 			
-        </ul>
-
+			<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Job alerts</h2>
+			<ul class="govuk-list govuk-list--bullet">	
+				<li><a href="/csjobs/account/job-alerts" class="govuk-link govuk-link--no-visited-state" >Job alerts</a></li>
+				<li><a href="/csjobs/account/job-alerts/add" class="govuk-link govuk-link--no-visited-state" >Create job alert</a></li>
+				<li><a href="/csjobs/account/job-alerts/edit" class="govuk-link govuk-link--no-visited-state" >Edit job alert</a></li>
+				
+				<li><a href="/csjobs/account/job-alerts/deleted" class="govuk-link govuk-link--no-visited-state" >Delete job alert</a></li>
+				<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-1 govuk-!-margin-bottom-2">								
+					<li><a href="/csjobs/account/job-alerts?alert-status=created" class="govuk-link govuk-link--no-visited-state" >Job alert created</a></li>
+					<li><a href="/csjobs/account/job-alerts?alert-status=updated" class="govuk-link govuk-link--no-visited-state" >Job alert updated</a></li>
+					<li><a href="/csjobs/account/job-alerts?alert-status=paused" class="govuk-link govuk-link--no-visited-state" >Job alerts paused</a></li>
+					<li><a href="/csjobs/account/job-alerts?alert-status=restarted" class="govuk-link govuk-link--no-visited-state" >Job alerts restarted</a></li>					
+				</ul>		
+			</ul>
+			
+			
+			<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Applications</h2>
+			<ul class="govuk-list govuk-list--bullet">	
+				<li><a href="/csjobs/account/applications/" class="govuk-link govuk-link--no-visited-state" >Applications</a></li>			
+				<li><a href="/csjobs/account/applications/inactive" class="govuk-link govuk-link--no-visited-state" >Withdrawn, unsuccessful and archived applications</a></li>
+				<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-1 govuk-!-margin-bottom-2">
+					<li><a href="/csjobs/account/applications/update?application-status=provisional" class="govuk-link govuk-link--no-visited-state" >Application status (provisional offer)</a></li>
+					<li><a href="/csjobs/account/applications/update?application-status=help" class="govuk-link govuk-link--no-visited-state" >Application status (help with process)</a></li>
+					<li><a href="/csjobs/account/applications/update?application-status=withdraw" class="govuk-link govuk-link--no-visited-state" >Application status (withdraw application)</a></li>
+					<li><a href="/csjobs/account/applications/update?application-status=unsuccessful" class="govuk-link govuk-link--no-visited-state" >Application status (unsuccessful application)</a></li>
+				</ul>
+			</ul>
 		{% endset -%}
 		
 		{% set candidatesHtml %}
-
-		
-
 		<ul class="govuk-list govuk-list--bullet">		
 					
 					<li><a href="/csjobs/pec/candidate/details?iteration=" class="govuk-link govuk-link--no-visited-state" >Job description*</a></li>

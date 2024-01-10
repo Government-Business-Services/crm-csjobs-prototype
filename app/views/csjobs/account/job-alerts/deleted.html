@@ -4,7 +4,7 @@
 {% set showNavLinksExtra = true %}
 
 
-{% set pageHeading = "Job alerts" %}
+{% set pageHeading = "Delete job alert" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -16,31 +16,6 @@
 	<div class="govuk-grid-column-full">
 
     <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
-
-
-
-
-	{% if data['alert-status'] == "created" %}
-
-	<h1 class="govuk-heading-m">Alert created</h1>
-	
-	{% elif data['alert-status'] == "paused" %}
-
-	<h1 class="govuk-heading-m">Alerts paused</h1>
-
-	{% elif data['alert-status'] == "restarted" %}
-
-	<h1 class="govuk-heading-m">Alerts restarted</h1>	
-
-	{% elif data['alert-status'] == "updated" %}
-
-	<h1 class="govuk-heading-m">Alert updated</h1>	
-
-{% endif %}
-
-
-
-
 
     	<h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 		<p class="govuk-body">You can create <a href="#">email alerts</a> for jobs that may interest you.</p>
