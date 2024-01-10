@@ -10,7 +10,7 @@
   {% set pageHeading = "Request for information" %}
   {% set pageSection = "Hugo Furst" %}
 {% else %}
-  {% set pageHeading = "Reference Request" %}
+  {% set pageHeading = "Request for information" %}
 {% endif %}
 {% set pageSection = "" %}
 
@@ -25,17 +25,16 @@
 	<div class="govuk-grid-column-two-thirds">
 
 
-      {% if data['iteration'] == "related" %}
+    {% if data['iteration'] == "related" %}
+
+    {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+    <p class="govuk-body">We need some details about (NAME).</p>
+          <p class="govuk-body">This is not a character reference, but you can help us by confirming some information and academic details about them.</p>
 
 
-      {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
-          <p class="govuk-body">We need some details about (NAME).</p>
-          <p class="govuk-body">This is not a character reference, but you can help us by confirming some information and employment details about them.</p>
-
-
-        	<div class="govuk-inset-text govuk-!-margin-bottom-7">				
+        	<div class="govuk-inset-text">
           		<p class="govuk-body">This form cannot be saved and retrieved later on. If you close the form without sending it, you will have to start again.</p>
         	</div>
 
@@ -46,7 +45,7 @@
     		<form method="post" action="time-known" >
     		
 				{{ govukRadios({
-        			name: "refRequestRelatedEmployer",
+        			name: "refRequestRelatedAcademic",
 					  classes: "govuk-radios--inline",
         			fieldset: {
           				legend: { text: "Are you related to {NAME}?", isPageHeading: false, classes: "govuk-fieldset__legend" }
@@ -60,13 +59,10 @@
         			]
       			}) }}
 
-
             <div class="govuk-inset-text">
               <p class="govuk-body">You can’t proceed as {NAME}’s referee because you have told us you are related.</p>
               <p class="govuk-!-margin-bottom-">We still need you to submit this form.</p>
             </div>
-
-            
 
 				{{ govukButton({
         			text: "Submit",
@@ -76,9 +72,9 @@
 		</div>
 		<div class="grid-column-one-third">
       <ul class="govuk-list govuk-!-text-align-right govuk-!-margin-top-2 ">        
-        <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 " href="/pec/reference-request/employer?iteration=">Current view</a></li>
-          <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/pec/reference-request/employer?iteration=new">New iteration</a></li>
-          <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/pec/reference-request/employer?iteration=related">Related error</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 " href="/csjobs/pec/reference-request/academic?iteration=">Current view</a></li>
+          <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/csjobs/pec/reference-request/academic?iteration=new">New iteration</a></li>
+          <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/csjobs/pec/reference-request/academic?iteration=related">Related error</a></li>
       </ul>  
 
 
@@ -86,12 +82,11 @@
 
           {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
-
           <p class="govuk-body">We need some details about (NAME).</p>
-          <p class="govuk-body">This is not a character reference, but you can help us by confirming some information and employment details about them.</p>
+          <p class="govuk-body">This is not a character reference, but you can help us by confirming some information and academic details about them.</p>
 
 
-        	<div class="govuk-inset-text govuk-!-margin-bottom-7">				
+        	<div class="govuk-inset-text">
           		<p class="govuk-body">This form cannot be saved and retrieved later on. If you close the form without sending it, you will have to start again.</p>
         	</div>
 
@@ -102,7 +97,7 @@
     		<form method="post" action="time-known" >
     		
 				{{ govukRadios({
-        			name: "refRequestRelatedEmployer",
+        			name: "refRequestRelatedAcademic",
 					  classes: "govuk-radios--inline",
         			fieldset: {
           				legend: { text: "Are you related to {NAME}?", isPageHeading: false, classes: "govuk-fieldset__legend" }
@@ -114,6 +109,13 @@
           				{ value: "Yes", text: "Yes" },
           				{ value: "No", text: "No" }          
         			]
+      			}) }}
+
+            {{ govukInput({
+        			label: { text: "Your position at the place of education", classes: "govuk-label",isPageHeading: false },      
+        			classes: "govuk-!-width-two-thirds",
+        			id: "refRequestPositionAcademic",
+        			name: "refRequestPositionAcademic"
       			}) }}
 
       			<!-- {{ govukInput({
@@ -134,38 +136,35 @@
       			}) }} -->
 
 
-
             
 
 
-
-
             <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset" role="group" aria-describedby="refRequestWorkDate-hint">
+              <fieldset class="govuk-fieldset" role="group" aria-describedby="refRequestWorkDateAcademic-hint">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend">
                   <p class="govuk-fieldset__heading">
-                    When did {NAME} start working at your organisation?
+                    When did {NAME} start at your place of education?
                   </p>
                 </legend>
-                <div id="refRequestWorkDate-hint" class="govuk-hint">
+                <div id="refRequestWorkDateAcademic-hint" class="govuk-hint">
                   For example, 10 2019
                 </div>
-                <div class="govuk-date-input" id="refRequestWorkDate">
+                <div class="govuk-date-input" id="refRequestWorkDateAcademic">
                   
                   <div class="govuk-date-input__item">
                     <div class="govuk-form-group">
-                      <label class="govuk-label govuk-date-input__label" for="refRequestWorkDate-month">
+                      <label class="govuk-label govuk-date-input__label" for="refRequestWorkDateAcademic-month">
                         Month
                       </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="refRequestWorkDate-month" name="refRequestWorkDate-month" type="text" inputmode="numeric">
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="refRequestWorkDateAcademic-month" name="refRequestWorkDateAcademic-month" type="text" inputmode="numeric">
                     </div>
                   </div>
                   <div class="govuk-date-input__item">
                     <div class="govuk-form-group">
-                      <label class="govuk-label govuk-date-input__label" for="refRequestWorkDate-year">
+                      <label class="govuk-label govuk-date-input__label" for="refRequestWorkDateAcademic-year">
                         Year
                       </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="refRequestWorkDate-year" name="refRequestWorkDate-year" type="text" inputmode="numeric">
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="refRequestWorkDateAcademic-year" name="refRequestWorkDateAcademic-year" type="text" inputmode="numeric">
                     </div>
                   </div>
                 </div>
@@ -175,33 +174,33 @@
             
 
             {% set notWorkingHtml %}
-              
+
             <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset" role="group" aria-describedby="refRequestWorkDateLeave-hint">
+              <fieldset class="govuk-fieldset" role="group" aria-describedby="refRequestWorkDateAcademicLeave-hint">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend">
                   <p class="govuk-fieldset__heading">
-                    When did {NAME} stop working at your organisation?
+                    When did {NAME} leave?
                   </p>
                 </legend>
-                <div id="refRequestWorkDateLeave-hint" class="govuk-hint">
+                <div id="refRequestWorkDateAcademicLeave-hint" class="govuk-hint">
                   For example, 10 2019
                 </div>
-                <div class="govuk-date-input" id="refRequestWorkDateLeave">
+                <div class="govuk-date-input" id="refRequestWorkDateAcademicLeave">
                   
                   <div class="govuk-date-input__item">
                     <div class="govuk-form-group">
-                      <label class="govuk-label govuk-date-input__label" for="refRequestWorkDateLeave-month">
+                      <label class="govuk-label govuk-date-input__label" for="refRequestWorkDateAcademicLeave-month">
                         Month
                       </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="refRequestWorkDateLeave-month" name="refRequestWorkDateLeave-month" type="text" inputmode="numeric">
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="refRequestWorkDateAcademicLeave-month" name="refRequestWorkDateAcademicLeave-month" type="text" inputmode="numeric">
                     </div>
                   </div>
                   <div class="govuk-date-input__item">
                     <div class="govuk-form-group">
-                      <label class="govuk-label govuk-date-input__label" for="refRequestWorkDateLeave-year">
+                      <label class="govuk-label govuk-date-input__label" for="refRequestWorkDateAcademicLeave-year">
                         Year
                       </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="refRequestWorkDateLeave-year" name="refRequestWorkDateLeave-year" type="text" inputmode="numeric">
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="refRequestWorkDateAcademicLeave-year" name="refRequestWorkDateAcademicLeave-year" type="text" inputmode="numeric">
                     </div>
                   </div>
                 </div>
@@ -209,7 +208,7 @@
             </div>
 
 
-            
+              
             {% endset -%}
 
 
@@ -218,7 +217,7 @@
               name: "refTwoRelationship",        
               fieldset: {
                 legend: {
-                  text: "Is {NAME} still working there?",
+                  text: "Are they still there?",
                   isPageHeading: false,
                   classes: "govuk-fieldset__legend"
                 }
@@ -239,15 +238,7 @@
 
 
 
-            {{ govukCharacterCount({
-              name: "refRequestWorkCapacity",
-              id: "refRequestWorkCapacity",
-              maxlength: 200,
-              label: { text: "Describe what type of work {NAME} did in your organisation", classes: "govuk-label", isPageHeading: false },
-              hint: {
-                text: "For example, they worked as a call handler in our call centre."
-              }
-            }) }}
+            
 
 
             <!-- <h2 class="govuk-heading-m govuk-!-margin-top-7">Before you submit this reference</h2>
@@ -301,9 +292,9 @@
   		</div>
   		<div class="grid-column-one-third">
     		<ul class="govuk-list govuk-!-text-align-right govuk-!-margin-top-2 ">        
-        		<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 " href="/pec/reference-request/employer?iteration=">Current view</a></li>
-          		<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/pec/reference-request/employer?iteration=new">New iteration</a></li>
-              <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/pec/reference-request/employer?iteration=related">Related error</a></li>
+        		<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 " href="/csjobs/pec/reference-request/academic?iteration=">Current view</a></li>
+          		<li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/csjobs/pec/reference-request/academic?iteration=new">New iteration</a></li>
+              <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/csjobs/pec/reference-request/academic?iteration=related">Related error</a></li>
       		</ul>  
     
     {% else %}
@@ -312,14 +303,10 @@
 
     <h1 class="govuk-heading-m">{{ pageHeading }}</h1>
 
-    <p class="govuk-body">We are undertaking pre-employment checks for Hugo Furst</p>
-    <p class="govuk-body">They have been successful in the position of Project Manager and have nominated you as a referee.</p>
-    <p class="govuk-body">They have been successful in the position of Project Manager and have nominated you as a referee.</p>
-
-    <h2 class="govuk-heading-m">To help us to proceed with our checks</h2>
-    <p class="govuk-body">Please complete this reference form. To avoid delay we would appreciate it if you could complete the form within 48 hours.</p>
-    <p class="govuk-body">A reference alone may not decide if the candidate is offered the job but will play a role. References will not be actively shard, but applicants can request a copy of their references.</p>
-
+    <p class="govuk-body">We are undertaking pre-employment checks for</p>
+    <p class="govuk-body">They have been successful in the position of and have nominated you as a referee.</p>
+    <p class="govuk-body">To enable us to proceed with our checks, please complete the reference form below. We would appreciate it if you could complete the form within 48 hours to avoid any delay.</p>
+    <p class="govuk-body">An unfavourable reply does not necessarily mean that the applicant won’t be offered a job; your reference is very valuable to us and we will take it into consideration in the strictest confidence.</p>
 
 
   </div>
@@ -328,27 +315,15 @@
   
 
     <ul class="govuk-list govuk-!-text-align-right govuk-!-margin-top-2 ">        
-        <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 " href="/pec/reference-request/employer?iteration=">Current view</a></li>
-        <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/pec/reference-request/employer?iteration=new">New iteration</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 " href="/csjobs/pec/reference-request/academic?iteration=">Current view</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/csjobs/pec/reference-request/academic?iteration=new">New iteration</a></li>
+        <li><a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16" href="/csjobs/pec/reference-request/academic?iteration=related">Related error</a></li>
     </ul>  
   </div>
   <div class="govuk-grid-column-full">
 
     <form method="post" action="time-known" >
-    {{ govukRadios({
-        name: "refRequestRelatedEmployer",
-        fieldset: {
-          legend: {
-            text: "Are you related to the applicant",
-            isPageHeading: false,
-            classes: "govuk-fieldset__legend"
-          }
-        },
-        items: [
-          { value: "Yes", text: "Yes" },
-          { value: "No", text: "No" }          
-        ]
-      }) }}
+    
 
       {{ govukInput({
         label: { text: "Your full name", classes: "govuk-label",isPageHeading: false },      
@@ -367,13 +342,19 @@
         name: "refRequestTelephone"
       }) }}
 
+      {{ govukInput({
+        label: { text: "Your position in your organisation", classes: "govuk-label",isPageHeading: false },      
+        classes: "govuk-!-width-one-third",
+        id: "refRequestFullNameEmployer",
+        name: "refRequestFullNameEmployer"
+      }) }}
 
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend">
             <p class="govuk-fieldset__heading">
-              Provide the dates that the applicant worked with you
+              Provide the dates that the applicant studied at your organisation
             </p>
           </legend>
           
@@ -420,13 +401,7 @@
         </fieldset>
       </div>
 
-      {{ govukTextarea({
-          id: "refRequestWorkCapacity",
-          name: "refRequestWorkCapacity",
-          type: "text",                
-          classes: "govuk-!-width-full",
-          label: { text: "In what capacity did the applicant work with you?" }
-        }) }}
+      
         
       <p class="govuk-body">Please click submit once you've completed all mandatory fields</p>
 

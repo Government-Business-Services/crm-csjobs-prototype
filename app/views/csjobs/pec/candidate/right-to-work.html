@@ -26,7 +26,7 @@
     	<h1 class="govuk-heading-l govuk-!-padding-top-4">Right to work</h1>
 		<p class="govuk-body-l govuk-!-font-weight-bold">We ask for this information so we can confirm your right to work in the UK.</p>
 
-		<form method="post" action="/pec/candidate/employment-history?navpage=eh" >
+		<form method="post" action="/csjobs/pec/candidate/employment-history?navpage=eh" >
 		{{ govukSelect({
 			id: "pecRightWorkNationality",
 			name: "pecRightWorkNationality",
@@ -548,7 +548,7 @@
       	<div class="govuk-button-group">
         	{{ govukButton({
           		text: "Back",
-				href: "/pec/candidate/details?navpage=det"
+				href: "/csjobs/pec/candidate/details?navpage=det"
         	}) }}
       
         	{{ govukButton({
