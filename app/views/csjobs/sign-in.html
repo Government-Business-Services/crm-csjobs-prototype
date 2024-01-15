@@ -17,7 +17,29 @@
 
     <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
 
-    	<h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
+    	<h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+		<p>Sign in or <a href="/csjobs/account/">create an account</a> to get started.</p>
+
+		{{ govukInput({
+			label: { text: "Email address", classes: "govuk-label--m",isPageHeading: false },      					
+			classes: "govuk-!-width-one-half",
+			id: "userEmailAddress",
+			name: "userEmailAddress",
+			value: data['userEmailAddress']
+		}) }}
+
+		{{ govukInput({
+			label: { text: "Password", classes: "govuk-label--m",isPageHeading: false },      					
+			classes: "govuk-!-width-one-half",
+			id: "userPassword",
+			name: "userPassword",
+			value: data['userPassword']
+		}) }}
+
+	
+
+
 		<!-- <p class="govuk-body-l hint ">Find jobs in the Civil Service and central government organisations</p>
     	
 
@@ -66,6 +88,8 @@
 			{{ govukButton({
 			text: "Sign in"
 		  }) }}
+
+		  <p><a href="/csjobs/password/">Forgotten your password?</a></p>
 
 		</form>
 
