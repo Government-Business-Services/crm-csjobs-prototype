@@ -13,55 +13,29 @@
 <div class="govuk-grid-row">
 
 	
-	<div class="govuk-grid-column-full">
+	<div class="govuk-grid-column-two-thirds">
 
     <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
 
     	<h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
-		<!-- <p class="govuk-body-l hint ">Find jobs in the Civil Service and central government organisations</p>
-    	
 
-		<div class="govuk-grid-row grey">
-			<div class="govuk-grid-column-one-third govuk-!-padding-top-5">
 
-				<h2 class="govuk-heading-m govuk-!-margin-bottom-1">What</h2>
-				{{ govukInput({
-					label: { text: "Enter job title, skill or keywords", classes: "govuk-label",isPageHeading: false },      
-					
-					id: "pecRefOneNameAlt",
-					name: "pecRefOneNameAlt",
-					value: data['pecRefOneNameAlt']
+
+		<p class="govuk-body">If you want to change or have forgotten your password, enter the username (email) you used to create your account. We will email you instructions on how to change your password.</p>
+		<p class="govuk-body">If the email does not arrive within 15 minutes then please review our <a href="https://www.gov.uk/guidance/using-the-civil-service-jobs-website?_ga=2.147029943.1279121245.1705311671-25842350.1695732253">guidance</a>.</p>
+		<form method="post" action="/csjobs/password/reset" >
+			{{ govukInput({
+					label: { text: "Account email address", classes: "govuk-label--m",isPageHeading: false },      					
+					classes: "govuk-!-width-two-thirds",
+					id: "passwordResetEmail",
+					name: "passwordResetEmail",
+					value: data['passwordResetEmail']
 				}) }}
 
-			</div>
-			<div class="govuk-grid-column-one-third govuk-!-padding-top-5">
-
-				<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Where</h2>
-				{{ govukInput({
-					label: { text: "Enter a postcode, town or region", classes: "govuk-label",isPageHeading: false },      					
-					id: "pecRefOneNameAlt",
-					name: "pecRefOneNameAlt",
-					value: data['pecRefOneNameAlt']
-				}) }}
-
-			</div>
-			<div class="govuk-grid-column-one-quarter">
-
-				<button class="govuk-button override-button" data-module="govuk-button">
-					Search
-				  </button>
-
-			  <p class="govuk-!-text-align-right"><a href="govuk-link ">Advanced search</a></p>
-
-			</div>
-
-		</div>
-		
-
-		<p class="govuk-body govuk-!-margin-top-7  "><a href="#">Discover careers within the Civil Service</a></p>
-		 -->
-
-		
+				{{ govukButton({
+					text: "Reset password"			    
+			  }) }}
+		</form>		
 
 
   	</div>  
