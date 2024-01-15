@@ -22,7 +22,61 @@
     	<p class="govuk-body">You can change your details on this page, or  <a href="/csjobs/account/close?notification=">close your account</a>.</p>
 
 		
+		{{ govukInput({
+			label: { text: "First name", classes: "govuk-label--m",isPageHeading: false },      					
+			classes: "govuk-!-width-one-half",
+			id: "userEmailAddress",
+			name: "userEmailAddress",
+			value: data['userEmailAddress']
+		}) }}
 
+		{{ govukInput({
+			label: { text: "Last name", classes: "govuk-label--m",isPageHeading: false },      					
+			classes: "govuk-!-width-one-half",
+			id: "userPassword",
+			name: "userPassword",
+			value: data['userPassword']
+		}) }}		 
+
+		<p>You'll need this email address to sign in to your account</p>
+		{{ govukInput({
+			label: { text: "Email address", classes: "govuk-label--m",isPageHeading: false },      					
+			classes: "govuk-!-width-one-half",
+			id: "userPassword",
+			name: "userPassword",
+			value: data['userPassword']
+		}) }}		 
+
+		<p>Confirm your email address</p>
+		{{ govukInput({
+			label: { text: "", classes: "govuk-label--m",isPageHeading: false },      					
+			classes: "govuk-!-width-one-half",
+			id: "userPassword",
+			name: "userPassword",
+			value: data['userPassword']
+		}) }}	
+		
+		
+		
+		{{ govukInput({
+			label: { text: "Confirm Password", classes: "govuk-label--m",isPageHeading: false },      					
+			classes: "govuk-!-width-one-half",
+			hint: {
+				text: "You must confirm your password to make changes to your account details"
+			},
+			id: "userPassword",
+			name: "userPassword",
+			value: data['userPassword']
+		}) }}	
+
+
+
+	 
+		{{ govukButton({
+			text: "Sign in"
+		  }) }}
+
+		  <p><a href="/csjobs/password/">Forgotten your password?</a></p>
 		
 
 
