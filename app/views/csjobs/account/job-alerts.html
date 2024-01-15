@@ -10,41 +10,54 @@
 
 {% block content %}
 
-<div class="govuk-grid-row">
-
-	
+<div class="govuk-grid-row">	
 	<div class="govuk-grid-column-full">
 
     <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
 
-
-
-
 	{% if data['alert-status'] == "created" %}
+		{% set html %}
+			<h3 class="govuk-notification-banner__heading">You have created a new job alert</h3>
+			<p class="govuk-body">You will begin receiving this job alert from your chosen day.</p>		
+		{% endset %}
 
-	<h1 class="govuk-heading-m">Alert created</h1>
-	
+		{{ govukNotificationBanner({
+			html: html,
+			type: "success"
+		}) }}
+
 	{% elif data['alert-status'] == "paused" %}
-
-	<h1 class="govuk-heading-m">Alerts paused</h1>
-
+		<h1 class="govuk-heading-m">Alerts paused</h1>
 	{% elif data['alert-status'] == "restarted" %}
-
-	<h1 class="govuk-heading-m">Alerts restarted</h1>	
-
+		<h1 class="govuk-heading-m">Alerts restarted</h1>	
 	{% elif data['alert-status'] == "updated" %}
-
-	<h1 class="govuk-heading-m">Alert updated</h1>	
-
-{% endif %}
+		<h1 class="govuk-heading-m">Alert updated</h1>	
+	{% endif %}
 
 
+	<h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+	<p>Here you can:</p>
+	<ul class="govuk-list govuk-list--bullet">
+		<li>create new job alerts that will come through to your email</li>
+		<li>edit existing alerts that you have set up</li>
+		<li>pause or restart the alerts  </li>
+		<li>delete alerts that are no longer relevant to you</li>
+	</ul>
+
+	<form method="post" action="/csjobs/account/job-alerts/add" >		 
+		{{ govukButton({
+			text: "Create a job alert",
+			classes: "govuk-!-margin-top-5"
+	  	}) }}
+	</form>
 
 
 
+
+<!-- 
     	<h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-		<p class="govuk-body">You can create <a href="#">email alerts</a> for jobs that may interest you.</p>
-    	
+		<p class="govuk-body">You can create <a href="/csjobs/account/job-alerts/add">email alerts</a> for jobs that may interest you.</p>
+    	 -->
 
 		
 

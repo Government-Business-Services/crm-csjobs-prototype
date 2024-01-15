@@ -12,7 +12,7 @@
 	<div class="govuk-grid-column-two-thirds">
     	<!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}    	
-		<p class="govuk-body-s">Last updated 10 January 2024</p>
+		<p class="govuk-body-s">Last updated 15 January 2024</p>
 		<p>Improvements to user flows including job search, sign on, job alerts, password reset and account mangement including possible additional content changes to candidate application form (PEC).</p>	
 	</div>
 
@@ -82,30 +82,33 @@
 		{% endset -%}
 		
 		{% set candidatesHtml %}
-		<ul class="govuk-list govuk-list--bullet">		
-					
-					<li><a href="/csjobs/pec/candidate/details?iteration=" class="govuk-link govuk-link--no-visited-state" >Job description*</a></li>
-			
-					<li><a href="/csjobs/pec/candidate/details?iteration=" class="govuk-link govuk-link--no-visited-state" >Your details</a></li>
-					<li><a href="/csjobs/pec/candidate/right-to-work?iteration=" class="govuk-link govuk-link--no-visited-state" >Right to work</a></li>
-					<li><a href="/csjobs/pec/candidate/employment-history?iteration=" class="govuk-link govuk-link--no-visited-state" >Employment History</a></li>
-					<li><a href="/csjobs/pec/candidate/transfer-of-staff?iteration=" class="govuk-link govuk-link--no-visited-state" >Transfer of Staff Form</a></li>
-					<li><a href="/csjobs/pec/candidate/references?iteration=new" class="govuk-link govuk-link--no-visited-state" >References</a></li>			
-					<li><a href="/csjobs/pec/candidate/pension?iteration=" class="govuk-link govuk-link--no-visited-state" >Pension Questionnaire</a></li>
-					<li><a href="/csjobs/pec/candidate/overseas?iteration=" class="govuk-link govuk-link--no-visited-state" >Overseas</a></li>
-					<li><a href="/csjobs/pec/candidate/bankruptcy-details?iteration=" class="govuk-link govuk-link--no-visited-state" >Bankruptcy Details</a></li>
-					<li><a href="/csjobs/pec/candidate/health-declaration?iteration=" class="govuk-link govuk-link--no-visited-state" >Health Declaration</a></li>
-					
-					<li><a href="/csjobs/pec/candidate/self-employment?iteration=" class="govuk-link govuk-link--no-visited-state" >Self Employment</a></li>					
-					<li><a href="/csjobs/pec/candidate/previous-civil-service?iteration=" class="govuk-link govuk-link--no-visited-state" >Previous Civil Service Employment</a></li>
-					<li><a href="/csjobs/pec/candidate/national-security-vetting?iteration=" class="govuk-link govuk-link--no-visited-state" >National Security Vetting</a></li>
-					<li><a href="/csjobs/pec/candidate/identity-documents?iteration=" class="govuk-link govuk-link--no-visited-state" >Upload identity documents</a></li>
-					<li><a href="/csjobs/pec/candidate/dbs-personal-information?iteration=" class="govuk-link govuk-link--no-visited-state" >DBS - Personal Information</a></li>
-					<li><a href="/csjobs/pec/candidate/dbs-address-details?iteration=" class="govuk-link govuk-link--no-visited-state" >DBS - Address Details</a></li>
-					<li><a href="/csjobs/pec/candidate/digital-identity-check?iteration=" class="govuk-link govuk-link--no-visited-state" >Digital identity check</a></li>
-					<li><a href="/csjobs/pec/candidate/declaration?iteration=" class="govuk-link govuk-link--no-visited-state" >Declaration</a></li>
-			
-			
+		<ul class="govuk-list govuk-list--bullet">							
+			<li><a href="" class="govuk-link govuk-link--no-visited-state" >Job description*</a></li>	
+			<li><a href="" class="govuk-link govuk-link--no-visited-state" >Application guidance*</a></li>	
+			<li><a href="" class="govuk-link govuk-link--no-visited-state" >Eligibility*</a></li>	
+			<li><a href="" class="govuk-link govuk-link--no-visited-state" >Personal information*</a></li>	
+			<li><a href="" class="govuk-link govuk-link--no-visited-state" >Diversity monitoring*</a></li>	
+			<!-- <li><a href="/csjobs/pec/candidate/details?iteration=" class="govuk-link govuk-link--no-visited-state" >Declaration*</a></li>	 -->
+
+
+
+			<li><a href="/csjobs/pec/candidate/details?iteration=" class="govuk-link govuk-link--no-visited-state" >Your details</a></li>
+			<li><a href="/csjobs/pec/candidate/right-to-work?iteration=" class="govuk-link govuk-link--no-visited-state" >Right to work</a></li>
+			<li><a href="/csjobs/pec/candidate/employment-history?iteration=" class="govuk-link govuk-link--no-visited-state" >Employment History</a></li>
+			<li><a href="/csjobs/pec/candidate/transfer-of-staff?iteration=" class="govuk-link govuk-link--no-visited-state" >Transfer of Staff Form</a></li>
+			<li><a href="/csjobs/pec/candidate/references?iteration=new" class="govuk-link govuk-link--no-visited-state" >References</a></li>			
+			<li><a href="/csjobs/pec/candidate/pension?iteration=" class="govuk-link govuk-link--no-visited-state" >Pension Questionnaire</a></li>
+			<li><a href="/csjobs/pec/candidate/overseas?iteration=" class="govuk-link govuk-link--no-visited-state" >Overseas</a></li>
+			<li><a href="/csjobs/pec/candidate/bankruptcy-details?iteration=" class="govuk-link govuk-link--no-visited-state" >Bankruptcy Details</a></li>
+			<li><a href="/csjobs/pec/candidate/health-declaration?iteration=" class="govuk-link govuk-link--no-visited-state" >Health Declaration</a></li>			
+			<li><a href="/csjobs/pec/candidate/self-employment?iteration=" class="govuk-link govuk-link--no-visited-state" >Self Employment</a></li>					
+			<li><a href="/csjobs/pec/candidate/previous-civil-service?iteration=" class="govuk-link govuk-link--no-visited-state" >Previous Civil Service Employment</a></li>
+			<li><a href="/csjobs/pec/candidate/national-security-vetting?iteration=" class="govuk-link govuk-link--no-visited-state" >National Security Vetting</a></li>
+			<li><a href="/csjobs/pec/candidate/identity-documents?iteration=" class="govuk-link govuk-link--no-visited-state" >Upload identity documents</a></li>
+			<li><a href="/csjobs/pec/candidate/dbs-personal-information?iteration=" class="govuk-link govuk-link--no-visited-state" >DBS - Personal Information</a></li>
+			<li><a href="/csjobs/pec/candidate/dbs-address-details?iteration=" class="govuk-link govuk-link--no-visited-state" >DBS - Address Details</a></li>
+			<li><a href="/csjobs/pec/candidate/digital-identity-check?iteration=" class="govuk-link govuk-link--no-visited-state" >Digital identity check</a></li>
+			<li><a href="/csjobs/pec/candidate/declaration?iteration=" class="govuk-link govuk-link--no-visited-state" >Declaration</a></li>			
         </ul>
 
 		{% endset -%}

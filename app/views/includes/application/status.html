@@ -1,0 +1,11 @@
+{% if data['application-status'] == "provisional" %}
+	<h1 class="govuk-heading-m">Provisional offer</h1>	
+{% elif data['application-status'] == "help" %}
+	<h1 class="govuk-heading-m">Help with selection process</h1>
+{% elif data['application-status'] == "withdraw" %}
+	<h1 class="govuk-heading-m">Withdraw application</h1>	
+{% elif data['application-status'] == "unsuccessful" %}
+	<h1 class="govuk-heading-m">Application unsuccessful</h1>	
+{% elif data['application-status'] == "pre-employment" %}
+	<h1 class="govuk-heading-m">Pre-employment checks</h1>	
+{% endif %}
