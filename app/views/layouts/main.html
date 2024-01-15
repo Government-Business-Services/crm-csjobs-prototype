@@ -52,7 +52,7 @@
     {% if showNavLinks == true %}
     
     {% if data['account-status'] == "SignedIn" %}        
-    <p class="govuk-!-text-align-right govuk-!-margin-top-3 govuk-!-margin-bottom-0">User Name</p>       
+    <p class="govuk-!-text-align-right govuk-!-margin-top-3 govuk-!-margin-bottom-0">{{ data['userFirstName'] }} {{ data['userLastName'] }} </p>       
     <p class="govuk-!-text-align-right govuk-!-margin-bottom-0">        
         <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="/csjobs/search?notification=">Home</a>
         <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="/csjobs/account/applications/?notification=">Applications</a>

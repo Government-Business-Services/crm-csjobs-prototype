@@ -21,40 +21,49 @@
 		
     	<p class="govuk-body">You can change your details on this page, or  <a href="/csjobs/account/close?notification=">close your account</a>.</p>
 
-		
+		<form method="post" action="/csjobs/search?notification=accountUpdated">
 		{{ govukInput({
 			label: { text: "First name", classes: "govuk-label--m",isPageHeading: false },      					
 			classes: "govuk-!-width-one-half",
-			id: "userEmailAddress",
-			name: "userEmailAddress",
-			value: data['userEmailAddress']
+			id: "userFirstName",
+			name: "userFirstName",
+			value: data['userFirstName']
 		}) }}
 
 		{{ govukInput({
 			label: { text: "Last name", classes: "govuk-label--m",isPageHeading: false },      					
 			classes: "govuk-!-width-one-half",
-			id: "userPassword",
-			name: "userPassword",
-			value: data['userPassword']
+			id: "userLastName",
+			name: "userLastName",
+			value: data['userLastName']
 		}) }}		 
 
-		<p>You'll need this email address to sign in to your account</p>
+		{% call govukFieldset({
+			legend: {
+			  text: "Email address",
+			  classes: "govuk-fieldset__legend--m",
+			  isPageHeading: false
+			}
+		  }) %}
+
+		
 		{{ govukInput({
-			label: { text: "Email address", classes: "govuk-label--m",isPageHeading: false },      					
+			label: { text: "You'll need this email address to sign in to your account", classes: "govuk-label",isPageHeading: false },      					
 			classes: "govuk-!-width-one-half",
-			id: "userPassword",
-			name: "userPassword",
-			value: data['userPassword']
+			id: "userEmailAddress",
+			name: "userEmailAddress",
+			value: data['userEmailAddress']
 		}) }}		 
 
-		<p>Confirm your email address</p>
+		
 		{{ govukInput({
-			label: { text: "", classes: "govuk-label--m",isPageHeading: false },      					
+			label: { text: "Confirm your email address", classes: "govuk-label",isPageHeading: false },      					
 			classes: "govuk-!-width-one-half",
-			id: "userPassword",
-			name: "userPassword",
-			value: data['userPassword']
+			id: "userConfirmEmailAddress",
+			name: "userConfirmEmailAddress",
+			value: data['userConfirmEmailAddress']
 		}) }}	
+		{% endcall %}
 		
 		
 		
@@ -64,19 +73,52 @@
 			hint: {
 				text: "You must confirm your password to make changes to your account details"
 			},
-			id: "userPassword",
-			name: "userPassword",
-			value: data['userPassword']
+			id: "userConfirmPassword",
+			name: "userConfirmPassword",
+			value: data['userConfirmPassword']
 		}) }}	
 
 
-
-	 
-		{{ govukButton({
-			text: "Sign in"
+		{{ govukRadios({
+			classes: "govuk-radios--inline",
+			name: "userCivilServant",
+			fieldset: {
+			legend: { text: "Are you a civil servant or an employee of a public body?", isPageHeading: false, classes: "govuk-fieldset__legend--m govuk-!-font-weight-bold" } },
+			hint: {
+				text: "Some public bodies are accredited by the Civil Service Commission allowing their employees to view vacancies advertised to civil servants"
+			},
+			items: [
+				{ value: "Yes", text: "Yes" },
+				{ value: "No", text: "No" }			
+			]
 		  }) }}
 
-		  <p><a href="/csjobs/password/">Forgotten your password?</a></p>
+		  <p><a href="/csjobs/password/">Terms and conditions (opens in new tab)</a></p>
+
+		  {{ govukCheckboxes({
+			name: "userTermsConditions",        
+			fieldset: {
+				legend: {
+					text: "Agree terms and conditions",
+					isPageHeading: false,
+					classes: "govuk-visually-hidden"
+				}
+			},
+			items: [                
+				{ value: "I agree to terms and conditions", text: "I agree to terms and conditions", checked: checked("userTermsConditions") }				
+
+			]
+		}) }}	
+
+		
+	 
+		{{ govukButton({
+			text: "Save"
+		  }) }}
+
+		</form>		
+
+		  <p><a href="/csjobs/account/close?notification=">Close your account</a></p>
 		
 
 
