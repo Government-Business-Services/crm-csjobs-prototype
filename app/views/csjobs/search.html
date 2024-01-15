@@ -22,6 +22,8 @@
 						Account created
 					{% elif data['notification'] == "signedOut" %}
 						Signed out
+					{% elif data['notification'] == "closeAccount" %}
+						Account closed
 					{% else %}
 						Training outcome recorded and trainee withdrawn
 					{% endif %}    	
@@ -32,7 +34,8 @@
 						You may now use your account to register for job alerts and apply for jobs.
 					{% elif data['notification'] == "signedOut" %}
 						You have signed out of your account
-
+					{% elif data['notification'] == "closeAccount" %}
+						You have closed your account
 					{% else %}					
 						Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.
 					{% endif %}	

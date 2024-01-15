@@ -19,12 +19,26 @@
 
     	<h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 		
-    	
+    	<p class="govuk-body-l">If you close your account:</p>
+		<ul class="govuk-body-l govuk-list govuk-list--bullet">
+			<li>your applications will be withdrawn</li>
+			<li>you won't be able to access your application history</li>
+			<li>you won't receive job alert emails</li>
+			<li>you won't be able to re-access your account</li>
+		</ul>
+		<p class="govuk-body-l">The process for withdrawing your application may take a few days</p>
 
-		
 
-		
+		<form method="post" action="/csjobs/search?notification=closeAccount&account-status=" >		 
+			
+			<div class="govuk-button-group">
+			{{ govukButton({
+				text: "Close account"
+			  }) }}			  
+			</div> 
+		</form>
 
+		<p><a href="#">Cancel closing account</a></p>
 
   	</div>  
 </div>
