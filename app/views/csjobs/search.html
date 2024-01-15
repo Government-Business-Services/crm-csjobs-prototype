@@ -13,21 +13,26 @@
 	<div class="govuk-grid-column-full">
 
 
-		{% if data['notifcation'] != "" %}
+		{% if data['notification'] != "" %}
 
 			{% set html %}
   				<h3 class="govuk-notification-banner__heading">
     				
-					{% if data['notifcation'] == "accountCreated" %}
+					{% if data['notification'] == "accountCreated" %}
 						Account created
+					{% elif data['notification'] == "signedOut" %}
+						Signed out
 					{% else %}
 						Training outcome recorded and trainee withdrawn
 					{% endif %}    	
   				</h3>
   				
 				<p class="govuk-body">
-					{% if data['notifcation'] == "accountCreated" %}
+					{% if data['notification'] == "accountCreated" %}
 						You may now use your account to register for job alerts and apply for jobs.
+					{% elif data['notification'] == "signedOut" %}
+						You have signed out of your account
+
 					{% else %}					
 						Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.
 					{% endif %}	
