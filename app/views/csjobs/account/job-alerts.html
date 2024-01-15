@@ -15,6 +15,74 @@
 
     <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
 
+
+	{% if data['notification'] != "" %}
+
+	{% set html %}
+		  <h3 class="govuk-notification-banner__heading">
+			
+			
+			
+			{% if data['notification'] == "accountCreated" %}
+				Account created
+			{% elif data['notification'] == "signedOut" %}
+				Signed out
+			{% elif data['notification'] == "closeAccount" %}
+				Account closed
+			{% elif data['notification'] == "accountUpdated" %}
+				Update successful						
+			{% elif data['notification'] == "needAccount" %}
+
+			{% elif data['notification'] == "alertCreated" %}
+				Alert Created						
+			{% elif data['notification'] == "alertDeleted" %}
+				Alert Deleted				
+			{% else %}
+				Training outcome recorded and trainee withdrawn
+			{% endif %}    	
+		  </h3>
+		  
+		<p class="govuk-body">
+			{% if data['notification'] == "accountCreated" %}
+				You may now use your account to register for job alerts and apply for jobs.
+			{% elif data['notification'] == "signedOut" %}
+				You have signed out of your account
+			{% elif data['notification'] == "closeAccount" %}
+				You have closed your account
+			{% elif data['notification'] == "accountUpdated" %}
+
+			{% elif data['notification'] == "alertCreated" %}
+				You created a new job alert and will start receiving emails with jobs matching your alert criteria.
+				<br><br>Alert reference: 2653541
+				<br><br><a class="govuk-link" href="#">See alert details</a>
+
+			{% elif data['notification'] == "alertDeleted" %}
+				You’ve deleted your job alert.
+				<br><br>You will stop receiving emails related to this alert
+				<br><br>Alert reference: 2653541	
+
+			{% elif data['notification'] == "needAccount" %}
+				Your registration is complete. You may continue with your application by clicking the link below.
+				<br><br><a href="#">Click here to continue with your application</a>
+			{% else %}					
+				Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.
+			{% endif %}	
+		</p>
+	{% endset %}
+
+	{{ govukNotificationBanner({
+		  html: html,
+		  type: "success"
+	}) }}
+
+
+
+{% endif %}
+
+
+
+
+
 	{% if data['alert-status'] == "created" %}
 		{% set html %}
 			<h3 class="govuk-notification-banner__heading">You have created a new job alert</h3>
@@ -51,6 +119,30 @@
 	  	}) }}
 	</form>
 
+
+	{% if data['alertOne'] == "Yes"  %}
+		<p><a href="#" class="govuk-link">Pause your alerts</a></p>
+	{% endif %}
+
+
+	{% if data['alertOne'] == "Yes"  %}
+
+		<h2 class="govuk-heading-m govuk-!-margin-bottom-7">Your job alerts</h2>
+
+		<h2 class="govuk-heading-m">Alert reference 2653541</h2>
+		<p>Send alert: {{ data['alertFrequency'] }}</p>
+		<p>Keywords: {{ data['alertKeyword'] }} </p>
+		<p>Overseas Jobs: {{ data['alertOverseas'] }}</p>
+
+		{{ govukButton({
+			text: "Search using my criteria"			
+		  }) }}
+
+		  
+		  <p><a href="/csjobs/account/job-alerts/add" class="govuk-link">Edit this alert</a></p>
+		  <p><a href="/csjobs/account/job-alerts/deleted" class="govuk-link">Delete this alert</a></p>
+
+	{% endif %}
 
 
 

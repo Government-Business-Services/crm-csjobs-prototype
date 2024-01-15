@@ -78,9 +78,9 @@
 				{{ govukInput({
 					label: { text: "Enter job title, skill or keywords", classes: "govuk-label",isPageHeading: false },      
 					
-					id: "pecRefOneNameAlt",
-					name: "pecRefOneNameAlt",
-					value: data['pecRefOneNameAlt']
+					id: "searchKeyword",
+					name: "searchKeyword",
+					value: data['searchKeyword']
 				}) }}
 
 			</div>
@@ -89,9 +89,9 @@
 				<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Where</h2>
 				{{ govukInput({
 					label: { text: "Enter a postcode, town or region", classes: "govuk-label",isPageHeading: false },      					
-					id: "pecRefOneNameAlt",
-					name: "pecRefOneNameAlt",
-					value: data['pecRefOneNameAlt']
+					id: "searchWhere",
+					name: "searchWhere",
+					value: data['searchWhere']
 				}) }}
 
 			</div>
@@ -107,14 +107,14 @@
 
 				</form>
 			
-			  <p class="govuk-!-text-align-right"><a href="govuk-link ">Advanced search</a></p>
+			  <p class="govuk-!-text-align-right"><a href="/csjobs/search/results">Advanced search</a></p>
 
 			</div>
 
 		</div>
 		
 
-		<p class="govuk-body govuk-!-margin-top-7  "><a href="#">Discover careers within the Civil Service</a></p>
+		<p class="govuk-body govuk-!-margin-top-7  "><a href="https://www.civil-service-careers.gov.uk/" target="_blank">Discover careers within the Civil Service</a></p>
 		
 
 		

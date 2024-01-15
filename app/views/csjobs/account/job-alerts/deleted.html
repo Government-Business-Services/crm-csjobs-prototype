@@ -4,7 +4,7 @@
 {% set showNavLinks = true %}
 
 
-{% set pageHeading = "Delete job alert" %}
+{% set pageHeading = "Delete job alert 2653541" %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -15,13 +15,33 @@
 	
 	<div class="govuk-grid-column-full">
 
-    <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
+    
 
     	<h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-		<p class="govuk-body">You can create <a href="#">email alerts</a> for jobs that may interest you.</p>
+		<p class="govuk-body">Would you like to delete the following alert?</p>
     	
 
-		
+		{% if data['alertOne'] == "Yes"  %}
+
+		<h2 class="govuk-heading-m">Alert reference 2653541</h2>
+		<p>Send alert: {{ data['alertFrequency'] }}</p>
+		<p>Keywords: {{ data['alertKeyword'] }} </p>
+		<p>Overseas Jobs: {{ data['alertOverseas'] }}</p>
+
+		<form method="post" action="/csjobs/account/job-alerts?notification=alertDeleted" >
+
+			<input type="hidden" id="alertOne" name="alertOne" value="" />
+			
+			{{ govukButton({
+				text: "Confirm alert delete"			
+		  	}) }}
+
+		</form>
+
+
+		  <p><a href="#">Cancel confirm alert delete</a></p>
+		  
+		{% endif %}
 
 		
 
