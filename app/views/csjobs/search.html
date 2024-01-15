@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% set showBackLink = false %}
-{% set showNavLinksExtra = true %}
+{% set showNavLinks = true %}
 
 {% set pageHeading = "Civil Service job search" %}
 {% set pageSection = "" %}
@@ -12,9 +12,42 @@
 <div class="govuk-grid-row">	
 	<div class="govuk-grid-column-full">
 
-		{% if data['account-status'] == "created" %}
-			<h1 class="govuk-heading-m">Account created</h1>
-		{% endif %}    	
+
+		{% if data['notifcation'] != "" %}
+
+			{% set html %}
+  				<h3 class="govuk-notification-banner__heading">
+    				
+					{% if data['notifcation'] == "accountCreated" %}
+						Account created
+					{% else %}
+						Training outcome recorded and trainee withdrawn
+					{% endif %}    	
+  				</h3>
+  				
+				<p class="govuk-body">
+					{% if data['notifcation'] == "accountCreated" %}
+						You may now use your account to register for job alerts and apply for jobs.
+					{% else %}					
+						Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.
+					{% endif %}	
+				</p>
+			{% endset %}
+
+			{{ govukNotificationBanner({
+  				html: html,
+  				type: "success"
+			}) }}
+
+
+
+		{% endif %}
+
+		
+
+
+
+		
 
     	<h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
 		<p class="govuk-body-l hint ">Find jobs in the Civil Service and central government organisations</p>
