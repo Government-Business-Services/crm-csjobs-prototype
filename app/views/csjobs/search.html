@@ -24,6 +24,8 @@
 						Signed out
 					{% elif data['notification'] == "closeAccount" %}
 						Account closed
+					{% elif data['notification'] == "accountUpdated" %}
+						Update successful						
 					{% else %}
 						Training outcome recorded and trainee withdrawn
 					{% endif %}    	
@@ -36,6 +38,8 @@
 						You have signed out of your account
 					{% elif data['notification'] == "closeAccount" %}
 						You have closed your account
+					{% elif data['notification'] == "accountUpdated" %}
+					
 					{% else %}					
 						Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.
 					{% endif %}	
