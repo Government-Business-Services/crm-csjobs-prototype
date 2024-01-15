@@ -1,0 +1,393 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showNavLinks = true %}
+
+{% set pageHeading = "pecReference Request" %}
+{% set pageSection = "" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">    
+        {% include "includes/nav.html" %}
+    </div>
+    
+    <div class="govuk-grid-column-two-thirds">    
+    
+        <h1 class="govuk-heading-l govuk-!-padding-top-4">Verifying your history</h1>
+        <p class="govuk-body">We need the details of 3 referees who can confirm the information you’ve given us and what you have been doing during the last 3 years.</p>
+        <p class="govuk-body">You should ask for their consent before supplying their details.</p>
+        <!-- <p class="govuk-body">As part of the recruitment process, you are required to provide 3 referees.</p>         -->
+        <!-- <p class="govuk-body">We may contact these referees to ask them to give us a reference about you.</p>     -->
+        <!-- <p class="govuk-body">You should ask your referees for their consent before supplying their name and email address to us.</p> -->
+        
+        
+        <div class="govuk-inset-text">
+            
+            
+
+            <p class="govuk-body">Any employer or academic referee must be from within the last 3 years.</p>
+            
+            <p class="govuk-body">Any other referee must have known you for more than 3 years.</p>
+            <p class="govuk-body">All referees must not be:</p>
+            <ul class="govuk-list govuk-list--bullet">                          
+                <li>related to you by birth or marriage</li>                
+                <li>in a relationship with or live at the same address as you</li>
+            </ul>
+            
+
+            
+<!--             
+            <p class="govuk-body">An employer or academic referee must:</p>
+            <ul class="govuk-list govuk-list--bullet">          
+                <li>be from within the last 3 years</li>      
+                <li>not be related to you by birth or marriage</li>                
+                <li>not be in a relationship with or live at the same address as you</li>
+            </ul>
+
+            <p class="govuk-body">Any other referee must:</p>
+            <ul class="govuk-list govuk-list--bullet">          
+                <li>have known you for more than 3 years</li>      
+                <li>not be related to you by birth or marriage</li>
+                <li>not be in a relationship with or live at the same address as you</li>
+                 
+                
+            </ul> -->
+        </div>       
+        
+        
+
+
+        <form method="post" action="/csjobs/pec/candidate/bankruptcy-details?navpage=ban" >
+        <h2 class="govuk-heading-m">First referee</h2>                    
+        
+        <!-- First Referee Question -->
+        <!-- Conditionals -->
+        {% set academicHtml %}
+        {{ govukRadios({
+            name: "pecRefOneRelationship",        
+            fieldset: {
+                legend: {
+                    text: "What is this referee’s relationship to you?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend"
+                }
+            },
+            items: [
+                { value: "Employer", text: "Employer", checked: checked, checked: checked("pecRefOneRelationship", "Employer") },          
+                { value: "Academic", text: "Academic", checked: checked, checked: checked("pecRefOneRelationship", "Academic") }          
+            ]
+        }) }}        
+
+        {{ govukInput({
+            label: { text: "Full name", classes: "govuk-label",isPageHeading: false },      
+            classes: "govuk-!-width-two-thirds",
+            id: "pecRefOneName",
+            name: "pecRefOneName",
+            value: data['pecRefOneName']
+        }) }}
+
+        {{ govukInput({
+            label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
+            classes: "govuk-!-width-two-thirds",    
+            hint: {
+                text: "We’ll only use this to ask them to confirm your information."
+            },    
+            id: "pecRefOneEmail",
+            name: "pecRefOneEmail",
+            value: data['pecRefOneEmail']
+        }) }}
+
+            {% if data['showPhone'] == "Yes" %}
+                {{ govukInput({
+                    label: { text: "Telephone number", classes: "govuk-label",isPageHeading: false },      
+                    classes: "govuk-!-width-one-half",
+                    hint: {
+                        html: "This must be a UK landline or mobile. <br>For example, +44 020 7450 4000 or 07771 900 900"
+                    },
+                    id: "pecRefOnePhone",
+                    name: "pecRefOnePhone",
+                    value: data['pecRefOnePhone']
+                }) }}
+            {% endif %}
+        {% endset -%}
+
+        {% set nonAcademicHtml %}
+
+            {% set otherOneHtml %}                
+            {{ govukInput({
+                id: "pecRefOneRelationshipOther",
+                name: "pecRefOneRelationshipOther",                
+                value: data['pecRefOneRelationshipOther'],                                
+                classes: "govuk-!-width-two-thirds",
+                label: {
+                    text: "Other relationship to referee",
+                    classes: "govuk-visually-hidden"
+                },
+                hint: {
+                    text: "For example, a doctor, pastor, friend or someone you worked with."
+                }
+
+            }) }}            
+            {% endset -%}
+            <!-- First referee relationship -->
+
+            {{ govukInput({
+                id: "pecRefOneRelationshipOther",
+                name: "pecRefOneRelationshipOther",                
+                value: data['pecRefOneRelationshipOther'],                                
+                classes: "govuk-!-width-two-thirds",
+                label: {
+                    text: "What is this referee’s relationship to you?",
+                    classes: "govuk-label"
+                },
+                hint: {
+                    text: "For example, a doctor, pastor, friend or someone you worked with."
+                }
+
+            }) }}   
+
+            <!-- {{ govukRadios({
+                name: "pecRefOneRelationship",        
+                fieldset: {
+                    legend: {
+                        text: "Please provide a referee who is one of the following",
+                        isPageHeading: false,
+                        classes: "govuk-fieldset__legend"
+                    }
+                },
+                items: [
+                    { value: "Friend", text: "Friend", checked: checked("pecRefOneRelationship", "Friend") },          
+                    { value: "Someone you worked with", text: "Someone you worked with", checked: checked("pecRefOneRelationship", "Someone you worked with") },
+                    { value: "Other manager", text: "Other", conditional: { html: otherOneHtml}, checked: checked("pecRefOneRelationship", "Other manager") } 
+                ]
+            }) }} -->
+            <!-- First referee name -->
+            {{ govukInput({
+                label: { text: "Full name", classes: "govuk-label",isPageHeading: false },      
+                classes: "govuk-!-width-two-thirds",
+                id: "pecRefOneNameAlt",
+                name: "pecRefOneNameAlt",
+                value: data['pecRefOneNameAlt']
+            }) }}
+            <!-- First referee email -->
+            {{ govukInput({
+                label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
+                classes: "govuk-!-width-two-thirds",
+                hint: {
+                    text: "We’ll only use this to ask them to confirm your information."
+                },
+                id: "pecRefOneEmailAlt",
+                name: "pecRefOneEmailAlt",
+                value: data['pecRefOneEmailAlt']
+            }) }}
+            <!-- First referee phone -->
+            {% if data['showPhone'] == "Yes" %}
+                {{ govukInput({
+                    label: { text: "Telephone number", classes: "govuk-label",isPageHeading: false },      
+                    classes: "govuk-!-width-one-half",
+                    hint: {
+                        html: "This must be a UK landline or mobile. <br>For example, +44 020 7450 4000 or 07771 900 900"
+                    },                    
+                    id: "pecRefOnePhone",
+                    name: "pecRefOnePhone",
+                    value: data['pecRefOnePhone']
+                }) }}
+            {% endif %}
+
+        {% endset -%}
+        <!-- // End of conditionals -->
+        
+        <!-- First referee provide Employer or Academic -->
+        {{ govukRadios({
+            name: "pecRefOneProvide",        
+            fieldset: {
+                legend: {
+                    text: "Can you provide an employer or academic contact from within the last 3 years?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend"
+                }
+            },
+            hint: {
+                text: "If you were self-employed, unemployed or out of work for another reason for the last 3 years, select No and provide an alternative referee."
+            },
+            items: [
+                { value: "Yes", text: "Yes", conditional: { html: academicHtml }, checked: checked("pecRefOneProvide", "Yes") },
+                { value: "No", text: "No", conditional: { html: nonAcademicHtml }, checked: checked("pecRefOneProvide", "No") }         
+            ]
+        }) }}
+        <!-- // End of referee one -->
+
+        <!-- Second Referee -->                        
+        <h2 class="govuk-heading-m govuk-!-margin-top-7">Second referee</h2>
+
+        <!-- Conditionals -->
+        {% set otherTwoHtml %}            
+            {{ govukInput({
+                id: "pecRefTwoRelationshipOther",
+                name: "pecRefTwoRelationshipOther",
+                type: "text",                                
+                value: data['pecRefTwoRelationshipOther'],
+                classes: "govuk-!-width-two-thirds",
+                label: {
+                    text: "What is their relationship to you?",
+                    classes: "govuk-label"
+                }    
+            }) }}        
+        {% endset -%}
+        <!-- Second referee relationship -->
+        {{ govukRadios({
+            name: "pecRefTwoRelationship",        
+            fieldset: {
+                legend: {
+                    text: "What is your relationship to this referee?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend"
+                }
+            },
+            items: [                                    
+                { value: "Employer", text: "Employer", checked: checked("pecRefTwoRelationship", "Employer") },    
+                { value: "Academic", text: "Academic", checked: checked("pecRefTwoRelationship", "Academic") },                
+                    { value: "Other", text: "Other (such as a doctor, pastor, friend or someone you worked with)" , conditional: { html: otherTwoHtml }, checked: checked("pecRefTwoRelationship", "Other") }
+            ]
+        }) }}        
+        <!-- Second referee name -->
+        {{ govukInput({
+            label: { text: "Full name", classes: "govuk-label",isPageHeading: false },      
+            classes: "govuk-!-width-two-thirds",
+            id: "pecRefTwoName",
+            name: "pecRefTwoName",
+            value: data['pecRefTwoName']
+        }) }}
+        <!-- Second referee email -->
+        {{ govukInput({
+            label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
+            classes: "govuk-!-width-two-thirds", 
+            hint: {
+                text: "We’ll only use this to ask them to confirm your information."
+            },           
+            id: "pecRefTwoEmail",
+            name: "pecRefTwoEmail",
+            value: data['pecRefTwoEmail']
+        }) }}
+        <!-- Second referee phone -->
+        {% if data['showPhone'] == "Yes" %}
+        {{ govukInput({
+            label: { text: "Telephone number", classes: "govuk-label",isPageHeading: false },      
+            classes: "govuk-!-width-one-half",
+            hint: {
+                html: "This must be a UK landline or mobile. <br>For example, +44 020 7450 4000 or 07771 900 900"
+            },        
+            id: "pecRefTwoPhone",
+            name: "pecRefTwoPhone",
+            value: data['pecRefTwoPhone']
+        }) }}
+        {% endif %}
+            
+        <!-- // End of Referee Two -->
+        <!-- ///////////////////////////////////////////////// -->
+       
+
+        
+        <!-- Third referee question -->
+        <h2 class="govuk-heading-m govuk-!-margin-top-7">Third referee</h2>
+        <!-- <div class="govuk-inset-text">
+            <p class="govuk-body">To avoid a delay in your application we require a third referee who can be used if we are not able to reach the other two referees.</p>
+        </div> -->
+
+        <!-- Conditionals -->
+        {% set otherHtml %}            
+        {{ govukInput({
+            id: "pecRefThreeRelationshipOther",
+            name: "pecRefThreeRelationshipOther",
+            type: "text",
+            value: data['pecRefThreeRelationshipOther'],                        
+            classes: "govuk-!-width-two-thirds",
+            label: {
+                text: "What is their relationship to you?",
+                classes: "govuk-label"
+            }            
+        }) }}
+        {% endset -%}
+        <!-- // End of conditionals -->
+
+        <!-- Third referee relationship -->
+        {{ govukRadios({
+            name: "pecRefThreeRelationship",        
+            fieldset: {
+                legend: {
+                    text: "What is your relationship to this referee?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend"
+                }
+            },
+            items: [                
+                { value: "Employer", text: "Employer", checked: checked("pecRefThreeRelationship", "Employer") },
+                { value: "Academic", text: "Academic", checked: checked("pecRefThreeRelationship", "Academic") },                    
+                { value: "Other", text: "Other (such as a doctor, pastor, friend or someone you worked with)", conditional: { html: otherHtml }, checked: checked("pecRefThreeRelationship", "Other") }
+            ]
+        }) }}
+        <!-- Third referee name -->
+        {{ govukInput({
+            label: { text: "Full name", classes: "govuk-label",isPageHeading: false },      
+            classes: "govuk-!-width-two-thirds",
+            id: "pecRefThreeName",
+            name: "pecRefThreeName",
+            value: data['pecRefThreeName']
+        }) }}
+        <!-- Third referee email -->
+        {{ govukInput({
+            label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      
+            classes: "govuk-!-width-two-thirds",  
+            hint: {
+                text: "We’ll only use this to ask them to confirm your information."
+            },          
+            id: "pecRefThreeEmail",
+            name: "pecRefThreeEmail",
+            value: data['pecRefThreeEmail']
+        }) }}
+        <!-- Third referee phone -->
+        {% if data['showPhone'] == "Yes" %}
+        {{ govukInput({
+            label: { text: "Telephone number", classes: "govuk-label",isPageHeading: false },
+            classes: "govuk-!-width-one-half",
+            hint: {
+                html: "This must be a UK landline or mobile. <br>For example, +44 020 7450 4000 or 07771 900 900"
+            },
+            id: "pecRefThreePhone",
+            name: "pecRefThreePhone",
+            value: data['pecRefThreePhone']
+        }) }}
+        {% endif %}
+
+        <div class="govuk-inset-text govuk-!-margin-top-9">
+            <h2 class="govuk-heading-m">Before you continue</h2>
+            <p class="govuk-body">By providing the details for these referees you are confirming that they are not a member of your family, or related to you in any way. This includes being in a relationship with or living at the same address as you.</p>
+            <p class="govuk-body">We will only contact your referees if we need to. We are asking for their details in advance to avoid any delays in your pre-employment checks.</p>
+            <p class="govuk-body">We will ask them to provide information for the name that you have applied under.</p>
+        </div>
+
+
+        <div class="govuk-button-group">
+            
+            {{ govukButton({
+                text: "Back",
+                href: "/csjobs/pec/candidate/employment-history?navpage=eh",
+                classes: "govuk-button--secondary"
+            }) }}       
+            {{ govukButton({
+                text: "Confirm and continue",
+                classes: "govuk-!-margin-top-5"                  
+            }) }}
+        
+        </div>
+      
+    
+  
+</div>
+</div>
+
+{% endblock %}
+
+

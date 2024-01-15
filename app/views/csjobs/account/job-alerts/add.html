@@ -1,0 +1,130 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showNavLinksExtra = true %}
+
+
+{% set pageHeading = "Create a job alert" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+	
+	<div class="govuk-grid-column-two-thirds">
+
+    <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
+
+    	<h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+
+		<p>We'll send you an email alert when we find a job that matches your selections</p>
+		<!-- <p class="govuk-body">You can create <a href="#">email alerts</a> for jobs that may interest you.</p> -->
+
+
+		<form method="post" action="/csjobs/search/results" >
+
+		
+
+		{{ govukSelect({
+
+			id: "sort",
+  			name: "sort",
+  			label: {
+    			text: "How often"
+  			},
+  			items: [
+			  	{ value: "updated", text: "Choose when to receive ", selected: true },	
+				{ value: "published", text: "Recently published" },    			
+    			{ value: "views", text: "Most views" },
+    			{ value: "comments", text: "Most comments" }
+  			]			
+		}) }}
+
+		{{ govukInput({
+			label: { text: "What",  classes: "govuk-label--m", isPageHeading: false },      
+			classes: "govuk-!-width-two-thirds",
+			hint: {
+				text: "Enter job title, skill or keywords"
+			},
+			id: "jobAlertKeyword",
+			name: "jobAlertKeyword",
+			value: data['jobAlertKeyword']
+		}) }}
+
+		{{ govukInput({
+			label: { text: "Where",  classes: "govuk-label--m", isPageHeading: false },      
+			classes: "govuk-!-width-two-thirds",
+			hint: {
+				text: "Enter a postcode, town or region"
+			},
+			id: "jobAlertKeyword",
+			name: "jobAlertKeyword",
+			value: data['jobAlertKeyword']
+		}) }}
+
+
+
+
+		{{ govukSelect({
+			label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+			classes: "govuk-!-width-two-thirds",
+			id: "mrrVhName",
+			name: "mrrVhName",
+			value: data['mrrVhName'],
+			items: [
+			  	{ value: "updated", text: "Choose when to receive ", selected: true },	
+				{ value: "published", text: "Recently published" },    			
+    			{ value: "views", text: "Most views" },
+    			{ value: "comments", text: "Most comments" }
+  			]
+		}) }}
+
+
+		{{ govukSelect({
+			label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+			classes: "govuk-!-width-two-thirds",
+			id: "mrrVhName",
+			name: "mrrVhName",
+			value: data['mrrVhName'],
+			items: [
+			  	{ value: "updated", text: "Choose when to receive ", selected: true },	
+				{ value: "published", text: "Recently published" },    			
+    			{ value: "views", text: "Most views" },
+    			{ value: "comments", text: "Most comments" }
+  			]
+		}) }}
+
+
+		{{ govukSelect({
+			label: { text: "Your full name", classes: "govuk-visually-hidden", isPageHeading: false },      
+			classes: "govuk-!-width-two-thirds",
+			id: "mrrVhName",
+			name: "mrrVhName",
+			value: data['mrrVhName'],
+			items: [
+			  	{ value: "updated", text: "Choose when to receive ", selected: true },	
+				{ value: "published", text: "Recently published" },    			
+    			{ value: "views", text: "Most views" },
+    			{ value: "comments", text: "Most comments" }
+  			]
+		}) }}
+    	
+
+		{{ govukButton({
+			text: "Create alert"			
+		  }) }}
+	
+
+	</form>
+
+
+		
+
+
+  	</div>  
+</div>
+
+{% endblock %}

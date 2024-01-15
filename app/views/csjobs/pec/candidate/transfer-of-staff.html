@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showNavLinks = true %}
+
+{% set pageHeading = "Transfer of Staff Form" %}
+{% set pageSection = "" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">    
+      {% include "includes/nav.html" %}
+    </div>
+    
+    <div class="govuk-grid-column-two-thirds">    
+    
+    {% if data['iteration'] == "new" %}
+
+        <h1 class="govuk-heading-l">Your details</h1>
+        </div>
+      
+    <!-- ////////////// END OF NEW ////////////////// -->
+    {% else %}
+
+    <h1 class="govuk-heading-l govuk-!-padding-top-4">Transfer of Staff Form</h1>
+
+    
+        <form method="post" action="/csjobs/pec/candidate/references" >
+      
+      
+          <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Back",
+          href: "employment-history"
+        }) }}
+      
+        {{ govukButton({
+          text: "Continue"
+                  
+        }) }}
+      </div>
+
+
+      
+    
+    </form>
+
+    {% endif %}
+  
+</div>
+</div>
+
+{% endblock %}
+
+

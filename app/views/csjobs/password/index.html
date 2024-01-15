@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showNavLinksExtra = true %}
+
+
+{% set pageHeading = "Password reset" %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+	
+	<div class="govuk-grid-column-full">
+
+    <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
+
+    	<h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
+		<!-- <p class="govuk-body-l hint ">Find jobs in the Civil Service and central government organisations</p>
+    	
+
+		<div class="govuk-grid-row grey">
+			<div class="govuk-grid-column-one-third govuk-!-padding-top-5">
+
+				<h2 class="govuk-heading-m govuk-!-margin-bottom-1">What</h2>
+				{{ govukInput({
+					label: { text: "Enter job title, skill or keywords", classes: "govuk-label",isPageHeading: false },      
+					
+					id: "pecRefOneNameAlt",
+					name: "pecRefOneNameAlt",
+					value: data['pecRefOneNameAlt']
+				}) }}
+
+			</div>
+			<div class="govuk-grid-column-one-third govuk-!-padding-top-5">
+
+				<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Where</h2>
+				{{ govukInput({
+					label: { text: "Enter a postcode, town or region", classes: "govuk-label",isPageHeading: false },      					
+					id: "pecRefOneNameAlt",
+					name: "pecRefOneNameAlt",
+					value: data['pecRefOneNameAlt']
+				}) }}
+
+			</div>
+			<div class="govuk-grid-column-one-quarter">
+
+				<button class="govuk-button override-button" data-module="govuk-button">
+					Search
+				  </button>
+
+			  <p class="govuk-!-text-align-right"><a href="govuk-link ">Advanced search</a></p>
+
+			</div>
+
+		</div>
+		
+
+		<p class="govuk-body govuk-!-margin-top-7  "><a href="#">Discover careers within the Civil Service</a></p>
+		 -->
+
+		
+
+
+  	</div>  
+</div>
+
+{% endblock %}

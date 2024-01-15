@@ -1,0 +1,234 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showNavLinks = true %}
+
+{% set pageHeading = "Bankruptcy Details" %}
+{% set pageSection = "" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">    
+      {% include "includes/nav.html" %}
+    </div>
+    
+    <div class="govuk-grid-column-two-thirds">    
+    
+    {% if data['iteration'] == "new" %}
+
+	<h1 class="govuk-heading-l govuk-!-padding-top-4">Bankruptcy Details</h1>
+
+	<form method="post" action="/csjobs/pec/candidate/health-declaration" >
+		
+		{% set undischargedHtml %}
+			{{ govukTextarea({
+				id: "canBankruptcyUndischargedDetails",
+				name: "canBankruptcyUndischargedDetails",
+				type: "text",  
+				classes: "govuk-!-width-full",
+				label: { text: "Provide details about your bankruptcy status." }
+			}) }}
+		{% endset -%}
+
+		{% set insolventHtml %}
+		{{ govukTextarea({
+			id: "canBankruptcyInsolventDetails",
+			name: "canBankruptcyInsolventDetails",
+			type: "text",  
+			classes: "govuk-!-width-full",
+			label: { text: "Provide details about your insolvency status." }
+		}) }}
+		{% endset -%}
+
+		{% set orderHtml %}
+			{{ govukTextarea({
+				id: "canBankruptcyOrderDetails",
+				name: "canBankruptcyOrderDetails",
+				type: "text",  
+				classes: "govuk-!-width-full",
+				label: { text: "Provide details about the receiving order in effect on your property." }
+			}) }}
+		{% endset -%}
+
+		{% set penaltyHtml %}
+		{{ govukTextarea({
+			id: "canBankruptcyPenaltyDetails",
+			name: "canBankruptcyPenaltyDetails",
+			type: "text",  
+			classes: "govuk-!-width-full",
+			label: { text: "Provide details on any penalties imposed in relation to late filing on your tax affairs within the last 5 years." }
+		}) }}
+		{% endset -%}
+
+
+		{{ govukRadios({
+			name: "canBankruptcyUndischarged",
+			fieldset: {
+			legend: { text: "Are you an undischarged bankrupt?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			items: [
+				{ value: "Yes", text: "Yes", conditional: {html: undischargedHtml}, checked: checked("canBankruptcyUndischarged", "Yes") },
+				{ value: "No", text: "No", checked: checked("canBankruptcyUndischarged", "No") }			
+			]
+		}) }}
+
+		{{ govukRadios({
+			name: "canBankruptcyInsolvent",
+			fieldset: {
+			legend: { text: "Are you insolvent?", isPageHeading: false, classes: "govuk-fieldset__legend " } },
+			items: [
+				{ value: "Yes", text: "Yes", conditional: {html: insolventHtml} },
+				{ value: "No", text: "No" }			
+			]
+		}) }}
+
+		{{ govukRadios({
+			name: "canBankruptcyOrder",
+			fieldset: {
+			legend: { text: "Is a receiving order in effect on your property?", isPageHeading: false, classes: "govuk-fieldset__legend " } },
+			items: [
+				{ value: "Yes", text: "Yes", conditional: {html: orderHtml} },
+				{ value: "No", text: "No" }			
+			]
+		}) }}
+
+		{{ govukRadios({
+			name: "canBankruptcyPenalty",
+			fieldset: {
+			legend: { text: "Have you been subject to a penalty imposed in relation to late filing on your tax affairs within the last 5 years?", isPageHeading: false, classes: "govuk-fieldset__legend " } },
+			items: [
+				{ value: "Yes", text: "Yes", conditional: {html: penaltyHtml} },
+				{ value: "No", text: "No" }			
+			]
+		}) }}
+
+
+
+		<div class="govuk-button-group">			
+			{{ govukButton({
+			text: "Save and continue"
+					
+			}) }}
+		</div>
+
+        </div>
+      
+    <!-- ////////////// END OF NEW ////////////////// -->
+    {% else %}
+
+    <h1 class="govuk-heading-l govuk-!-padding-top-4">Bankruptcy Details</h1>
+
+	<form method="post" action="/csjobs/pec/candidate/health-declaration?navpage=hlt" >
+
+		{% set undischargedHtml %}
+			{{ govukTextarea({
+				id: "canBankruptcyUndischargedDetails",
+				name: "canBankruptcyUndischargedDetails",
+				type: "text",  
+				classes: "govuk-!-width-full",
+				label: { text: "Provide details about your bankruptcy status." },
+				value: data['canBankruptcyUndischargedDetails']
+			}) }}
+		{% endset -%}
+
+		{% set insolventHtml %}
+		{{ govukTextarea({
+			id: "canBankruptcyInsolventDetails",
+			name: "canBankruptcyInsolventDetails",
+			type: "text",  
+			classes: "govuk-!-width-full",
+			label: { text: "Provide details about your insolvency status." },
+			value: data['canBankruptcyInsolventDetails']
+		}) }}
+		{% endset -%}
+
+		{% set orderHtml %}
+			{{ govukTextarea({
+				id: "canBankruptcyOrderDetails",
+				name: "canBankruptcyOrderDetails",
+				type: "text",  
+				classes: "govuk-!-width-full",
+				label: { text: "Provide details about the receiving order in effect on your property." },
+				value: data['canBankruptcyOrderDetails']
+			}) }}
+		{% endset -%}
+
+		{% set penaltyHtml %}
+		{{ govukTextarea({
+			id: "canBankruptcyPenaltyDetails",
+			name: "canBankruptcyPenaltyDetails",
+			type: "text",  
+			classes: "govuk-!-width-full",
+			label: { text: "Provide details on any penalties imposed in relation to late filing on your tax affairs within the last 5 years." },
+			value: data['canBankruptcyPenaltyDetails']
+		}) }}
+		{% endset -%}
+
+
+		{{ govukRadios({
+			name: "canBankruptcyUndischarged",
+			fieldset: {
+			legend: { text: "Are you an undischarged bankrupt?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+			items: [
+				{ value: "Yes", text: "Yes", conditional: {html: undischargedHtml}, checked: checked("canBankruptcyUndischarged", "Yes") },
+				{ value: "No", text: "No", checked: checked("canBankruptcyUndischarged", "No") }			
+			]
+		}) }}
+
+		{{ govukRadios({
+			name: "canBankruptcyInsolvent",
+			fieldset: {
+			legend: { text: "Are you insolvent?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+			items: [
+				{ value: "Yes", text: "Yes", conditional: {html: insolventHtml}, checked: checked("canBankruptcyInsolvent", "Yes") },
+				{ value: "No", text: "No", checked: checked("canBankruptcyInsolvent", "No") }			
+			]
+		}) }}
+
+		{{ govukRadios({
+			name: "canBankruptcyOrder",
+			fieldset: {
+			legend: { text: "Is a receiving order in effect on your property?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+			items: [
+				{ value: "Yes", text: "Yes", conditional: {html: orderHtml}, checked: checked("canBankruptcyOrder", "Yes") },
+				{ value: "No", text: "No", checked: checked("canBankruptcyOrder", "No") }			
+			]
+		}) }}
+
+		{{ govukRadios({
+			name: "canBankruptcyPenalty",
+			fieldset: {
+			legend: { text: "Have you been subject to a penalty imposed in relation to late filing on your tax affairs within the last 5 years?", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+			items: [
+				{ value: "Yes", text: "Yes", conditional: {html: penaltyHtml}, checked: checked("canBankruptcyPenalty", "Yes") },
+				{ value: "No", text: "No", checked: checked("canBankruptcyPenalty", "No") }			
+			]
+		}) }}
+
+
+
+		<div class="govuk-button-group">
+			{{ govukButton({
+			text: "Back",
+			href: "/csjobs/pec/candidate/references?navpage=ref"
+			}) }}
+		
+			{{ govukButton({
+			text: "Continue"
+					
+			}) }}
+		</div>
+
+
+      
+    
+    </form>
+
+    {% endif %}
+  
+</div>
+</div>
+
+{% endblock %}
+
+
