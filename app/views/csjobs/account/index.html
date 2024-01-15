@@ -22,9 +22,12 @@
     	
 		
 
-		
 
-			<form method="post" action="/csjobs/search?notification=accountCreated">
+			{% if data['notification'] == "needAccount" %}
+				<form method="post" action="/csjobs/search?notification=needAccount">
+			{% else %}0
+				<form method="post" action="/csjobs/search?notification=accountCreated">
+			{% endif %}
 
 				<input type="hidden" name="account-status" id="account-status" value="SignedIn" />
 
