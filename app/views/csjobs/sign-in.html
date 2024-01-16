@@ -3,16 +3,19 @@
 {% set showBackLink = false %}
 {% set showNavLinks = true %}
 
-
-{% set pageHeading = "Sign in" %}
+{% if data['pageIteration'] == "current" %}
+	{% set pageHeading = "Sign in" %}
+{% else %}
+	{% set pageHeading = "Sign in to your account" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
-<div class="govuk-grid-row">
+{% if data['pageIteration'] == "current" %}
 
-	
+<div class="govuk-grid-row">	
 	<div class="govuk-grid-column-full">
 
     <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
@@ -48,7 +51,60 @@
 
 		</form>
 
-  	</div>  
+	</div>  
 </div>
+
+{% else %}
+
+	<div class="govuk-grid-row">	
+		<div class="govuk-grid-column-two-thirds">
+
+		<!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
+
+			<h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+
+			{% if data['applyCreateAccount'] == "Yes" %}
+				<div class="govuk-inset-text">
+					<p>To continue with your application you need to sign in to your account.</p>
+				</div>
+				<p class="govuk-body">If this is your first time applying for a vacancy, you need to <a href="/csjobs/account/">create an account</a>. You can set one up easily and the process is very short.</p>
+
+			{% else %}
+
+				<p class="govuk-body">Sign in or <a href="/csjobs/account/">create an account</a> to get started.</p>
+
+			{% endif %}
+			
+
+			<form method="post" action="/csjobs/search" >
+				<input type="hidden" name="account-status" id="account-status" value="SignedIn" />
+				
+				{{ govukInput({
+					label: { text: "Email address", classes: "govuk-label", isPageHeading: false },      					
+					classes: "govuk-!-width-two-thirds",
+					id: "userEmailAddress",
+					name: "userEmailAddress"					
+				}) }}
+
+				{{ govukInput({
+					label: { text: "Password", classes: "govuk-label", isPageHeading: false },      					
+					classes: "govuk-!-width-two-thirds",
+					id: "userPassword",
+					name: "userPassword"					
+				}) }}		 
+			
+				{{ govukButton({
+					text: "Sign in"
+				}) }}
+
+				<p class="govuk-body"><a href="/csjobs/password/">Forgotten your password?</a></p>
+
+			</form>
+
+		</div>  
+	</div>
+
+{% endif %}
 
 {% endblock %}

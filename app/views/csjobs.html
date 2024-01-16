@@ -26,7 +26,7 @@
 		{% set vacancyHtml %}
 
 		<ul class="govuk-list govuk-list--bullet">
-            <li><a href="/csjobs/search?account-status=" class="govuk-link govuk-link--no-visited-state" >Civil Service Job search (Ready)</a></li>
+            <li><a href="/csjobs/search?account-status=" class="govuk-link govuk-link--no-visited-state" >Civil Service Job search **</a></li>
 			<li><a href="/csjobs/search/results" class="govuk-link govuk-link--no-visited-state" >Search results</a></li>
 			<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-1 govuk-!-margin-bottom-2">				
 				<li><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state" >Job advertisement</a></li>
@@ -38,18 +38,23 @@
 		{% set vacancyDetailsHtml %}				
 			<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Sign in and account</h2>		
 			<ul class="govuk-list govuk-list--bullet">				
-				<li><a href="/csjobs/sign-in" class="govuk-link govuk-link--no-visited-state" >Sign in</a></li>							
+				<li><a href="/csjobs/sign-in" class="govuk-link govuk-link--no-visited-state" >Sign in to your account</a></li>
+				<li><a href="/csjobs/sign-in?applyCreateAccount=Yes" class="govuk-link govuk-link--no-visited-state" >Sign in to your account (when applying for a job) **</a></li>
+
+
+
+				
 				<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-1 govuk-!-margin-bottom-2">				
 					<li><a href="/csjobs/password/" class="govuk-link govuk-link--no-visited-state" >Password reset</a></li>
 					<li><a href="/csjobs/password/reset" class="govuk-link govuk-link--no-visited-state" >Password reset (page 2)</a></li>
 				</ul>      
 				<li><a href="/csjobs/account/" class="govuk-link govuk-link--no-visited-state" >Create an account</a></li>
 				<ul class="govuk-list govuk-list--bullet govuk-!-margin-top-1 govuk-!-margin-bottom-2">				
-					<li><a href="/csjobs/search?account-status=created" class="govuk-link govuk-link--no-visited-state" >Account created</a></li>
+					<li><a href="/csjobs/search?notification=accountCreated" class="govuk-link govuk-link--no-visited-state" >Account created **</a></li>
 					<li><a href="/csjobs/account/details" class="govuk-link govuk-link--no-visited-state" >Account details</a></li>
 					<li><a href="/csjobs/account/close" class="govuk-link govuk-link--no-visited-state" >Close account</a></li>
 				</ul>
-				<li><a href="/csjobs/sign-out" class="govuk-link govuk-link--no-visited-state" >Sign out</a></li>		
+				<li><a href="/csjobs/search?notification=signedOut" class="govuk-link govuk-link--no-visited-state" >Sign out **</a></li>		
 			</ul>		
 			
 			<h2 class="govuk-heading-m govuk-!-margin-bottom-2">Job alerts</h2>
