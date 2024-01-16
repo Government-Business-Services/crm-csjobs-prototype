@@ -15,8 +15,12 @@
                 Update successful
             {% elif data['notification'] == "needAccount" %}
                 Continue Application
+            {% elif data['notification'] == "alertCreated" %}
+                Alert Created						
+            {% elif data['notification'] == "alertDeleted" %}
+                Alert Deleted				
             {% else %}
-                Training outcome recorded and trainee withdrawn
+                Dynamic content status needed
             {% endif %}
         </h3>  				
         <p class="govuk-body">
@@ -28,6 +32,14 @@
                 You have closed your account
             {% elif data['notification'] == "accountUpdated" %}
 
+            {% elif data['notification'] == "alertCreated" %}
+                    You created a new job alert and will start receiving emails with jobs matching your alert criteria.
+                    <br><br>Alert reference: 2653541
+                    <br><br><a class="govuk-link" href="#">See alert details</a>
+            {% elif data['notification'] == "alertDeleted" %}
+                    You’ve deleted your job alert.
+                    <br><br>You will stop receiving emails related to this alert
+                    <br><br>Alert reference: 2653541	
             {% elif data['notification'] == "needAccount" %}
                 Your registration is complete. You may continue with your application by clicking the link below.
                 <br><br><a href="#">Click here to continue with your application</a>
@@ -61,6 +73,16 @@
                 Update successful
             {% elif data['notification'] == "needAccount" %}
                 Your account has been created
+            {% elif data['notification'] == "alertCreated" %}
+                You have created a new job alert						
+            {% elif data['notification'] == "alertDeleted" %}
+                Job alert deleted
+            {% elif data['notification'] == "alertUpdated" %}
+                Job alert updated
+            {% elif data['notification'] == "alertPaused" %}
+                You have paused your job alerts
+            {% elif data['notification'] == "alertRestarted" %}
+                You have restarted your job alerts
             {% else %}
                 Training outcome recorded and trainee withdrawn
             {% endif %}
@@ -74,6 +96,20 @@
                 You have closed your account
             {% elif data['notification'] == "accountUpdated" %}
 
+            {% elif data['notification'] == "alertCreated" %}
+                    You will begin receiving this job alert from your chosen day.
+                    <!-- <br><br>Alert reference: 2653541
+                    <br><br><a class="govuk-link" href="#">See alert details</a> -->
+            {% elif data['notification'] == "alertDeleted" %}
+                    You will no longer receive the email with jobs matching this alert.
+                    <!-- <br><br>You will stop receiving emails related to this alert
+                    <br><br>Alert reference: 2653541 -->
+            {% elif data['notification'] == "alertUpdated" %}
+                    You’ve updated your job alert
+            {% elif data['notification'] == "alertPaused" %}
+                    They will remain in your account until you restart them, or delete them
+            {% elif data['notification'] == "alertRestarted" %}
+                   You will start receiving an email with jobs matching your alerts
             {% elif data['notification'] == "needAccount" %}
                 Your registration is complete. You may continue with your application by clicking the link below.
                 <br><br><a href="#">Click here to continue with your application</a>
