@@ -193,9 +193,10 @@
 					hint: {
 						text: "Your password must have at least 8 characters. Do not include your name or email address."
 					},
-					id: "userConfirmPassword",
-					name: "userConfirmPassword",
-					value: data['userConfirmPassword']
+					type: "password",
+					id: "userPassword",
+					name: "userPassword",
+					value: data['userPassword']
 				}) }}	
 				
 				{{ govukInput({
@@ -204,6 +205,7 @@
 					hint: {
 						text: ""
 					},
+					type: "password",
 					id: "userConfirmPassword",
 					name: "userConfirmPassword",
 					value: data['userConfirmPassword']
@@ -251,17 +253,17 @@
 								hint: {
 									text: "Leave this section blank if you cannot access your email."
 								},
-								id: "userConfirmPassword",
-								name: "userConfirmPassword",
-								value: data['userConfirmPassword']
+								id: "userWorkEmail",
+								name: "userWorkEmail",
+								value: data['userWorkEmail']
 							}) }}	
 							
 							{{ govukInput({
 								label: { text: "Confirm your email address", classes: "govuk-label", isPageHeading: false },      					
 								classes: "govuk-!-width-two-thirds",							
-								id: "userConfirmPassword",
-								name: "userConfirmPassword",
-								value: data['userConfirmPassword']
+								id: "userConfirmWorkEmail",
+								name: "userConfirmWorkEmail",
+								value: data['userConfirmWorkEmail']
 							}) }}	
 						
 							{{ govukInput({
@@ -270,17 +272,17 @@
 								hint: {
 									text: "You only need to provide this if you cannot access your work email."
 								},
-								id: "userConfirmPassword",
-								name: "userConfirmPassword",
-								value: data['userConfirmPassword']
+								id: "userLineManagerEmail",
+								name: "userLineManagerEmail",
+								value: data['userLineManagerEmail']
 							}) }}	
 							
 							{{ govukInput({
 								label: { text: "Confirm your manager's email address", classes: "govuk-label", isPageHeading: false },      					
 								classes: "govuk-!-width-two-thirds",								
-								id: "userConfirmPassword",
-								name: "userConfirmPassword",
-								value: data['userConfirmPassword']
+								id: "userConfirmLineManagerEmail",
+								name: "userConfirmLineManagerEmail",
+								value: data['userConfirmLineManagerEmail']
 							}) }}	
 						
 
