@@ -66,39 +66,64 @@
 				<p class="govuk-body-l">Use this service to search and apply for government job opportunities.</p>    	
 				
 				<form method="post" action="/csjobs/search/results" >
-					<div class="govuk-grid-row grey">
-						<div class="govuk-grid-column-one-third govuk-!-padding-top-5">
-							<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Search for a job</h2>
-							{{ govukInput({
-								label: { text: "Enter job title, skill or keywords", classes: "govuk-label", isPageHeading: false },      					
-								id: "searchKeyword",
-								name: "searchKeyword"					
-							}) }}
-						</div>
-						<div class="govuk-grid-column-one-third govuk-!-padding-top-5">
-							<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Where</h2>
-							{{ govukInput({
-								label: { text: "Enter a postcode, town or region", classes: "govuk-label",isPageHeading: false },      					
-								id: "searchWhere",
-								name: "searchWhere"					
-							}) }}
-						</div>
-						<div class="govuk-grid-column-one-quarter">
-							{{ govukButton({
-								text: "Search for jobs",
-								classes: "override-button"
-							}) }}				
-							
-						</div>
-						<div class="govuk-grid-column-two-thirds">
-							<!-- <h2 class="govuk-heading-s">More options</h2> -->
-						<p>You can do a more <a href="/csjobs/search/results" class="govuk-link govuk-link--no-visited-state">advanced search</a> with further options.</p>
+																	
+						<div class="govuk-grid-column-full grey govuk-!-margin-bottom-7">
+							<div class="govuk-grid-row govuk-!-padding-top-7 govuk-!-padding-left-5">
 
+								<div class="govuk-grid-column-three-quarters ">
+									<!-- <div class="govuk-grid-column-one-third govuk-!-padding-top-5"> -->
+										<!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Enter job title or keywords</h2> -->
+										{{ govukInput({
+											label: { text: "Enter job title or keywords", classes: "govuk-label--m", isPageHeading: false },      					
+											hint: {
+												text: "For example, Content Designer, Security Consultant  or UX."
+											},
+											
+											id: "searchKeyword",
+											name: "searchKeyword"					
+										}) }}
+									<!-- </div>
+									<div class="govuk-grid-column-one-third govuk-!-padding-top-5"> -->
+										<!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Where</h2> -->
+										{{ govukInput({
+											label: { text: "Enter a postcode or town", classes: "govuk-label--m govuk-!-margin-bottom-0",isPageHeading: false },      					
+											hint: {
+												text: "For example, SW1A PBY or Newcastle Upon Tyne."
+											},
+											
+											id: "searchWhere",
+											name: "searchWhere"					
+										}) }}
+									<!-- </div> -->
+									<!-- </div>
+									<div class="govuk-grid-column-one-quarter"> -->
+			
+										<div class="govuk-button-group">
+											{{ govukButton({
+												text: "Search for jobs"
+												
+											}) }}				
+			
+											<p>Use more options to find jobs with <a href="/csjobs/search/results" class="govuk-link govuk-link--no-visited-state">advanced search</a></p>
+										
+										</div>
+										
+										
+									</div>
+									<div class="govuk-grid-column-one-thirds">
+										<!-- <h2 class="govuk-heading-s">More options</h2> -->
+										<!-- <p class="govuk-body">Use more options to find jobs with <a href="/csjobs/search/results" class="govuk-link govuk-link--no-visited-state">advanced search</a>.</p> -->
+			
+			
+									
+								</div>
+
+							</div>
+						</div>
 
 						
-					</div>
 
-					</div>
+					
 				</form>
 				
 				<!-- <h2 class="govuk-heading-m govuk-!-margin-top-7 govuk-!-margin-bottom-2">Find your fit in the Civil Service</h2> -->
