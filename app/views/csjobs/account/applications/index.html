@@ -3,27 +3,23 @@
 {% set showBackLink = false %}
 {% set showNavLinks = true %}
 
-{% set pageHeading = "Applications" %}
+{% if data['pageIteration'] == "current" %}
+	{% set pageHeading = "Applications" %}
+{% else %}
+	{% set pageHeading = "Your applications" %}
+{% endif %}
+
+
 {% set pageSection = "" %}
 
 {% block content %}
 
-<div class="govuk-grid-row">
-    
-        
-    {% if data['iteration'] == "new" %}
+{% if data['pageIteration'] == "current" %}
 
-    <div class="govuk-grid-column-two-thirds"> 
-
-    <h1 class="govuk-heading-l">Your details</h1>
-        </div>
-      
-    <!-- ////////////// END OF NEW ////////////////// -->
-    {% else %}
-
+<div class="govuk-grid-row">    
     <div class="govuk-grid-column-full">    
     
-    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+    	<h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
       	<p class="govuk-body-l"><a href="/csjobs/account/applications/inactive" class="govuk-link--no-visited-state">View unsuccessful, withdrawn and archived successful applications</a></p>
 
@@ -52,12 +48,65 @@
 					{ html: '<a href="/csjobs/account/applications/update" class="govuk-link--no-visited-state">Review latest update</a' }					
           		]          
         	]
-      	}) }}
+      	}) }}    
+</div>
+</div>
 
-    {% endif %}
-  
-</div>
-</div>
+
+{% else %}
+
+
+	<div class="govuk-grid-row">    
+		<div class="govuk-grid-column-full">    
+
+			<h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
+
+			<p>Use this page to:</p>
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9">
+				<li>see your saved jobs</li>
+				<li>track the progress of your applications</li>
+				<li>check if we need more information from you</li>
+				<li>see your previous applications that are now closed</li>
+			</ul>							
+
+			{{ govukTable({        					
+				firstCellIsHeader: false,			
+				head: [
+					{ text: "Vacancy" },	
+					{ text: "Department" },
+					{ text: "Closing date" },
+					{ text: "Last update" },
+					{ text: "Application ID"},
+					
+					{ text: "Status" }
+					
+					
+					
+					
+				],
+				rows: [
+					[
+					{ html: 'Consulting Specialist<br>Ref: 9549' },	
+					{ text: "HM Revenue and Customs" },
+					{ html: "28 September<br>Time: 23:55" },
+					{ html: '20 January<br>Time: 09:28' },
+					{ text: "14028" },					
+					{ html: '<a href="/csjobs/account/applications/update" class="govuk-link--no-visited-state">Offer accepted</a>' }
+					
+					
+					
+					
+					]          
+				]
+			}) }}    
+
+			<p class="govuk-body"><a href="/csjobs/account/applications/inactive" class="govuk-link--no-visited-state">View your previous applications</a></p>
+
+		</div>
+	</div>
+
+{% endif %}
+
 
 {% endblock %}
 
