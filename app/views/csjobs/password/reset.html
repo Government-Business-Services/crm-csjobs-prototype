@@ -3,13 +3,17 @@
 {% set showBackLink = false %}
 {% set showNavLinks = true %}
 
-
-{% set pageHeading = "Password reset" %}
+{% if data['pageIteration'] == "current" %}
+	{% set pageHeading = "Password reset" %}
+{% else %}
+	{% set pageHeading = "Check your email" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
+{% if data['pageIteration'] == "current" %}
 <div class="govuk-grid-row">
 
 	
@@ -32,5 +36,35 @@
 
   	</div>  
 </div>
+
+{% else %}
+
+	<div class="govuk-grid-row">
+
+		
+		<div class="govuk-grid-column-two-thirds">
+
+		<!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
+
+			<h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
+
+			<p>You should receive the password reset link in an email within 15 minutes.</p>
+			<p>If you do not receive the email:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>check your junk or spam folder</li>
+				<li>check that you did not create your account using a different email</li>
+				<li>you may not have created an account yet</li>
+			</ul>
+			
+			<p>If you still need help, fill out the <a href="https://www.civilservicejobs.service.gov.uk/csr/support.cgi">support form</a>.</p>
+
+
+
+
+
+		</div>  
+	</div>
+
+{% endif %}
 
 {% endblock %}

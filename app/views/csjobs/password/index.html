@@ -3,16 +3,19 @@
 {% set showBackLink = false %}
 {% set showNavLinks = true %}
 
-
-{% set pageHeading = "Password reset" %}
+{% if data['pageIteration'] == "current" %}
+	{% set pageHeading = "Password reset" %}
+{% else %}
+	{% set pageHeading = "Forgotten your password" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
-<div class="govuk-grid-row">
 
-	
+{% if data['pageIteration'] == "current" %}
+<div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
     <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
@@ -40,5 +43,34 @@
 
   	</div>  
 </div>
+
+{% else %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+		<!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
+
+			<h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
+
+			<p>To reset or change your password, enter the email address you used to set up your account in the box below.</p>			
+			<form method="post" action="/csjobs/password/reset" >
+				{{ govukInput({
+					label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      					
+					classes: "govuk-!-width-two-thirds",
+					id: "passwordResetEmail",
+					name: "passwordResetEmail"						
+				}) }}
+
+				{{ govukButton({
+					text: "Continue"			    
+				}) }}				
+			</form>		
+
+
+		</div>  
+	</div>
+
+{% endif %}
 
 {% endblock %}
