@@ -156,16 +156,16 @@
 					label: { text: "First name", classes: "govuk-label", isPageHeading: false },      					
 					classes: "govuk-!-width-two-thirds",
 					id: "userFirstName",
-					name: "userFirstName",
-					value: data['userFirstName']
+					name: "userFirstName"
+					
 				}) }}
 		
 				{{ govukInput({
 					label: { text: "Last name", classes: "govuk-label", isPageHeading: false },      					
 					classes: "govuk-!-width-two-thirds",
 					id: "userLastName",
-					name: "userLastName",
-					value: data['userLastName']
+					name: "userLastName"
+					
 				}) }}		 
 						
 				{{ govukInput({
@@ -175,16 +175,16 @@
 						text: "Enter an email address in the correct format, for example name@example.com"
 					},
 					id: "userEmailAddress",
-					name: "userEmailAddress",
-					value: data['userEmailAddress']
+					name: "userEmailAddress"
+					
 				}) }}		 
 						
 				{{ govukInput({
 					label: { text: "Confirm your email address", classes: "govuk-label",isPageHeading: false },      					
 					classes: "govuk-!-width-two-thirds",
 					id: "userConfirmEmailAddress",
-					name: "userConfirmEmailAddress",
-					value: data['userConfirmEmailAddress']
+					name: "userConfirmEmailAddress"
+					
 				}) }}	
 											
 				{{ govukInput({
@@ -195,8 +195,8 @@
 					},
 					type: "password",
 					id: "userPassword",
-					name: "userPassword",
-					value: data['userPassword']
+					name: "userPassword"
+					
 				}) }}	
 				
 				{{ govukInput({
@@ -207,8 +207,8 @@
 					},
 					type: "password",
 					id: "userConfirmPassword",
-					name: "userConfirmPassword",
-					value: data['userConfirmPassword']
+					name: "userConfirmPassword"
+					
 				}) }}	
 		
 				
@@ -219,9 +219,9 @@
 						{{ govukSelect({
 							label: { text: "Select your department", classes: "govuk-label", isPageHeading: false },      
 							classes: "govuk-!-width-two-thirds",							
-							id: "alertJobGrade",
-							name: "alertJobGrade",
-							value: data['alertJobGrade'],
+							id: "userDepartment",
+							name: "userDepartment",
+							value: data['userDepartment'],
 							items: [
 								{ value: "", text: "" },	  	
 								{ value: "updated", text: "Choose when to receive " },	
@@ -232,7 +232,7 @@
 						}) }}
 
 						{{ govukRadios({					
-							name: "userCivilServant",
+							name: "userPriorityMover",
 							classes: "govuk-radios--inline",
 							fieldset: {
 							legend: { text: "Are you a priority mover?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
@@ -254,16 +254,14 @@
 									text: "Leave this section blank if you cannot access your email."
 								},
 								id: "userWorkEmail",
-								name: "userWorkEmail",
-								value: data['userWorkEmail']
+								name: "userWorkEmail"								
 							}) }}	
 							
 							{{ govukInput({
 								label: { text: "Confirm your email address", classes: "govuk-label", isPageHeading: false },      					
 								classes: "govuk-!-width-two-thirds",							
 								id: "userConfirmWorkEmail",
-								name: "userConfirmWorkEmail",
-								value: data['userConfirmWorkEmail']
+								name: "userConfirmWorkEmail"								
 							}) }}	
 						
 							{{ govukInput({
@@ -273,16 +271,14 @@
 									text: "You only need to provide this if you cannot access your work email."
 								},
 								id: "userLineManagerEmail",
-								name: "userLineManagerEmail",
-								value: data['userLineManagerEmail']
+								name: "userLineManagerEmail"								
 							}) }}	
 							
 							{{ govukInput({
 								label: { text: "Confirm your manager's email address", classes: "govuk-label", isPageHeading: false },      					
 								classes: "govuk-!-width-two-thirds",								
 								id: "userConfirmLineManagerEmail",
-								name: "userConfirmLineManagerEmail",
-								value: data['userConfirmLineManagerEmail']
+								name: "userConfirmLineManagerEmail"								
 							}) }}	
 						
 

@@ -205,9 +205,9 @@
 						{{ govukSelect({
 							label: { text: "Select your department", classes: "govuk-label", isPageHeading: false },      
 							classes: "govuk-!-width-two-thirds",							
-							id: "alertJobGrade",
-							name: "alertJobGrade",
-							value: data['alertJobGrade'],
+							id: "userDepartment",
+							name: "userDepartment",
+							value: data['userDepartment'],
 							items: [
 								{ value: "", text: "" },	  	
 								{ value: "updated", text: "Choose when to receive " },	
@@ -218,7 +218,7 @@
 						}) }}
 
 						{{ govukRadios({					
-							name: "userCivilServant",
+							name: "userPriorityMover",
 							classes: "govuk-radios--inline",
 							fieldset: {
 							legend: { text: "Are you a priority mover?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
