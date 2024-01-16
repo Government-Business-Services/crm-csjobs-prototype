@@ -61,7 +61,7 @@
 
 		<!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
 
-			<h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+			<h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
 
 
 			{% if data['applyCreateAccount'] == "Yes" %}
@@ -76,10 +76,13 @@
 
 			{% endif %}
 			
-
-			<form method="post" action="/csjobs/search" >
-				<input type="hidden" name="account-status" id="account-status" value="SignedIn" />
+			{% if data['applyCreateAccount'] == "Yes" %}
+			
+			{% else %}
+				<form method="post" action="/csjobs/search" >
+			{% endif %}
 				
+				<input type="hidden" name="account-status" id="account-status" value="SignedIn" />				
 				{{ govukInput({
 					label: { text: "Email address", classes: "govuk-label", isPageHeading: false },      					
 					classes: "govuk-!-width-two-thirds",
