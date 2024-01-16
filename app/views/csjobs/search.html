@@ -3,7 +3,11 @@
 {% set showBackLink = false %}
 {% set showNavLinks = true %}
 
-{% set pageHeading = "Civil Service job search" %}
+{% if data['pageIteration'] == "current" %}
+	{% set pageHeading = "Civil Service job search" %}
+{% else %}
+	{% set pageHeading = "Find jobs in the Civil Service" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
@@ -12,116 +16,101 @@
 <div class="govuk-grid-row">	
 	<div class="govuk-grid-column-full">
 
+		<!-- CURRENT ITERATION -->
+		{% if data['pageIteration'] == "current" %}
 
-		{% if data['notification'] %}
+				<!-- Notifcation banners -->
+				{% include "includes/notifcation_banner.html" %}		
 
-			{% if data['notification'] != "" %}
+				<h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
+				<p class="govuk-body-l hint">Find jobs in the Civil Service and central government organisations</p>    	
+				
+				<form method="post" action="/csjobs/search/results" >
+					<div class="govuk-grid-row grey">
+						<div class="govuk-grid-column-one-third govuk-!-padding-top-5">
+							<h2 class="govuk-heading-m govuk-!-margin-bottom-1">What</h2>
+							{{ govukInput({
+								label: { text: "Enter job title, skill or keywords", classes: "govuk-label", isPageHeading: false },      					
+								id: "searchKeyword",
+								name: "searchKeyword"					
+							}) }}
+						</div>
+						<div class="govuk-grid-column-one-third govuk-!-padding-top-5">
+							<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Where</h2>
+							{{ govukInput({
+								label: { text: "Enter a postcode, town or region", classes: "govuk-label",isPageHeading: false },      					
+								id: "searchWhere",
+								name: "searchWhere"					
+							}) }}
+						</div>
+						<div class="govuk-grid-column-one-quarter">
+							{{ govukButton({
+								text: "Search",
+								classes: "override-button"
+							}) }}				
+							<p class="govuk-!-text-align-right"><a href="/csjobs/search/results" class="govuk-link govuk-link--no-visited-state">Advanced search</a></p>
+						</div>
 
-			{% set html %}
-  				<h3 class="govuk-notification-banner__heading">
-    				
-									
-					{% if data['notification'] == "accountCreated" %}
-						Account created
-					{% elif data['notification'] == "signedOut" %}
-						Signed out
-					{% elif data['notification'] == "closeAccount" %}
-						Account closed
-					{% elif data['notification'] == "accountUpdated" %}
-						Update successful						
-					{% elif data['notification'] == "needAccount" %}
-						Continue Application						
-					{% else %}
-						Training outcome recorded and trainee withdrawn
-					{% endif %}    	
-  				</h3>
-  				
-				<p class="govuk-body">
-					{% if data['notification'] == "accountCreated" %}
-						You may now use your account to register for job alerts and apply for jobs.
-					{% elif data['notification'] == "signedOut" %}
-						You have signed out of your account
-					{% elif data['notification'] == "closeAccount" %}
-						You have closed your account
-					{% elif data['notification'] == "accountUpdated" %}
+					</div>
+				</form>
+				
+				<p class="govuk-body govuk-!-margin-top-7"><a href="https://www.civil-service-careers.gov.uk/" class="govuk-link govuk-link--no-visited-state" target="_blank">Discover careers within the Civil Service</a></p>				
 
-					{% elif data['notification'] == "needAccount" %}
-						Your registration is complete. You may continue with your application by clicking the link below.
-						<br><br><a href="#">Click here to continue with your application</a>
-					{% else %}					
-						Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.
-					{% endif %}	
-				</p>
-			{% endset %}
+		<!-- NEW ITERATION -->
+		{% else %}
 
-			{{ govukNotificationBanner({
-  				html: html,
-  				type: "success"
-			}) }}
+				<!-- Notifcation banners -->
+				{% include "includes/notifcation_banner.html" %}		
+
+				<h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
+				<p class="govuk-body-l">Use this service to search and apply for government job opportunities.</p>    	
+				
+				<form method="post" action="/csjobs/search/results" >
+					<div class="govuk-grid-row grey">
+						<div class="govuk-grid-column-one-third govuk-!-padding-top-5">
+							<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Search for a job</h2>
+							{{ govukInput({
+								label: { text: "Enter job title, skill or keywords", classes: "govuk-label", isPageHeading: false },      					
+								id: "searchKeyword",
+								name: "searchKeyword"					
+							}) }}
+						</div>
+						<div class="govuk-grid-column-one-third govuk-!-padding-top-5">
+							<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Where</h2>
+							{{ govukInput({
+								label: { text: "Enter a postcode, town or region", classes: "govuk-label",isPageHeading: false },      					
+								id: "searchWhere",
+								name: "searchWhere"					
+							}) }}
+						</div>
+						<div class="govuk-grid-column-one-quarter">
+							{{ govukButton({
+								text: "Search for jobs",
+								classes: "override-button"
+							}) }}				
+							
+						</div>
+						<div class="govuk-grid-column-two-thirds">
+							<!-- <h2 class="govuk-heading-s">More options</h2> -->
+						<p>You can do a more <a href="/csjobs/search/results" class="govuk-link govuk-link--no-visited-state">advanced search</a> with further options.</p>
 
 
-			{% endif %}
+						
+					</div>
+
+					</div>
+				</form>
+				
+				<!-- <h2 class="govuk-heading-m govuk-!-margin-top-7 govuk-!-margin-bottom-2">Find your fit in the Civil Service</h2> -->
+				<p class="govuk-body govuk-!-margin-top-7">Find out more about <a href="https://www.civil-service-careers.gov.uk/" class="govuk-link govuk-link--no-visited-state" target="_blank">careers available in the Civil Service (opens in new tab)</a></p>		
+				
+			
+
+
 		{% endif %}
 
-		
 
+		</div>  
 
-
-		
-
-    	<h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
-		<p class="govuk-body-l hint ">Find jobs in the Civil Service and central government organisations</p>
-    	
-		<div class="govuk-grid-row grey">
-			<div class="govuk-grid-column-one-third govuk-!-padding-top-5">
-
-				<h2 class="govuk-heading-m govuk-!-margin-bottom-1">What</h2>
-				{{ govukInput({
-					label: { text: "Enter job title, skill or keywords", classes: "govuk-label",isPageHeading: false },      
-					
-					id: "searchKeyword",
-					name: "searchKeyword",
-					value: data['searchKeyword']
-				}) }}
-
-			</div>
-			<div class="govuk-grid-column-one-third govuk-!-padding-top-5">
-
-				<h2 class="govuk-heading-m govuk-!-margin-bottom-1">Where</h2>
-				{{ govukInput({
-					label: { text: "Enter a postcode, town or region", classes: "govuk-label",isPageHeading: false },      					
-					id: "searchWhere",
-					name: "searchWhere",
-					value: data['searchWhere']
-				}) }}
-
-			</div>
-			<div class="govuk-grid-column-one-quarter">
-
-				<form method="post" action="/csjobs/search/results" >
-
-					{{ govukButton({
-						text: "Search",
-						classes: "override-button"
-					  }) }}
-				
-
-				</form>
-			
-			  <p class="govuk-!-text-align-right"><a href="/csjobs/search/results">Advanced search</a></p>
-
-			</div>
-
-		</div>
-		
-
-		<p class="govuk-body govuk-!-margin-top-7  "><a href="https://www.civil-service-careers.gov.uk/" target="_blank">Discover careers within the Civil Service</a></p>
-		
-
-		
-
-
-  	</div>  
 </div>
-
 {% endblock %}
