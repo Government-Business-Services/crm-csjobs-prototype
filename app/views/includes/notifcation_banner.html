@@ -101,18 +101,18 @@
                     <!-- <br><br>Alert reference: 2653541
                     <br><br><a class="govuk-link" href="#">See alert details</a> -->
             {% elif data['notification'] == "alertDeleted" %}
-                    You will no longer receive the email with jobs matching this alert.
+                You will no longer receive an email with jobs matching this alert.
                     <!-- <br><br>You will stop receiving emails related to this alert
                     <br><br>Alert reference: 2653541 -->
             {% elif data['notification'] == "alertUpdated" %}
-                    You’ve updated your job alert
+                    You’ve updated your job alert.
             {% elif data['notification'] == "alertPaused" %}
-                    They will remain in your account until you restart them, or delete them
+                Your alerts will stay in your account until you restart them or delete them.
             {% elif data['notification'] == "alertRestarted" %}
-                   You will start receiving an email with jobs matching your alerts
+                   You will start receiving an email with jobs matching your alerts.
             {% elif data['notification'] == "needAccount" %}
                 Your registration is complete. You may continue with your application by clicking the link below.
-                <br><br><a href="#">Click here to continue with your application</a>
+                <br><br><a href="#">Click here to continue with your application</a>.
             {% else %}
                 Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.
             {% endif %}
