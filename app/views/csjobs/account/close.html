@@ -3,13 +3,18 @@
 {% set showBackLink = false %}
 {% set showNavLinks = true %}
 
-
-{% set pageHeading = "Close your account" %}
+{% if data['pageIteration'] == "current" %}
+	{% set pageHeading = "Close your account" %}
+{% else %}
+	{% set pageHeading = "Confirm you want to close your account" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
+
+{% if data['pageIteration'] == "current" %}
 <div class="govuk-grid-row">
 
 	
@@ -42,5 +47,39 @@
 
   	</div>  
 </div>
+
+{% else %}
+
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-two-thirds">			
+
+				<h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
+				
+				<p class="govuk-body">If you close your account:</p>
+				<ul class="govuk-body govuk-list govuk-list--bullet">
+					<li>all your job applications will be withdrawn</li>
+					<li>you will not be able to access your application history</li>
+					<li>you will no longer receive job alert emails</li>
+					<li>it will be permanently deleted</li>
+				</ul>
+
+
+				<!-- <p class="govuk-body">The process for withdrawing your application may take a few days.</p> -->
+
+
+				<form method="post" action="/csjobs/search?notification=closeAccount&account-status=" >		 
+					
+					<div class="govuk-button-group govuk-!-margin-top-7">
+					{{ govukButton({
+						text: "Confirm and close account"
+					}) }}			  
+					</div> 
+				</form>
+				
+
+			</div>  
+		</div>
+
+{% endif %}
 
 {% endblock %}
