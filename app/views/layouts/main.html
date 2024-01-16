@@ -52,8 +52,8 @@
     {% if showNavLinks == true %}
     
     {% if data['account-status'] == "SignedIn" %}        
-    <p class="govuk-!-text-align-right govuk-!-margin-top-3 govuk-!-margin-bottom-0">{{ data['userFirstName'] }} {{ data['userLastName'] }} </p>       
-    <p class="govuk-!-text-align-right govuk-!-margin-bottom-0">        
+    <p class="govuk-!-text-align-right govuk-!-margin-top-5 govuk-!-margin-bottom-0">{{ data['userFirstName'] }} {{ data['userLastName'] }} </p>       
+    <p class="govuk-!-text-align-right">        
         <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="/csjobs/search?notification=">Home</a>
         <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="/csjobs/account/applications/?notification=">Applications</a>
         <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="/csjobs/account/job-alerts?notification=">Job Alerts</a>        
@@ -61,16 +61,18 @@
         <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="/csjobs/search?notification=signedOut&account-status=signedOut">Sign out</a>      
         <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="#">Cymraeg</a>                          
     {% else %}
-    <p class="govuk-!-text-align-right govuk-!-margin-top-5 govuk-!-margin-bottom-0">        
+    <p class="govuk-!-text-align-right govuk-!-margin-top-5">        
         <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="/csjobs/search?notification=">Home</a>
         
         <!-- <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-left-3" href="#">View application</a>
         <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="#">Job Description</a>
         <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="#">Booked Interviews</a> -->
-        <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="/csjobs/sign-in?notification=">Sign in / create an account</a>     
+        <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="/csjobs/sign-in?notification=&applyCreateAccount=">Sign in to your account</a>     
         <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="#">Cymraeg</a>                  
     {% endif %}
     </p>
+
+    
     {% endif %}
 
 {% endblock %}

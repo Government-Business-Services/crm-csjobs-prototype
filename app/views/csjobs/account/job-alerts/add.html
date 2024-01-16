@@ -3,16 +3,19 @@
 {% set showBackLink = false %}
 {% set showNavLinks = true %}
 
-
-{% set pageHeading = "Create a job alert" %}
+{% if data['pageIteration'] == "current" %}
+	{% set pageHeading = "Create a job alert" %}
+{% else %}
+	{% set pageHeading = "Create a job alert" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
 
-<div class="govuk-grid-row">
+{% if data['pageIteration'] == "current" %}
 
-	
+<div class="govuk-grid-row">	
 	<div class="govuk-grid-column-two-thirds">
 
     <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
@@ -247,5 +250,245 @@
 
   	</div>  
 </div>
+
+{% else %}
+
+		<div class="govuk-grid-row">	
+			<div class="govuk-grid-column-two-thirds">
+
+			<!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
+
+				<h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
+
+				<form method="post" action="/csjobs/account/job-alerts?notification=alertCreated" >
+								
+				{{ govukSelect({
+					id: "alertFrequency",
+					name: "alertFrequency",
+					classes: "govuk-!-width-two-thirds",			
+					label: {
+						text: "Choose when you want to receive the job alert"
+					},
+					hint: {
+						text: "We will send you an email with jobs that match your search."
+					},
+					items: [
+						{ value: "", text: "" },	  	
+						{ value: "Every day", text: "Every day" },	
+						{ value: "Every Monday", text: "Every Monday" },    			
+						{ value: "Every Tuesday", text: "Every Tuesday" },
+						{ value: "Every Wednesday", text: "Every Wednesday" },
+						{ value: "Every Thursday", text: "Every Thursday" },
+						{ value: "Every Friday", text: "Every Friday" },
+						{ value: "Every Saturday", text: "Every Saturday" },
+						{ value: "Every Sunday", text: "Every Sunday" }
+					]			
+				}) }}
+				
+				{{ govukInput({
+					label: { text: "Enter job title or keywords",  classes: "govuk-label", isPageHeading: false },      
+					classes: "govuk-!-width-two-thirds",
+					hint: {
+						text: "For example, Content Designer, Security Consultant or UX."
+					},			
+					id: "alertKeyword",
+					name: "alertKeyword",
+					value: data['alertKeyword']
+				}) }}
+				
+				{{ govukInput({
+					label: { text: "Enter a postcode or town",  classes: "govuk-label", isPageHeading: false },      
+					classes: "govuk-!-width-two-thirds",	
+					hint: {
+						text: "For example, SW1A PBY or Newcastle Upon Tyne."
+					},		
+					id: "alertWhere",
+					name: "alertWhere",
+					value: data['alertWhere']
+				}) }}
+
+
+				{{ govukSelect({
+					id: "alertDistance",
+					name: "alertDistance",
+					classes: "govuk-!-width-one-third",			
+					label: {
+						text: "Search distance (miles)"
+					},
+					items: [
+						{ value: "1", text: "1" },
+						{ value: "3", text: "3" },
+						{ value: "5", text: "5" },
+						{ value: "8", text: "8" },
+						{ value: "10", text: "10", selected: true },
+						{ value: "15", text: "15" },
+						{ value: "20", text: "20" },
+						{ value: "25", text: "25" },
+						{ value: "30", text: "30" },
+						{ value: "40", text: "40" },
+						{ value: "50", text: "50" },
+						{ value: "75", text: "75" },
+						{ value: "100", text: "100" },
+						{ value: "125", text: "125" },
+						{ value: "150", text: "150" },
+						{ value: "200", text: "200" },
+						{ value: "250", text: "250" },
+						{ value: "400", text: "400" },
+						{ value: "600", text: "600" }				  
+					]			
+				}) }}
+
+
+				<!-- {{ govukSelect({
+					id: "alertUnits",
+					name: "alertUnits",
+					classes: "govuk-!-width-one-third",			
+					label: {
+						text: "Search units"
+					},
+					items: [
+						{ value: "miles", text: "miles" },	  	
+						{ value: "kilometres", text: "kilometres" }				
+					]			
+				}) }} -->
+
+				
+
+				{{ govukInput({
+					label: { text: "Show overseas jobs",  classes: "govuk-label", isPageHeading: false },      
+					classes: "govuk-!-width-two-thirds",			
+					id: "alertOverseas",
+					name: "alertOverseas",
+					value: data['alertOverseas']
+				}) }}
+
+
+
+				{{ govukSelect({
+					label: { text: "Type of role", classes: "govuk-label", isPageHeading: false },      
+					classes: "govuk-!-width-two-thirds",
+					id: "alertTypeRole",
+					name: "alertTypeRole",
+					value: data['alertTypeRole'],
+					items: [
+						{ value: "", text: "" },	  	
+						{ value: "updated", text: "Choose when to receive " },	
+						{ value: "published", text: "Recently published" },    			
+						{ value: "views", text: "Most views" },
+						{ value: "comments", text: "Most comments" }
+					]
+				}) }}
+
+
+				{{ govukSelect({
+					label: { text: "Department", classes: "govuk-label", isPageHeading: false },      
+					classes: "govuk-!-width-two-thirds",
+					id: "alertDepartment",
+					name: "alertDepartment",
+					value: data['alertDepartment'],
+					items: [
+						{ value: "", text: "" },	  	
+						{ value: "updated", text: "Choose when to receive " },	
+						{ value: "published", text: "Recently published" },    			
+						{ value: "views", text: "Most views" },
+						{ value: "comments", text: "Most comments" }
+					]
+				}) }}
+
+				{{ govukSelect({
+					label: { text: "Minimum salary", classes: "govuk-label", isPageHeading: false },      
+					classes: "govuk-!-width-two-thirds",
+					id: "alertMinimumSalary",
+					name: "alertMinimumSalary",
+					value: data['alertMinimumSalary'],
+					items: [
+						{ value: "no minimum", text: "no minimum", selected: true },	  	
+						{ value: "updated", text: "Choose when to receive " },	
+						{ value: "published", text: "Recently published" },    			
+						{ value: "views", text: "Most views" },
+						{ value: "comments", text: "Most comments" }
+					]
+				}) }}
+
+				<!-- {{ govukSelect({
+					label: { text: "Maximum salary", classes: "govuk-label--m", isPageHeading: false },      
+					classes: "govuk-!-width-two-thirds",
+					id: "alertMaximumSalary",
+					name: "alertMaximumSalary",
+					value: data['alertMaximumSalary'],
+					items: [
+					{ value: "no maximum", text: "no maximum", selected: true },	  	
+						{ value: "updated", text: "Choose when to receive " },	
+						{ value: "published", text: "Recently published" },    			
+						{ value: "views", text: "Most views" },
+						{ value: "comments", text: "Most comments" }
+					]
+				}) }} -->
+
+				{{ govukSelect({
+					label: { text: "Job Grade", classes: "govuk-label", isPageHeading: false },      
+					classes: "govuk-!-width-two-thirds",
+					id: "alertJobGrade",
+					name: "alertJobGrade",
+					value: data['alertJobGrade'],
+					items: [
+						{ value: "", text: "" },	  	
+						{ value: "updated", text: "Choose when to receive " },	
+						{ value: "published", text: "Recently published" },    			
+						{ value: "views", text: "Most views" },
+						{ value: "comments", text: "Most comments" }
+					]
+				}) }}
+
+				{{ govukSelect({
+					label: { text: "Working pattern", classes: "govuk-label", isPageHeading: false },      
+					classes: "govuk-!-width-two-thirds",
+					id: "alertWorkingPattern",
+					name: "alertWorkingPattern",
+					value: data['alertWorkingPattern'],
+					items: [
+						{ value: "", text: "" },	  	
+						{ value: "updated", text: "Choose when to receive " },	
+						{ value: "published", text: "Recently published" },    			
+						{ value: "views", text: "Most views" },
+						{ value: "comments", text: "Most comments" }
+					]
+				}) }}
+
+				{{ govukSelect({
+					label: { text: "Contract type", classes: "govuk-label", isPageHeading: false },      
+					classes: "govuk-!-width-two-thirds",
+					id: "alertContractType",
+					name: "alertContractType",
+					value: data['alertContractType'],
+					items: [
+						{ value: "", text: "" },	  	
+						{ value: "updated", text: "Choose when to receive " },	
+						{ value: "published", text: "Recently published" },    			
+						{ value: "views", text: "Most views" },
+						{ value: "comments", text: "Most comments" }
+					]
+				}) }}
+
+
+				<input type="hidden" id="alertOne" name="alertOne" value="Yes" />
+				
+
+				{{ govukButton({
+					text: "Create job alert"			
+				}) }}
+				
+				
+
+			</form>
+
+
+				
+
+
+			</div>  
+		</div>
+
+{% endif %}
 
 {% endblock %}

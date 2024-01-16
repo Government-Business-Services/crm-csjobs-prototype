@@ -286,9 +286,11 @@ candidate_information_v10.1_nov_2023.docx Opens in new window(pdf, 281kB)
 
 				<form method="post" action="/csjobs/sign-in?notification=needAccount" >
 
-				{{ govukButton({
-					text: "Apply now"
-				  }) }}
+					<input type="hidden" name="applyCreateAccount" id="applyCreateAccount" value="Yes" />
+
+					{{ govukButton({
+						text: "Apply now"
+				  	}) }}
 
 				</form>
 
