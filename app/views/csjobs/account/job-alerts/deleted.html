@@ -3,12 +3,18 @@
 {% set showBackLink = false %}
 {% set showNavLinks = true %}
 
-
-{% set pageHeading = "Delete job alert 2653541" %}
+{% if data['pageIteration'] == "current" %}
+	{% set pageHeading = "Delete job alert 2653541" %}
+{% else %}
+	{% set pageHeading = "Confirm you want to delete this job alert" %}
+{% endif %}
 {% set pageSection = "" %}
 {% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
 
 {% block content %}
+
+
+{% if data['pageIteration'] == "current" %}
 
 <div class="govuk-grid-row">
 
@@ -48,5 +54,37 @@
 
   	</div>  
 </div>
+
+{% else %}
+
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-two-thirds">
+
+			
+
+				<h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
+				
+				
+
+
+
+					<p>Send alert: {{ data['alertFrequency'] }}</p>
+					<p>Keywords: {{ data['alertKeyword'] }} </p>
+					<p>Overseas Jobs: {{ data['alertOverseas'] }}</p>
+
+					<form method="post" action="/csjobs/account/job-alerts?notification=alertDeleted" >
+
+					<input type="hidden" id="alertOne" name="alertOne" value="" />
+					
+					{{ govukButton({
+						text: "Confirm"
+					}) }}
+
+				</form>
+
+			</div>  
+		</div>
+
+{% endif %}
 
 {% endblock %}
