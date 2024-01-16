@@ -1,0 +1,83 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showNavLinks = true %}
+
+{% if data['pageIteration'] == "current" %}
+	{% set pageHeading = "Password reset" %}
+{% else %}
+	{% set pageHeading = "Enter a new password" %}
+{% endif %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+{% if data['pageIteration'] == "current" %}
+<div class="govuk-grid-row">
+
+	
+	<div class="govuk-grid-column-two-thirds">
+
+    <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
+
+    	<h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
+
+
+
+		<p>Instructions on how to reset your password will be sent via email in the next 15 minutes.</p>
+		<p>If you don't receive an email check your junk/spam folder. If you still haven't received password reset instructions it is likely that there is not an account registered for the email address provided. Therefore, you should try alternative email addresses you may have registered with.</p>
+		<p>Wait 15 minutes before requesting a new password reset as this will invalidate any email and link that we have just sent you.</p>
+		<p>If you still do not receive a password reset email, you can <a href="https://www.civilservicejobs.service.gov.uk/csr/support.cgi">request technical support</a>.</p>
+
+
+
+
+
+  	</div>  
+</div>
+
+{% else %}
+
+	<div class="govuk-grid-row">
+
+		
+		<div class="govuk-grid-column-two-thirds">
+
+		<!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
+
+			<h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
+
+			<p>Your password shoudl have at least 8 characters, and not include your email address.</p>
+
+
+			<form method="post" action="/csjobs/password/success" >
+				{{ govukInput({
+					label: { text: "New password", classes: "govuk-label",isPageHeading: false },      					
+					classes: "govuk-!-width-two-thirds",
+					id: "passwordResetNew",
+					name: "passwordResetNew"						
+				}) }}
+
+				{{ govukInput({
+					label: { text: "Confirm password", classes: "govuk-label",isPageHeading: false },      					
+					classes: "govuk-!-width-two-thirds",
+					id: "passwordResetNewConfirm",
+					name: "passwordResetNewConfirm"						
+				}) }}
+
+				{{ govukButton({
+					text: "Continue"			    
+				}) }}				
+			</form>		
+
+
+
+
+
+		</div>  
+	</div>
+
+{% endif %}
+
+{% endblock %}
