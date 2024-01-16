@@ -3,25 +3,18 @@
 {% set showBackLink = false %}
 {% set showNavLinks = true %}
 
-{% set pageHeading = "Application status: Offer accepted" %}
+{% if data['pageIteration'] == "current" %}
+	{% set pageHeading = "Application status: Offer accepted" %}
+{% else %}
+	{% set pageHeading = "You have received a provisional offer" %}
+{% endif %}
 {% set pageSection = "" %}
 
 {% block content %}
 
-<div class="govuk-grid-row">
-    
-    {% if data['iteration'] == "new" %}
+{% if data['pageIteration'] == "current" %}
 
-		{% include "includes/application/status.html" %}
-
-    	<div class="govuk-grid-column-two-thirds"> 
-    		<h1 class="govuk-heading-l">Your details</h1>    	
-		</div>
-      
-    	<!-- ////////////// END OF NEW ////////////////// -->
-    
-	{% else %}
-
+<div class="govuk-grid-row">    
     	<div class="govuk-grid-column-full">  
 			
 			{% include "includes/application/status.html" %}
@@ -54,9 +47,67 @@
         	<p class="govuk-body">We're delighted that you have accepted our job offer.</p>
         	<p class="govuk-body">As part of the onboarding process we require additional information.</p>
     
-    {% endif %}
   
 	</div>
 </div>
+
+{% else %}
+
+	<div class="govuk-grid-row">    
+		<div class="govuk-grid-column-two-thirds">  
+			
+			{% include "includes/application/status.html" %}
+
+			<h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
+
+			<div class="govuk-inset-text">
+				Consulting Specialist<br>Ref: 9549
+			</div>
+
+			<p class="govuk-body-l">Congratulations. Your application was successful and we’d like to make you a provisional job offer.</p>
+			<h2 class="govuk-heading-m">Next steps</h2>
+			<p>Before we can make a formal job offer, you must accept the provisional offer.
+			<br>We need to do some pre-employment checks. You must provide more information to us in the following screens.</p>
+			<p>If you are no longer interested in the job, you can withdraw your application.</p>
+
+
+			<div class="govuk-button-group">
+
+				{{ govukButton({
+					text: "Accept provisonal offer"                  
+				}) }}
+
+				{{ govukButton({
+					text: "Withdraw Application",
+					classes: "govuk-button--secondary"                 
+				}) }}
+
+			</div>
+
+			<!-- <div class="govuk-button-group">
+				{{ govukButton({
+					text: "Begin pre-employment checks",
+					href: "/csjobs/pec/candidate/details?navpage=det"         			
+				}) }}
+				
+				{{ govukButton({
+					text: "Feedback"                  
+				}) }}
+
+				{{ govukButton({
+					text: "Withdraw Application",
+					classes: "govuk-button--secondary"                 
+				}) }}
+
+				{{ govukButton({
+					text: "Advert details"                    
+				}) }}
+			</div> -->
+							
+
+	</div>
+	</div>
+
+{% endif %}
 
 {% endblock %}
