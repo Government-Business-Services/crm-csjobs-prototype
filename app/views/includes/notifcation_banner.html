@@ -1,43 +1,94 @@
-{% if data['notification'] %}
-{% if data['notification'] != "" %}
+{% if data['pageIteration'] == "current" %}
 
-    {% set html %}
-      <h3 class="govuk-notification-banner__heading">
-        {% if data['notification'] == "accountCreated" %}
-            Account created
-        {% elif data['notification'] == "signedOut" %}
-            Signed out
-        {% elif data['notification'] == "closeAccount" %}
-            Account closed
-        {% elif data['notification'] == "accountUpdated" %}
-            Update successful
-        {% elif data['notification'] == "needAccount" %}
-            Continue Application
-        {% else %}
-            Training outcome recorded and trainee withdrawn
-        {% endif %}
-      </h3>  				
-    <p class="govuk-body">
-        {% if data['notification'] == "accountCreated" %}
-            You may now use your account to register for job alerts and apply for jobs.
-        {% elif data['notification'] == "signedOut" %}
-            You have signed out of your account
-        {% elif data['notification'] == "closeAccount" %}
-            You have closed your account
-        {% elif data['notification'] == "accountUpdated" %}
+    {% if data['notification'] %}
+    {% if data['notification'] != "" %}
 
-        {% elif data['notification'] == "needAccount" %}
-            Your registration is complete. You may continue with your application by clicking the link below.
-            <br><br><a href="#">Click here to continue with your application</a>
-        {% else %}
-            Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.
-        {% endif %}
-    </p>
-    {% endset %}
-    {{ govukNotificationBanner({
-          html: html,
-          type: "success"
-    }) }}
+        {% set html %}
+        <h3 class="govuk-notification-banner__heading">
+            {% if data['notification'] == "accountCreated" %}
+                Account created
+            {% elif data['notification'] == "signedOut" %}
+                Signed out
+            {% elif data['notification'] == "closeAccount" %}
+                Account closed
+            {% elif data['notification'] == "accountUpdated" %}
+                Update successful
+            {% elif data['notification'] == "needAccount" %}
+                Continue Application
+            {% else %}
+                Training outcome recorded and trainee withdrawn
+            {% endif %}
+        </h3>  				
+        <p class="govuk-body">
+            {% if data['notification'] == "accountCreated" %}
+                You may now use your account to register for job alerts and apply for jobs.
+            {% elif data['notification'] == "signedOut" %}
+                You have signed out of your account
+            {% elif data['notification'] == "closeAccount" %}
+                You have closed your account
+            {% elif data['notification'] == "accountUpdated" %}
 
-{% endif %}
+            {% elif data['notification'] == "needAccount" %}
+                Your registration is complete. You may continue with your application by clicking the link below.
+                <br><br><a href="#">Click here to continue with your application</a>
+            {% else %}
+                Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.
+            {% endif %}
+        </p>
+        {% endset %}
+        {{ govukNotificationBanner({
+            html: html,
+            type: "success"
+        }) }}
+
+    {% endif %}
+    {% endif %}
+
+{% else %}
+
+    {% if data['notification'] %}
+    {% if data['notification'] != "" %}
+
+        {% set html %}
+        <h3 class="govuk-notification-banner__heading">
+            {% if data['notification'] == "accountCreated" %}
+                Your account has been created
+            {% elif data['notification'] == "signedOut" %}
+                You have signed out
+            {% elif data['notification'] == "closeAccount" %}
+                Account closed
+            {% elif data['notification'] == "accountUpdated" %}
+                Update successful
+            {% elif data['notification'] == "needAccount" %}
+                Continue Application
+            {% else %}
+                Training outcome recorded and trainee withdrawn
+            {% endif %}
+        </h3>  				
+        <p class="govuk-body">
+            {% if data['notification'] == "accountCreated" %}
+                Use your account to apply for jobs, see your saved jobs and track the progress of your applications.
+            {% elif data['notification'] == "signedOut" %}
+                
+            {% elif data['notification'] == "closeAccount" %}
+                You have closed your account
+            {% elif data['notification'] == "accountUpdated" %}
+
+            {% elif data['notification'] == "needAccount" %}
+                Your registration is complete. You may continue with your application by clicking the link below.
+                <br><br><a href="#">Click here to continue with your application</a>
+            {% else %}
+                Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.
+            {% endif %}
+        </p>
+        {% endset %}
+        {{ govukNotificationBanner({
+            html: html,
+            type: "success"
+        }) }}
+
+    {% endif %}
+    {% endif %}
+
+
 {% endif %}
