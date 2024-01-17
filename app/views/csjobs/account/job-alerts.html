@@ -170,10 +170,18 @@
 
 				<h2 class="govuk-heading-m govuk-!-margin-bottom-7">Your job alerts</h2>
 
-				<h2 class="govuk-heading-m">Alert reference 2653541</h2>
-				<p>Send alert: {{ data['alertFrequency'] }}</p>
-				<p>Keywords: {{ data['alertKeyword'] }} </p>
-				<p>Overseas Jobs: {{ data['alertOverseas'] }}</p>
+				<h2 class="govuk-heading-m">Alert reference 2653541</h2>				
+				<p>When to receive: {{ data['alertFrequency'] }}</p>
+				<p>Title of keywords{{ data['alertKeyword'] }}</p>
+				<p>Postcode, town or city: {{ data['alertWhere'] }}</p>
+				<p>Search distance: {{ data['alertDistance'] }} miles</p>
+				<p>Overseas: {{ data['alertOverseas'] }}</p>
+				<p>Type of role: {{ data['alertTypeRole'] }}	</p>
+				<p>Department: {{ data['alertDepartment'] }}</p>
+				<p>Minimum salary: {{ data['alertMinimumSalary'] }}</p>
+				<p>Grade: {{ data['alertJobGrade'] }}</p>
+				<p>Working pattern: {{ data['alertWorkingPattern'] }}</p>
+				<p>Contract type: {{ data['alertContractType'] }}</p>
 
 				{{ govukButton({
 					text: "Search using my criteria"			
