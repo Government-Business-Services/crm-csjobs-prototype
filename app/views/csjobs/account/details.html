@@ -151,7 +151,7 @@
 				{% if data['notification'] == "needAccount" %}
 					<form method="post" action="/csjobs/search?notification=needAccount">
 				{% else %}
-					<form method="post" action="/csjobs/search?notification=accountCreated">
+					<form method="post" action="/csjobs/search?notification=accountUpdated">
 				{% endif %}
 				
 				<!-- Add this to show user is signed in for main navigation -->
@@ -193,94 +193,77 @@
 					value: data['userConfirmEmailAddress']
 				}) }}	
 											
-				
-				
-				
-		
-				
-
 				<!-- If Civil Servant further questions -->
 				{% set civilServantHtml %}
 
-						{{ govukSelect({
-							label: { text: "Select your department", classes: "govuk-label", isPageHeading: false },      
-							classes: "govuk-!-width-two-thirds",							
-							id: "userDepartment",
-							name: "userDepartment",
-							value: data['userDepartment'],
-							items: [
-								{ value: "", text: "" },	  	
-								{ value: "updated", text: "Choose when to receive " },	
-								{ value: "published", text: "Recently published" },    			
-								{ value: "views", text: "Most views" },
-								{ value: "comments", text: "Most comments" }
-							]
-						}) }}
+				{{ govukSelect({
+					label: { text: "Select your department", classes: "govuk-label", isPageHeading: false },      
+					classes: "govuk-!-width-two-thirds",							
+					id: "userDepartment",
+					name: "userDepartment",
+					value: data['userDepartment'],
+					items: [
+						{ value: "", text: "" },	  	
+						{ value: "updated", text: "Choose when to receive " },	
+						{ value: "published", text: "Recently published" },    			
+						{ value: "views", text: "Most views" },
+						{ value: "comments", text: "Most comments" }
+					]
+				}) }}
 
-						{{ govukRadios({					
-							name: "userPriorityMover",
-							classes: "govuk-radios--inline",
-							fieldset: {
-							legend: { text: "Are you a priority mover?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
-							hint: {
-								text: "A priority mover is a civil servant whose job may end due to proposed changes in their department. You must obtain priority mover status approval before selecting 'Yes'."
-							},
-							items: [
-								{ value: "Yes", text: "Yes" },
-								{ value: "No", text: "No" }			
-							]
-						  }) }}
-
-						
-						
-							{{ govukInput({
-								label: { text: "Provide your email address", classes: "govuk-label",isPageHeading: false },      					
-								classes: "govuk-!-width-two-thirds",
-								hint: {
-									text: "Leave this section blank if you cannot access your email."
-								},
-								id: "userWorkEmail",
-								name: "userWorkEmail",
-								value: data['userWorkEmail']
-							}) }}	
-							
-							{{ govukInput({
-								label: { text: "Confirm your email address", classes: "govuk-label", isPageHeading: false },      					
-								classes: "govuk-!-width-two-thirds",							
-								id: "userConfirmWorkEmail",
-								name: "userConfirmWorkEmail",
-								value: data['userConfirmWorkEmail']
-							}) }}	
-						
-							{{ govukInput({
-								label: { text: "Provide your line manager’s email address", classes: "govuk-label",isPageHeading: false },      					
-								classes: "govuk-!-width-two-thirds",
-								hint: {
-									text: "You only need to provide this if you cannot access your work email."
-								},
-								id: "userLineManagerEmail",
-								name: "userLineManagerEmail",
-								value: data['userLineManagerEmail']
-							}) }}	
-							
-							{{ govukInput({
-								label: { text: "Confirm your manager's email address", classes: "govuk-label", isPageHeading: false },      					
-								classes: "govuk-!-width-two-thirds",								
-								id: "userConfirmLineManagerEmail",
-								name: "userConfirmLineManagerEmail",
-								value: data['userConfirmLineManagerEmail']
-							}) }}	
-						
-
-
+				{{ govukRadios({					
+					name: "userPriorityMover",
+					classes: "govuk-radios--inline",
+					fieldset: {
+					legend: { text: "Are you a priority mover?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+					hint: {
+						text: "A priority mover is a civil servant whose job may end due to proposed changes in their department. You must obtain priority mover status approval before selecting 'Yes'."
+					},
+					items: [
+						{ value: "Yes", text: "Yes" },
+						{ value: "No", text: "No" }			
+					]
+					}) }}
+				
+					{{ govukInput({
+						label: { text: "Provide your email address", classes: "govuk-label",isPageHeading: false },      					
+						classes: "govuk-!-width-two-thirds",
+						hint: {
+							text: "Leave this section blank if you cannot access your email."
+						},
+						id: "userWorkEmail",
+						name: "userWorkEmail",
+						value: data['userWorkEmail']
+					}) }}	
 					
-
-
+					{{ govukInput({
+						label: { text: "Confirm your email address", classes: "govuk-label", isPageHeading: false },      					
+						classes: "govuk-!-width-two-thirds",							
+						id: "userConfirmWorkEmail",
+						name: "userConfirmWorkEmail",
+						value: data['userConfirmWorkEmail']
+					}) }}	
+				
+					{{ govukInput({
+						label: { text: "Provide your line manager’s email address", classes: "govuk-label",isPageHeading: false },      					
+						classes: "govuk-!-width-two-thirds",
+						hint: {
+							text: "You only need to provide this if you cannot access your work email."
+						},
+						id: "userLineManagerEmail",
+						name: "userLineManagerEmail",
+						value: data['userLineManagerEmail']
+					}) }}	
+					
+					{{ govukInput({
+						label: { text: "Confirm your manager's email address", classes: "govuk-label", isPageHeading: false },      					
+						classes: "govuk-!-width-two-thirds",								
+						id: "userConfirmLineManagerEmail",
+						name: "userConfirmLineManagerEmail",
+						value: data['userConfirmLineManagerEmail']
+					}) }}	
 		
 				{% endset -%}
-
-
-
 
 				{{ govukRadios({					
 					name: "userCivilServant",

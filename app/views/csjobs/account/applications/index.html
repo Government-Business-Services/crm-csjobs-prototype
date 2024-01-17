@@ -69,6 +69,8 @@
 				<li>see your previous applications that are now closed</li>
 			</ul>							
 
+			{% if data['linkStatus'] == "progress" %}
+
 			{{ govukTable({        					
 				firstCellIsHeader: false,			
 				head: [
@@ -81,15 +83,42 @@
 				],
 				rows: [
 					[
-						{ html: 'Consulting Specialist<br>Ref: 9549' },	
+						{ html: 'Social Media<br>Ref: 9549' },	
 						{ text: "HM Revenue and Customs" },
-						{ html: "28 September<br>Time: 23:55" },
-						{ html: '20 January<br>Time: 09:28' },
+						{ html: "22 January<br>Time: 23:55" },
+						{ html: '21 January' },
 						{ text: "14028" },					
-						{ html: '<a href="/csjobs/account/applications/update" class="govuk-link--no-visited-state">Provisional offer</a>' }
+						{ html: '<a href="#" class="govuk-link--no-visited-state">In progress</a>' }
 					]          
 				]
-			}) }}    
+			}) }}  
+
+			{% else %}
+
+
+			{{ govukTable({        					
+				firstCellIsHeader: false,			
+				head: [
+					{ text: "Vacancy" },	
+					{ text: "Department" },
+					{ text: "Closing date" },
+					{ text: "Last update" },
+					{ text: "Application ID"},					
+					{ text: "Status" }
+				],
+				rows: [
+					[
+						{ html: 'Social Media<br>Ref: 9549' },	
+						{ text: "HM Revenue and Customs" },
+						{ html: "22 January<br>Time: 23:55" },
+						{ html: '4 February' },
+						{ text: "14028" },					
+						{ html: '<a href="/csjobs/account/applications/update?appStatus=provisionalOffer" class="govuk-link--no-visited-state">Provisional offer</a>' }
+					]          
+				]
+			}) }}   
+			
+			{% endif %}
 
 			<p class="govuk-body"><a href="/csjobs/account/applications/inactive" class="govuk-link--no-visited-state">View your previous applications</a></p>
 
