@@ -83,20 +83,18 @@
 			{{ govukTable({        					
 				firstCellIsHeader: false,			
 				head: [
-					{ text: "Vacancy" },	
+					{ text: "Vacancy", classes: "govuk-!-width-one-quarter" },	
 					{ text: "Department" },
-					{ text: "Closing date" },
-					{ text: "Last update" },
-					{ text: "Application ID"},					
+					{ text: "Closing date", classes: "govuk-!-width-one-quarter" },
+					{ text: "Updated" },					
 					{ text: "Status" }
 				],
 				rows: [
 					[
-						{ html: 'Regional Security Manager' },	
+						{ html: 'Regional Security Manager<br><span class="govuk-body-s">Application ID: 14028</span>' },	
 						{ text: "HM Revenue and Customs" },
-						{ html: '26 January<br><span class="govuk-body-s">Time: 23:55</span>' },
-						{ html: '17 January' },
-						{ text: "14028" },					
+						{ html: '11:55pm on 26 January', classes: "govuk-!-width-one-quarter" },
+						{ html: '17 January' },										
 						{ html: '<a href="#" class="govuk-link--no-visited-state">In progress</a>' }
 					]          
 				]
@@ -108,20 +106,18 @@
 			{{ govukTable({        					
 				firstCellIsHeader: false,			
 				head: [
-					{ text: "Vacancy" },	
+					{ text: "Vacancy", classes: "govuk-!-width-one-quarter" },	
 					{ text: "Department" },
-					{ text: "Closing date" },
-					{ text: "Last update" },
-					{ text: "Application ID"},					
+					{ text: "Closing date" , classes: "govuk-!-width-one-quarter" },
+					{ text: "Updated" },					
 					{ text: "Status" }
 				],
 				rows: [
 					[
-						{ html: 'Regional Security Manager' },	
+						{ html: 'Regional Security Manager <br><span class="govuk-body-s">Application ID: 14028</span>' },	
 						{ text: "HM Revenue and Customs" },
-						{ html: '26 January<br><span class="govuk-body-s">Time: 23:55</span>' },
-						{ html: '4 February' },
-						{ text: "14028" },					
+						{ html: '11:55pm on 26 January', classes: "govuk-!-width-one-quarter" },
+						{ html: '4 February' },						
 						{ html: '<a href="/csjobs/account/applications/update?appStatus=provisionalOffer" class="govuk-link--no-visited-state">Provisional offer</a>' }
 					]          
 				]
