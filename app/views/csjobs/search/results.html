@@ -3,6 +3,15 @@
 {% set showBackLink = false %}
 {% set showNavLinks = true %}
 
+{% set defaultRole = 'Social Media Manager' %}
+{% set defaultLocation = 'Bristol, London, Newcastle-upon-Tyne, York' %}
+{% set defaultSalary = '£32,136 to £38,551' %}
+{% set defaultCloseDate = '11:55 pm on Friday 26th January 2024' %}
+{% set defaultRef = '332893' %}
+
+
+£32,136 to £38,551
+
 {% if data['pageIteration'] == "current" %}
 	{% set pageHeading = "{NUMBER} Search results" %}
 {% else %}
@@ -54,7 +63,7 @@
 			<div class="govuk-grid-column-one-third grey govuk-!-padding-top-5">	
 				
 				<h2 class="govuk-heading-m">Advanced search</h2>
-				
+				<form method="post" action="/csjobs/search/results" >
 				<!-- Advanced search area -->
 				{{ govukInput({
 					label: { text: "Enter job title or keywords", classes: "govuk-label", isPageHeading: false },      					
@@ -561,12 +570,71 @@
 									text: "Search for jobs"							
 								}) }}
 							{% endif %}
+						</form>
 
 				</div>
+				
+				<!-- Results list -->
 				<div class="govuk-grid-column-two-thirds">
 
 
-					<p class="govuk-body"><a href="/csjobs/search/job-vacancy">Job vacancy temp link</a></p>
+					<div class="govuk-grid-row">
+						
+						<!-- <div class="govuk-grid-column-two-thirds">
+						  	<nav class="govuk-pagination govuk-!-padding-top-1" style="float:left" role="navigation" aria-label="results">
+								<ul class="govuk-pagination__list">
+							  		<li class="govuk-pagination__item govuk-pagination__item--current"><a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">1</a></li>
+							  		<li class="govuk-pagination__item"><a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">2</a></li>
+							  		<li class="govuk-pagination__item"><a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">3</a></li>
+								</ul>
+								<div class="govuk-pagination__next">
+							  		<a class="govuk-link govuk-pagination__link" href="#" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13"><path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path></svg></a>
+								</div>
+						  	</nav>
+						</div> -->
+
+
+						<div class="govuk-grid-column-full govuk-!-margin-left-5">
+						  
+							<label class="govuk-label govuk-!-margin-top-1" style="padding-right:10px;padding-top:10px;font-size:20px;float:left" for="order">Order by</label>
+							<select class="govuk-select govuk-!-margin-top-1" style="min-width:60%;max-width:100%" id="order" name="order">
+							  <option value="updated" selected>Closing date</option>
+							  <option value="views">Most recent</option>
+							  <option value="comments">Salary high to low</option>
+							  <option value="comments">Salary high to low</option>
+							</select>
+						  
+						</div>
+					  </div>
+
+
+
+					  
+    					<div class="govuk-grid-row govuk-!-margin-left-5">
+							<div class="govuk-grid-column-three-quarters">		  						
+		  						{% if data['searchKeyword'] %}
+									<p><a href="/csjobs/search/job-vacancy">{{ data['searchKeyword'] | capitalize}}</a></p>
+		  						{% else %}
+									<p><a href="/csjobs/search/job-vacancy">{{defaultRole}}</a></p>p>
+		  						{% endif %}								
+								<p>Location: 
+								{% if data['searchWhere'] != "" %}
+									{{ data['searchWhere'] | capitalize}}
+								{% else %}
+									{{defaultLocation}}
+								{% endif %}
+								</p>
+								<p>Salary: {{defaultSalary}}</p>								
+								<p>Reference: {{defaultRef}}</p>		  						
+		  						<p>Closes: {{defaultCloseDate}}</p>
+							</div>
+							
+							<!-- <div class="govuk-grid-column-one-quarter" style="height:190px;padding-top:10px; padding-bottom:10px">
+		  						<img src="/public/images/dfe-logo.png" style="min-height:40%;max-height:30%;float:right" alt="Department for Education logo">		  						
+							</div> -->
+	  					</div>
+							  
+					
 
 				</div>
 
