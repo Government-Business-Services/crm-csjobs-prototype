@@ -127,69 +127,104 @@
 					<li>delete any alerts that you no longer want</li>
 				</ul>
 
-			<form method="post" action="/csjobs/account/job-alerts/add" >		 
+			<form method="post" action="/csjobs/account/job-alerts/add" >		 				
+				<div class="govuk-button-group govuk-!-margin-bottom-9">
 				
-				<div class="govuk-button-group">
-				{{ govukButton({
-					text: "Create a job alert",
-					classes: "govuk-!-margin-top-5"
-				}) }}
-
-
-
-				{% if data['alertOne'] == "Yes"  %}
-
-				{% if data['notification'] == "alertPaused" %}
-
 					{{ govukButton({
-						text: "Restart your alerts",
-						classes: "govuk-button--secondary",
-						href: "/csjobs/account/job-alerts?notification=alertRestarted"
+						text: "Create a job alert",
+						classes: "govuk-!-margin-top-5"
 					}) }}
 
-				{% else %}
+					{% if data['alertOne'] == "Yes"  %}
 
-					{{ govukButton({
-						text: "Pause your alerts",
-						classes: "govuk-button--secondary",
-						href: "/csjobs/account/job-alerts?notification=alertPaused"
-					}) }}				
-				{% endif %}
-
-			
-			{% endif %}
-		</div>	
-
+						{% if data['notification'] == "alertPaused" %}
+							{{ govukButton({
+								text: "Restart your alerts",
+								classes: "govuk-button--secondary",
+								href: "/csjobs/account/job-alerts?notification=alertRestarted"
+							}) }}
+						{% else %}
+							{{ govukButton({
+								text: "Pause your alerts",
+								classes: "govuk-button--secondary",
+								href: "/csjobs/account/job-alerts?notification=alertPaused"
+							}) }}				
+						{% endif %}							
+					{% endif %}
+				</div>	
 			</form>
-
-
-			
-
 
 			{% if data['alertOne'] == "Yes"  %}
 
-				<h2 class="govuk-heading-m govuk-!-margin-bottom-7">Your job alerts</h2>
+				<h2 class="govuk-heading-m govuk-!-margin-top-7">Reference 2653541</h2>				
+				<dl class="govuk-summary-list govuk-!-margin-bottom-5">
+					{% if data['alertFrequency'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">When to receive</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertFrequency'] }}</dd>
+					</div>
+					{% endif %}
+					{% if data['alertKeyword'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Keywords</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertKeyword'] }}</dd>
+					</div>
+					{% endif %}
+					{% if data['alertDistance'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Location</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertDistance'] }} miles of {{ data['alertWhere'] }}</dd>
+					</div>
+					{% endif %}
+					{% if data['alertOverseas'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Overseas</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertOverseas'] }}</dd>
+					</div>
+					{% endif %}
+					{% if data['alertTypeRole'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Type of role</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertTypeRole'] }}	</dd>
+					</div>
+					{% endif %}
+					{% if data['alertDepartment'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Department</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertDepartment'] }}</dd>
+					</div>
+					{% endif %}
+					{% if data['alertMinimumSalary'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Minimum salary</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertMinimumSalary'] }}</dd>
+					</div>
+					{% endif %}
+					{% if data['alertJobGrade'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Grade</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertJobGrade'] }}</dd>
+					</div>
+					{% endif %}
+					{% if data['alertWorkingPattern'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Working pattern</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertWorkingPattern'] }}</dd>
+					</div>
+					{% endif %}
+					{% if data['alertContractType'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Contract type</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertContractType'] }}</dd>
+					</div>
+					{% endif %}
+				</dl>
 
-				<h2 class="govuk-heading-m">Alert reference 2653541</h2>				
+				<p><a href="/csjobs/account/job-alerts/add" class="govuk-link govuk-link--no-visited-state">Edit this alert</a> | <a href="/csjobs/account/job-alerts/deleted" class="govuk-link govuk-link--no-visited-state">Delete this alert</a> | <a href="#" class="govuk-link govuk-link--no-visited-state">Search for jobs like this</a></p>
 
-
-				<p>When to receive: {{ data['alertFrequency'] }}<br>
-				Title or keywords: {{ data['alertKeyword'] }}<br>
-				Postcode, town or city: {{ data['alertWhere'] }}<br>
-				Search distance: {{ data['alertDistance'] }} miles<br>
-				Overseas: {{ data['alertOverseas'] }}<br>
-				Type of role: {{ data['alertTypeRole'] }}	<br>
-				Department: {{ data['alertDepartment'] }}<br>
-				Minimum salary: {{ data['alertMinimumSalary'] }}<br>
-				Grade: {{ data['alertJobGrade'] }}<br>
-				Working pattern: {{ data['alertWorkingPattern'] }}<br>
-				Contract type: {{ data['alertContractType'] }}</p>
-
-				<p><a href="/csjobs/account/job-alerts/add" class="govuk-link govuk-link--no-visited-state">Edit this alert</a> | <a href="/csjobs/account/job-alerts/deleted" class="govuk-link govuk-link--no-visited-state">Delete this alert</a></p>
-
-				{{ govukButton({
+				<!-- {{ govukButton({
 					text: "Search for jobs like this"			
-				}) }}
+				}) }} -->
 
 				
 				

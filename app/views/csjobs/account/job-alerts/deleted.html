@@ -29,19 +29,10 @@
 
 		{% if data['alertOne'] == "Yes"  %}
 
-		
-		<h2 class="govuk-heading-m">Alert reference 2653541</h2>				
-		<p>When to receive: {{ data['alertFrequency'] }}</p>
-		<p>Title of keywords{{ data['alertKeyword'] }}</p>
-		<p>Postcode, town or city: {{ data['alertWhere'] }}</p>
-		<p>Search distance: {{ data['alertDistance'] }} miles</p>
-		<p>Overseas: {{ data['alertOverseas'] }}</p>
-		<p>Type of role: {{ data['alertTypeRole'] }}	</p>
-		<p>Department: {{ data['alertDepartment'] }}</p>
-		<p>Minimum salary: {{ data['alertMinimumSalary'] }}</p>
-		<p>Grade: {{ data['alertJobGrade'] }}</p>
-		<p>Working pattern: {{ data['alertWorkingPattern'] }}</p>
-		<p>Contract type: {{ data['alertContractType'] }}</p>
+		<h2 class="govuk-heading-m">Alert reference 2653541</h2>
+		<p>Send alert: {{ data['alertFrequency'] }}</p>
+		<p>Keywords: {{ data['alertKeyword'] }} </p>
+		<p>Overseas Jobs: {{ data['alertOverseas'] }}</p>
 
 		<form method="post" action="/csjobs/account/job-alerts?notification=alertDeleted" >
 
@@ -69,20 +60,72 @@
 		<div class="govuk-grid-row">
 			<div class="govuk-grid-column-two-thirds">
 
-			
-
 				<h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
-				
-				
+								
+				<dl class="govuk-summary-list govuk-!-margin-bottom-5">			
+					{% if data['alertFrequency'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">When to receive</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertFrequency'] }}</dd>
+					</div>
+					{% endif %}
+					{% if data['alertKeyword'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Keywords</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertKeyword'] }}</dd>
+					</div>
+					{% endif %}
+					{% if data['alertDistance'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Location</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertDistance'] }} miles of {{ data['alertWhere'] }}</dd>
+					</div>
+					{% endif %}
+					{% if data['alertOverseas'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Overseas</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertOverseas'] }}</dd>
+					</div>
+					{% endif %}
+					{% if data['alertTypeRole'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Type of role</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertTypeRole'] }}	</dd>
+					</div>
+					{% endif %}
+					{% if data['alertDepartment'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Department</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertDepartment'] }}</dd>
+					</div>
+					{% endif %}
+					{% if data['alertMinimumSalary'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Minimum salary</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertMinimumSalary'] }}</dd>
+					</div>
+					{% endif %}
+					{% if data['alertJobGrade'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Grade</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertJobGrade'] }}</dd>
+					</div>
+					{% endif %}
+					{% if data['alertWorkingPattern'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Working pattern</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertWorkingPattern'] }}</dd>
+					</div>
+					{% endif %}
+					{% if data['alertContractType'] %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">Contract type</dt>
+						<dd class="govuk-summary-list__value">{{ data['alertContractType'] }}</dd>
+					</div>
+					{% endif %}
+				</dl>
 
-
-
-					<p>Send alert: {{ data['alertFrequency'] }}</p>
-					<p>Keywords: {{ data['alertKeyword'] }} </p>
-					<p>Overseas Jobs: {{ data['alertOverseas'] }}</p>
-
-					<form method="post" action="/csjobs/account/job-alerts?notification=alertDeleted" >
-
+				<form method="post" action="/csjobs/account/job-alerts?notification=alertDeleted" >
 					<input type="hidden" id="alertOne" name="alertOne" value="" />
 					
 					{{ govukButton({
