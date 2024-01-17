@@ -3,6 +3,15 @@
 {% set showBackLink = false %}
 {% set showNavLinks = true %}
 
+
+{% set defaultRole = 'Social Media Manager' %}
+{% set defaultLocation = 'Bristol, London, Newcastle-upon-Tyne, York' %}
+{% set defaultSalary = '£32,136 to £38,551' %}
+{% set defaultCloseDate = '11:55 pm on Friday 26th January 2024' %}
+{% set defaultRef = '332893' %}
+{% set defaultDepartment = 'Department for Environment, Food and Rural Affairs' %}
+
+
 {% if data['pageIteration'] == "current" %}
 	{% set pageHeading = "Applications" %}
 {% else %}
@@ -83,9 +92,9 @@
 				],
 				rows: [
 					[
-						{ html: 'Social Media<br>Ref: 9549' },	
-						{ text: "HM Revenue and Customs" },
-						{ html: "22 January<br>Time: 23:55" },
+						{ html: 'Social Media Manager<br>Ref: 332893' },	
+						{ text: "Department for Environment, Food and Rural Affairs" },
+						{ html: "26 January<br>Time: 23:55" },
 						{ html: '17 January' },
 						{ text: "14028" },					
 						{ html: '<a href="#" class="govuk-link--no-visited-state">In progress</a>' }
@@ -108,9 +117,9 @@
 				],
 				rows: [
 					[
-						{ html: 'Social Media<br>Ref: 9549' },	
-						{ text: "HM Revenue and Customs" },
-						{ html: "22 January<br>Time: 23:55" },
+						{ html: 'Social Media Manager<br>Ref: 332893' },	
+						{ text: "Department for Environment, Food and Rural Affairs" },
+						{ html: "26 January<br>Time: 23:55" },
 						{ html: '4 February' },
 						{ text: "14028" },					
 						{ html: '<a href="/csjobs/account/applications/update?appStatus=provisionalOffer" class="govuk-link--no-visited-state">Provisional offer</a>' }
@@ -120,7 +129,7 @@
 			
 			{% endif %}
 
-			<p class="govuk-body"><a href="/csjobs/account/applications/inactive" class="govuk-link--no-visited-state">View your previous applications</a></p>
+			<p class="govuk-body"><a href="#" class="govuk-link--no-visited-state">View your previous applications</a></p>
 
 		</div>
 	</div>

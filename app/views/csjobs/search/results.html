@@ -11,13 +11,13 @@
 {% set defaultDepartment = 'Department for Environment, Food and Rural Affairs' %}
 
 
-£32,136 to £38,551
+
 
 {% if data['pageIteration'] == "current" %}
 	{% set pageHeading = "{NUMBER} Search results" %}
 {% else %}
 	{% if ((data['searchKeyword']) or ( data['searchWhere'] )) %}
-		{% set pageHeading = "2 jobs match your search" %}
+		{% set pageHeading = "5 jobs match your search" %}
 	{% else %}
 		{% set pageHeading = "Find jobs in the Civil Service" %}
 	{% endif %}
@@ -616,7 +616,7 @@
 		  						{% if data['searchKeyword'] %}
 									<p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state">{{ data['searchKeyword'] | capitalize}}</a></p>
 		  						{% else %}
-									<p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state"></a>>{{defaultRole}}</a></p>p>
+									<p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state">{{defaultRole}}</a></p>
 		  						{% endif %}	
 								<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">{{ defaultDepartment }}</p>							
 								<p class="govuk-!-margin-bottom-2">Location:
@@ -636,80 +636,81 @@
 								{% if data['searchKeyword'] %}
 								  <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state">{{ data['searchKeyword'] | capitalize}}</a></p>
 								{% else %}
-								  <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state"></a>>{{defaultRole}}</a></p>p>
+								  <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state">{{defaultRole}}</a></p>
 								{% endif %}	
-							  <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">{{ defaultDepartment }}</p>							
-							  <p class="govuk-!-margin-bottom-2">Location:
-							  {% if data['searchWhere'] != "" %}
-								  {{ data['searchWhere'] | capitalize}}
-							  {% else %}
-								  {{defaultLocation}}
-							  {% endif %}
-							  </p>
-							  <p class="govuk-!-margin-bottom-2">Salary: {{defaultSalary}}</p>								
-							  <p class="govuk-!-margin-bottom-2">Reference: {{defaultRef}}</p>		  						
+								<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">{{ defaultDepartment }}</p>							
+								<p class="govuk-!-margin-bottom-2">Location:
+								{% if data['searchWhere'] != "" %}
+									{{ data['searchWhere'] | capitalize}}
+								{% else %}
+									{{defaultLocation}}
+								{% endif %}
+								</p>
+								<p class="govuk-!-margin-bottom-2">Salary: {{defaultSalary}}</p>								
+								<p class="govuk-!-margin-bottom-2">Reference: {{defaultRef}}</p>		  						
+									<p>Closes: <span class="govuk-!-font-weight-bold">{{defaultCloseDate}}</span></p>
+								<hr>
+							</div>
+
+						  	<div class="govuk-grid-column-full govuk-!-margin-left-5 govuk-!-margin-top-5">		  						
+								{% if data['searchKeyword'] %}
+								<p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state">{{ data['searchKeyword'] | capitalize}}</a></p>
+								{% else %}
+								<p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state">{{defaultRole}}</a></p>
+								{% endif %}	
+								<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">{{ defaultDepartment }}</p>							
+								<p class="govuk-!-margin-bottom-2">Location:
+								{% if data['searchWhere'] != "" %}
+									{{ data['searchWhere'] | capitalize}}
+								{% else %}
+									{{defaultLocation}}
+								{% endif %}
+								</p>
+								<p class="govuk-!-margin-bottom-2">Salary: {{defaultSalary}}</p>								
+								<p class="govuk-!-margin-bottom-2">Reference: {{defaultRef}}</p>		  						
+									<p>Closes: <span class="govuk-!-font-weight-bold">{{defaultCloseDate}}</span></p>
+								<hr>
+							</div>
+
+					  		<div class="govuk-grid-column-full govuk-!-margin-left-5 govuk-!-margin-top-5">		  						
+								{% if data['searchKeyword'] %}
+								<p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state">{{ data['searchKeyword'] | capitalize}}</a></p>
+								{% else %}
+								<p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state">{{defaultRole}}</a></p>
+								{% endif %}	
+								<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">{{ defaultDepartment }}</p>							
+								<p class="govuk-!-margin-bottom-2">Location:
+								{% if data['searchWhere'] != "" %}
+								{{ data['searchWhere'] | capitalize}}
+								{% else %}
+								{{defaultLocation}}
+								{% endif %}
+								</p>
+								<p class="govuk-!-margin-bottom-2">Salary: {{defaultSalary}}</p>								
+								<p class="govuk-!-margin-bottom-2">Reference: {{defaultRef}}</p>		  						
 								<p>Closes: <span class="govuk-!-font-weight-bold">{{defaultCloseDate}}</span></p>
-							  <hr>
-						  </div>
-
-						  <div class="govuk-grid-column-full govuk-!-margin-left-5 govuk-!-margin-top-5">		  						
-							{% if data['searchKeyword'] %}
-							  <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state">{{ data['searchKeyword'] | capitalize}}</a></p>
-							{% else %}
-							  <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state"></a>>{{defaultRole}}</a></p>p>
-							{% endif %}	
-						  <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">{{ defaultDepartment }}</p>							
-						  <p class="govuk-!-margin-bottom-2">Location:
-						  {% if data['searchWhere'] != "" %}
-							  {{ data['searchWhere'] | capitalize}}
-						  {% else %}
-							  {{defaultLocation}}
-						  {% endif %}
-						  </p>
-						  <p class="govuk-!-margin-bottom-2">Salary: {{defaultSalary}}</p>								
-						  <p class="govuk-!-margin-bottom-2">Reference: {{defaultRef}}</p>		  						
-							<p>Closes: <span class="govuk-!-font-weight-bold">{{defaultCloseDate}}</span></p>
-						  <hr>
-					  </div>
-
-					  <div class="govuk-grid-column-full govuk-!-margin-left-5 govuk-!-margin-top-5">		  						
-						{% if data['searchKeyword'] %}
-						  <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state">{{ data['searchKeyword'] | capitalize}}</a></p>
-						{% else %}
-						  <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state"></a>>{{defaultRole}}</a></p>p>
-						{% endif %}	
-					  <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">{{ defaultDepartment }}</p>							
-					  <p class="govuk-!-margin-bottom-2">Location:
-					  {% if data['searchWhere'] != "" %}
-						  {{ data['searchWhere'] | capitalize}}
-					  {% else %}
-						  {{defaultLocation}}
-					  {% endif %}
-					  </p>
-					  <p class="govuk-!-margin-bottom-2">Salary: {{defaultSalary}}</p>								
-					  <p class="govuk-!-margin-bottom-2">Reference: {{defaultRef}}</p>		  						
-						<p>Closes: <span class="govuk-!-font-weight-bold">{{defaultCloseDate}}</span></p>
-					  <hr>
-				  </div>
-				  <div class="govuk-grid-column-full govuk-!-margin-left-5 govuk-!-margin-top-5">		  						
-					{% if data['searchKeyword'] %}
-					  <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state">{{ data['searchKeyword'] | capitalize}}</a></p>
-					{% else %}
-					  <p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state"></a>>{{defaultRole}}</a></p>p>
-					{% endif %}	
-				  <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">{{ defaultDepartment }}</p>							
-				  <p class="govuk-!-margin-bottom-2">Location:
-				  {% if data['searchWhere'] != "" %}
-					  {{ data['searchWhere'] | capitalize}}
-				  {% else %}
-					  {{defaultLocation}}
-				  {% endif %}
-				  </p>
-				  <p class="govuk-!-margin-bottom-2">Salary: {{defaultSalary}}</p>								
-				  <p class="govuk-!-margin-bottom-2">Reference: {{defaultRef}}</p>		  						
-					<p>Closes: <span class="govuk-!-font-weight-bold">{{defaultCloseDate}}</span></p>
-				  <hr>
-			  </div>
+								<hr>
+							</div>
+							
+							<div class="govuk-grid-column-full govuk-!-margin-left-5 govuk-!-margin-top-5">		  						
+								{% if data['searchKeyword'] %}
+								<p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state">{{ data['searchKeyword'] | capitalize}}</a></p>
+								{% else %}
+								<p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2"><a href="/csjobs/search/job-vacancy" class="govuk-link govuk-link--no-visited-state">{{defaultRole}}</a></p>
+								{% endif %}	
+								<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-2">{{ defaultDepartment }}</p>							
+								<p class="govuk-!-margin-bottom-2">Location:
+								{% if data['searchWhere'] != "" %}
+								{{ data['searchWhere'] | capitalize}}
+								{% else %}
+								{{defaultLocation}}
+								{% endif %}
+								</p>
+								<p class="govuk-!-margin-bottom-2">Salary: {{defaultSalary}}</p>								
+								<p class="govuk-!-margin-bottom-2">Reference: {{defaultRef}}</p>		  						
+								<p>Closes: <span class="govuk-!-font-weight-bold">{{defaultCloseDate}}</span></p>
+								<hr>
+							</div>
 
 
 							
