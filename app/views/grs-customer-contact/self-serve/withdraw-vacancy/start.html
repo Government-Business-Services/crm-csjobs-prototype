@@ -13,10 +13,18 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}		
 
+		<!-- <p class="govuk-body">This is for:</p>
+		<ul class="govuk-list govuk-list--bullet">				
+			<li>requesting the withdrawal of a vacancy’s advertisement</li>
+		</ul>
+
+		<p class="govuk-body">You will need to:</p>
+		<ul class="govuk-list govuk-list--bullet">				
+			<li> provide the vacancy’s reference number</li>
+		</ul> -->
+
+
 		<p class="govuk-body">To request the withdrawal of a vacancy’s advertisement, you need to provide the vacancy’s reference number. Make sure you have the relevant reference number ready.</p>
-
-
-		
 		
 		{{ govukButton({
 			text: "Start request",
@@ -25,6 +33,12 @@
 			href: "/grs-customer-contact/self-serve/withdraw-vacancy/reference-number"
 		}) }}
   
+		<h2 class="govuk-heading-m govuk-!-margin-top-5">Before you start</h2>
+		<p>If you want to amend a vacancy’s advertisement you can use the self-serve <a href="/grs-customer-contact/self-serve/amend-vacancy/start?query=amendVacacny" class="govuk-link govuk-link--no-visited-state">amend a vacancy advertisement</a> option.</p>
+		<p>For anything else you can access <a href="/grs-customer-contact/triage/advertising/" class="govuk-link govuk-link--no-visited-state">guidance about creating, managing and editing advertisements</a>.</p>
+		
+
+
 	</div>
 </div>
 

@@ -4,6 +4,8 @@
 
 {% set pageHeading = "Here are some options relating to what you asked for help with" %}
 
+{% set pageHeading = "What would you like to do?" %}
+
 {% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
 {% block content %}
 
@@ -34,16 +36,16 @@
 					}
 				},
 				items: [                
-					{ value: "Amend a vacancy advertisement~/grs-customer-contact/self-serve/amend-vacancy/start?query=amendVacacny", text: "Make a change to the vacancy holder’s details, the job title,  department location and salary details in the advertisement.", checked: checked("triageMulti", "Amend a vacancy advertisement" ), hint: {
+					{ value: "Amend a vacancy advertisement~/grs-customer-contact/self-serve/amend-vacancy/start?query=amendVacacny", text: "I want to make a change to the vacancy advertisement such as the vacancy holder’s details, the job title,  department location and salary details", checked: checked("triageMulti", "Amend a vacancy advertisement" ), hint: {
 						text: ""
 					  } },
-					{ value: "Withdraw a vacancy advertisement~/grs-customer-contact/self-serve/withdraw-vacancy/start?query=withdrawVacacny", text: "Withdraw the vacancy advertisement so it is no longer live.", checked: checked("triageMulti", "Withdraw a vacancy advertisement"), hint: {
+					{ value: "Withdraw a vacancy advertisement~/grs-customer-contact/self-serve/withdraw-vacancy/start?query=withdrawVacacny", text: "I want to  withdraw the vacancy advertisement", checked: checked("triageMulti", "Withdraw a vacancy advertisement"), hint: {
 						text: ""
 					  } },
 					  {
 						divider: "or"
 					  },
-					{ value: "None~/grs-customer-contact/triage/advertising/", text: "Something else", checked: checked("triageMulti", "None"), hint: {
+					{ value: "None~/grs-customer-contact/triage/advertising/", text: "I want to change something else", checked: checked("triageMulti", "None"), hint: {
 						
 					  } }
 				]

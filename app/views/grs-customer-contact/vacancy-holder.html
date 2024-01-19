@@ -26,17 +26,7 @@
         <h2 class="govuk-heading-l">Recruitment process</h2>
         <p>The Civil Service's full recruitment process is outlined on this page, from creating a vacancy advertisement through to onboarding successful applicants. You can access information, self-serve forms and guidance about bringing candidates into the Civil Service and helping them progress their career.</p>
 
-        <article class="moj-ticket-panel" aria-label="Sub navigation 1">
-
-            <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-              <h2 class="govuk-heading-m govuk-!-margin-bottom-2">This is a heading 2</h2>
-              <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              <a class="govuk-button govuk-!-margin-bottom-1" data-module="govuk-button">
-                Save and continue
-              </a>
-            </section>
-          
-          </article>
+       
                  
         <div class="govuk-grid-row govuk-!-margin-top-7">
             <div class="govuk-grid-column-one-third">
@@ -45,30 +35,30 @@
         
                 {% set exampleContent1 %}
                 <p class="govuk-body">Creating a vacancy, manage advertisements and access information about vacancy campaigns.</p>
-                <p><a href="" class="govuk-link govuk-link--no-visited-state">More help with advertising</a>
-                <br><a href="" class="govuk-link govuk-link--no-visited-state">More help with vacancies</a></p>
+                <p><a href="/grs-customer-contact/triage/advertising/" class="govuk-link govuk-link--no-visited-state">More help with advertising</a>
+                <br><a href="/grs-customer-contact/triage/vacancies/" class="govuk-link govuk-link--no-visited-state">More help with vacancies</a></p>
                 {% endset %}
 
                 {% set exampleContent2 %}
                 <p class="govuk-body">Find out about Success Profiles and the recruitment process, candidate interviews, tests and assessments.</p>
-                <p><a href="" class="govuk-link govuk-link--no-visited-state">More help with recruiting</a>
-                <br><a href="" class="govuk-link govuk-link--no-visited-state">More help with candidates</a></p>
+                <p><a href="/grs-customer-contact/triage/recruitment/" class="govuk-link govuk-link--no-visited-state">More help with recruiting</a>
+                <br><a href="/grs-customer-contact/triage/candidates/" class="govuk-link govuk-link--no-visited-state">More help with candidates</a></p>
                 {% endset %}
 
                 {% set exampleContent3 %}
                 <p class="govuk-body">Review and record the progress of pre-employment checks, and manage candidate applications and authentications.</p>
-                <p><a href="" class="govuk-link govuk-link--no-visited-state">More help with pre-employment</a>
+                <p><a href="/grs-customer-contact/triage/pre-employment-checks/" class="govuk-link govuk-link--no-visited-state">More help with pre-employment</a>
                 {% endset %}
 
                 {% set exampleContent4 %}
                 <p class="govuk-body">Carry out right to work checks and verify candidates’ identity.</p>
-                <p><a href="" class="govuk-link govuk-link--no-visited-state">More help with right to work</a>
+                <p><a href="#" class="govuk-link govuk-link--no-visited-state">More help with right to work</a>
                 {% endset %}
 
                 {% set exampleContent5 %}
                 <p class="govuk-body">Use the Applicant Tracking System, onboard and help candidates further their career with the Civil Service.</p>
-                <p><a href="" class="govuk-link govuk-link--no-visited-state">More help with onboarding</a>
-                <br><a href="" class="govuk-link govuk-link--no-visited-state">More help with candidates</a></p>
+                <p><a href="/grs-customer-contact/triage/onboarding/" class="govuk-link govuk-link--no-visited-state">More help with onboarding</a>
+                <br><a href="/grs-customer-contact/triage/candidates/" class="govuk-link govuk-link--no-visited-state">More help with candidates</a></p>
                 {% endset %}
 
                 {{ hmrcTimeline({
@@ -88,29 +78,59 @@
             
             
             
-            <div class="govuk-grid-column-two-thirds">                  
+            <div class="govuk-grid-column-two-thirds">     
+                
+                    <div class="govuk-grid-column-full">
+                        <article class="moj-ticket-panel" aria-label="Sub navigation 1">
+
+                            <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+                              <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Did you know?</h2>
+                              <p class="govuk-body">You can now help yourself using our new self-serve forms, to <a href="#">amend an advert</a>, <a href="#">withdraw an advert</a> or <a href="#">create a manual recuruitment reques</a>t.</p>
+                              <p>This style of form helps you manage vacancies even faster and better.</p>
+                              <!-- <a class="govuk-button govuk-!-margin-bottom-1" data-module="govuk-button">
+                                Save and continue
+                              </a> -->
+                            </section>
+                
+                
+                            <!-- <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+                                <h2 class="govuk-heading-m govuk-!-margin-bottom-2">This is a heading 2</h2>
+                                <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <a class="govuk-button govuk-!-margin-bottom-1" data-module="govuk-button">
+                                  Save and continue
+                                </a>
+                              </section> -->
+                          
+                          </article>
+                    </div>
             
                     <div class="govuk-grid-column-one-half">
 
                         <article class="moj-ticket-panel" aria-label="Sub navigation 1">
 
-                            <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
-                              <h2 class="govuk-heading-m govuk-!-margin-bottom-2">This is a heading 2</h2>
-                              <p class="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <!-- <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+                              <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Did you know?</h2>
+                              <p class="govuk-body">You can now do new things in the site to help you manage vacancies even faster and better.</p>
                               <a class="govuk-button govuk-!-margin-bottom-1" data-module="govuk-button">
                                 Save and continue
                               </a>
-                            </section>
+                            </section> -->
+
+                            <section class="moj-ticket-panel__content moj-ticket-panel__content--blue" aria-label="Section 1">
+                                <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Better vacancy guidance</h2>
+                                <p class="govuk-body">There is new guidance helping you mange vacancies even faster and better.</p>
+                                <p class="govuk-!-margin-bottom-0"><a href="/grs-customer-contact/triage/advertising/" class="govuk-link govuk-link--no-visited-state" >Go to guidance</a></p>
+                              </section>
                           
                           </article>
 
 
-                        <ul class="govuk-list ">
+                        <!-- <ul class="govuk-list ">
                             <li><a class="govuk-link govuk-link--no-visited-state" href="#">Advertisement approvals</a></li>
                             <li><a class="govuk-link govuk-link--no-visited-state" href="/grs-customer-contact/self-serve/amend-vacancy/start?query=amendVacacny">Amend a vacancy advertisement</a></li>
                             <li><a class="govuk-link govuk-link--no-visited-state" href="/grs-customer-contact/self-serve/manual-recruitment-request/start?query=manualRecruitmentRequest">Manual recruitment request</a></li>                        
                             <li><a class="govuk-link govuk-link--no-visited-state" href="/grs-customer-contact/self-serve/vacancy-approvals/start?query=vacancyApproval">Vacancy approvals</a></li>
-                        </ul>
+                        </ul> -->
                     </div>                
                     <div class="govuk-grid-column-one-half">
                         <ul class="govuk-list ">

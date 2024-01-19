@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "Government Recruitment Service (GRS)" %}
 
-{% set pageHeading = "Vacancy approvals" %}
+{% set pageHeading = "Vacancy approval" %}
 {% set pageSection = "Vacancy advertisements" %}
 
 {% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
@@ -13,7 +13,17 @@
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}		
 
-		<p class="govuk-body">To request the withdrawal of a vacancy’s advertisement, you need to provide the vacancy’s reference number. Make sure you have the relevant reference number ready.</p>
+		
+
+	<p>As part of the process of creating a vacancy advertisement and publishing it online, you need to upload proof of approval for this action.</p>
+	<p>This could be:</p>
+	<ul class="govuk-list govuk-list--bullet">
+
+		<li>a departmental approval document </li>
+		<li>an agreement from your line manager</li>
+		<li>an email approval message</li>
+	</ul>
+	<p>You will also need to provide the vacancy’s reference number so make sure you have this ready.</p>
 
 
 		
@@ -24,6 +34,13 @@
 			isStartButton: true,
 			href: "/grs-customer-contact/self-serve/vacancy-approvals/documentation"
 		}) }}
+
+
+		<h2 class="govuk-heading-m govuk-!-margin-top-5">Before you start</h2>
+		<!-- <p>If you want to amend a vacancy’s advertisement you can use the self-serve <a href="/grs-customer-contact/self-serve/amend-vacancy/start?query=amendVacacny" class="govuk-link govuk-link--no-visited-state">amend a vacancy advertisement</a> option.</p> -->
+		<p>For anything else you can access <a href="/grs-customer-contact/triage/advertising/" class="govuk-link govuk-link--no-visited-state">guidance about creating, managing and editing advertisements</a>.</p>
+		
+
   
 	</div>
 </div>

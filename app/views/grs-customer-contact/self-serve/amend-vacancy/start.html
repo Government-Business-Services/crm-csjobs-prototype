@@ -16,21 +16,28 @@
 		<p class="govuk-body">To request an amendment to a vacancy’s advertisement, you need to provide information about the vacancy. Make sure you have all the relevant details ready, such as the vacancy’s reference number.</p>
 
 
-		<h2 class="govuk-heading-m">What you can amend</h2>
-		<p class="govuk-body">It’s possible to correct errors or make changes to:</p>
+		<!-- <h2 class="govuk-heading-m">What you can amend</h2> -->
+		<!-- <p class="govuk-body">It’s possible to correct errors or make changes to:</p> -->
+		<p class="govuk-body">This is for correcting errors or making changes to:</p>
 		<ul class="govuk-list govuk-list--bullet">				
 			<li>the vacancy’s job title</li>
 			<li>the vacancy holder’s details</li>
 			<li>the vacancy’s department</li>
 			<li>location and salary details</li>
 		</ul>
-		
+			
+
 		{{ govukButton({
 			text: "Start request",
 			classes: "govuk-!-margin-top-5",
 			isStartButton: true,
 			href: "/grs-customer-contact/self-serve/amend-vacancy/reference-number"
 		}) }}
+
+		<h2 class="govuk-heading-m govuk-!-margin-top-5">Before you start</h2>
+		<p>If you want to withdraw a vacancy’s advertisement you can use the self-serve <a href="/grs-customer-contact/self-serve/withdraw-vacancy/start?query=withdrawVacacny" class="govuk-link govuk-link--no-visited-state">withdraw a vacancy advertisement</a> option.</p>
+		<p>For anything else you can access <a href="/grs-customer-contact/triage/advertising/" class="govuk-link govuk-link--no-visited-state">guidance about creating, managing and editing advertisements</a>.</p>
+		
   
 	</div>
 </div>
