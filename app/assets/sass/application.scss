@@ -8,6 +8,28 @@
 // @import "node_modules/@x-govuk/govuk-prototype-components/x-govuk/all";
 @import "node_modules/@x-govuk/govuk-prototype-components/x-govuk/components/masthead/masthead";
 
+.moj-ticket-panel {
+    display: block;
+    margin-right: 0;
+    flex-wrap: wrap;
+}
+
+
+.moj-ticket-panel__content {
+    display: block;
+    position: relative;
+    background-color: #f3f2f1;
+    padding: 20px;
+    margin-bottom: 15px;
+    flex-grow: 1;
+    border-left: 4px solid rgba(0,0,0,0);
+}
+
+.moj-ticket-panel__content--blue {
+    border-left-color: #1d70b8;
+}
+
+
 
 
 .autocomplete__wrapper input {
