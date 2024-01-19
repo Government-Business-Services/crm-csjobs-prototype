@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showNavLinks = true %}
+
+{% if data['pageIteration'] == "current" %}
+    {% set pageHeading = "Applications" %}
+{% else %}
+    {% set pageHeading = "Your previous applications" %}
+{% endif %}
+{% set pageSection = "" %}
+
+{% block content %}
+
+{% if data['pageIteration'] == "current" %}
+
+<div class="govuk-grid-row">        
+    {% if data['iteration'] == "new" %}
+
+    <div class="govuk-grid-column-two-thirds"> 
+
+    <h1 class="govuk-heading-l">Your details</h1>
+        </div>
+      
+    <!-- ////////////// END OF NEW ////////////////// -->
+    {% else %}
+
+    <div class="govuk-grid-column-full">    
+    
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+      	<p class="govuk-body-l"><a href="/csjobs/account/applications/" class="govuk-link--no-visited-state">View current applications</a></p>
+
+		<p class="govuk-body">No data available in table.</p>
+      	
+
+    {% endif %}
+  
+</div>
+</div>
+
+
+{% else %}
+
+
+<div class="govuk-grid-row">            
+    <div class="govuk-grid-column-two-thirds">     
+    
+    	<h1 class="govuk-heading-xl">{{ pageHeading }}</h1>      	
+
+		<p class="govuk-body">You have no previous applications.</p>
+
+
+        <p class="govuk-body"><a href="/csjobs/account/applications/" class="govuk-link--no-visited-state">View your current applications</a></p>
+      	
+
+    
+  
+</div>
+</div>
+
+
+{% endif %}
+
+{% endblock %}
+
+

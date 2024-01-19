@@ -2,7 +2,7 @@
 {% set showBackLink = true %}
 {% set serviceName = "Government Recruitment Service (GRS)" %}
 
-{% set pageHeading = "What would you like to do?" %}
+{% set pageHeading = "Here are some options relating to what you asked for help with" %}
 
 {% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
 {% block content %}
@@ -14,8 +14,10 @@
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
     	
 		<div class="govuk-inset-text">
-       <p>You told us you would like to <span class="govuk-!-font-weight-bold">{{ data['triageAsk'] }}</span>.</p>
-	</div>
+       		<p>You asked us about how to  <span class="govuk-!-font-weight-bold">{{ data['triageAsk'] }}</span>.</p>
+		</div>
+
+		
 		
 			<form method="post" action="/grs-customer-contact/self-serve/manual-recruitment-request/candidates/reference-number" >	
 				
@@ -32,17 +34,17 @@
 					}
 				},
 				items: [                
-					{ value: "Amend a vacancy advertisement~/grs-customer-contact/self-serve/amend-vacancy/start?query=amendVacacny", text: "Amend a vacancy advertisement", checked: checked("triageMulti", "Amend a vacancy advertisement" ), hint: {
-						text: "You can request to make an ammendment to some parts of the vacancy advertisement."
+					{ value: "Amend a vacancy advertisement~/grs-customer-contact/self-serve/amend-vacancy/start?query=amendVacacny", text: "Make a change to the vacancy holder’s details, the job title,  department location and salary details in the advertisement.", checked: checked("triageMulti", "Amend a vacancy advertisement" ), hint: {
+						text: ""
 					  } },
-					{ value: "Withdraw a vacancy advertisement~/grs-customer-contact/self-serve/withdraw-vacancy/start?query=withdrawVacacny", text: "Withdraw a vacancy advertisement", checked: checked("triageMulti", "Withdraw a vacancy advertisement"), hint: {
-						text: "You can request that the vacancy advertisement is withdrawn and no longer live."
+					{ value: "Withdraw a vacancy advertisement~/grs-customer-contact/self-serve/withdraw-vacancy/start?query=withdrawVacacny", text: "Withdraw the vacancy advertisement so it is no longer live.", checked: checked("triageMulti", "Withdraw a vacancy advertisement"), hint: {
+						text: ""
 					  } },
 					  {
 						divider: "or"
 					  },
-					{ value: "None~/grs-customer-contact/triage/advertising/", text: "Another option/something else", checked: checked("triageMulti", "None"), hint: {
-						text: "You want to know how to do something else with the vacancy advertisement."
+					{ value: "None~/grs-customer-contact/triage/advertising/", text: "Something else", checked: checked("triageMulti", "None"), hint: {
+						
 					  } }
 				]
 			}) }}

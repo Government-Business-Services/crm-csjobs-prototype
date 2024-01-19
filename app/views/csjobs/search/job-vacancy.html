@@ -1,0 +1,102 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showNavLinks = true %}
+
+{% set defaultRole = 'Senior Events and Visits Manager ' %}
+{% set defaultLocation = 'Bristol, London, Newcastle-upon-Tyne, York' %}
+{% set defaultSalary = '£39,439 - £47,039' %}
+{% set defaultCloseDate = '11:55 pm on Friday 26th January 2024' %}
+{% set defaultRef = '335730' %}
+{% set defaultDepartment = 'Department for Environment, Food and Rural Affairs' %}
+{% set defaultGrade = 'Senior Executive Officer' %}
+
+
+
+{% set pageHeading = '' + defaultRole + '' %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">	
+	<div class="govuk-grid-column-full">    
+
+    	<h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
+		<p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-2">{{ defaultDepartment }}</p>
+		<p class="govuk-body govuk-!-font-size-24 govuk-!-margin-bottom-7">Apply before {{defaultCloseDate}}</p>
+		
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-one-third grey govuk-!-padding-top-5">
+
+				<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Reference number</p>
+				<p>{{defaultRef}}</p>
+				
+				<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Salary</p>
+				<p>{{defaultSalary}}</p>
+				
+				<!-- <p>National: £28,760 - £30,090. London: £30,130 - £32,090 + £3,150 RRA.</p>
+				<p>Suitability for an additional Recruitment and Retention Allowance of up to £5,000.00 will be assessed at interview.</p> -->
+				<p>A <a href="#" class="govuk-link govuk-link--no-visited-state">Civil Service Pension</a> with an average employer contribution of 27%</p>
+				
+				<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Job grade</p>
+				<p>{{defaultGrade}}</p>
+				
+				<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Contract type</p>
+				<p>Permanent</p>
+
+				<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Length of employment</p>
+				<p>For a period of up to 12 months</p>
+				
+				<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Business area</p>
+				<p>DEFRA - Strategy - Communications</p>
+
+				<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Type of role</p>
+				<p>Communications / Marketing</p>
+				
+				<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Working pattern</p>
+				<p>Flexible working, Full-time, Job share, Part-time, Compressed hours</p>
+				
+				<p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-0">Number of jobs available</p>
+				<p>1</p>
+
+			</div>
+			<div class="govuk-grid-column-two-thirds govuk-!-padding-left-5">
+
+				<h2 class="govuk-heading-m">Contents</h2>
+				<ul class="govuk-list">
+					<li><a class="govuk-link govuk-link--no-visited-state" href="#">About the job</a></li>
+					<li><a class="govuk-link govuk-link--no-visited-state" href="#">Benefits</a></li>
+					<li><a class="govuk-link govuk-link--no-visited-state" href="#">Things you need to know</a></li>
+					<li><a class="govuk-link govuk-link--no-visited-state" href="#apply_tag">Apply and further information</a></li>					
+				</ul>
+
+
+
+				<!-- {% include "includes/vacancies/social_media.html" %} -->
+
+				{% include "includes/vacancies/senior_events.html" %}
+
+
+
+
+				<form method="post" action="/csjobs/sign-in?notification=needAccount" >
+
+					<input type="hidden" name="applyCreateAccount" id="applyCreateAccount" value="Yes" />
+
+					{{ govukButton({
+						text: "Apply now"
+				  	}) }}
+
+				</form>
+
+			</div>
+
+
+
+		</div>
+
+  	</div>  
+</div>
+
+{% endblock %}

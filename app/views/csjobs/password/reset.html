@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showNavLinks = true %}
+
+{% if data['pageIteration'] == "current" %}
+	{% set pageHeading = "Password reset" %}
+{% else %}
+	{% set pageHeading = "Check your email" %}
+{% endif %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+{% if data['pageIteration'] == "current" %}
+<div class="govuk-grid-row">
+
+	
+	<div class="govuk-grid-column-two-thirds">
+
+    <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
+
+    	<h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
+
+
+
+		<p>Instructions on how to reset your password will be sent via email in the next 15 minutes.</p>
+		<p>If you don't receive an email check your junk/spam folder. If you still haven't received password reset instructions it is likely that there is not an account registered for the email address provided. Therefore, you should try alternative email addresses you may have registered with.</p>
+		<p>Wait 15 minutes before requesting a new password reset as this will invalidate any email and link that we have just sent you.</p>
+		<p>If you still do not receive a password reset email, you can <a href="https://www.civilservicejobs.service.gov.uk/csr/support.cgi">request technical support</a>.</p>
+
+
+
+
+
+  	</div>  
+</div>
+
+{% else %}
+
+	<div class="govuk-grid-row">
+
+		
+		<div class="govuk-grid-column-two-thirds">
+
+		<!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
+
+			<h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
+
+			<p>You should receive the password reset link in an email within 15 minutes.</p>
+			<p>If you do not receive the email:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>check your junk or spam folder</li>
+				<li>check that you did not create your account using a different email</li>
+				<li>you may not have created an account yet</li>
+			</ul>
+			
+			<p>If you still need help, fill out the <a href="https://www.civilservicejobs.service.gov.uk/csr/support.cgi">support form</a>.</p>
+
+
+			<p class="govuk-body-s govuk-!-margin-top-9"><a href="/csjobs/password/new">Next steps</a></p>
+
+
+		</div>  
+	</div>
+
+{% endif %}
+
+{% endblock %}

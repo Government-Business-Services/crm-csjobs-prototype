@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showNavLinks = true %}
+
+{% if data['pageIteration'] == "current" %}
+	{% set pageHeading = "Password reset" %}
+{% else %}
+	{% set pageHeading = "Forgotten your password" %}
+{% endif %}
+{% set pageSection = "" %}
+{% block pageTitle %}{{ macroPageTitle.pageTitle(pageHeading) }}{% endblock %}
+
+{% block content %}
+
+
+{% if data['pageIteration'] == "current" %}
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+    <!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
+
+    	<h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
+
+
+
+		<p class="govuk-body">If you want to change or have forgotten your password, enter the username (email) you used to create your account. We will email you instructions on how to change your password.</p>
+		<p class="govuk-body">If the email does not arrive within 15 minutes then please review our <a href="https://www.gov.uk/guidance/using-the-civil-service-jobs-website?_ga=2.147029943.1279121245.1705311671-25842350.1695732253">guidance</a>.</p>
+		<form method="post" action="/csjobs/password/reset" >
+			{{ govukInput({
+					label: { text: "Account email address", classes: "govuk-label--m",isPageHeading: false },      					
+					classes: "govuk-!-width-two-thirds",
+					id: "passwordResetEmail",
+					name: "passwordResetEmail",
+					value: data['passwordResetEmail']
+				}) }}
+
+				{{ govukButton({
+					text: "Reset password"			    
+			  }) }}
+		</form>		
+
+
+  	</div>  
+</div>
+
+{% else %}
+
+	<div class="govuk-grid-row">
+		<div class="govuk-grid-column-two-thirds">
+
+		<!-- {% include "govuk-prototype-kit/includes/homepage-top.njk" %} -->
+
+			<h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
+
+			<p>To reset or change your password, enter the email address you used to set up your account in the box below.</p>			
+			<form method="post" action="/csjobs/password/reset" >
+				{{ govukInput({
+					label: { text: "Email address", classes: "govuk-label",isPageHeading: false },      					
+					classes: "govuk-!-width-two-thirds",
+					id: "passwordResetEmail",
+					name: "passwordResetEmail"						
+				}) }}
+
+				{{ govukButton({
+					text: "Continue"			    
+				}) }}				
+			</form>		
+
+
+		</div>  
+	</div>
+
+{% endif %}
+
+{% endblock %}

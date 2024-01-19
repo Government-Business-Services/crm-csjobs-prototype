@@ -1,0 +1,138 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showNavLinks = true %}
+
+
+{% set defaultRole = 'Senior Events and Visits Manager ' %}
+{% set defaultLocation = 'Bristol, London, Newcastle-upon-Tyne, York' %}
+{% set defaultSalary = '£39,439 - £47,039' %}
+{% set defaultCloseDate = '11:55 pm on Friday 26th January 2024' %}
+{% set defaultRef = '335730' %}
+{% set defaultDepartment = 'Department for Environment, Food and Rural Affairs' %}
+
+
+{% if data['pageIteration'] == "current" %}
+	{% set pageHeading = "Applications" %}
+{% else %}
+	{% set pageHeading = "Your applications" %}
+{% endif %}
+
+
+{% set pageSection = "" %}
+
+{% block content %}
+
+{% if data['pageIteration'] == "current" %}
+
+<div class="govuk-grid-row">    
+    <div class="govuk-grid-column-full">    
+    
+    	<h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+      	<p class="govuk-body-l"><a href="/csjobs/account/applications/inactive" class="govuk-link--no-visited-state">View unsuccessful, withdrawn and archived successful applications</a></p>
+
+      	{{ govukTable({        	
+        	
+        	firstCellIsHeader: false,			
+        	head: [
+          		{ text: "Reference"  },
+          		{ text: "Application ID"},
+          		{ text: "Title" },
+				{ text: "Status" },
+				{ text: "Department" },
+				{ text: "Closing date" },
+				{ text: "Last update" },
+				{ text: "Action" }				  
+        	],
+        	rows: [
+          		[
+            		{ text: "9280" },
+            		{ text: "14028" },
+            		{ text: "ATS2219 - Reference Checker" },
+					{ text: "Offer accepted" },
+					{ text: "HM Revenue and Customs" },
+					{ text: "28/09/2023, 23:55" },
+					{ text: "20/09/2023, 09:28" },
+					{ html: '<a href="/csjobs/account/applications/update" class="govuk-link--no-visited-state">Review latest update</a' }					
+          		]          
+        	]
+      	}) }}    
+</div>
+</div>
+
+
+{% else %}
+
+
+	<div class="govuk-grid-row">    
+		<div class="govuk-grid-column-full">    
+
+			<h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
+
+			<p>Use this page to:</p>
+			<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9">
+				<li>see your saved jobs</li>
+				<li>track the progress of your applications</li>
+				<li>check if we need more information from you</li>
+				<li>see your previous applications that are now closed</li>
+			</ul>							
+
+			{% if data['linkStatus'] == "progress" %}
+
+			{{ govukTable({        					
+				firstCellIsHeader: false,			
+				head: [
+					{ text: "Vacancy", classes: "govuk-!-width-one-quarter" },	
+					{ text: "Department" },
+					{ text: "Closing date", classes: "govuk-!-width-one-quarter" },
+					{ text: "Updated" },					
+					{ text: "Status" }
+				],
+				rows: [
+					[
+						{ html: 'Senior Events and Visits Manager <br><span class="govuk-body-s">Application ID: 14028</span>' },	
+						{ text: "Department for Environment, Food and Rural Affairs" },
+						{ html: '11:55pm on 26 January', classes: "govuk-!-width-one-quarter" },
+						{ html: '19 January' },										
+						{ html: '<a href="#" class="govuk-link--no-visited-state">In progress</a>' }
+					]          
+				]
+			}) }}  
+
+			{% else %}
+
+
+			{{ govukTable({        					
+				firstCellIsHeader: false,			
+				head: [
+					{ text: "Vacancy", classes: "govuk-!-width-one-quarter" },	
+					{ text: "Department" },
+					{ text: "Closing date" , classes: "govuk-!-width-one-quarter" },
+					{ text: "Updated" },					
+					{ text: "Status" }
+				],
+				rows: [
+					[
+						{ html: 'Senior Events and Visits Manager  <br><span class="govuk-body-s">Application ID: 14028</span>' },	
+						{ text: "Department for Environment, Food and Rural Affairs" },
+						{ html: '11:55pm on 26 January', classes: "govuk-!-width-one-quarter" },
+						{ html: '4 February' },						
+						{ html: '<a href="/csjobs/account/applications/update?appStatus=provisionalOffer" class="govuk-link--no-visited-state">Provisional offer</a>' }
+					]          
+				]
+			}) }}   
+			
+			{% endif %}
+
+			<p class="govuk-body"><a href="/csjobs/account/applications/inactive?notification=" class="govuk-link--no-visited-state">View your previous applications</a></p>
+
+		</div>
+	</div>
+
+{% endif %}
+
+
+{% endblock %}
+
+

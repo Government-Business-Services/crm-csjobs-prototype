@@ -47,26 +47,32 @@
             href: "javascript:history.go(-1)"
         }) }}
     {% endif %}
+    
 
     {% if showNavLinks == true %}
-        <p class="govuk-!-text-align-right govuk-!-margin-top-5 govuk-!-margin-bottom-0">        
-            <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-left-3" href="/pec/candidate/search">Home</a>
-            <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-left-3" href="/pec/candidate/applications/">Applications</a>
-            <!-- <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-left-3" href="#">View application</a>
-            <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-left-3" href="#">Job Description</a>
-            <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-left-3" href="#">Booked Interviews</a> -->
-            <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-left-3" href="#">Sign out</a>      
-        </p>
-    {% elif showNavLinksExtra == true %}
-    <p class="govuk-!-text-align-right govuk-!-margin-top-5 govuk-!-margin-bottom-0">        
-        <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-left-3" href="/pec/candidate/search">Home</a>
-        <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-left-3" href="/pec/candidate/applications/">Applications</a>
-        <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-left-3" href="/pec/candidate/job-alerts">Job Alerts</a>        
-        <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-left-3" href="/pec/candidate/account-details">Account details</a>
-        <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-left-3" href="#">Sign out</a>      
-        <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-left-3" href="#">Cymraeg</a>      
+    
+    {% if data['account-status'] == "SignedIn" %}        
+    <p class="govuk-!-text-align-right govuk-!-margin-top-5 govuk-!-margin-bottom-0">{{ data['userFirstName'] }} {{ data['userLastName'] }} </p>       
+    <p class="govuk-!-text-align-right">        
+        <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="/csjobs/search?notification=">Home</a>
+        <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="/csjobs/account/applications/?notification=">Applications</a>
+        <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="/csjobs/account/job-alerts?notification=">Job Alerts</a>        
+        <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="/csjobs/account/details?notification=">Account details</a>
+        <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="/csjobs/search?notification=signedOut&account-status=signedOut&linkStatus=">Sign out</a>      
+        <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="#">Cymraeg</a>                          
+    {% else %}
+    <p class="govuk-!-text-align-right govuk-!-margin-top-5">        
+        <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="/csjobs/search?notification=">Home</a>
+        
+        <!-- <a class="govuk-link govuk-link--no-visited-state govuk-!-font-size-16 govuk-!-padding-left-3" href="#">View application</a>
+        <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="#">Job Description</a>
+        <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="#">Booked Interviews</a> -->
+        <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="/csjobs/sign-in?notification=&applyCreateAccount=&linkStatus=">Sign in to your account</a>     
+        <a class="govuk-link govuk-link--no-visited-state govuk-!-padding-left-3" href="#">Cymraeg</a>                  
+    {% endif %}
     </p>
 
+    
     {% endif %}
 
 {% endblock %}

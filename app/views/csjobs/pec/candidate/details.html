@@ -1,0 +1,484 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showNavLinks = true %}
+
+{% set pageHeading = "Your details" %}
+{% set pageSection = "" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">    
+    	{% include "includes/nav.html" %}
+    </div>
+    
+    <div class="govuk-grid-column-two-thirds">    
+    
+    {% if data['iteration'] == "new" %}
+
+    <h1 class="govuk-heading-l">Your details</h1>
+        </div>
+      
+    <!-- ////////////// END OF NEW ////////////////// -->
+    {% else %}
+
+    <h1 class="govuk-heading-l govuk-!-padding-top-4">Your details</h1>
+
+
+	<form method="post" action="/csjobs/pec/candidate/right-to-work?navpage=rtw" >
+
+		{{ govukSelect({
+			label: { text: "Title", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      			
+			id: "pecDetailsTitle",
+			name: "pecDetailsTitle",
+			items: [
+				{ value: "Select one", text: "Select"  },
+				{ value: "Mr", text: "Mr", selected: checked("pecDetailsTitle", "Mr") },
+			  	{ value: "Mrs", text: "Mrs", selected: checked("pecDetailsTitle", "Mrs") },
+			  	{ value: "Miss", text: "Miss", selected: checked("pecDetailsTitle", "Miss") },
+			  	{ value: "Ms", text: "Ms", selected: checked("pecDetailsTitle", "Ms") },
+			  	{ value: "Mx", text: "Mx", selected: checked("pecDetailsTitle", "Mx") },
+			  	{ value: "Dr", text: "Dr", selected: checked("pecDetailsTitle", "Dr") },
+			  	{ value: "Other", text: "Other", selected: checked("pecDetailsTitle", "Other") }			  
+			]
+		}) }}
+		
+		<p class="govuk-label govuk-!-font-weight-bold">First name: </p>
+		<p class="govuk-body">Hugo</p>
+
+		<p class="govuk-label govuk-!-font-weight-bold">Last name: </p>
+		<p class="govuk-body">Furst</p>		
+		
+
+		<!-- NI question -->
+		<!-- Conditionals -->
+		{% set NationalNumberHtml %}            
+		{{ govukInput({
+			label: { text: "National insurance number", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      
+			hint: {
+				text: "It's on your National Insurance Card, Benefit letter, payslip or P60. For example, 'QQ123456C'."
+			},
+			classes: "govuk-!-width-two-thirds",
+			id: "pecDetailsNINumber",
+			name: "pecDetailsNINumber",
+			value: data['pecDetailsNINumber']				
+		}) }}        
+        {% endset -%}
+
+		{% set NationalStatusHtml %}            
+		{{ govukInput({
+			label: { text: "Provide details on your national insurance number application status", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      
+			hint: {
+				html: 'If you have not yet applied for a national insurance number, you will need to begin an application to get one. <br><a href="https://www.gov.uk/apply-national-insurance-number" target="_blank">Apply for a National Insurance number (opens in a new window)</a>'
+			},
+			classes: "govuk-!-width-two-thirds",
+			id: "pecDetailsNIApplication",
+			name: "pecDetailsNIApplication",
+			value: data['pecDetailsNIApplication']
+		}) }}        
+        {% endset -%}
+		<!-- // End of conditionals -->
+				
+		{{ govukRadios({
+			name: "pecDetailsNI",
+			fieldset: {
+			  legend: { text: "Do you have a National Insurance number", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+			items: [
+				{ value: "Yes", text: "Yes", conditional: { html: NationalNumberHtml }, checked: checked("pecDetailsNI", "Yes") },
+				{ value: "No", text: "No", conditional: { html: NationalStatusHtml }, checked: checked("pecDetailsNI", "No")  }
+			]
+		}) }}
+		<!-- // End of NI question -->
+		<!-- /////////////////////////////////////// -->
+
+
+		<!-- DOB Question -->
+		<div class="govuk-form-group">
+			<fieldset class="govuk-fieldset" role="group" aria-describedby="date-of-birth-hint">
+				<legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-!-font-weight-bold">
+					<p class="govuk-fieldset__heading">Date of birth</p>
+			  	</legend>
+			
+			  	<div class="govuk-date-input" id="date-of-birth">				
+					<div class="govuk-date-input__item">
+				  		<div class="govuk-form-group">                
+							<input class="govuk-input govuk-date-input__input govuk-input--width-2" placeholder="dd" id="date-of-birth-day" name="date-of-birth-day" type="text" inputmode="numeric" value="{{ data['date-of-birth-day'] }}">
+				  		</div>
+					</div>
+					<div class="govuk-date-input__item">
+				  		<div class="govuk-form-group">                
+							<input class="govuk-input govuk-date-input__input govuk-input--width-2" placeholder="mm" id="date-of-birth-month" name="date-of-birth-month" type="text" inputmode="numeric" value="{{ data['date-of-birth-month'] }}">
+				  		</div>
+					</div>
+					<div class="govuk-date-input__item">
+				  		<div class="govuk-form-group">					
+							<input class="govuk-input govuk-date-input__input govuk-input--width-4" placeholder="yyyy" id="date-of-birth-year" name="date-of-birth-year" type="text" inputmode="numeric" value="{{ data['date-of-birth-year'] }}">
+				  		</div>
+					</div>
+			  	</div>						  
+			</fieldset>
+		</div>
+		<!-- // End of DOB -->
+		<!-- /////////////////////////////////////// -->
+
+
+		<!-- Gender Question -->
+		{{ govukSelect({
+			label: { text: "Gender", classes: "govuk-label govuk-!-font-weight-bold", isPageHeading: false },      			
+			id: "pecDetailsGender",
+			name: "pecDetailsGender",
+			items: [
+				{ value: "Select one", text: "Select" },
+				{ value: "Man", text: "Man", selected: checked("pecDetailsGender", "Man") },
+			  	{ value: "Woman", text: "Woman", selected: checked("pecDetailsGender", "Woman") },
+			  	{ value: "Prefer to self-describe", text: "Prefer to self-describe", selected: checked("pecDetailsGender", "Prefer to self-describe") },
+			  	{ value: "Prefer not to disclose", text: "Prefer not to disclose", selected: checked("pecDetailsGender", "Prefer not to disclose") }			  
+			]
+		}) }}
+		<!-- // End of DOB -->
+		<!-- /////////////////////////////////////// -->
+
+		<!-- Marital status Question -->
+		{{ govukRadios({
+			name: "pecDetailsMartialStatus",
+			fieldset: {
+				legend: { text: "Marital status", isPageHeading: false, classes: "govuk-fieldset__legend govuk-!-font-weight-bold" } },
+			items: [
+				{ value: "Prefer not to say", text: "Prefer not to say", checked: checked("pecDetailsMartialStatus", "Prefer not to say") },
+				{ value: "Married", text: "Married", checked: checked("pecDetailsMartialStatus", "Married") },
+				{ value: "Single", text: "Single", checked: checked("pecDetailsMartialStatus", "Single") }          
+			]
+		}) }}
+		<!-- // End of Marital -->
+		<!-- /////////////////////////////////////// -->
+
+		<!-- Address Question -->
+		<p class="govuk-body-l govuk-!-margin-top-9">What is your home address?</p>
+		<p class="govuk-hint">This must be your current personal address, and not your employer's address.</p>
+		  
+		{{ govukInput({
+            label: { text: "Address line 1", classes: "govuk-label govuk-!-font-weight-bold",isPageHeading: false },      
+            classes: "govuk-!-width-one-half",
+            id: "pecDetailsAddressLine1",
+            name: "pecDetailsAddressLine1",
+			value: data['pecDetailsAddressLine1']
+		}) }}
+
+		{{ govukInput({
+			label: { text: "Address line 2 (Optional)", classes: "govuk-label govuk-!-font-weight-bold",isPageHeading: false },      
+			classes: "govuk-!-width-one-half",
+			id: "pecDetailsAddressLine2",
+			name: "pecDetailsAddressLine2",
+			value: data['pecDetailsAddressLine2']
+		}) }}
+
+		{{ govukInput({
+			label: { text: "City/Town", classes: "govuk-label govuk-!-font-weight-bold",isPageHeading: false },      
+			classes: "govuk-!-width-one-half",
+			id: "pecDetailsAddressCity",
+			name: "pecDetailsAddressCity",
+			value: data['pecDetailsAddressCity']
+		}) }}
+
+		{{ govukInput({
+			label: { text: "County", classes: "govuk-label govuk-!-font-weight-bold",isPageHeading: false },      
+			classes: "govuk-!-width-one-half",
+			id: "pecDetailsAddressCounty",
+			name: "pecDetailsAddressCounty",
+			value: data['pecDetailsAddressCounty']
+		}) }}
+
+
+		{{ govukSelect({
+			id: "pecDetailsAddressCountry",
+			name: "pecDetailsAddressCountry",
+			label: {
+			  text: "Country"
+			},
+			items: [			  
+			  { value: "select", text: "Select", selected: checked("sort", "select") },				  			  
+			  { value: "AFG", text: "Afghanistan", selected: checked("pecDetailsAddressCountry", "AFG") },
+			  { value: "ALA", text: "Åland Islands", selected: checked("pecDetailsAddressCountry", "ALA") },
+			  { value: "ALB", text: "Albania", selected: checked("pecDetailsAddressCountry", "ALB") },
+			  { value: "DZA", text: "Algeria", selected: checked("pecDetailsAddressCountry", "DZA") },
+			  { value: "ASM", text: "American Samoa", selected: checked("pecDetailsAddressCountry", "ASM") },
+			  { value: "AND", text: "Andorra", selected: checked("pecDetailsAddressCountry", "AND") },
+			  { value: "AGO", text: "Angola", selected: checked("pecDetailsAddressCountry", "AGO") },
+			  { value: "AIA", text: "Anguilla", selected: checked("pecDetailsAddressCountry", "AIA") },
+			  { value: "ATA", text: "Antarctica", selected: checked("pecDetailsAddressCountry", "ATA") },
+			  { value: "ATG", text: "Antigua and Barbuda", selected: checked("pecDetailsAddressCountry", "ATG") },
+			  { value: "ARG", text: "Argentina", selected: checked("pecDetailsAddressCountry", "ARG") },
+			  { value: "ARM", text: "Armenia", selected: checked("pecDetailsAddressCountry", "ARM") },
+			  { value: "ABW", text: "Aruba", selected: checked("pecDetailsAddressCountry", "ABW") },
+			  { value: "AUS", text: "Australia", selected: checked("pecDetailsAddressCountry", "AUS") },
+			  { value: "AUT", text: "Austria", selected: checked("pecDetailsAddressCountry", "AUT") },
+			  { value: "AZE", text: "Azerbaijan", selected: checked("pecDetailsAddressCountry", "AZE") },
+			  { value: "BHS", text: "Bahamas", selected: checked("pecDetailsAddressCountry", "BHS") },
+			  { value: "BHR", text: "Bahrain", selected: checked("pecDetailsAddressCountry", "BHR") },
+			  { value: "BGD", text: "Bangladesh", selected: checked("pecDetailsAddressCountry", "BGD") },
+			  { value: "BRB", text: "Barbados", selected: checked("pecDetailsAddressCountry", "BRB") },
+			  { value: "BLR", text: "Belarus", selected: checked("pecDetailsAddressCountry", "BLR") },
+			  { value: "BEL", text: "Belgium", selected: checked("pecDetailsAddressCountry", "BEL") },
+			  { value: "BLZ", text: "Belize", selected: checked("pecDetailsAddressCountry", "BLZ") },
+			  { value: "BEN", text: "Benin", selected: checked("pecDetailsAddressCountry", "BEN") },
+			  { value: "BMU", text: "Bermuda", selected: checked("pecDetailsAddressCountry", "BMU") },
+			  { value: "BTN", text: "Bhutan", selected: checked("pecDetailsAddressCountry", "BTN") },
+			  { value: "BOL", text: "Bolivia (Plurinational State of)", selected: checked("pecDetailsAddressCountry", "BOL") },
+			  { value: "BES", text: "Bonaire, Sint Eustatius and Saba", selected: checked("pecDetailsAddressCountry", "BES") },
+			  { value: "BIH", text: "Bosnia and Herzegovina", selected: checked("pecDetailsAddressCountry", "BIH") },
+			  { value: "BWA", text: "Botswana", selected: checked("pecDetailsAddressCountry", "BWA") },
+			  { value: "BVT", text: "Bouvet Island", selected: checked("pecDetailsAddressCountry", "BVT") },
+			  { value: "BRA", text: "Brazil", selected: checked("pecDetailsAddressCountry", "BRA") },
+			  { value: "IOT", text: "British Indian Ocean Territory", selected: checked("pecDetailsAddressCountry", "IOT") },
+			  { value: "BRN", text: "Brunei Darussalam", selected: checked("pecDetailsAddressCountry", "BRN") },
+			  { value: "BGR", text: "Bulgaria", selected: checked("pecDetailsAddressCountry", "BGR") },
+			  { value: "BFA", text: "Burkina Faso", selected: checked("pecDetailsAddressCountry", "BFA") },
+			  { value: "BDI", text: "Burundi", selected: checked("pecDetailsAddressCountry", "BDI") },
+			  { value: "CPV", text: "Cabo Verde", selected: checked("pecDetailsAddressCountry", "CPV") },
+			  { value: "KHM", text: "Cambodia", selected: checked("pecDetailsAddressCountry", "KHM") },
+			  { value: "CMR", text: "Cameroon", selected: checked("pecDetailsAddressCountry", "CMR") },
+			  { value: "CAN", text: "Canada", selected: checked("pecDetailsAddressCountry", "CAN") },
+			  { value: "CYM", text: "Cayman Islands", selected: checked("pecDetailsAddressCountry", "CYM") },
+			  { value: "CAF", text: "Central African Republic", selected: checked("pecDetailsAddressCountry", "CAF") },
+			  { value: "TCD", text: "Chad", selected: checked("pecDetailsAddressCountry", "TCD") },
+			  { value: "CHL", text: "Chile", selected: checked("pecDetailsAddressCountry", "CHL") },
+			  { value: "CHN", text: "China", selected: checked("pecDetailsAddressCountry", "CHN") },
+			  { value: "CXR", text: "Christmas Island", selected: checked("pecDetailsAddressCountry", "CXR") },
+			  { value: "CCK", text: "Cocos (Keeling) Islands", selected: checked("pecDetailsAddressCountry", "CCK") },
+			  { value: "COL", text: "Colombia", selected: checked("pecDetailsAddressCountry", "COL") },
+			  { value: "COM", text: "Comoros", selected: checked("pecDetailsAddressCountry", "COM") },
+			  { value: "COG", text: "Congo", selected: checked("pecDetailsAddressCountry", "COG") },
+			  { value: "COD", text: "Congo (Democratic Republic of the)", selected: checked("pecDetailsAddressCountry", "COD") },
+			  { value: "COK", text: "Cook Islands", selected: checked("pecDetailsAddressCountry", "COK") },
+			  { value: "CRI", text: "Costa Rica", selected: checked("pecDetailsAddressCountry", "CRI") },
+			  { value: "CIV", text: "Côte d'Ivoire", selected: checked("pecDetailsAddressCountry", "CIV") },
+			  { value: "HRV", text: "Croatia", selected: checked("pecDetailsAddressCountry", "HRV") },
+			  { value: "CUB", text: "Cuba", selected: checked("pecDetailsAddressCountry", "CUB") },
+			  { value: "CUW", text: "Curaçao", selected: checked("pecDetailsAddressCountry", "CUW") },
+			  { value: "CYP", text: "Cyprus", selected: checked("pecDetailsAddressCountry", "CYP") },
+			  { value: "CZE", text: "Czechia", selected: checked("pecDetailsAddressCountry", "CZE") },
+			  { value: "DNK", text: "Denmark", selected: checked("pecDetailsAddressCountry", "DNK") },
+			  { value: "DJI", text: "Djibouti", selected: checked("pecDetailsAddressCountry", "DJI") },
+			  { value: "DMA", text: "Dominica", selected: checked("pecDetailsAddressCountry", "DMA") },
+			  { value: "DOM", text: "Dominican Republic", selected: checked("pecDetailsAddressCountry", "DOM") },
+			  { value: "ECU", text: "Ecuador", selected: checked("pecDetailsAddressCountry", "ECU") },
+			  { value: "EGY", text: "Egypt", selected: checked("pecDetailsAddressCountry", "EGY") },
+			  { value: "SLV", text: "El Salvador", selected: checked("pecDetailsAddressCountry", "SLV") },
+			  { value: "GNQ", text: "Equatorial Guinea", selected: checked("pecDetailsAddressCountry", "GNQ") },
+			  { value: "ERI", text: "Eritrea", selected: checked("pecDetailsAddressCountry", "ERI") },
+			  { value: "EST", text: "Estonia", selected: checked("pecDetailsAddressCountry", "EST") },
+			  { value: "ETH", text: "Ethiopia", selected: checked("pecDetailsAddressCountry", "ETH") },
+			  { value: "FLK", text: "Falkland Islands (Malvinas)", selected: checked("pecDetailsAddressCountry", "FLK") },
+			  { value: "FRO", text: "Faroe Islands", selected: checked("pecDetailsAddressCountry", "FRO") },
+			  { value: "FJI", text: "Fiji", selected: checked("pecDetailsAddressCountry", "FJI") },
+			  { value: "FIN", text: "Finland", selected: checked("pecDetailsAddressCountry", "FIN") },
+			  { value: "FRA", text: "France", selected: checked("pecDetailsAddressCountry", "FRA") },
+			  { value: "GUF", text: "French Guiana", selected: checked("pecDetailsAddressCountry", "GUF") },
+			  { value: "PYF", text: "French Polynesia", selected: checked("pecDetailsAddressCountry", "PYF") },
+			  { value: "ATF", text: "French Southern Territories", selected: checked("pecDetailsAddressCountry", "ATF") },
+			  { value: "GAB", text: "Gabon", selected: checked("pecDetailsAddressCountry", "GAB") },
+			  { value: "GMB", text: "Gambia", selected: checked("pecDetailsAddressCountry", "GMB") },
+			  { value: "GEO", text: "Georgia", selected: checked("pecDetailsAddressCountry", "GEO") },
+			  { value: "DEU", text: "Germany", selected: checked("pecDetailsAddressCountry", "DEU") },
+			  { value: "GHA", text: "Ghana", selected: checked("pecDetailsAddressCountry", "GHA") },
+			  { value: "GIB", text: "Gibraltar", selected: checked("pecDetailsAddressCountry", "GIB") },
+			  { value: "GRC", text: "Greece", selected: checked("pecDetailsAddressCountry", "GRC") },
+			  { value: "GRL", text: "Greenland", selected: checked("pecDetailsAddressCountry", "GRL") },
+			  { value: "GRD", text: "Grenada", selected: checked("pecDetailsAddressCountry", "GRD") },
+			  { value: "GLP", text: "Guadeloupe", selected: checked("pecDetailsAddressCountry", "GLP") },
+			  { value: "GUM", text: "Guam", selected: checked("pecDetailsAddressCountry", "GUM") },
+			  { value: "GTM", text: "Guatemala", selected: checked("pecDetailsAddressCountry", "GTM") },
+			  { value: "GGY", text: "Guernsey", selected: checked("pecDetailsAddressCountry", "GGY") },
+			  { value: "GIN", text: "Guinea", selected: checked("pecDetailsAddressCountry", "GIN") },
+			  { value: "GNB", text: "Guinea-Bissau", selected: checked("pecDetailsAddressCountry", "GNB") },
+			  { value: "GUY", text: "Guyana", selected: checked("pecDetailsAddressCountry", "GUY") },
+			  { value: "HTI", text: "Haiti", selected: checked("pecDetailsAddressCountry", "HTI") },
+			  { value: "HMD", text: "Heard Island and McDonald Islands", selected: checked("pecDetailsAddressCountry", "HMD") },
+			  { value: "VAT", text: "Holy See", selected: checked("pecDetailsAddressCountry", "VAT") },
+			  { value: "HND", text: "Honduras", selected: checked("pecDetailsAddressCountry", "HND") },
+			  { value: "HKG", text: "Hong Kong", selected: checked("pecDetailsAddressCountry", "HKG") },
+			  { value: "HUN", text: "Hungary", selected: checked("pecDetailsAddressCountry", "HUN") },
+			  { value: "ISL", text: "Iceland", selected: checked("pecDetailsAddressCountry", "ISL") },
+			  { value: "IND", text: "India", selected: checked("pecDetailsAddressCountry", "IND") },
+			  { value: "IDN", text: "Indonesia", selected: checked("pecDetailsAddressCountry", "IDN") },
+			  { value: "IRN", text: "Iran (Islamic Republic of)", selected: checked("pecDetailsAddressCountry", "IRN") },
+			  { value: "IRQ", text: "Iraq", selected: checked("pecDetailsAddressCountry", "IRQ") },
+			  { value: "IRL", text: "Ireland", selected: checked("pecDetailsAddressCountry", "IRL") },
+			  { value: "IMN", text: "Isle of Man", selected: checked("pecDetailsAddressCountry", "IMN") },
+			  { value: "ISR", text: "Israel", selected: checked("pecDetailsAddressCountry", "ISR") },
+			  { value: "ITA", text: "Italy", selected: checked("pecDetailsAddressCountry", "ITA") },
+			  { value: "JAM", text: "Jamaica", selected: checked("pecDetailsAddressCountry", "JAM") },
+			  { value: "JPN", text: "Japan", selected: checked("pecDetailsAddressCountry", "JPN") },
+			  { value: "JEY", text: "Jersey", selected: checked("pecDetailsAddressCountry", "JEY") },
+			  { value: "JOR", text: "Jordan", selected: checked("pecDetailsAddressCountry", "JOR") },
+			  { value: "KAZ", text: "Kazakhstan", selected: checked("pecDetailsAddressCountry", "KAZ") },
+			  { value: "KEN", text: "Kenya", selected: checked("pecDetailsAddressCountry", "KEN") },
+			  { value: "KIR", text: "Kiribati", selected: checked("pecDetailsAddressCountry", "KIR") },
+			  { value: "PRK", text: "Korea (Democratic People's Republic of)", selected: checked("pecDetailsAddressCountry", "PRK") },
+			  { value: "KOR", text: "Korea (Republic of)", selected: checked("pecDetailsAddressCountry", "KOR") },
+			  { value: "KWT", text: "Kuwait", selected: checked("pecDetailsAddressCountry", "KWT") },
+			  { value: "KGZ", text: "Kyrgyzstan", selected: checked("pecDetailsAddressCountry", "KGZ") },
+			  { value: "LAO", text: "Lao People's Democratic Republic", selected: checked("pecDetailsAddressCountry", "LAO") },
+			  { value: "LVA", text: "Latvia", selected: checked("pecDetailsAddressCountry", "LVA") },
+			  { value: "LBN", text: "Lebanon", selected: checked("pecDetailsAddressCountry", "LBN") },
+			  { value: "LSO", text: "Lesotho", selected: checked("pecDetailsAddressCountry", "LSO") },
+			  { value: "LBR", text: "Liberia", selected: checked("pecDetailsAddressCountry", "LBR") },
+			  { value: "LBY", text: "Libya", selected: checked("pecDetailsAddressCountry", "LBY") },
+			  { value: "LIE", text: "Liechtenstein", selected: checked("pecDetailsAddressCountry", "LIE") },
+			  { value: "LTU", text: "Lithuania", selected: checked("pecDetailsAddressCountry", "LTU") },
+			  { value: "LUX", text: "Luxembourg", selected: checked("pecDetailsAddressCountry", "LUX") },
+			  { value: "MAC", text: "Macao", selected: checked("pecDetailsAddressCountry", "MAC") },
+			  { value: "MKD", text: "Macedonia (the former Yugoslav Republic of)", selected: checked("pecDetailsAddressCountry", "MKD") },
+			  { value: "MDG", text: "Madagascar", selected: checked("pecDetailsAddressCountry", "MDG") },
+			  { value: "MWI", text: "Malawi", selected: checked("pecDetailsAddressCountry", "MWI") },
+			  { value: "MYS", text: "Malaysia", selected: checked("pecDetailsAddressCountry", "MYS") },
+			  { value: "MDV", text: "Maldives", selected: checked("pecDetailsAddressCountry", "MDV") },
+			  { value: "MLI", text: "Mali", selected: checked("pecDetailsAddressCountry", "MLI") },
+			  { value: "MLT", text: "Malta", selected: checked("pecDetailsAddressCountry", "MLT") },
+			  { value: "MHL", text: "Marshall Islands", selected: checked("pecDetailsAddressCountry", "MHL") },
+			  { value: "MTQ", text: "Martinique", selected: checked("pecDetailsAddressCountry", "MTQ") },
+			  { value: "MRT", text: "Mauritania", selected: checked("pecDetailsAddressCountry", "MRT") },
+			  { value: "MUS", text: "Mauritius", selected: checked("pecDetailsAddressCountry", "MUS") },
+			  { value: "MYT", text: "Mayotte", selected: checked("pecDetailsAddressCountry", "MYT") },
+			  { value: "MEX", text: "Mexico", selected: checked("pecDetailsAddressCountry", "MEX") },
+			  { value: "FSM", text: "Micronesia (Federated States of)", selected: checked("pecDetailsAddressCountry", "FSM") },
+			  { value: "MDA", text: "Moldova (Republic of)", selected: checked("pecDetailsAddressCountry", "MDA") },
+			  { value: "MCO", text: "Monaco", selected: checked("pecDetailsAddressCountry", "MCO") },
+			  { value: "MNG", text: "Mongolia", selected: checked("pecDetailsAddressCountry", "MNG") },
+			  { value: "MNE", text: "Montenegro", selected: checked("pecDetailsAddressCountry", "MNE") },
+			  { value: "MSR", text: "Montserrat", selected: checked("pecDetailsAddressCountry", "MSR") },
+			  { value: "MAR", text: "Morocco", selected: checked("pecDetailsAddressCountry", "MAR") },
+			  { value: "MOZ", text: "Mozambique", selected: checked("pecDetailsAddressCountry", "MOZ") },
+			  { value: "mrr", text: "Myanmar", selected: checked("pecDetailsAddressCountry", "mrr") },
+			  { value: "NAM", text: "Namibia", selected: checked("pecDetailsAddressCountry", "NAM") },
+			  { value: "NRU", text: "Nauru", selected: checked("pecDetailsAddressCountry", "NRU") },
+			  { value: "NPL", text: "Nepal", selected: checked("pecDetailsAddressCountry", "NPL") },
+			  { value: "NLD", text: "Netherlands", selected: checked("pecDetailsAddressCountry", "NLD") },
+			  { value: "NCL", text: "New Caledonia", selected: checked("pecDetailsAddressCountry", "NCL") },
+			  { value: "NZL", text: "New Zealand", selected: checked("pecDetailsAddressCountry", "NZL") },
+			  { value: "NIC", text: "Nicaragua", selected: checked("pecDetailsAddressCountry", "NIC") },
+			  { value: "NER", text: "Niger", selected: checked("pecDetailsAddressCountry", "NER") },
+			  { value: "NGA", text: "Nigeria", selected: checked("pecDetailsAddressCountry", "NGA") },
+			  { value: "NIU", text: "Niue", selected: checked("pecDetailsAddressCountry", "NIU") },
+			  { value: "NFK", text: "Norfolk Island", selected: checked("pecDetailsAddressCountry", "NFK") },
+			  { value: "MNP", text: "Northern Mariana Islands", selected: checked("pecDetailsAddressCountry", "MNP") },
+			  { value: "NOR", text: "Norway", selected: checked("pecDetailsAddressCountry", "NOR") },
+			  { value: "OMN", text: "Oman", selected: checked("pecDetailsAddressCountry", "OMN") },
+			  { value: "PAK", text: "Pakistan", selected: checked("pecDetailsAddressCountry", "PAK") },
+			  { value: "PLW", text: "Palau", selected: checked("pecDetailsAddressCountry", "PLW") },
+			  { value: "PSE", text: "Palestine, State of", selected: checked("pecDetailsAddressCountry", "PSE") },
+			  { value: "PAN", text: "Panama", selected: checked("pecDetailsAddressCountry", "PAN") },
+			  { value: "PNG", text: "Papua New Guinea", selected: checked("pecDetailsAddressCountry", "PNG") },
+			  { value: "PRY", text: "Paraguay", selected: checked("pecDetailsAddressCountry", "PRY") },
+			  { value: "PER", text: "Peru", selected: checked("pecDetailsAddressCountry", "PER") },
+			  { value: "PHL", text: "Philippines", selected: checked("pecDetailsAddressCountry", "PHL") },
+			  { value: "PCN", text: "Pitcairn", selected: checked("pecDetailsAddressCountry", "PCN") },
+			  { value: "POL", text: "Poland", selected: checked("pecDetailsAddressCountry", "POL") },
+			  { value: "PRT", text: "Portugal", selected: checked("pecDetailsAddressCountry", "PRT") },
+			  { value: "PRI", text: "Puerto Rico", selected: checked("pecDetailsAddressCountry", "PRI") },
+			  { value: "QAT", text: "Qatar", selected: checked("pecDetailsAddressCountry", "QAT") },
+			  { value: "REU", text: "Réunion", selected: checked("pecDetailsAddressCountry", "REU") },
+			  { value: "ROU", text: "Romania", selected: checked("pecDetailsAddressCountry", "ROU") },
+			  { value: "RUS", text: "Russian Federation", selected: checked("pecDetailsAddressCountry", "RUS") },
+			  { value: "RWA", text: "Rwanda", selected: checked("pecDetailsAddressCountry", "RWA") },
+			  { value: "BLM", text: "Saint Barthélemy", selected: checked("pecDetailsAddressCountry", "BLM") },
+			  { value: "SHN", text: "Saint Helena, Ascension and Tristan da Cunha", selected: checked("pecDetailsAddressCountry", "SHN") },
+			  { value: "KNA", text: "Saint Kitts and Nevis", selected: checked("pecDetailsAddressCountry", "KNA") },
+			  { value: "LCA", text: "Saint Lucia", selected: checked("pecDetailsAddressCountry", "LCA") },
+			  { value: "MAF", text: "Saint Martin (French part)", selected: checked("pecDetailsAddressCountry", "MAF") },
+			  { value: "SPM", text: "Saint Pierre and Miquelon", selected: checked("pecDetailsAddressCountry", "SPM") },
+			  { value: "VCT", text: "Saint Vincent and the Grenadines", selected: checked("pecDetailsAddressCountry", "VCT") },
+			  { value: "WSM", text: "Samoa", selected: checked("pecDetailsAddressCountry", "WSM") },
+			  { value: "SMR", text: "San Marino", selected: checked("pecDetailsAddressCountry", "SMR") },
+			  { value: "STP", text: "Sao Tome and Principe", selected: checked("pecDetailsAddressCountry", "STP") },
+			  { value: "SAU", text: "Saudi Arabia", selected: checked("pecDetailsAddressCountry", "SAU") },
+			  { value: "SEN", text: "Senegal", selected: checked("pecDetailsAddressCountry", "SEN") },
+			  { value: "SRB", text: "Serbia", selected: checked("pecDetailsAddressCountry", "SRB") },
+			  { value: "SYC", text: "Seychelles", selected: checked("pecDetailsAddressCountry", "SYC") },
+			  { value: "SLE", text: "Sierra Leone", selected: checked("pecDetailsAddressCountry", "SLE") },
+			  { value: "SGP", text: "Singapore", selected: checked("pecDetailsAddressCountry", "SGP") },
+			  { value: "SXM", text: "Sint Maarten (Dutch part)", selected: checked("pecDetailsAddressCountry", "SXM") },
+			  { value: "SVK", text: "Slovakia", selected: checked("pecDetailsAddressCountry", "SVK") },
+			  { value: "SVN", text: "Slovenia", selected: checked("pecDetailsAddressCountry", "SVN") },
+			  { value: "SLB", text: "Solomon Islands", selected: checked("pecDetailsAddressCountry", "SLB") },
+			  { value: "SOM", text: "Somalia", selected: checked("pecDetailsAddressCountry", "SOM") },
+			  { value: "ZAF", text: "South Africa", selected: checked("pecDetailsAddressCountry", "ZAF") },
+			  { value: "SGS", text: "South Georgia and the South Sandwich Islands", selected: checked("pecDetailsAddressCountry", "SGS") },
+			  { value: "SSD", text: "South Sudan", selected: checked("pecDetailsAddressCountry", "SSD") },
+			  { value: "ESP", text: "Spain", selected: checked("pecDetailsAddressCountry", "ESP") },
+			  { value: "LKA", text: "Sri Lanka", selected: checked("pecDetailsAddressCountry", "LKA") },
+			  { value: "SDN", text: "Sudan", selected: checked("pecDetailsAddressCountry", "SDN") },
+			  { value: "SUR", text: "Suriname", selected: checked("pecDetailsAddressCountry", "SUR") },
+			  { value: "SJM", text: "Svalbard and Jan Mayen", selected: checked("pecDetailsAddressCountry", "SJM") },
+			  { value: "SWZ", text: "Swaziland", selected: checked("pecDetailsAddressCountry", "SWZ") },
+			  { value: "SWE", text: "Sweden", selected: checked("pecDetailsAddressCountry", "SWE") },
+			  { value: "CHE", text: "Switzerland", selected: checked("pecDetailsAddressCountry", "CHE") },
+			  { value: "SYR", text: "Syrian Arab Republic", selected: checked("pecDetailsAddressCountry", "SYR") },
+			  { value: "TWN", text: "Taiwan, Province of China[a]", selected: checked("pecDetailsAddressCountry", "TWN") },
+			  { value: "TJK", text: "Tajikistan", selected: checked("pecDetailsAddressCountry", "TJK") },
+			  { value: "TZA", text: "Tanzania, United Republic of", selected: checked("pecDetailsAddressCountry", "TZA") },
+			  { value: "THA", text: "Thailand", selected: checked("pecDetailsAddressCountry", "THA") },
+			  { value: "TLS", text: "Timor-Leste", selected: checked("pecDetailsAddressCountry", "TLS") },
+			  { value: "TGO", text: "Togo", selected: checked("pecDetailsAddressCountry", "TGO") },
+			  { value: "TKL", text: "Tokelau", selected: checked("pecDetailsAddressCountry", "TKL") },
+			  { value: "TON", text: "Tonga", selected: checked("pecDetailsAddressCountry", "TON") },
+			  { value: "TTO", text: "Trinidad and Tobago", selected: checked("pecDetailsAddressCountry", "TTO") },
+			  { value: "TUN", text: "Tunisia", selected: checked("pecDetailsAddressCountry", "TUN") },
+			  { value: "TUR", text: "Turkey", selected: checked("pecDetailsAddressCountry", "TUR") },
+			  { value: "TKM", text: "Turkmenistan", selected: checked("pecDetailsAddressCountry", "TKM") },
+			  { value: "TCA", text: "Turks and Caicos Islands", selected: checked("pecDetailsAddressCountry", "TCA") },
+			  { value: "TUV", text: "Tuvalu", selected: checked("pecDetailsAddressCountry", "TUV") },
+			  { value: "UGA", text: "Uganda", selected: checked("pecDetailsAddressCountry", "UGA") },
+			  { value: "UKR", text: "Ukraine", selected: checked("pecDetailsAddressCountry", "UKR") },
+			  { value: "ARE", text: "United Arab Emirates", selected: checked("pecDetailsAddressCountry", "ARE") },
+			  { value: "GBR", text: "United Kingdom of Great Britain and Northern Ireland", selected: checked("pecDetailsAddressCountry", "GBR") },
+			  { value: "USA", text: "United States of America", selected: checked("pecDetailsAddressCountry", "USA") },
+			  { value: "UMI", text: "United States Minor Outlying Islands", selected: checked("pecDetailsAddressCountry", "UMI") },
+			  { value: "URY", text: "Uruguay", selected: checked("pecDetailsAddressCountry", "URY") },
+			  { value: "UZB", text: "Uzbekistan", selected: checked("pecDetailsAddressCountry", "UZB") },
+			  { value: "VUT", text: "Vanuatu", selected: checked("pecDetailsAddressCountry", "VUT") },
+			  { value: "VEN", text: "Venezuela (Bolivarian Republic of)", selected: checked("pecDetailsAddressCountry", "VEN") },
+			  { value: "VNM", text: "Viet Nam", selected: checked("pecDetailsAddressCountry", "VNM") },
+			  { value: "VGB", text: "Virgin Islands (British)", selected: checked("pecDetailsAddressCountry", "VGB") },
+			  { value: "VIR", text: "Virgin Islands (U.S.)", selected: checked("pecDetailsAddressCountry", "VIR") },
+			  { value: "WLF", text: "Wallis and Futuna", selected: checked("pecDetailsAddressCountry", "WLF") },
+			  { value: "ESH", text: "Western Sahara", selected: checked("pecDetailsAddressCountry", "ESH") },
+			  { value: "YEM", text: "Yemen", selected: checked("pecDetailsAddressCountry", "YEM") },
+			  { value: "ZMB", text: "Zambia", selected: checked("pecDetailsAddressCountry", "ZMB") },
+			  { value: "ZWE", text: "Zimbabwe", selected: checked("pecDetailsAddressCountry", "ZWE") }
+			]
+		  }) }}
+
+
+		
+
+		<!-- {{ govukInput({
+            label: { text: "Postcode", classes: "govuk-label",isPageHeading: false },      
+            classes: "govuk-!-width-one-half",
+            id: "pecDetailsAddressPostcode",
+            name: "pecDetailsAddressPostcode"
+        }) }} -->
+
+		{{ govukInput({
+            label: { text: "Preferred contact number", classes: "govuk-label govuk-!-font-weight-bold",isPageHeading: false },      
+            classes: "govuk-!-width-one-half",
+            id: "pecDetailsContactNumber",
+            name: "pecDetailsContactNumber",
+			value: data['pecDetailsContactNumber']
+        }) }}
+		<!-- // End of Address -->
+		<!-- /////////////////////////////////////// -->
+
+		{{ govukButton({
+          	text: "Continue"                  
+        }) }}    
+    
+    </form>
+
+    {% endif %}
+  
+	</div>
+</div>
+
+{% endblock %}
