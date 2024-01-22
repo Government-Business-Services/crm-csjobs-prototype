@@ -4,12 +4,32 @@
 {% set serviceName = "Government Recruitment Service (GRS)" %}
 
 {% set pageHeading = "Managing advertisement approvals " %}
-{% set pageSection = "Guidance" %}
+{% set pageSection = "Guidance - Advertisements" %}
 {% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
 {% block content %}
 
+<!-- 
+{{ govukBreadcrumbs({
+	items: [
+	  {
+		text: "Home",
+		href: "#"
+	  },
+	  {
+		text: "Advertising",
+		href: "#"
+	  },
+      {
+		text: "Managing advertisement approvals",
+		href: "#"
+	  }	  
+	]
+  }) }} -->
+
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
+
+
 
     	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
 
@@ -17,23 +37,23 @@
 
 
         <article class="moj-ticket-panel" aria-label="Sub navigation 1">
-            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange" aria-label="Section 1">					 
-                <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Step 1</h2>
+            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange step" aria-label="Section 1">					 
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Step 1</h2>
             </section>	  
           </article>
         
-        <p>Login to the Applicant Tracking System (ATS)/ vX.</p>
+        <p class="govuk-body">Login to the Applicant Tracking System (ATS)/ vX.</p>
 
         <article class="moj-ticket-panel govuk-!-margin-top-7" aria-label="Sub navigation 1">
-            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange" aria-label="Section 1">					 
-                <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Step 2</h2>
+            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange step" aria-label="Section 1">					 
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Step 2</h2>
             </section>	  
           </article>
         
-        <p>On your Dashboard select the ‘Vacancies awaiting recruitment review’ button.</p>
-        <p>In the ‘Filter’ box type in the department required - this will list all of the vacancies awaiting action for your department in date order. </p>
-        <p>Note: If you know the vacancy reference number you can enter this in the ‘Filter’ box</p>
-        <p>To assign a vacancy to yourself to prevent duplication of work:</p>
+        <p class="govuk-body">On your Dashboard select the ‘Vacancies awaiting recruitment review’ button.</p>
+        <p class="govuk-body">In the ‘Filter’ box type in the department required - this will list all of the vacancies awaiting action for your department in date order. </p>
+        <p class="govuk-body">Note: If you know the vacancy reference number you can enter this in the ‘Filter’ box</p>
+        <p class="govuk-body">To assign a vacancy to yourself to prevent duplication of work:</p>
         <ul class="govuk-list govuk-list--bullet">
             <li>Select the vacancy/vacancies</li>
             <li>Select ‘Update Vacancies’ button at the top right hand corner, then select ‘Bulk Update Items’</li>
@@ -42,7 +62,7 @@
             <li>Select ‘Update Items’, then ‘Close’</li>
         </ul>
 
-        <p>Note: Once the vacancy has been posted you will need to remove your name from the ‘Vacancy Assigned To’ field:</p>
+        <p class="govuk-body">Note: Once the vacancy has been posted you will need to remove your name from the ‘Vacancy Assigned To’ field:</p>
         <ul class="govuk-list govuk-list--bullet">
             <li>Select the vacancy/vacancies</li>
             <li>Select ‘Update Vacancies’ button at the top right hand corner, then select ‘Bulk Update Items’</li>
@@ -51,68 +71,68 @@
         </ul>
 
         <article class="moj-ticket-panel govuk-!-margin-top-7" aria-label="Sub navigation 1">
-            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange" aria-label="Section 1">					 
-                <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Step 3</h2>
+            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange step" aria-label="Section 1">					 
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Step 3</h2>
             </section>	  
           </article>
         
-        <p>We have a 48 hour Service Level Agreement (SLA) for action of adverts </p>
+        <p class="govuk-body">We have a 48 hour Service Level Agreement (SLA) for action of adverts </p>
 
         <article class="moj-ticket-panel govuk-!-margin-top-7" aria-label="Sub navigation 1">
-            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange" aria-label="Section 1">					 
-                <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Step 4</h2>
+            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange step" aria-label="Section 1">					 
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Step 4</h2>
             </section>	  
           </article>
         
-        <p>Select the ‘Go to vacancy’ link for the vacancy you wish to post. </p>
+        <p class="govuk-body">Select the ‘Go to vacancy’ link for the vacancy you wish to post. </p>
 
         <article class="moj-ticket-panel govuk-!-margin-top-7" aria-label="Sub navigation 1">
-            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange" aria-label="Section 1">					 
-                <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Step 5</h2>
+            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange step" aria-label="Section 1">					 
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Step 5</h2>
             </section>	  
           </article>
         
-        <p>Select the ‘Vacancy Forms’ tab and see the ‘Approval’ section to check the correct approval has been received. </p>
+        <p class="govuk-body">Select the ‘Vacancy Forms’ tab and see the ‘Approval’ section to check the correct approval has been received. </p>
 
         <article class="moj-ticket-panel govuk-!-margin-top-7" aria-label="Sub navigation 1">
-            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange" aria-label="Section 1">					 
-                <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Step 6</h2>
+            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange step" aria-label="Section 1">					 
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Step 6</h2>
             </section>	  
           </article>
         
-        <p>Approval process: Approval will need to be signed off by one of the following:</p>
+        <p class="govuk-body">Approval process: Approval will need to be signed off by one of the following:</p>
         <ul class="govuk-list govuk-list--bullet">
             <li>Dean Creamer (CEO) or </li>
             <li>Martyn Taylor (CCO) or</li>
             <li>Susannah Storey</li>
         </ul>
 
-        <p>This can be an email confirmation or a proforma.</p>
-        <p>Internal adverts can be advertised for less than the mandatory 10 working days.</p>
-        <p>If the approval is not attached or differs from the names on this list please select the 'Vacancy Holder Update Needed' button.</p>
-        <p>Exception: If the department has a new role that is classed as an exception, this will be flagged clearly by the department and approval will come in the form of an authorised proforma. </p>
+        <p class="govuk-body">This can be an email confirmation or a proforma.</p>
+        <p class="govuk-body">Internal adverts can be advertised for less than the mandatory 10 working days.</p>
+        <p class="govuk-body">If the approval is not attached or differs from the names on this list please select the 'Vacancy Holder Update Needed' button.</p>
+        <p class="govuk-body">Exception: If the department has a new role that is classed as an exception, this will be flagged clearly by the department and approval will come in the form of an authorised proforma. </p>
 
         <article class="moj-ticket-panel govuk-!-margin-top-7" aria-label="Sub navigation 1">
-            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange" aria-label="Section 1">					 
-                <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Step 7</h2>
+            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange step" aria-label="Section 1">					 
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Step 7</h2>
             </section>	  
           </article>
         
-        <p>London Only location: If the vacancy holder has requested London only as a location, check that the correct location (London) has been listed within the approval which has been signed off by one of the following individuals:</p>
+        <p class="govuk-body">London Only location: If the vacancy holder has requested London only as a location, check that the correct location (London) has been listed within the approval which has been signed off by one of the following individuals:</p>
         <ul class="govuk-list govuk-list--bullet">
             <li>Dean Creamer (CEO) or </li>
             <li>Martyn Taylor (CCO) or</li>
             <li>Susannah Storey</li>
         </ul>
-        <p>Approval will be an email or proforma attachment to the vacancy.</p>
+        <p class="govuk-body">Approval will be an email or proforma attachment to the vacancy.</p>
 
         <article class="moj-ticket-panel govuk-!-margin-top-7" aria-label="Sub navigation 1">
-            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange" aria-label="Section 1">					 
-                <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Step 8</h2>
+            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange step" aria-label="Section 1">					 
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Step 8</h2>
             </section>	  
           </article>
         
-        <p>Salary outside of agreed pay band: For any salaries outside of the agreed pay band, please ensure approval has been provided from one of the following people:</p>
+        <p class="govuk-body">Salary outside of agreed pay band: For any salaries outside of the agreed pay band, please ensure approval has been provided from one of the following people:</p>
         <ul class="govuk-list govuk-list--bullet">
             <li>Abi Wood</li>
             <li>Clinton Mcfarlane</li>
@@ -120,18 +140,18 @@
         </ul>
 
         <article class="moj-ticket-panel govuk-!-margin-top-7" aria-label="Sub navigation 1">
-            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange" aria-label="Section 1">					 
-                <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Step 9 </h2>
+            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange step" aria-label="Section 1">					 
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Step 9 </h2>
             </section>	  
           </article>
         
-        <p>If the vacancy holder hasn’t provided the correct approval to allow you to post the vacancy, select the ‘Vacancy Holder Update Needed’ button. </p>
-        <p>Note: You should review the whole advert before sending the vacancy back to the vacancy holder.</p>
-        <p>This will create an email which you will need to amend to request the missing information before selecting ‘Send Correspondence’. </p>
-        <p>The vacancy will move from the ‘Vacancies at Recruitment Review Status’ widget on your dashboard to the ‘Vacancies at Vacancy Requires Update’ widget. </p>
-        <p>Once the vacancy holder has provided the missing information, the vacancy will move back to the ‘Vacancies at Recruitment Review Status’ widget on your dashboard.</p>
+        <p class="govuk-body">If the vacancy holder hasn’t provided the correct approval to allow you to post the vacancy, select the ‘Vacancy Holder Update Needed’ button. </p>
+        <p class="govuk-body">Note: You should review the whole advert before sending the vacancy back to the vacancy holder.</p>
+        <p class="govuk-body">This will create an email which you will need to amend to request the missing information before selecting ‘Send Correspondence’. </p>
+        <p class="govuk-body">The vacancy will move from the ‘Vacancies at Recruitment Review Status’ widget on your dashboard to the ‘Vacancies at Vacancy Requires Update’ widget. </p>
+        <p class="govuk-body">Once the vacancy holder has provided the missing information, the vacancy will move back to the ‘Vacancies at Recruitment Review Status’ widget on your dashboard.</p>
 
-        <p><a href="/grs-customer-contact/triage/advertising/">Back to advertising forms and guidance</a></p>
+        <p class="govuk-body govuk-!-margin-top-9"><a href="/grs-customer-contact/triage/advertising/" class="govuk-link govuk-link--no-visited-state">Return to advertising guidance amd self-serve forms</a></p>
 
 	</div>
 

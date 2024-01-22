@@ -19,11 +19,17 @@
     display: block;
     position: relative;
     background-color: #f3f2f1;
-    padding: 20px;
+    padding: 20px;    
     margin-bottom: 15px;
     flex-grow: 1;
     border-left: 4px solid rgba(0,0,0,0);
 }
+
+
+.step {
+    padding-top: 14px;
+    padding-bottom: 14px;
+};
 
 .moj-ticket-panel__content--blue {
     border-left-color: #1d70b8;
