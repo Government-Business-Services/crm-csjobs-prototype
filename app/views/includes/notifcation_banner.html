@@ -42,7 +42,7 @@
                     <br><br>Alert reference: 2653541	
             {% elif data['notification'] == "needAccount" %}
                 Your registration is complete. You may continue with your application by clicking the link below.
-                <br><br><a href="#">Click here to continue with your application</a>
+                <br><br><a href="/csjobs/pec/application/guidance?navpage=guidance">Click here to continue with your application</a>
             {% else %}
                 Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.
             {% endif %}
@@ -112,7 +112,7 @@
                    You will start receiving an email with jobs matching your alerts.
             {% elif data['notification'] == "needAccount" %}
                 Your registration is complete. You may continue with your application by clicking the link below.
-                <br><br><a href="/csjobs/account/applications/?notification=&linkStatus=progress">Click here to continue with your application</a>.
+                <br><br><a href="/csjobs/pec/application/guidance?navpage=guidance">Click here to continue with your application</a>.
             {% else %}
                 Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.
             {% endif %}

@@ -1,0 +1,86 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showNavLinks = true %}
+
+{% set pageHeading = "Eligibility" %}
+{% set pageSection = "" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">    
+		{% include "includes/nav_application_part1.html" %}
+    </div>
+    
+    <div class="govuk-grid-column-two-thirds">    
+    
+    {% if data['iteration'] == "new" %}
+
+      <h1 class="govuk-heading-l">Declaration</h1>
+        
+        </div>
+      
+    <!-- ////////////// END OF NEW ////////////////// -->
+    {% else %}
+
+		<h1 class="govuk-heading-l govuk-!-padding-top-4">{{ pageHeading }}</h1>			
+
+
+		<p>Not all staff working in a government department or accredited non-departmental public body are considered to be civil servants. </p>
+		<p>If any of the following statements apply to your circumstances then you should select ‘No’ when answering:</p>
+		<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+			<li>You are a member of agency staff working in a government department</li>
+			<li>You are employed by an external organisation contracted into government roles</li>
+			<li>You are a self-employed contractor working in a government department</li>
+		</ul>
+        
+        	
+
+		<h2 class="govuk-body-l">Nationality requirements</h2>
+		<p>This job is broadly open to the following groups:</p>
+		<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+			<li>UK nationals</li>
+			<li>nationals of the Republic of Ireland</li>
+			<li>nationals of Commonwealth countries who have the right to work in the UK</li>
+			<li>nationals of the EU, Switzerland, Norway, Iceland or Liechtenstein and family members of those nationalities with settled or pre-settled status under the European Union Settlement Scheme (EUSS) (opens in a new window)</li>
+			<li>nationals of the EU, Switzerland, Norway, Iceland or Liechtenstein and family members of those nationalities who have made a valid application for settled or pre-settled status under the European Union Settlement Scheme (EUSS)</li>
+			<li>individuals with limited leave to remain or indefinite leave to remain who were eligible to apply for EUSS on or before 31 December 2020</li>
+			<li>Turkish nationals, and certain family members of Turkish nationals, who have accrued the right to work in the Civil Service</li>
+		</ul>
+        
+		<p>For more information on job nationality requirements and the right to work in the UK, see the <a href="#">Civil Service Nationality rules (opens in a new window)</a> and the <a href="#">UK Visas and Immigration rules (opens in a new window)</a></p>
+
+        <form method="post" action="/csjobs/pec/application/personal-information" >
+
+			<div class="govuk-button-group">
+				{{ govukButton({
+				  text: "Back",
+				  href: "/csjobs/pec/application/guidance"
+				}) }}
+			  
+				{{ govukButton({
+				  text: "Continue"
+						  
+				}) }}
+			  </div>
+		
+
+        </form>
+
+
+
+
+
+      
+    
+    </form>
+
+    {% endif %}
+  
+</div>
+</div>
+
+{% endblock %}
+
+

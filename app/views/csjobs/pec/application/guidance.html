@@ -1,0 +1,62 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showNavLinks = true %}
+
+{% set pageHeading = "Application Guidance" %}
+{% set pageSection = "" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">    
+		{% include "includes/nav_application_part1.html" %}
+    </div>
+    
+    <div class="govuk-grid-column-two-thirds">    
+    
+    {% if data['iteration'] == "new" %}
+
+      <h1 class="govuk-heading-l">Declaration</h1>
+        
+        </div>
+      
+    <!-- ////////////// END OF NEW ////////////////// -->
+    {% else %}
+
+    	<h1 class="govuk-heading-l govuk-!-padding-top-4">{{ pageHeading }}</h1>	
+		
+		<p>The application is split into two sections - you must submit part one before starting part two.</p>
+		
+		<h3 class="govuk-body-l">Section one</h3>
+		<p>Basic information.</p>
+		
+		<h3 class="govuk-body-l">Section two</h3>
+		<p>Further details and supporting evidence, which will be assessed.</p>
+		<p>The deadline is  8:10PM on 29 February 2024.</p>
+		<p>Before you start</p>
+		<ul class="govuk-list govuk-list--bullet govuk-list--spaced govuk-!-margin-bottom-9">
+			<li>Civil Service Jobs will timeout after 45 minutes of inactivity.</li>
+			<li>You must save each application page manually by selecting 'Continue'.</li>
+			<li>After you submit each section, you cannot make changes.</li>
+			<li>You can withdraw your application, but you cannot resubmit it if you do.</li>
+			<li>Multiple applications for the same job may result in all of them being withdrawn.</li>
+			<li>We will email you about your application as it progresses.</li>
+		</ul>
+			    
+        <form method="post" action="/csjobs/pec/application/eligibility" >
+        	
+			{{ govukButton({
+          		text: "Continue"                  
+        	}) }}      
+
+		</form>
+          
+    {% endif %}
+  
+	</div>
+</div>
+
+{% endblock %}
+
+

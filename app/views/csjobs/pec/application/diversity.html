@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showNavLinks = true %}
+
+{% set pageHeading = "Diversity monitoring" %}
+{% set pageSection = "" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">    
+		{% include "includes/nav_application_part1.html" %}
+    </div>
+    
+    <div class="govuk-grid-column-two-thirds">    
+    
+    {% if data['iteration'] == "new" %}
+
+      <h1 class="govuk-heading-l">Declaration</h1>
+        
+        </div>
+      
+    <!-- ////////////// END OF NEW ////////////////// -->
+    {% else %}
+
+		<h1 class="govuk-heading-l govuk-!-padding-top-4">{{ pageHeading }}</h1>
+				
+		<p>We know that we deliver better services when our workforce reflects the full range of backgrounds and experiences in the society we serve.</p>
+		<p>To continue to do this we need your help in filling out a short monitoring form.</p>
+		<p>None of the information you provide will be visible as part of your application. It will only be used anonymously to monitor the inclusivity of our selection processes.</p>
+		<p>You can select 'prefer not to say’ if you would rather not answer any question.</p>
+			
+
+		<h3 class="govuk-body-l">Community background (Northern Ireland)</h3>
+
+		<p>The fair Employment and Treatment (Northern Ireland) Order 1998 and the Fair Employment (Monitoring) Regulations (Northern Ireland) 1999 require us to monitor the community background of applicants for posts based in Northern Ireland.</p>
+
+		<form method="post" action="/csjobs/pec/application/declaration" >					
+
+      		<div class="govuk-button-group">
+        		{{ govukButton({
+          			text: "Back",
+		  			href: "/csjobs/pec/application/personal-information"
+        		}) }}
+      
+        		{{ govukButton({
+          			text: "Continue"                  
+        		}) }}
+      		</div>
+
+    	</form>
+
+    {% endif %}
+  
+	</div>
+</div>
+
+{% endblock %}
