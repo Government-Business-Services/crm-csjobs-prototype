@@ -95,6 +95,15 @@
 				</ul>
 			</ul>
 		{% endset -%}
+
+		{% set applicationHtml %}
+		<ul class="govuk-list govuk-list--bullet">							
+			<li><a href="" class="govuk-link govuk-link--no-visited-state" >Job description*</a></li>				
+        </ul>
+
+		{% endset -%}
+
+
 		
 		{% set candidatesHtml %}
 		<ul class="govuk-list govuk-list--bullet">							
@@ -156,6 +165,7 @@
 				
 				{ label: "Job Search", id: "past-day", panel: { html: vacancyHtml } },
 			  	{ label: "Sign in and Account", id: "past-week", panel: { html: vacancyDetailsHtml } },			  	
+				{ label: "Application", id: "application", panel: { html: applicationHtml } },
 				{ label: "PEC Form", id: "candidates", panel: { html: candidatesHtml } },
 				{ label: "Other", id: "past-year", panel: { html: otherHtml } }
 			  
