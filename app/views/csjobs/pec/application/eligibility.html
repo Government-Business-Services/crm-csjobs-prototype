@@ -28,16 +28,30 @@
 
 
 		<p>Not all staff working in a government department or accredited non-departmental public body are considered to be civil servants. </p>
-		<p>If any of the following statements apply to your circumstances then you should select ‘No’ when answering:</p>
-		<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
-			<li>You are a member of agency staff working in a government department</li>
-			<li>You are employed by an external organisation contracted into government roles</li>
-			<li>You are a self-employed contractor working in a government department</li>
+		<p>If any of the following statements apply to your circumstances then you should select ‘No’ when answering.</p>
+		<p>You are:</p>
+		<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
+			<li>a member of agency staff working in a government department</li>
+			<li>employed by an external organisation contracted into government roles</li>
+			<li>a self-employed contractor working in a government department</li>
 		</ul>
         
+
+		<form method="post" action="/csjobs/pec/application/personal-information" >
+
+			
+		{{ govukRadios({
+			name: "applicationEligibilityCivilServant",
+			fieldset: {
+			  legend: { text: "Are you already a civil servant, or employed by a Civil Service Commission accredited public body?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			items: [
+				{ value: "Yes", text: "Yes", conditional: { html: NationalNumberHtml }, checked: checked("applicationEligibilityCivilServant", "Yes") },
+				{ value: "No", text: "No", checked: checked("applicationEligibilityCivilServant", "No")  }
+			]
+		}) }}
         	
 
-		<h2 class="govuk-body-l">Nationality requirements</h2>
+		<h2 class="govuk-heading-m govuk-!-margin-top-7">Nationality requirements</h2>
 		<p>This job is broadly open to the following groups:</p>
 		<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
 			<li>UK nationals</li>
@@ -49,9 +63,72 @@
 			<li>Turkish nationals, and certain family members of Turkish nationals, who have accrued the right to work in the Civil Service</li>
 		</ul>
         
-		<p>For more information on job nationality requirements and the right to work in the UK, see the <a href="#">Civil Service Nationality rules (opens in a new window)</a> and the <a href="#">UK Visas and Immigration rules (opens in a new window)</a></p>
+		<p class="govuk-!-margin-bottom-7">For more information on job nationality requirements and the right to work in the UK, see the <a href="#">Civil Service Nationality rules (opens in a new window)</a> and the <a href="#">UK Visas and Immigration rules (opens in a new window)</a></p>
 
-        <form method="post" action="/csjobs/pec/application/personal-information" >
+
+		{{ govukRadios({
+			classes: "govuk-radios--inline",
+			name: "applicationEligibilityNationality",
+			fieldset: {
+			  legend: { text: "Do you meet the nationality requirements for this post?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			items: [
+				{ value: "Yes", text: "Yes", conditional: { html: NationalNumberHtml }, checked: checked("applicationEligibilityNationality", "Yes") },
+				{ value: "No", text: "No", checked: checked("applicationEligibilityNationality", "No")  }
+			]
+		}) }}
+
+
+
+		{{ govukRadios({
+			classes: "govuk-radios--inline",
+			name: "applicationEligibilityRightToRemain",
+			fieldset: {
+			  legend: { text: "Will you have the right to remain and take up work in the UK before employment commences?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			items: [
+				{ value: "Yes", text: "Yes", conditional: { html: NationalNumberHtml }, checked: checked("applicationEligibilityRightToRemain", "Yes") },
+				{ value: "No", text: "No", checked: checked("applicationEligibilityRightToRemain", "No")  }
+			]
+		}) }}
+
+		<!-- <h2 class="govuk-heading-m">Language skills</h2> -->
+		
+
+		{{ govukRadios({
+			classes: "govuk-radios--inline",
+			name: "applicationEligibilityLanguageSkills",
+			fieldset: {
+			  legend: { text: "Do you meet the language skills requirements?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			items: [
+				{ value: "Yes", text: "Yes", conditional: { html: NationalNumberHtml }, checked: checked("applicationEligibilityLanguageSkills", "Yes") },
+				{ value: "No", text: "No", checked: checked("applicationEligibilityLanguageSkills", "No")  }
+			]
+		}) }}
+
+		<!-- <h2 class="govuk-heading-m">Licences</h2> -->
+
+		{% set EligibilityLicenceHtml %}            
+		{{ govukTextarea({
+			name: "applicationEligibilityLicenceDetails",
+			id: "applicationEligibilityLicenceDetails",
+			label: { text: "Provide details of how you meet the licence requirements", classes: "govuk-label", isPageHeading: false },			
+			rows: "6",			
+			value: data['applicationEligibilityLicenceDetails']				
+		}) }}        
+        {% endset -%}
+
+
+		{{ govukRadios({
+			name: "applicationEligibilityLicence",
+			fieldset: {
+			  legend: { text: "Do you meet the licence requirements?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			items: [
+				{ value: "Yes", text: "Yes", checked: checked("applicationEligibilityLicence", "Yes") },
+				{ value: "No", text: "No", checked: checked("applicationEligibilityLicence", "No")  },
+				{ value: "Similar equivalent held", text: "Similar equivalent held", conditional: { html: EligibilityLicenceHtml }, checked: checked("applicationEligibilityLicence", "Similar equivalent held")  }
+			]
+		}) }}
+
+        
 
 			<div class="govuk-button-group">
 				{{ govukButton({
@@ -60,8 +137,8 @@
 				}) }}
 			  
 				{{ govukButton({
-				  text: "Continue"
-						  
+				  text: "Continue",
+				  classes: "govuk-!-margin-top-7"          						  
 				}) }}
 			  </div>
 		

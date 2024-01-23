@@ -35,7 +35,7 @@
 		<p>Further details and supporting evidence, which will be assessed.</p>
 		<p>The deadline is  8:10PM on 29 February 2024.</p>
 		<p>Before you start</p>
-		<ul class="govuk-list govuk-list--bullet govuk-list--spaced govuk-!-margin-bottom-9">
+		<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
 			<li>Civil Service Jobs will timeout after 45 minutes of inactivity.</li>
 			<li>You must save each application page manually by selecting 'Continue'.</li>
 			<li>After you submit each section, you cannot make changes.</li>
@@ -47,7 +47,8 @@
         <form method="post" action="/csjobs/pec/application/eligibility" >
         	
 			{{ govukButton({
-          		text: "Continue"                  
+          		text: "Continue",
+				classes: "govuk-!-margin-top-9"          
         	}) }}      
 
 		</form>
