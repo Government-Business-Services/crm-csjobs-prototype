@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showNavLinks = true %}
+
+{% set pageHeading = "Personal information" %}
+{% set pageSection = "" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-third">    
+		{% include "includes/nav_application_part1.html" %}
+    </div>
+    
+    <div class="govuk-grid-column-two-thirds">    
+    
+    {% if data['iteration'] == "new" %}
+
+      <h1 class="govuk-heading-l">Declaration</h1>
+        
+        </div>
+      
+    <!-- ////////////// END OF NEW ////////////////// -->
+    {% else %}
+
+		<h1 class="govuk-heading-l govuk-!-padding-top-4">{{ pageHeading }}</h1>		
+
+		
+
+
+		<h3 class="govuk-body-l">Interviews under the Disability Confident Scheme</h3>
+
+		<p>We want to encourage disabled people to apply for jobs and give them an opportunity to show their skills, talent and abilities at the interview stage. The Civil Service runs a Disability Confident Scheme, <a href="#">offering an interview (opens in a new window)</a> to a fair and proportionate number of disabled applicants that meet the minimum selection criteria for the job.</p>
+		<p>To be considered for an interview under this scheme you must have:</p>
+		<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+			<li>a physical or mental impairment, or a long term health condition which has a substantial and long term (over 12 months) adverse effect on your ability to carry out normal day to day activities</li>
+			<li>demonstrated in your application and testing stages that you meet the minimum job criteria as set out in the advert or person specification for the post</li>
+		</ul>
+
+		<h3 class="govuk-body-l">Reasonable adjustments</h3>
+		<p>We want to support you if you need an adjustment in the recruitment process, even if you do not feel you qualify for the Disability Confident Scheme.</p>
+		<p>We consider visible and non-visible disabilities, neurodiversity or learning differences, chronic medical conditions or mental ill health. Examples include dyslexia, epilepsy, autism, chronic fatigue, diabetes, or schizophrenia.</p>
+		<p>Some of the adjustments we have offered are:</p>
+		<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+			<li>application or interview help</li>
+			<li>a time of day that works for you</li>
+			<li>extra time</li>
+			<li>sign language interpretation</li>
+			<li>advice about assistive technology</li>
+		</ul>
+		<p>For more information, you can read the government guidance on <a href="#">Reasonable adjustments for workers with disabilities or health conditions (opens in a new window)</a></p>
+			
+		<h3 class="govuk-body-l">A Great Place to Work for Veterans initiative</h3>
+		<p>We offer veterans who meet the minimum standard on each of the job’s essential criteria the opportunity to go directly to the next stage of selection.</p>
+		<p>If you have completed at least one year in His Majesty’s Armed Forces (as a Regular or Reserve) and are in transition from the Armed Forces, or no longer a member, you can apply for roles in the Civil Service under the <a href="#">Great Place to Work for Veterans initiative (opens in a new window)</a>.</p>
+		
+
+
+        <form method="post" action="/csjobs/pec/application/diversity" >
+		          
+			<div class="govuk-button-group">
+    			{{ govukButton({
+          			text: "Back",
+		  			href: "/csjobs/pec/application/eligibility"
+        		}) }}
+      
+        		{{ govukButton({
+          			text: "Continue"                  
+        		}) }}
+      		</div>
+    
+    	</form>
+
+    {% endif %}
+  
+</div>
+</div>
+
+{% endblock %}
+
+
