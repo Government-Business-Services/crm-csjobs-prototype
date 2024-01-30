@@ -27,55 +27,6 @@
        
                  
         <div class="govuk-grid-row govuk-!-margin-top-7">
-            <div class="govuk-grid-column-one-third">
-
-                <h2 class="govuk-heading-l">Process timeline</h2>
-        
-                {% set exampleContent1 %}
-                <!-- <p class="govuk-body">Creating a vacancy, manage advertisements and access information about vacancy campaigns.</p> -->
-                <p><a href="/grs-customer-contact/triage/advertising/" class="govuk-link govuk-link--no-visited-state">Find out more about advertisements</a>
-                <br><a href="/grs-customer-contact/triage/vacancies/" class="govuk-link govuk-link--no-visited-state">Read some help about vacancies</a></p>
-                {% endset %}
-
-                {% set exampleContent2 %}
-                <!-- <p class="govuk-body">Find out about Success Profiles and the recruitment process, candidate interviews, tests and assessments.</p> -->
-                <p><a href="/grs-customer-contact/triage/recruitment/" class="govuk-link govuk-link--no-visited-state">Find out more about recruiting</a>
-                <br><a href="/grs-customer-contact/triage/candidates/" class="govuk-link govuk-link--no-visited-state">Read guidance about working with candidates</a></p>
-                {% endset %}
-
-                {% set exampleContent3 %}
-                <!-- <p class="govuk-body">Review and record the progress of pre-employment checks, and manage candidate applications and authentications.</p> -->
-                <p><a href="/grs-customer-contact/triage/pre-employment-checks/" class="govuk-link govuk-link--no-visited-state">More help with pre-employment</a>
-                {% endset %}
-
-                {% set exampleContent4 %}
-                <!-- <p class="govuk-body">Carry out right to work checks and verify candidates’ identity.</p> -->
-                <p><a href="#" class="govuk-link govuk-link--no-visited-state">Find out more about right to work</a>
-                {% endset %}
-
-                {% set exampleContent5 %}
-                <!-- <p class="govuk-body">Use the Applicant Tracking System, onboard and help candidates further their career with the Civil Service.</p> -->
-                <p><a href="/grs-customer-contact/triage/onboarding/" class="govuk-link govuk-link--no-visited-state">More help with onboarding</a>
-                <br><a href="/grs-customer-contact/triage/candidates/" class="govuk-link govuk-link--no-visited-state">Read guidance about working with candidates</a></p>
-                {% endset %}
-
-                {{ hmrcTimeline({
-                    headingLevel: "3",
-                    events: [
-                        { title: 'Advertising a vacancy', content: exampleContent1 },
-                        { title: 'Recruiting candidates', content: exampleContent2 },
-                        { title: 'Making pre-employment checks', content: exampleContent3 },
-                        { title: 'Making right to work checks', content: exampleContent4 },
-                        { title: 'Onboarding candidates', content: exampleContent5 }
-                    ]
-                }) }}    
-
-            </div>
-
-
-            
-            
-            
             <div class="govuk-grid-column-two-thirds">  
                 
                 
@@ -124,7 +75,7 @@
                     </div>
 
 
-                       <ul class="govuk-list ">
+                       <!-- <ul class="govuk-list ">
                             <li><a class="govuk-link govuk-link--no-visited-state" href="#">Advertisement approvals</a></li>
                             <li><a class="govuk-link govuk-link--no-visited-state" href="/grs-customer-contact/self-serve/amend-vacancy/start?query=amendVacacny">Amend a vacancy advertisement</a></li>
                             <li><a class="govuk-link govuk-link--no-visited-state" href="/grs-customer-contact/self-serve/manual-recruitment-request/start?query=manualRecruitmentRequest">Manual recruitment request</a></li>                        
@@ -204,9 +155,53 @@
                             <li><a class="govuk-link govuk-link--no-visited-state" href="#"> New entrant notification</a></li>
                             <li><a class="govuk-link govuk-link--no-visited-state" href="#"> Posting notice</a></li>
                         </ul>
-                    </div>
+                    </div> -->
 
                 </div>
+
+            
+            <div class="govuk-grid-column-one-third">
+
+                <h2 class="govuk-heading-l">Process timeline</h2>
+        
+                {% set exampleContent1 %}
+                <!-- <p class="govuk-body">Creating a vacancy, manage advertisements and access information about vacancy campaigns.</p> -->
+                <p><a href="/grs-customer-contact/triage/advertising/" class="govuk-link govuk-link--no-visited-state">Find out more about advertisements</a>
+                <br><a href="/grs-customer-contact/triage/vacancies/" class="govuk-link govuk-link--no-visited-state">Read some help about vacancies</a></p>
+                {% endset %}
+
+                {% set exampleContent2 %}
+                <!-- <p class="govuk-body">Find out about Success Profiles and the recruitment process, candidate interviews, tests and assessments.</p> -->
+                <p><a href="/grs-customer-contact/triage/recruitment/" class="govuk-link govuk-link--no-visited-state">Find out more about recruiting</a>
+                <br><a href="/grs-customer-contact/triage/candidates/" class="govuk-link govuk-link--no-visited-state">Read guidance about working with candidates</a></p>
+                {% endset %}
+
+                {% set exampleContent3 %}
+                <!-- <p class="govuk-body">Review and record the progress of pre-employment checks, and manage candidate applications and authentications.</p> -->
+                <p><a href="/grs-customer-contact/triage/pre-employment-checks/" class="govuk-link govuk-link--no-visited-state">More help with pre-employment</a>
+                {% endset %}
+
+                {% set exampleContent4 %}
+                <!-- <p class="govuk-body">Carry out right to work checks and verify candidates’ identity.</p> -->
+                <p><a href="#" class="govuk-link govuk-link--no-visited-state">Find out more about right to work</a>
+                {% endset %}
+
+                {% set exampleContent5 %}
+                <!-- <p class="govuk-body">Use the Applicant Tracking System, onboard and help candidates further their career with the Civil Service.</p> -->
+                <p><a href="/grs-customer-contact/triage/onboarding/" class="govuk-link govuk-link--no-visited-state">More help with onboarding</a>
+                <br><a href="/grs-customer-contact/triage/candidates/" class="govuk-link govuk-link--no-visited-state">Read guidance about working with candidates</a></p>
+                {% endset %}
+
+                {{ hmrcTimeline({
+                    headingLevel: "3",
+                    events: [
+                        { title: 'Advertising a vacancy', content: exampleContent1 },
+                        { title: 'Recruiting candidates', content: exampleContent2 },
+                        { title: 'Making pre-employment checks', content: exampleContent3 },
+                        { title: 'Making right to work checks', content: exampleContent4 },
+                        { title: 'Onboarding candidates', content: exampleContent5 }
+                    ]
+                }) }}    
 
             </div>
         </div>
