@@ -1,0 +1,61 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = true %}
+
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "Managing vacancy campaigns" %}
+{% set pageSection = "Guidance - Vacancies" %}
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<!-- 
+{{ govukBreadcrumbs({
+	items: [
+	  {
+		text: "Home",
+		href: "#"
+	  },
+	  {
+		text: "Advertising",
+		href: "#"
+	  },
+      {
+		text: "Managing advertisement approvals",
+		href: "#"
+	  }	  
+	]
+  }) }} -->
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+	
+      <p>You should consider if a Vacancy Holder (VH) has chosen the best way to run their recruitment campaign for a vacancy, and you can take these questions into account:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Is the approach to their recruitment campaign sufficient for their needs?</li>
+        <li>Is the job description in depth enough for the role advertised?</li>
+        <li>Are the number of behaviours sufficient to sift candidates by, especially if a large number of applications are expected?</li>
+        <li>Would the use of Tests help in sifting candidates, especially if a large number of applications are expected?</li>
+        <li>Would a Personal Statement/CV be a better way to invite candidates to apply?</li>
+        <li>If the VH has requested the use of Tests, have they also opted to use the Short Application Form? This would prevent the candidate having to complete the full application before they complete a Test, and could potentially reduce the number of complaints from candidates who fail Tests and feel they have wasted their time.</li>
+      </ul>
+
+      <p>If you feel it is needed, you can discuss with the VH a more appropriate way to advertise their vacancy and raise the issue with the Account Manager if appropriate.</p>
+        
+	</div>
+
+
+	<div class="govuk-grid-column-one-third"> 
+
+		
+        
+    
+    </div>
+</div>
+
+{% endblock %}
