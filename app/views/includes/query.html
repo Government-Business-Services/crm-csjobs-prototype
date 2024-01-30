@@ -4,96 +4,89 @@
         <h2 class="govuk-heading-l govuk-!-margin-bottom-3">What do you need help with?</h2>        
         <p>Tell us what you need to do in order to access information, self-service forms, guidance and answers. </p>        
     
-    </div>
+    </div>    
+        
+    <form method="post" action="" >
+        
+            <div class="govuk-grid-column-two-thirds">        
     
-        <form method="post" action="" >
-            <div class="govuk-grid-row">
-                <div class="govuk-grid-column-full">
-        
-        
-                    {{ xGovukAutocomplete({
-                        id: "triageAsk",
-                        name: "triageAsk",
-                        allowEmpty: false,
-                        hint: {
-                            text: ""
-                        },
-                        label: {
-                            classes: "govuk-visually-hidden",
-                            isPageHeading: false,
-                            text: pageHeading
-                        },			
-                        items: [                            
-                            { text: "Adjust advert", value: "Adjust advert~/grs-customer-contact/triage/multi" },    
-                            { text: "Advertisement approvals " },                                            
-                            { text: "Advertising", value: "Advertising~/grs-customer-contact/triage/advertising/" },
-                            { text: "Adverts", value: "Adverts~/grs-customer-contact/triage/advertising/" },
-                            { text: "Amend a vacancy advertisement", value: "Amend a vacancy advertisement~/grs-customer-contact/self-serve/amend-vacancy/start?query=amendVacacny" },
-                            { text: "Approvals", value: "Approvals~/grs-customer-contact/self-serve/vacancy-approvals/start?query=vacancyApproval" },
-                            { text: "Change advert", value: "Change advert~/grs-customer-contact/triage/multi" },                            
-                            { text: "Cancel advert", value: "Cancel advert~/grs-customer-contact/self-serve/amend-vacancy/start?query=withdrawVacacny" },                                               
-                            { text: "Candidates", value: "Candidates~/grs-customer-contact/triage/candidates/" },
-                            { text: "Candidate assessment" },
-                            { text: "Candidate interviews" },
-                            { text: "Candidate pack to HR" },
-                            { text: "Criminal record check" },
-                            { text: "Conditional appointment" },
-                            { text: "Delete advert", value: "Delete advert~/grs-customer-contact/self-serve/amend-vacancy/start?query=withdrawVacacny" },
-                            { text: "Driving licence checks" },
-                            { text: "EEHC check" },
-                            { text: "Employment contract" },
-                            { text: "Enhanced integrity check" },
-                            { text: "Formal offer" },
-                            { text: "Health check" },
-                            { text: "Making an offer from the Reserve List" },
-                            { text: "Manual recruitment request", value: "Manual recruitment request~/grs-customer-contact/self-serve/manual-recruitment-request/start?query=manualRecruitmentRequest" },
-                            { text: "National Insurance Number Check (NINO)" },
-                            { text: "New entrant notification" },
-                            { text: "NSV" },
-                            { text: "OGD check" },
-                            { text: "Onboarding", value: "Onboarding~/grs-customer-contact/triage/onboarding/" },
-                            { text: "Online tests" },
-                            { text: "Overseas check" },
-                            { text: "Pension" },        
-                            { text: "Posting notice" },   
-                            { text: "Pre-employment check", value: "Pre-employment check~/grs-customer-contact/triage/pre-employment-checks/" }, 
-                            { text: "Pre-Sift" },
-                            { text: "Provisional offer" },
-                            { text: "Reasonable adjustments" },
-                            { text: "Recruitment", value: "Recruitment~/grs-customer-contact/triage/recruitment/" },
-                            { text: "Remove advert", value: "Remove advert~/grs-customer-contact/self-serve/amend-vacancy/start?query=withdrawVacacny" },
-                            { text: "Reserve List query" },
-                            { text: "Right to Work and identity verification" },
-                            { text: "Self employment" },
-                            { text: "Sift" },                
-                            { text: "Update to candidate application" },    
-                            { text: "Vacancies", value: "Vacancies~/grs-customer-contact/triage/vacancies/" },    
-                            { text: "Vacancy approvals", value: "Remove advert~/grs-customer-contact/self-serve/vacancy-approvals/start?query=vacancyApproval" },
-                            { text: "Vacancy campaign planning" },
-                            { text: "Vacancy supporting documents" },
-                            { text: "Vacancy request form" },
-                            { text: "Withdraw vacancy", value: "Withdraw vacancy~/grs-customer-contact/self-serve/withdraw-vacancy/start?query=withdrawVacacny" },
-                            { text: "Withdrawal request" }
-                        ]
-                    }) }}	
+                {{ xGovukAutocomplete({
+                    id: "triageAsk",
+                    name: "triageAsk",
+                    allowEmpty: false,
+                    hint: {
+                        text: ""
+                    },
+                    label: {
+                        classes: "govuk-visually-hidden",
+                        isPageHeading: false,
+                        text: pageHeading
+                    },			
+                    items: [                            
+                        { text: "Adjust advert", value: "Adjust advert~/grs-customer-contact/triage/multi" },    
+                        { text: "Advertisement approvals " },                                            
+                        { text: "Advertising", value: "Advertising~/grs-customer-contact/triage/advertising/" },
+                        { text: "Adverts", value: "Adverts~/grs-customer-contact/triage/advertising/" },
+                        { text: "Amend a vacancy advertisement", value: "Amend a vacancy advertisement~/grs-customer-contact/self-serve/amend-vacancy/start?query=amendVacancy" },
+                        { text: "Approvals", value: "Approvals~/grs-customer-contact/self-serve/vacancy-approvals/start?query=vacancyApproval" },
+                        { text: "Change advert", value: "Change advert~/grs-customer-contact/triage/multi" },                            
+                        { text: "Cancel advert", value: "Cancel advert~/grs-customer-contact/self-serve/amend-vacancy/start?query=withdrawVacacny" },                                               
+                        { text: "Candidates", value: "Candidates~/grs-customer-contact/triage/candidates/" },
+                        { text: "Candidate assessment" },
+                        { text: "Candidate interviews" },
+                        { text: "Candidate pack to HR" },
+                        { text: "Criminal record check" },
+                        { text: "Conditional appointment" },
+                        { text: "Delete advert", value: "Delete advert~/grs-customer-contact/self-serve/amend-vacancy/start?query=withdrawVacacny" },
+                        { text: "Driving licence checks" },
+                        { text: "EEHC check" },
+                        { text: "Employment contract" },
+                        { text: "Enhanced integrity check" },
+                        { text: "Formal offer" },
+                        { text: "Health check" },
+                        { text: "Making an offer from the Reserve List" },
+                        { text: "Manual recruitment request", value: "Manual recruitment request~/grs-customer-contact/self-serve/manual-recruitment-request/start?query=manualRecruitmentRequest" },
+                        { text: "National Insurance Number Check (NINO)" },
+                        { text: "New entrant notification" },
+                        { text: "NSV" },
+                        { text: "OGD check" },
+                        { text: "Onboarding", value: "Onboarding~/grs-customer-contact/triage/onboarding/" },
+                        { text: "Online tests" },
+                        { text: "Overseas check" },
+                        { text: "Pension" },        
+                        { text: "Posting notice" },   
+                        { text: "Pre-employment check", value: "Pre-employment check~/grs-customer-contact/triage/pre-employment-checks/" }, 
+                        { text: "Pre-Sift" },
+                        { text: "Provisional offer" },
+                        { text: "Reasonable adjustments" },
+                        { text: "Recruitment", value: "Recruitment~/grs-customer-contact/triage/recruitment/" },
+                        { text: "Remove advert", value: "Remove advert~/grs-customer-contact/self-serve/amend-vacancy/start?query=withdrawVacacny" },
+                        { text: "Reserve List query" },
+                        { text: "Right to Work and identity verification" },
+                        { text: "Self employment" },
+                        { text: "Sift" },                
+                        { text: "Update to candidate application" },    
+                        { text: "Vacancies", value: "Vacancies~/grs-customer-contact/triage/vacancies/" },    
+                        { text: "Vacancy approvals", value: "Remove advert~/grs-customer-contact/self-serve/vacancy-approvals/start?query=vacancyApproval" },
+                        { text: "Vacancy campaign planning" },
+                        { text: "Vacancy supporting documents" },
+                        { text: "Vacancy request form" },
+                        { text: "Withdraw vacancy", value: "Withdraw vacancy~/grs-customer-contact/self-serve/withdraw-vacancy/start?query=withdrawVacacny" },
+                        { text: "Withdrawal request" }
+                    ]
+                }) }}	
                 
-                </div>
-                <div class="govuk-grid-column-one-third govuk-!-padding-top-2">
-                    
-                    <input type="hidden" name="triageMulti" id="triageMulti" value="" />
-
-                    {{ govukButton({
-                        text: "Continue",
-                        classes: "govuk-button"		    
-                    }) }}
-        
-                </div>
             </div>
-        
-        </form>
+            <div class="govuk-grid-column-one-third govuk-!-padding-top-2">                        
+                <input type="hidden" name="triageMulti" id="triageMulti" value="" />
+                {{ govukButton({
+                    text: "Get help",
+                    classes: "govuk-button govuk-!-padding-top-2"		    
+                }) }}        
+            </div>
+               
+    </form>
     
-        
-        
 
     </div>
     <!-- <div class="govuk-grid-column-one-third"> 
