@@ -1,0 +1,171 @@
+{% extends "layouts/main.html" %}
+{% set showBackLink = true %}
+
+{% set serviceName = "Government Recruitment Service (GRS)" %}
+
+{% set pageHeading = "Getting approval for a vacancy" %}
+{% set pageSection = "Guidance - Vacancies" %}
+{% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
+{% block content %}
+
+<!-- 
+{{ govukBreadcrumbs({
+	items: [
+	  {
+		text: "Home",
+		href: "#"
+	  },
+	  {
+		text: "Advertising",
+		href: "#"
+	  },
+      {
+		text: "Managing advertisement approvals",
+		href: "#"
+	  }	  
+	]
+  }) }} -->
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}
+
+	
+
+
+        <article class="moj-ticket-panel" aria-label="Sub navigation 1">
+            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange step" aria-label="Section 1">					 
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Step 1</h2>
+            </section>	  
+          </article>
+        
+        <p class="govuk-body">Login to the Applicant Tracking System (ATS).</p>
+
+        <article class="moj-ticket-panel govuk-!-margin-top-7" aria-label="Sub navigation 1">
+            <section class="moj-ticket-panel__content moj-ticket-panel__content--orange step" aria-label="Section 1">					 
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Step 2</h2>
+            </section>	  
+          </article>
+        
+        <p class="govuk-body">On your Dashboard, select the ‘Vacancies awaiting recruitment review’ button.</p>      
+        <p>In the ‘Filter’ box, type in the department required - this will list all of the vacancies awaiting action for your department in date order. </p>
+        <p>Note: If you know the vacancy reference number you can enter this in the ‘Filter’ box.</p>        
+        <p>To assign a vacancy to yourself to prevent duplication of work, follow these steps:</p>      
+        <ul class="govuk-list govuk-list--bullet">        
+          <li>Select the vacancy/vacancies</li>
+          <li>Select ‘Update Vacancies’ button at the top right-hand corner, then select ‘Bulk Update Items’</li>
+          <li>From the dropdown, select ‘Vacancy Form > Assigned to (optional)’</li>
+          <li>Within the dropdown, search for your name, then select it</li>
+          <li>Select ‘Update Items’, then ‘Close’</li>          
+        </ul>
+
+
+        <p>Note: Once the vacancy has been posted you will need to remove your name from the ‘Vacancy Assigned To’ field:</p>
+        <ul class="govuk-list govuk-list--bullet">        
+          <li>Select the vacancy/vacancies</li>
+          <li>Select ‘Update Vacancies’ button at the top right-hand corner, then select ‘Bulk Update Items’</li>
+          <li>From the dropdown, select ‘Vacancy Form > Assigned to (optional)’</li>
+          <li>Select ‘Update Items’, then ‘Close’</li>
+        </ul>
+
+        <article class="moj-ticket-panel govuk-!-margin-top-7" aria-label="Sub navigation 1">
+          <section class="moj-ticket-panel__content moj-ticket-panel__content--orange step" aria-label="Section 1">					 
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Step 3</h2>
+          </section>	  
+        </article>
+
+        <p>There is a 48 hour Service Level Agreement (SLA) for action of ‘Cabinet Office’ adverts approval.</p>
+        <p>Note: If an advertisement comes without an attachment, the SLA will not start counting until all the attachments are received.</p>
+
+        <article class="moj-ticket-panel govuk-!-margin-top-7" aria-label="Sub navigation 1">
+          <section class="moj-ticket-panel__content moj-ticket-panel__content--orange step" aria-label="Section 1">					 
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Step 4</h2>
+          </section>	  
+        </article>
+        <p>Select the ‘Go to vacancy’ link for the vacancy you wish to post. </p>
+
+
+        <article class="moj-ticket-panel govuk-!-margin-top-7" aria-label="Sub navigation 1">
+          <section class="moj-ticket-panel__content moj-ticket-panel__content--orange step" aria-label="Section 1">					 
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Step 5</h2>
+          </section>	  
+        </article>
+        <p>Select the ‘Vacancy Forms’ tab and see the ‘Approval’ section to check the correct approval has been received. </p>
+
+        <article class="moj-ticket-panel govuk-!-margin-top-7" aria-label="Sub navigation 1">
+          <section class="moj-ticket-panel__content moj-ticket-panel__content--orange step" aria-label="Section 1">					 
+              <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Step 6</h2>
+          </section>	  
+        </article>
+
+        <p>The approvals process for all vacancies submitted to GRS from 1 August 2023 onwards is as follows:</p>
+        <ul class="govuk-list govuk-list--bullet">        
+          <li>No approval to recruit email is required to be attached to any GRS vacancy</li>
+          <li>Vacancy holders must still approach the CO Resourcing Hub for any matches and attach the confirmation email of no matches to their vacancies (an example template is below).</li>
+        </ul>
+
+        <p>>Note:</p>
+        <ul class="govuk-list govuk-list--bullet">        
+          <li>Any requests from the Covid-19 Inquiry can be actioned without requesting Hub approval.</li>
+          <li>Number 10 Downing Street may submit advertisements with approval attached from a HRBP who will confirm they have contacted the Hub and there are no matches. This can be accepted for Number 10 vacancies only. All other business units must have an email from cohub@cabinetoffice.gov.uk attached to their advert to state there are no hub matches.</li>
+        </ul>
+
+        <p>Here is a Hub Example Template from cohub@cabinetoffice.gov.uk:</p>
+
+        <p>“Hello (Name),
+        <br>Thank you for sending through your job vacancy/vacancies. Unfortunately, we do not have any suitable matches at this time.
+        <br>We appreciate that you will continue with your other recruitment options, but if we have any newly registered candidates deemed suitable for the role as per the CORH key principles, we will contact you to consider them ahead of a job offer being made to a recruited candidate.
+        <br>Kind regards,
+        <br>Your name” </p>
+
+        <ul class="govuk-list govuk-list--bullet">        
+        <li>Expressions of Interest (EOIs) advertisements - (internal EOI posted by CoRecruitment C&I and Cross Government EOI submitted to GRS by CoRecruitment C&I) - there is no requirement for TDA approval to be attached but if longer than 9 months, or 12 months for maternity leave cover, then please do notify the CORecruitment C&I team about it.</li>
+        <li>Cabinet Office Recruitment have confirmed that EOIs can be submitted from their team and also the teams of Number 10, the Covid-19 Inquiry and the Joint Intelligence Organisation (JIO).</li>
+        <li>No location approval required to be attached and checked.</li>
+        </ul>
+
+        <p>If approval is less than 6 months old and the Cabinet Office VH is readvertising their campaign, then this can be accepted. </p>
+
+      <h2 class="govuk-heading-m">Legacy Guidance is to be used until phased out.</h2>
+      <p>HRBPs and the approvals team will use a template or an email to give final authorisation to the Business Unit (once their role has all the appropriate approvals and the Hub has been checked). This should then be used by the Business Unit to confirm approval to recruit. </p>
+      <p>If an approval to advertise is more than 6 months old you will need to advise the Business Unit to go to the approvals team to get the approval extended.</p>
+      <p>If the approval is less than 6 months old and they are readvertising their campaign then this can be accepted.</p>
+      
+        <h2 class="govuk-heading-m">Cabinet Office vacancies</h2>
+        <p>For all Cabinet Office vacancies, we require confirmation of approval from a HRBP, HR Director, Chief People Officer or Lisa Langbridge from CSHR. Please refer to the list of HRBP Units and Areas provided in the guidance hub.</p>
+        <p>Note: If the approval states they need to remain within the location strategy, we will need to check that the locations listed in the advertisement align with the location strategy for each Business Unit. </p>
+        <p>If a Vacancy Manager has either selected ‘No’ to the ‘do you have budgetary approval’ question or the above approval email has not been attached then return the vacancy to the vacancy holder.  </p>
+        <p>Note: There is an exception for JIO who have blanket approval.</p>
+        <p>Note: If the campaign is a menu/GRS campaign where approval has been confirmed in the planning stage, approval may not be attached.</p>
+
+
+<article class="moj-ticket-panel govuk-!-margin-top-7" aria-label="Sub navigation 1">
+  <section class="moj-ticket-panel__content moj-ticket-panel__content--orange step" aria-label="Section 1">					 
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Step 7</h2>
+  </section>	  
+</article>
+        
+          <p>Return a vacancy to the vacancy holder - If the vacancy holder hasn’t provided the correct approval to allow you to post the vacancy, select the ‘Vacancy Holder Update Needed’ button. </p>
+          <p>Note: You should review the whole advert before sending the vacancy back to the vacancy holder.</p>
+          <p>This will create an email which you will need to amend to request the missing information before selecting ‘Send Correspondence’. </p>        
+          <p>The vacancy will move from the ‘Vacancies at Recruitment Review Status’ widget on your dashboard to the ‘Vacancies at Vacancy Requires Update’ widget. </p>          
+          <p>Once the vacancy holder has provided the missing information, the vacancy will move back to the ‘Vacancies at Recruitment Review Status’ widget on your dashboard. </p>
+          
+
+
+
+	</div>
+
+
+	<div class="govuk-grid-column-one-third"> 
+
+		
+        
+    
+    </div>
+</div>
+
+{% endblock %}
