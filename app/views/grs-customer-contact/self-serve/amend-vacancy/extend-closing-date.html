@@ -15,7 +15,15 @@
 			<form method="post" action="/grs-customer-contact/self-serve/amend-vacancy/confirm-vacancy" >
 				{% include "includes/status_null.html" %}
 		{% else %}
-        	<form method="post" action="/grs-customer-contact/self-serve/amend-vacancy/amendments" >
+
+			{% if data['amendVacancyRefNum'] == "1002003001" %}
+				<form method="post" action="/grs-customer-contact/self-serve/amend-vacancy/time-delay" >
+			{% elif data['amendVacancyRefNum'] == "1002003002" %}
+				<form method="post" action="/grs-customer-contact/self-serve/amend-vacancy/amend-more" >
+			{% else %}
+				<form method="post" action="/grs-customer-contact/self-serve/amend-vacancy/amend-more" >
+			{% endif %}
+        	
 		{% endif %}
                         
 			{% set otherHtml %}
@@ -46,8 +54,8 @@
 					}
 				},
 				items: [                					
-					{ value: "Yes~/grs-customer-contact/self-serve/amend-vacancy/amend-more", text: "Yes", checked: checked("amendClosingDate", "Yes"), conditional: { html: otherHtml } },	
-					{ value: "No", text: "No", checked: checked("amendClosingDate", "No") }										
+					{ value: "Yes", text: "Yes", checked: checked("amendClosingDate", "Yes"), conditional: { html: otherHtml } },	
+					{ value: "No~/grs-customer-contact/self-serve/amend-vacancy/amendments", text: "No", checked: checked("amendClosingDate", "No") }										
 				]
 			}) }}
 
@@ -58,8 +66,7 @@
       	    	text: "Continue"			    
     	    }) }}
 
-
-			<p class="govuk-body-s"><a href="/grs-customer-contact/self-serve/amend-vacancy/time-delay">UR option</a></p>
+			
         </form>
   
 	</div>
