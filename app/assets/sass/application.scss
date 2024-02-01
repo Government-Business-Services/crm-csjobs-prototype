@@ -31,6 +31,56 @@
     padding-bottom: 14px;
 };
 
+
+.moj-search {
+    font-size: 0
+}
+
+.moj-search form {
+    align-items: flex-end;
+    display: flex
+}
+
+.moj-search .govuk-form-group {
+    display: inline-block;
+    flex: 1;
+    margin-bottom: 0;
+    vertical-align: top
+}
+
+.moj-search__label,.moj-search__hint {
+    text-align: left
+}
+
+.moj-search__input:focus {
+    position: relative;
+    z-index: 1
+}
+
+.moj-search__button {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: 10px;
+    position: relative;
+    top: -2px;
+    vertical-align: bottom;
+    width: auto
+}
+
+.moj-search--inline {
+    padding: 10px 0 !important
+}
+
+@media(min-width: 48.0625em) {
+    .moj-search--inline {
+        padding:0 !important
+    }
+}
+
+
+
+
+
 .moj-ticket-panel__content--blue {
     border-left-color: #1d70b8;
 }
