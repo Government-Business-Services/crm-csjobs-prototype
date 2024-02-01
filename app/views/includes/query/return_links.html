@@ -1,15 +1,10 @@
-<ul class="govuk-list">
-
- 
-
-    
+<ul class="govuk-list">    
 {% if data['query'] == "manualRecruitmentRequest" %}    
-    <li><a class="govuk-link" href="/grs-customer-contact/self-serve/manual-recruitment-request/start?query=manualRecruitmentRequest">Fill in another manual recruitment request form </a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/grs-customer-contact/self-serve/manual-recruitment-request/start?query=manualRecruitmentRequest">Fill in another manual recruitment request form </a></li>
 {% elif data['query'] == "withdrawVacancy" %}    
-<li><a class="govuk-link" href="/grs-customer-contact/self-serve/withdraw-vacancy/start?query=withdrawVacancy">Fill in another withdraw advertisement request form</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/grs-customer-contact/self-serve/withdraw-vacancy/start?query=withdrawVacancy">Fill in another withdraw advertisement request form</a></li>
 {% elif data['query'] == "withdrawVacancy" %}    
-<li><a class="govuk-link" href="/grs-customer-contact/self-serve/amend-vacancy/start?query=amendVacancy">Fill in another amend advertisement request form</a></li>
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/grs-customer-contact/self-serve/amend-vacancy/start?query=amendVacancy">Fill in another amend advertisement request form</a></li>
 {% endif %}
-<li><a class="govuk-link" href="/grs-customer-contact/vacancy-holder?query=">Return to vacancy holder’s main page</a></li>
-
+    <li><a class="govuk-link govuk-link--no-visited-state" href="/grs-customer-contact/vacancy-holder?query=">Return to vacancy holder’s main page</a></li>
 </ul>
