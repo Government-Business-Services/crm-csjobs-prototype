@@ -1,5 +1,5 @@
 {% extends "layouts/main.html" %}
-{% set showBackLink = true %}
+{% set showBackLink = false %}
 
 {% set serviceName = "Government Recruitment Service (GRS)" %}
 
@@ -8,6 +8,15 @@
 {% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
 {% block content %}
 
+{{ govukBreadcrumbs({
+	classes: "govuk-!-margin-bottom-5",
+	items: [
+		{ text: "Home", href: "#" },
+		{ text: "Guidance and self-serve forms", href: "#" },
+		{ text: "Advertising a vacancy", href: "#" }
+    
+	]
+}) }}
 <!-- 
 {{ govukBreadcrumbs({
 	items: [
@@ -42,7 +51,7 @@
             </section>	  
           </article>
         
-        <p class="govuk-body">Login to the Applicant Tracking System (ATS)/ vX.</p>
+        <p class="govuk-body"><a href="#">Login to the Applicant Tracking System (ATS)/ vX (opens in new tab)</a>.</p>
 
         <article class="moj-ticket-panel govuk-!-margin-top-7" aria-label="Sub navigation 1">
             <section class="moj-ticket-panel__content moj-ticket-panel__content--orange step" aria-label="Section 1">					 
@@ -158,7 +167,14 @@
 
 	<div class="govuk-grid-column-one-third"> 
 
-		
+
+    <!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-3">Related links</h2>        
+    <p>Ask us online for guidance and answers.</p>     
+{{ govukButton({
+  text: "Log in to Vx",
+  classes: "govuk-button--secondary govuk-!-margin-top-2"
+  }) }}      -->
+
         
     
     </div>
