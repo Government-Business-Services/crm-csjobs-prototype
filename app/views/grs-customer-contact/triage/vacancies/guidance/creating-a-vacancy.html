@@ -8,23 +8,15 @@
 {% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
 {% block content %}
 
-<!-- 
 {{ govukBreadcrumbs({
+	classes: "govuk-!-margin-bottom-5",
 	items: [
-	  {
-		text: "Home",
-		href: "#"
-	  },
-	  {
-		text: "Advertising",
-		href: "#"
-	  },
-      {
-		text: "Managing advertisement approvals",
-		href: "#"
-	  }	  
+		{ text: "Home", href: "/grs-customer-contact/vacancy-holder" },
+		{ text: "Guidance and self-serve forms", href: "#" },
+		{ text: "Vacancies", href: "/grs-customer-contact/triage/vacancies/" }
+    
 	]
-  }) }} -->
+}) }}
 
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">

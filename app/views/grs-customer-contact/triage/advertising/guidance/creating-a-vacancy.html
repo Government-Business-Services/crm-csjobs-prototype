@@ -1,5 +1,5 @@
 {% extends "layouts/main.html" %}
-{% set showBackLink = true %}
+{% set showBackLink = false %}
 
 {% set serviceName = "Government Recruitment Service (GRS)" %}
 
@@ -7,6 +7,16 @@
 {% set pageSection = "Guidance - Advertisements" %}
 {% block pageTitle %} {{ macroPageTitle.pageTitle(pageHeading) }} - Prototype{% endblock %}
 {% block content %}
+
+{{ govukBreadcrumbs({
+	classes: "govuk-!-margin-bottom-5",
+	items: [
+		{ text: "Home", href: "/grs-customer-contact/vacancy-holder" },
+		{ text: "Guidance and self-serve forms", href: "#" },
+		{ text: "Advertising a vacancy", href: "/grs-customer-contact/triage/advertising/" }
+    
+	]
+}) }}
 
 <!-- 
 {{ govukBreadcrumbs({
