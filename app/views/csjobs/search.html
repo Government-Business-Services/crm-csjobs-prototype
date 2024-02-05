@@ -63,7 +63,7 @@
 				{% include "includes/notifcation_banner.html" %}		
 
 				<h1 class="govuk-heading-l govuk-!-margin-bottom-2">{{ pageHeading }}</h1>
-				<p class="govuk-body-l">Use this service to search and apply for government job opportunities.</p>    	
+				<p class="govuk-body-l">Use this search to find and apply for government job opportunities.</p>    	
 				
 				<form method="post" action="/csjobs/search/results" >
 																	
@@ -76,7 +76,7 @@
 										{{ govukInput({
 											label: { text: "Enter job title or keywords", classes: "govuk-label--m", isPageHeading: false },      					
 											hint: {
-												text: "For example, Content Designer, Security Consultant  or UX."
+												text: "For example, Accountant, Security Consultant or Business Analyst."
 											},
 											
 											id: "searchKeyword",
@@ -86,9 +86,9 @@
 									<div class="govuk-grid-column-one-third govuk-!-padding-top-5"> -->
 										<!-- <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Where</h2> -->
 										{{ govukInput({
-											label: { text: "Enter a postcode, town or city", classes: "govuk-label--m govuk-!-margin-bottom-0",isPageHeading: false },      					
+											label: { text: "Enter a postcode, town, city or region", classes: "govuk-label--m govuk-!-margin-bottom-0",isPageHeading: false },      					
 											hint: {
-												text: "For example, SW1A PBY or Newcastle Upon Tyne."
+												text: "For example, Newcastle Upon Tyne or East Midlands."
 											},
 											
 											id: "searchWhere",
@@ -104,7 +104,8 @@
 												
 											}) }}				
 			
-											<p>Use more options to find jobs with <a href="/csjobs/search/results" class="govuk-link govuk-link--no-visited-state">advanced search</a></p>
+											<p><a href="/csjobs/search/results" class="govuk-link govuk-link--no-visited-state">Advanced search</a></p>
+											<!-- <p>Use more options to find jobs with <a href="/csjobs/search/results" class="govuk-link govuk-link--no-visited-state">advanced search</a></p> -->
 										
 										</div>
 										
