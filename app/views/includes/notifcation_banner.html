@@ -66,11 +66,11 @@
             {% if data['notification'] == "accountCreated" %}
                 Your account has been created
             {% elif data['notification'] == "signedOut" %}
-                You have signed out
+                You have signed out of your account
             {% elif data['notification'] == "closeAccount" %}
-                Account closed
+                You have closed your account
             {% elif data['notification'] == "accountUpdated" %}
-                Update successful
+                You have updated your account details.
             {% elif data['notification'] == "needAccount" %}
                 Your account has been created
             {% elif data['notification'] == "alertCreated" %}
@@ -78,7 +78,7 @@
             {% elif data['notification'] == "alertDeleted" %}
                 Job alert deleted
             {% elif data['notification'] == "alertUpdated" %}
-                Job alert updated
+                You’ve updated your job alert.
             {% elif data['notification'] == "alertPaused" %}
                 You have paused your job alerts
             {% elif data['notification'] == "alertRestarted" %}
@@ -91,11 +91,11 @@
             {% if data['notification'] == "accountCreated" %}
                 Use your account to apply for jobs, see your saved jobs and track the progress of your applications.
             {% elif data['notification'] == "signedOut" %}
-                You have now signed out of your account.
+                <!-- You have now signed out of your account. -->
             {% elif data['notification'] == "closeAccount" %}
-                You have closed your account
+                <!-- You have closed your account -->
             {% elif data['notification'] == "accountUpdated" %}
-                You have updated your account details.
+                <!-- You have updated your account details. -->
             {% elif data['notification'] == "alertCreated" %}
                     You will begin receiving this job alert from your chosen day.
                     <!-- <br><br>Alert reference: 2653541
@@ -105,14 +105,14 @@
                     <!-- <br><br>You will stop receiving emails related to this alert
                     <br><br>Alert reference: 2653541 -->
             {% elif data['notification'] == "alertUpdated" %}
-                    You’ve updated your job alert.
+                    <!-- You’ve updated your job alert. -->
             {% elif data['notification'] == "alertPaused" %}
                 Your alerts will stay in your account until you restart them or delete them.
             {% elif data['notification'] == "alertRestarted" %}
                    You will start receiving an email with jobs matching your alerts.
             {% elif data['notification'] == "needAccount" %}
-                Your registration is complete. You may continue with your application by clicking the link below.
-                <br><br><a href="/csjobs/pec/application/guidance?navpage=guidance">Click here to continue with your application</a>.
+                You can now set up job alerts and track progress of your applications.
+                <br><br><a href="/csjobs/pec/application/guidance?navpage=guidance">Continue with your application</a>.
             {% else %}
                 Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.
             {% endif %}

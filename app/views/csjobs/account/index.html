@@ -170,10 +170,7 @@
 						
 				{{ govukInput({
 					label: { text: "Email address", classes: "govuk-label", isPageHeading: false },      					
-					classes: "govuk-!-width-two-thirds",
-					hint: {
-						text: "Enter an email address in the correct format, for example name@example.com"
-					},
+					classes: "govuk-!-width-two-thirds",					
 					id: "userEmailAddress",
 					name: "userEmailAddress"
 					
@@ -248,7 +245,7 @@
 						
 						
 							{{ govukInput({
-								label: { text: "Provide your email address", classes: "govuk-label",isPageHeading: false },      					
+								label: { text: "Provide your departmental email address", classes: "govuk-label",isPageHeading: false },      					
 								classes: "govuk-!-width-two-thirds",
 								hint: {
 									text: "Leave this section blank if you cannot access your email."
@@ -258,7 +255,7 @@
 							}) }}	
 							
 							{{ govukInput({
-								label: { text: "Confirm your email address", classes: "govuk-label", isPageHeading: false },      					
+								label: { text: "Confirm your departmental email address", classes: "govuk-label", isPageHeading: false },      					
 								classes: "govuk-!-width-two-thirds",							
 								id: "userConfirmWorkEmail",
 								name: "userConfirmWorkEmail"								
@@ -268,14 +265,14 @@
 								label: { text: "Provide your line manager’s email address", classes: "govuk-label",isPageHeading: false },      					
 								classes: "govuk-!-width-two-thirds",
 								hint: {
-									text: "You only need to provide this if you cannot access your work email."
+									text: "You only need to provide this if you cannot access your departmental email."
 								},
 								id: "userLineManagerEmail",
 								name: "userLineManagerEmail"								
 							}) }}	
 							
 							{{ govukInput({
-								label: { text: "Confirm your manager's email address", classes: "govuk-label", isPageHeading: false },      					
+								label: { text: "Confirm your line manager's email address", classes: "govuk-label", isPageHeading: false },      					
 								classes: "govuk-!-width-two-thirds",								
 								id: "userConfirmLineManagerEmail",
 								name: "userConfirmLineManagerEmail"								
@@ -297,7 +294,7 @@
 					fieldset: {
 					legend: { text: "Are you a civil servant or an employee of a public body?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
 					hint: {
-						text: "This affects the jobs that we can show you and the way we consider your application."
+						text: "This affects the jobs that we can show you."
 					},
 					items: [
 						{ value: "Yes", text: "Yes", conditional: {html: civilServantHtml} },
