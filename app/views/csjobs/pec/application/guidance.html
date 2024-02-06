@@ -26,16 +26,26 @@
 
     	<h1 class="govuk-heading-l govuk-!-padding-top-4">{{ pageHeading }}</h1>	
 		
-		<p>The application is split into two sections - you must submit part one before starting part two.</p>
+		<p>The application is split into 2 sections - you must complete and submit section 1 before starting section 2.</p>
 		
-		<h3 class="govuk-body-l">Section one</h3>
-		<p>Basic information.</p>
+		<h3 class="govuk-heading-m">Section 1 - Basic information</h3>
+		<p>We will ask you to provide basic information such as your name, address and employment history.</p>
 		
-		<h3 class="govuk-body-l">Section two</h3>
-		<p>Further details and supporting evidence, which will be assessed.</p>
-		<p>The deadline is  8:10PM on 29 February 2024.</p>
-		<p>Before you start</p>
-		<ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+		<h3 class="govuk-heading-m">Section 2 - Further details and supporting evidence</h3>
+		<p>You will be asked to give us further information, which will be assessed.</p>
+
+		
+
+		{{ govukWarningText({
+			text: "The deadline is  8:10PM on 29 February 2024.",
+			iconFallbackText: "Warning"
+		  }) }}
+
+		
+
+		
+		<p>Before you start, consider the following points:</p>
+		<ul class="govuk-list govuk-list--bullet">					
 			<li>Civil Service Jobs will timeout after 45 minutes of inactivity.</li>
 			<li>You must save each application page manually by selecting 'Continue'.</li>
 			<li>After you submit each section, you cannot make changes.</li>
@@ -43,12 +53,15 @@
 			<li>Multiple applications for the same job may result in all of them being withdrawn.</li>
 			<li>We will email you about your application as it progresses.</li>
 		</ul>
+
+
+
 			    
         <form method="post" action="/csjobs/pec/application/eligibility" >
         	
 			{{ govukButton({
           		text: "Continue",
-				classes: "govuk-!-margin-top-9"          
+				classes: "govuk-!-margin-top-7"          
         	}) }}      
 
 		</form>
