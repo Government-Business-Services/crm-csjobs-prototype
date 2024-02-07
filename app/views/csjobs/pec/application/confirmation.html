@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% set showBackLink = false %}
+{% set showNavLinks = true %}
+{% set defaultRole = 'Senior Events and Visits Manager ' %}
+{% set defaultLocation = 'Bristol, London, Newcastle-upon-Tyne, York' %}
+{% set defaultSalary = '£39,439 - £47,039' %}
+{% set defaultCloseDate = '11:55 pm on Friday 26th January 2024' %}
+{% set defaultRef = '335730' %}
+{% set defaultDepartment = 'Department for Environment, Food and Rural Affairs' %}
+
+
+{% set pageHeading = "Section 1 submitted" %}
+{% set pageSection = "" %}
+
+{% block content %}
+
+
+
+	<div class="govuk-grid-row">    
+		<div class="govuk-grid-column-two-thirds">  
+						
+			<h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
+
+			<div class="govuk-inset-text">
+				{{defaultRole}}<br>Ref: {{defaultRef}}
+			</div>
+
+
+			
+
+				<!-- <p>Thank you for submitting the first section of your application.</p>
+				<p>You can now complete the second section, where you must provide supporting evidence.</p>
+
+
+				<p>Thank you for completing and submitting section 1 of your application.</p> -->
+
+				<h2 class="govuk-heading-m">What to do next</h2>
+				<p>You can now start section 2. You will be asked to give us further information and provide supporting evidence, which will be assessed.</p>
+
+
+				{{ govukWarningText({
+					text: "The deadline for this application is 8:10 PM on 29 February 2024.",
+					iconFallbackText: "Warning",
+					classes: "govuk-!-margin-top-7"
+				  }) }}
+
+				
+				<div class="govuk-button-group govuk-!-margin-top-9">
+
+					{{ govukButton({
+						text: "Continue to section 2"                  
+					}) }}
+										
+					
+					{{ govukButton({
+						text: "View the job advert",
+						classes: "govuk-button--secondary"                 
+					}) }}
+
+					{{ govukButton({
+						text: "Withdraw application",
+						classes: "govuk-button--secondary"                 
+					}) }}
+	
+				</div>
+
+				
+			
+			
+
+
+
+			
+							
+
+	</div>
+	</div>
+
+
+
+{% endblock %}
