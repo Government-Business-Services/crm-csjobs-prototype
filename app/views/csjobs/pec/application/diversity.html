@@ -24,21 +24,25 @@
     <!-- ////////////// END OF NEW ////////////////// -->
     {% else %}
 
-		<h1 class="govuk-heading-l govuk-!-padding-top-4">{{ pageHeading }}</h1>
+	<span class="govuk-caption-l">Section 1</span>
+		<h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 		
 
 
 		<p>We deliver better services when our workforce reflects the full range of backgrounds and experiences in the society we serve.</p>
 		<p>We measure the socio-economic background of our employees and potential recruits in order to improve diversity and inclusion in the Civil Service.</p>
 		<p>To do this we need you to fill out a diversity monitoring form. The questions we ask help us to develop an informed strategy for improving social mobility.</p>
-		<p>None of the information you give us will be visible as part of your application. It will be used anonymously to monitor the inclusivity of our selection processes. You can select 'prefer not to say’ if you don't want to answer a question.</p>
+		<p>None of the information you give us will be visible as part of your application. It will be used anonymously to monitor the inclusivity of our selection processes. You can select 'prefer not to disclose’ if you don't want to answer a question.</p>
 
-		<h2 class="govuk-heading-m">Socio-economic diversity and inclusion questions</h2>
+		<h2 class="govuk-heading-m">Diversity and inclusion questions</h2>
 
 		{{ govukRadios({			
 			name: "applicationDiversityDisability",
 			fieldset: {
-			  legend: { text: "Do you consider yourself to have a disability as defined by the Equality Act 2010?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			legend: { text: "Do you consider yourself to have a disability?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			hint: {
+				text: "Under the Equality Act 2010 if you have a physical or mental impairment that has a ‘substantial’ and ‘long-term’ negative effect on your ability to do normal daily activities you are considered to have a disability."
+			},
 			items: [
 				{ value: "Yes", text: "Yes", conditional: { html: NationalNumberHtml }, checked: checked("applicationDiversityDisability", "Yes") },
 				{ value: "No", text: "No", checked: checked("applicationDiversityDisability", "No")  },
@@ -50,7 +54,7 @@
 		{{ govukRadios({			
 			name: "applicationDiversityGender",
 			fieldset: {
-			  legend: { text: "Your gender", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			  legend: { text: "What is your gender", isPageHeading: false, classes: "govuk-fieldset__legend" } },
 			items: [
 				{ value: "Man", text: "Man", conditional: { html: NationalNumberHtml }, checked: checked("applicationDiversityGender", "Man") },
 				{ value: "Woman", text: "Woman", checked: checked("applicationDiversityGender", "Woman")  },
@@ -64,11 +68,12 @@
 		{{ govukRadios({			
 			name: "applicationDiversitySexualOrientation",
 			fieldset: {
-			  legend: { text: "What is your sexual orientation", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			  legend: { text: "What is your sexual orientation?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
 			items: [
-				{ value: "Hetrosexual or straight", text: "Hetrosexual or straight", conditional: { html: NationalNumberHtml }, checked: checked("applicationDiversitySexualOrientation", "Hetrosexual or straight") },
-				{ value: "Gay or lesbian", text: "Gay or lesbian", checked: checked("applicationDiversitySexualOrientation", "Gay or lesbian")  },
+				
 				{ value: "Bisexual", text: "Bisexual", checked: checked("applicationDiversitySexualOrientation", "Bisexual")  },
+				{ value: "Gay or lesbian", text: "Gay or lesbian", checked: checked("applicationDiversitySexualOrientation", "Gay or lesbian")  },
+				{ value: "Hetrosexual or straight", text: "Hetrosexual or straight", conditional: { html: NationalNumberHtml }, checked: checked("applicationDiversitySexualOrientation", "Hetrosexual or straight") },
 				{ value: "Prefer not to disclose", text: "Prefer not to disclose", checked: checked("applicationDiversitySexualOrientation", "prefer not to disclose")  },
 				{ value: "Prefer to self-describe", text: "Prefer to self-describe", checked: checked("applicationDiversitySexualOrientation", "Prefer to self-describe")  }
 				
@@ -79,38 +84,42 @@
 		{{ govukRadios({			
 			name: "applicationDiversityIdentity",
 			fieldset: {
-			  legend: { text: "How would you describe your national identity?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			  legend: { text: "What is your national identity?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
 			items: [
+				{ value: "British", text: "British", checked: checked("applicationDiversityIdentity", "British")  },	
 				{ value: "English", text: "English", conditional: { html: NationalNumberHtml }, checked: checked("applicationDiversityIdentity", "English") },
-				{ value: "Welsh", text: "Welsh", checked: checked("applicationDiversityIdentity", "Welsh")  },
-				{ value: "Scottish", text: "Scottish", checked: checked("applicationDiversityIdentity", "Scottish")  },
+				
 				{ value: "Northern Irish", text: "Northern Irish", checked: checked("applicationDiversityIdentity", "Northern Irish")  },
-				{ value: "British", text: "British", checked: checked("applicationDiversityIdentity", "British")  },
-				{ value: "Other", text: "Other", checked: checked("applicationDiversityIdentity", "Other")  },
-				{ value: "Prefer not to disclose", text: "Prefer not to disclose", checked: checked("applicationDiversityIdentity", "Prefer not to disclose")  }
+				{ value: "Scottish", text: "Scottish", checked: checked("applicationDiversityIdentity", "Scottish")  },
+				{ value: "Welsh", text: "Welsh", checked: checked("applicationDiversityIdentity", "Welsh")  },				
+				{ value: "Prefer not to disclose", text: "Prefer not to disclose", checked: checked("applicationDiversityIdentity", "Prefer not to disclose")  },
+				{ value: "Other", text: "Other", checked: checked("applicationDiversityIdentity", "Other")  }
+				
 				
 			]
 		}) }}
 
-
+		<h2 class="govuk-heading-m govuk-!-margin-top-7">Socio-economic questions</h2>
+		
 
 		{{ govukRadios({			
 			name: "applicationDiversityAged14",
 			fieldset: {
-			  legend: { text: "Thinking back to when you were aged about 14, which best describes the sort of work the main/ highest income earner in your household did in their main job?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			  legend: { text: "Thinking back to when you were aged about 14, which of the following best describes the sort of work the main/ highest income earner in your household did in their main job?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
 			items: [
-				{ value: "Modern professional occupations such as: teacher/lecturer, nurse, physiotherapist, social worker, welfare officer, artist, musician, police officer (sergeant or above), software designer", text: "Modern professional occupations such as: teacher/lecturer, nurse, physiotherapist, social worker, welfare officer, artist, musician, police officer (sergeant or above), software designer", conditional: { html: NationalNumberHtml }, checked: checked("applicationDiversityAged14", "Modern professional occupations such as: teacher/lecturer, nurse, physiotherapist, social worker, welfare officer, artist, musician, police officer (sergeant or above), software designer") },
-				{ value: "Clerical and intermediate occupations such as: secretary, personal assistant, clerical worker, office clerk, call centre agent, nursing auxiliary, nursery nurse", text: "Clerical and intermediate occupations such as: secretary, personal assistant, clerical worker, office clerk, call centre agent, nursing auxiliary, nursery nurse", checked: checked("applicationDiversityAged14", "Clerical and intermediate occupations such as: secretary, personal assistant, clerical worker, office clerk, call centre agent, nursing auxiliary, nursery nurse")  },
-				{ value: "Senior managers and administrators usually responsible for planning, organising and co-ordinating work and for finance such as: finance manager, chief executive", text: "Senior managers and administrators usually responsible for planning, organising and co-ordinating work and for finance such as: finance manager, chief executive", checked: checked("applicationDiversityAged14", "Senior managers and administrators usually responsible for planning, organising and co-ordinating work and for finance such as: finance manager, chief executive")  },
-				{ value: "Technical and craft occupations such as: motor mechanic, fitter, inspector, plumber, printer, tool maker, electrician, gardener, train driver", text: "Technical and craft occupations such as: motor mechanic, fitter, inspector, plumber, printer, tool maker, electrician, gardener, train driver", checked: checked("applicationDiversityAged14", "Technical and craft occupations such as: motor mechanic, fitter, inspector, plumber, printer, tool maker, electrician, gardener, train driver")  },
-				{ value: "Semi-routine manual and service occupations such as: postal worker, machine operative, security guard, caretaker, farm worker, catering assistant, receptionist, sales assistant", text: "Semi-routine manual and service occupations such as: postal worker, machine operative, security guard, caretaker, farm worker, catering assistant, receptionist, sales assistant", checked: checked("applicationDiversityAged14", "Semi-routine manual and service occupations such as: postal worker, machine operative, security guard, caretaker, farm worker, catering assistant, receptionist, sales assistant")  },
-				{ value: "Routine manual and service occupations such as: HGV driver, van driver, cleaner, porter, packer, sewing machinist, messenger, labourer, waiter / waitress, bar staff", text: "Routine manual and service occupations such as: HGV driver, van driver, cleaner, porter, packer, sewing machinist, messenger, labourer, waiter / waitress, bar staff", checked: checked("applicationDiversityAged14", "Routine manual and service occupations such as: HGV driver, van driver, cleaner, porter, packer, sewing machinist, messenger, labourer, waiter / waitress, bar staff")  },
-				{ value: "Middle or junior managers such as: office manager, retail manager, bank manager, restaurant manager, warehouse manager, publican", text: "Middle or junior managers such as: office manager, retail manager, bank manager, restaurant manager, warehouse manager, publican", checked: checked("applicationDiversityAged14", "Middle or junior managers such as: office manager, retail manager, bank manager, restaurant manager, warehouse manager, publican")  },
-				{ value: "Traditional professional occupations such as: accountant, solicitor, medical practitioner, scientist, civil/mechanical engineer", text: "Traditional professional occupations such as: accountant, solicitor, medical practitioner, scientist, civil/mechanical engineer", checked: checked("applicationDiversityAged14", "Traditional professional occupations such as: accountant, solicitor, medical practitioner, scientist, civil/mechanical engineer")  },
+				{ value: "Clerical and intermediate occupations such as: secretary, personal assistant, clerical worker, office clerk, call centre agent, nursing auxiliary, nursery nurse", text: "Clerical and intermediate occupations such as: secretary, personal assistant, clerical worker, office clerk, call centre agent, nursing auxiliary, nursery nurse", checked: checked("applicationDiversityAged14", "Clerical and intermediate occupations such as: secretary, personal assistant, clerical worker, office clerk, call centre agent, nursing auxiliary, nursery nurse")  },	
+				
 				{ value: "Long term unemployed (claimed Jobseeker's Allowance or earlier unemployment benefit for more than a year)", text: "Long term unemployed (claimed Jobseeker's Allowance or earlier unemployment benefit for more than a year)", checked: checked("applicationDiversityAged14", "Long term unemployed (claimed Jobseeker's Allowance or earlier unemployment benefit for more than a year)")  },
+				{ value: "Middle or junior managers such as: office manager, retail manager, bank manager, restaurant manager, warehouse manager, publican", text: "Middle or junior managers such as: office manager, retail manager, bank manager, restaurant manager, warehouse manager, publican", checked: checked("applicationDiversityAged14", "Middle or junior managers such as: office manager, retail manager, bank manager, restaurant manager, warehouse manager, publican")  },
+				{ value: "Modern professional occupations such as: teacher/lecturer, nurse, physiotherapist, social worker, welfare officer, artist, musician, police officer (sergeant or above), software designer", text: "Modern professional occupations such as: teacher/lecturer, nurse, physiotherapist, social worker, welfare officer, artist, musician, police officer (sergeant or above), software designer", conditional: { html: NationalNumberHtml }, checked: checked("applicationDiversityAged14", "Modern professional occupations such as: teacher/lecturer, nurse, physiotherapist, social worker, welfare officer, artist, musician, police officer (sergeant or above), software designer") },
 				{ value: "Retired", text: "Retired", checked: checked("applicationDiversityAged14", "Retired")  },
-				{ value: "Not applicable", text: "Not applicable", checked: checked("applicationDiversityAged14", "Not applicable")  },
+				{ value: "Routine manual and service occupations such as: HGV driver, van driver, cleaner, porter, packer, sewing machinist, messenger, labourer, waiter / waitress, bar staff", text: "Routine manual and service occupations such as: HGV driver, van driver, cleaner, porter, packer, sewing machinist, messenger, labourer, waiter / waitress, bar staff", checked: checked("applicationDiversityAged14", "Routine manual and service occupations such as: HGV driver, van driver, cleaner, porter, packer, sewing machinist, messenger, labourer, waiter / waitress, bar staff")  },
+				{ value: "Semi-routine manual and service occupations such as: postal worker, machine operative, security guard, caretaker, farm worker, catering assistant, receptionist, sales assistant", text: "Semi-routine manual and service occupations such as: postal worker, machine operative, security guard, caretaker, farm worker, catering assistant, receptionist, sales assistant", checked: checked("applicationDiversityAged14", "Semi-routine manual and service occupations such as: postal worker, machine operative, security guard, caretaker, farm worker, catering assistant, receptionist, sales assistant")  },
+				{ value: "Senior managers and administrators usually responsible for planning, organising and co-ordinating work and for finance such as: finance manager, chief executive", text: "Senior managers and administrators usually responsible for planning, organising and co-ordinating work and for finance such as: finance manager, chief executive", checked: checked("applicationDiversityAged14", "Senior managers and administrators usually responsible for planning, organising and co-ordinating work and for finance such as: finance manager, chief executive")  },
+				{ value: "Technical and craft occupations such as: motor mechanic, fitter, inspector, plumber, printer, tool maker, electrician, gardener, train driver", text: "Technical and craft occupations such as: motor mechanic, fitter, inspector, plumber, printer, tool maker, electrician, gardener, train driver", checked: checked("applicationDiversityAged14", "Technical and craft occupations such as: motor mechanic, fitter, inspector, plumber, printer, tool maker, electrician, gardener, train driver")  },				
+				{ value: "Traditional professional occupations such as: accountant, solicitor, medical practitioner, scientist, civil/mechanical engineer", text: "Traditional professional occupations such as: accountant, solicitor, medical practitioner, scientist, civil/mechanical engineer", checked: checked("applicationDiversityAged14", "Traditional professional occupations such as: accountant, solicitor, medical practitioner, scientist, civil/mechanical engineer")  },				
 				{ value: "Don’t know", text: "Don’t know", checked: checked("applicationDiversityAged14", "Don’t know")  },
+				{ value: "Not applicable", text: "Not applicable", checked: checked("applicationDiversityAged14", "Not applicable")  },				
 				{ value: "Prefer not to say", text: "Prefer not to say", checked: checked("applicationDiversityAged14", "Prefer not to say")  }
 				
 			]
@@ -118,17 +127,20 @@
 
 
 
+		
+		
+
 		{{ govukRadios({			
 			name: "applicationDiversityAged14EmployeeType",
 			fieldset: {
-			  legend: { text: "Thinking back to when you were aged about 14, did the main/highest income earner in your household work as an employee or self-employed?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			  legend: { text: "Thinking back to when you were aged about 14, did the main/highest income earner in your household work as an employee, self-employed or were they not working?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
 			items: [
 				{ value: "Employee", text: "Employee", checked: checked("applicationDiversityAged14EmployeeType", "Employee")  },
 				{ value: "Self-employed with employees", text: "Self-employed with employees", checked: checked("applicationDiversityAged14EmployeeType", "Self-employed with employees")  },
 				{ value: "Self-employed/freelancer without employees", text: "Self-employed/freelancer without employees", checked: checked("applicationDiversityAged14EmployeeType", "Self-employed/freelancer without employees")  },
 				{ value: "Not working", text: "Not working", checked: checked("applicationDiversityAged14EmployeeType", "Not working")  },
-				{ value: "Not applicable", text: "Not applicable", checked: checked("applicationDiversityAged14EmployeeType", "Not applicable")  },
 				{ value: "Don’t know", text: "Don’t know", checked: checked("applicationDiversityAged14EmployeeType", "Don’t know")  },
+				{ value: "Not applicable", text: "Not applicable", checked: checked("applicationDiversityAged14EmployeeType", "Not applicable")  },				
 				{ value: "Prefer not to say", text: "Prefer not to say", checked: checked("applicationDiversityAged14EmployeeType", "Prefer not to say")  }								
 			]
 		}) }}
@@ -136,13 +148,16 @@
 		{{ govukRadios({			
 			name: "applicationDiversityAged14School",
 			fieldset: {
-			  legend: { text: "What type of school did you mainly attend between the ages of 11 and 16?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			  legend: { text: "What type of school did you attend the most between the ages of 11 and 16?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
 			items: [
-				{ value: "State-run or state-funded school - selective on academic, faith or other grounds", text: "State-run or state-funded school - selective on academic, faith or other grounds", checked: checked("applicationDiversityAged14School", "State-run or state-funded school - selective on academic, faith or other grounds")  },
-				{ value: "State-run or state-funded school - non-selective", text: "State-run or state-funded school - non-selective", checked: checked("applicationDiversityAged14School", "State-run or state-funded school - non-selective")  },
+				{ value: "Attended school outside the UK", text: "Attended school outside the UK", checked: checked("applicationDiversityAged14School", "Attended school outside the UK")  },	
 				{ value: "Independent or fee-paying school - bursary", text: "Independent or fee-paying school - bursary", checked: checked("applicationDiversityAged14School", "Independent or fee-paying school - bursary")  },
 				{ value: "Independent or fee-paying school - no bursary", text: "Independent or fee-paying school - no bursary", checked: checked("applicationDiversityAged14School", "Independent or fee-paying school - no bursary")  },
-				{ value: "Attended school outside the UK", text: "Attended school outside the UK", checked: checked("applicationDiversityAged14School", "Attended school outside the UK")  },
+				{ value: "State-run or state-funded school - non-selective", text: "State-run or state-funded school - non-selective", checked: checked("applicationDiversityAged14School", "State-run or state-funded school - non-selective")  },
+				{ value: "State-run or state-funded school - selective on academic, faith or other grounds", text: "State-run or state-funded school - selective on academic, faith or other grounds", checked: checked("applicationDiversityAged14School", "State-run or state-funded school - selective on academic, faith or other grounds")  },
+				
+				
+				
 				{ value: "Other", text: "Other", checked: checked("applicationDiversityAged14School", "Other")  },
 				{ value: "Don’t know", text: "Don’t know", checked: checked("applicationDiversityAged14School", "Don’t know")  },
 				{ value: "Prefer not to say", text: "Prefer not to say", checked: checked("applicationDiversityAged14School", "Prefer not to say")  }								
@@ -154,7 +169,7 @@
 			label: { text: "What is your postcode?", classes: "govuk-label", isPageHeading: false },			
 			classes: "govuk-!-width-two-thirds",
 			hint: {
-				text: "Enter your postcode in the correct format, for example PR1 1PP or W1T 3LP."
+				text: "We ask for your postcode because we want to know the approximate location of applicants and how they are spread around the country."
 			},
 			id: "applicationDiversityPostcode",
 			name: "applicationDiversityPostcode",
@@ -171,13 +186,15 @@
 		{% set NorthernIrelandHtml %}            
 
 			{{ govukRadios({			
-				name: "applicationDiversityNortherIreland",
+				name: "applicationDiversityNortherIrelandStatement",
 				fieldset: {
-				legend: { text: "The post you are applying for is based in Northern Ireland. Select one of the following statements:", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+				legend: { text: "Select one of the following statements:", isPageHeading: false, classes: "govuk-fieldset__legend" } },
 				items: [
-					{ value: "I am a member of the Protestant community in Northern Ireland", text: "I am a member of the Protestant community in Northern Ireland", checked: checked("applicationDiversityNortherIreland", "I am a member of the Protestant community in Northern Ireland") },
-					{ value: "I am a member of the Roman Catholic community in Northern Ireland", text: "I am a member of the Roman Catholic community in Northern Ireland", checked: checked("applicationDiversityNortherIreland", "I am a member of the Roman Catholic community in Northern IrelandrtherIreland")  },
-					{ value: "I am a member of neither the Protestant or Roman Catholic community in Northern Ireland", text: "I am a member of neither the Protestant or Roman Catholic community in Northern Ireland", checked: checked("applicationDiversityNortherIreland", "I am a member of neither the Protestant or Roman Catholic community in Northern IrelandrtherIreland")  }				
+					{ value: "I am a member of the Protestant community in Northern Ireland", text: "I am a member of the Protestant community in Northern Ireland", checked: checked("applicationDiversityNortherIrelandStatement", "I am a member of the Protestant community in Northern Ireland") },
+					{ value: "I am a member of the Roman Catholic community in Northern Ireland", text: "I am a member of the Roman Catholic community in Northern Ireland", checked: checked("applicationDiversityNortherIrelandStatement", "I am a member of the Roman Catholic community in Northern IrelandrtherIreland")  },
+					{ value: "I am a member of neither the Protestant or Roman Catholic community in Northern Ireland", text: "I am a member of neither the Protestant or Roman Catholic community in Northern Ireland", checked: checked("applicationDiversityNortherIrelandStatement", "I am a member of neither the Protestant or Roman Catholic community in Northern IrelandrtherIreland")  },
+					{ value: "Prefer not to say", text: "Prefer not to say", checked: checked("applicationDiversityNortherIrelandStatement", "Prefer not to sayrtherIreland")  }				
+
 				]
 			}) }}
 
@@ -187,7 +204,7 @@
 		{{ govukRadios({			
 			name: "applicationDiversityNortherIreland",
 			fieldset: {
-			  legend: { text: "Are you applying for a vacancy based in Northern Ireland?1", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			  legend: { text: "Are you applying for a vacancy based in Northern Ireland?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
 			items: [
 				{ value: "Yes", text: "Yes", conditional: { html: NorthernIrelandHtml }, checked: checked("applicationDiversityNortherIreland", "Yes") },
 				{ value: "No", text: "No", checked: checked("applicationDiversityNortherIreland", "No")  }
@@ -206,7 +223,7 @@
       
         		{{ govukButton({
           			text: "Save and continue",
-					classes: "govuk-!-margin-top-9"                 
+					classes: "govuk-!-margin-top-3"                 
         		}) }}
       		</div>
 

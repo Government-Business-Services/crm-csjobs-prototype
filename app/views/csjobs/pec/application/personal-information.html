@@ -24,7 +24,8 @@
     <!-- ////////////// END OF NEW ////////////////// -->
     {% else %}
 
-		<h1 class="govuk-heading-l govuk-!-padding-top-4">{{ pageHeading }}</h1>		
+		<span class="govuk-caption-l">Section 1</span>
+		<h1 class="govuk-heading-l">{{ pageHeading }}</h1>		
 
 		{{ govukInput({
 			label: { text: "First name", classes: "govuk-label", isPageHeading: false },			
@@ -42,7 +43,7 @@
 			value: data['applicationPersonalInfoLastName']
 		}) }} 
 
-		<h3 class="govuk-heading-m govuk-!-margin-top-9">Contact details</h3>
+		<!-- <h3 class="govuk-heading-m govuk-!-margin-top-9">Contact details</h3> -->
 
 		{{ govukInput({
 			label: { text: "Telephone number", classes: "govuk-label", isPageHeading: false },			
@@ -69,13 +70,15 @@
 
 
 
-		<h3 class="govuk-heading-m govuk-!-margin-top-9">Interviews under the Disability Confident Scheme</h3>
+		<h3 class="govuk-heading-m govuk-!-margin-top-9">Interviews under the Disability Confident scheme</h3>
 
-		<p>We want to encourage disabled people to apply for jobs and give them an opportunity to show their skills, talent and abilities at the interview stage. The Civil Service runs a Disability Confident Scheme, <a href="#">offering an interview (opens in a new window)</a> to a fair and proportionate number of disabled applicants that meet the minimum selection criteria for the job.</p>
-		<p>To be considered for an interview under this scheme you must have:</p>
+		<p>We want to encourage people with disabilities to apply for jobs and give them an opportunity to show their skills, talent and experience at the interview stage.</p>
+		<p>The Civil Service runs a <a href="#">Disability Confident scheme (opens in a new window)</a>, offering an interview to a fair and proportionate number of disabled applicants who meet the minimum selection criteria for the job.</p>
+		
+		<p>You can be considered for an interview under this scheme if you have:</p>
 		<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">
 			<li>a physical or mental impairment, or a long term health condition which has a substantial and long term (over 12 months) adverse effect on your ability to carry out normal day to day activities</li>
-			<li>demonstrated in your application and testing stages that you meet the minimum job criteria as set out in the advert or person specification for the post</li>
+			<li>demonstrated in your application and testing stages that you meet the minimum criteria as set out in the job advert or specifications</li>
 		</ul>
 
 
@@ -83,7 +86,7 @@
 			classes: "govuk-radios--inline",
 			name: "applicationPersonalInfoDCS",
 			fieldset: {
-			  legend: { text: "Do you feel that you meet the minimum job criteria and would like to apply under the Disability Confident Scheme (DCS)?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			  legend: { text: "Would like to apply under the Disability Confident scheme?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
 			items: [
 				{ value: "Yes", text: "Yes", conditional: { html: NationalNumberHtml }, checked: checked("applicationPersonalInfoDCS", "Yes") },
 				{ value: "No", text: "No", checked: checked("applicationPersonalInfoDCS", "No")  }
@@ -91,9 +94,18 @@
 		}) }}
 
 		<h3 class="govuk-heading-m govuk-!-margin-top-9">Reasonable adjustments</h3>
-		<p>We want to support you if you need an adjustment in the recruitment process, even if you do not feel you qualify for the Disability Confident Scheme.</p>
-		<p>We consider visible and non-visible disabilities, neurodiversity or learning differences, chronic medical conditions or mental ill health. Examples include dyslexia, epilepsy, autism, chronic fatigue, diabetes, or schizophrenia.</p>
-		<p>Some of the adjustments we have offered are:</p>
+		<p>We want to support you if you need an adjustment in the recruitment process. Conditions that we take into consideration are:</p>
+
+		<!-- <p>if you need an adjustment in the recruitment process we support the following conditions:</p> -->
+		<!-- <p>We consider:</p> -->
+		<ul class="govuk-list govuk-list--bullet">
+			<li>visible and non-visible disabilities</li>
+			<li>neurodiversity or learning differences</li>
+			<li>chronic medical conditions or mental ill health</li>
+		</ul>
+		<!-- <p>Examples include dyslexia, epilepsy, autism, chronic fatigue, diabetes, or schizophrenia.</p> -->
+		
+		<p>Some of the adjustments we can offer are:</p>
 		<ul class="govuk-list govuk-list--bullet">
 			<li>application or interview help</li>
 			<li>a time of day that works for you</li>
@@ -108,7 +120,10 @@
 		{{ govukTextarea({
 			name: "applicationPersonalInfoAdjustmentsDetails",
 			id: "applicationPersonalInfoAdjustmentsDetails",
-			label: { text: "Provide details of what reasonable adjustments might help you, or have helped you in the past, at the interview or assessment stages", classes: "govuk-label", isPageHeading: false },			
+			label: { text: "Provide details of what reasonable adjustments might help you, or have helped you in the past", classes: "govuk-label", isPageHeading: false },			
+			hint: {
+				text: "The recruitment team will be notified that you need support and will try to arrange it for you."
+			  },
 			rows: "6",			
 			value: data['applicationPersonalInfoAdjustmentsDetails']				
 		}) }}        
@@ -118,11 +133,8 @@
 		{{ govukRadios({
 			name: "applicationPersonalInfoAdjustments",
 			fieldset: {
-			  legend: { text: "Will you require a reasonable adjustment during the interview or assessment stages?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
-			  hint: {
-				text: "If you answer yes, the recruitment team will get a notification that you need support and will try to arrange it for you."
-			  }
-			  ,
+			  legend: { text: "Do you require a reasonable adjustment during an interview or assessment?", isPageHeading: false, classes: "govuk-fieldset__legend" } },			  
+			  
 			items: [
 				{ value: "Yes", text: "Yes", conditional: { html: PersonalInfoAdjustmentsHtml }, checked: checked("applicationPersonalInfoAdjustments", "Yes")  },
 			{ value: "No", text: "No", checked: checked("applicationPersonalInfoAdjustments", "No") }
@@ -149,7 +161,7 @@
       
         		{{ govukButton({
           			text: "Save and continue",                
-					classes: "govuk-!-margin-top-9"          
+					classes: "govuk-!-margin-top-3"          
         		}) }}
       		</div>
     

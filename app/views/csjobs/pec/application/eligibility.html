@@ -24,12 +24,13 @@
     <!-- ////////////// END OF NEW ////////////////// -->
     {% else %}
 
-		<h1 class="govuk-heading-l govuk-!-padding-top-4">{{ pageHeading }}</h1>			
+		<span class="govuk-caption-l">Section 1</span>
+		<h1 class="govuk-heading-l">{{ pageHeading }}</h1>			
 
 		<h2 class="govuk-heading-m">Civil servants</h2>
 		<p>You should be aware that not all staff working in a government department or an accredited non-departmental public body are considered to be civil servants.</p>
-		<p>If any of the following statements apply to your circumstances then you should select ‘No’ when answering.</p>
-		<p>You are:</p>
+		<!-- <p>If any of the following statements apply to your circumstances then you should select ‘No’ when answering.</p> -->
+		<p>You are not a civil servant if you are:</p>
 		<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-7">			
 			<li>a member of agency staff working in a government department</li>
 			<li>employed by an external organisation contracted into government roles</li>
@@ -41,10 +42,10 @@
 
 		{% set civilServantHtml %}   
 		
-			<p>Staff working for a government agency or an accredited public body should select the organisation from the alphabetical list below.</p>
+			<!-- <p>Staff working for a government agency or an accredited public body should select the organisation from the alphabetical list below.</p> -->
 		
 			{{ govukSelect({
-				label: { text: "Home Department", classes: "govuk-label", isPageHeading: false },      
+				label: { text: "Select your organisation from the alphabetical list below ", classes: "govuk-label", isPageHeading: false },      
 				classes: "govuk-!-width-full",			
 				id: "applicationEligibilityCivilServantDept",
 				name: "applicationEligibilityCivilServantDept",
@@ -271,7 +272,7 @@
 		{{ govukRadios({
 			name: "applicationEligibilityCivilServant",
 			fieldset: {
-			  legend: { text: "Are you already a civil servant, or employed by a Civil Service Commission accredited public body?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			  legend: { text: "Are you a civil servant, or employed by a Civil Service Commission accredited public body?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
 			items: [
 				{ value: "Yes", text: "Yes", conditional: { html: civilServantHtml }, checked: checked("applicationEligibilityCivilServant", "Yes") },
 				{ value: "No", text: "No", checked: checked("applicationEligibilityCivilServant", "No")  }
@@ -299,6 +300,9 @@
 			name: "applicationEligibilityNationality",
 			fieldset: {
 			  legend: { text: "Do you meet the nationality requirements for this post?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			  hint: {
+				text: "The requirements are outlined in the job advertisement."
+			},
 			items: [
 				{ value: "Yes", text: "Yes", conditional: { html: NationalNumberHtml }, checked: checked("applicationEligibilityNationality", "Yes") },
 				{ value: "No", text: "No", checked: checked("applicationEligibilityNationality", "No")  }
@@ -325,7 +329,10 @@
 			classes: "govuk-radios--inline",
 			name: "applicationEligibilityLanguageSkills",
 			fieldset: {
-			  legend: { text: "Do you meet the language skills requirements?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			legend: { text: "Do you meet the language skills requirements?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			hint: {
+				text: "The requirements are outlined in the job advertisement."
+			},
 			items: [
 				{ value: "Yes", text: "Yes", conditional: { html: NationalNumberHtml }, checked: checked("applicationEligibilityLanguageSkills", "Yes") },
 				{ value: "No", text: "No", checked: checked("applicationEligibilityLanguageSkills", "No")  }
@@ -338,7 +345,7 @@
 		{{ govukTextarea({
 			name: "applicationEligibilityLicenceDetails",
 			id: "applicationEligibilityLicenceDetails",
-			label: { text: "Provide details of how you meet the licence requirements", classes: "govuk-label", isPageHeading: false },			
+			label: { text: "Provide details of the licence", classes: "govuk-label", isPageHeading: false },			
 			rows: "6",			
 			value: data['applicationEligibilityLicenceDetails']				
 		}) }}        
@@ -348,11 +355,14 @@
 		{{ govukRadios({
 			name: "applicationEligibilityLicence",
 			fieldset: {
-			  legend: { text: "Do you meet the licence requirements?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			legend: { text: "Do you meet the licence requirements?", isPageHeading: false, classes: "govuk-fieldset__legend" } },
+			hint: {
+				text: "The requirements are outlined in the job advertisement."
+			},
 			items: [
 				{ value: "Yes", text: "Yes", checked: checked("applicationEligibilityLicence", "Yes") },
 				{ value: "No", text: "No", checked: checked("applicationEligibilityLicence", "No")  },
-				{ value: "Similar equivalent held", text: "Similar equivalent held", conditional: { html: EligibilityLicenceHtml }, checked: checked("applicationEligibilityLicence", "Similar equivalent held")  }
+				{ value: "Similar or equivalent licence", text: "Similar or equivalent licence", conditional: { html: EligibilityLicenceHtml }, checked: checked("applicationEligibilityLicence", "Similar equivalent held")  }
 			]
 		}) }}
 
@@ -366,7 +376,7 @@
 			  
 				{{ govukButton({
 				  text: "Save and continue",
-				  classes: "govuk-!-margin-top-7"          						  
+				  classes: "govuk-!-margin-top-3"          						  
 				}) }}
 			  </div>
 		
