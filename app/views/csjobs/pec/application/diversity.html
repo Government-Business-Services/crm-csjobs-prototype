@@ -25,12 +25,15 @@
     {% else %}
 
 		<h1 class="govuk-heading-l govuk-!-padding-top-4">{{ pageHeading }}</h1>
-				
-		<p>We know that we deliver better services when our workforce reflects the full range of backgrounds and experiences in the society we serve.</p>
-		<p>To continue to do this we need your help in filling out a short monitoring form.</p>
-		<p>None of the information you provide will be visible as part of your application. It will only be used anonymously to monitor the inclusivity of our selection processes.</p>
-		<p>You can select 'prefer not to say’ if you would rather not answer any question.</p>
-			
+		
+
+
+		<p>We deliver better services when our workforce reflects the full range of backgrounds and experiences in the society we serve.</p>
+		<p>We measure the socio-economic background of our employees and potential recruits in order to improve diversity and inclusion in the Civil Service.</p>
+		<p>To do this we need you to fill out a diversity monitoring form. The questions we ask help us to develop an informed strategy for improving social mobility.</p>
+		<p>None of the information you give us will be visible as part of your application. It will be used anonymously to monitor the inclusivity of our selection processes. You can select 'prefer not to say’ if you don't want to answer a question.</p>
+
+		<h2 class="govuk-heading-m">Socio-economic diversity and inclusion questions</h2>
 
 		{{ govukRadios({			
 			name: "applicationDiversityDisability",
@@ -66,7 +69,7 @@
 				{ value: "Hetrosexual or straight", text: "Hetrosexual or straight", conditional: { html: NationalNumberHtml }, checked: checked("applicationDiversitySexualOrientation", "Hetrosexual or straight") },
 				{ value: "Gay or lesbian", text: "Gay or lesbian", checked: checked("applicationDiversitySexualOrientation", "Gay or lesbian")  },
 				{ value: "Bisexual", text: "Bisexual", checked: checked("applicationDiversitySexualOrientation", "Bisexual")  },
-				{ value: "prefer not to disclose", text: "prefer not to disclose", checked: checked("applicationDiversitySexualOrientation", "prefer not to disclose")  },
+				{ value: "Prefer not to disclose", text: "Prefer not to disclose", checked: checked("applicationDiversitySexualOrientation", "prefer not to disclose")  },
 				{ value: "Prefer to self-describe", text: "Prefer to self-describe", checked: checked("applicationDiversitySexualOrientation", "Prefer to self-describe")  }
 				
 			]
@@ -151,7 +154,7 @@
 			label: { text: "What is your postcode?", classes: "govuk-label", isPageHeading: false },			
 			classes: "govuk-!-width-two-thirds",
 			hint: {
-				text: "Please enter a postcode in the correct format (e.g. PR1 1PP or NE22 5PP)"
+				text: "Enter your postcode in the correct format, for example PR1 1PP or W1T 3LP."
 			},
 			id: "applicationDiversityPostcode",
 			name: "applicationDiversityPostcode",
