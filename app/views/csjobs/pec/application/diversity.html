@@ -51,6 +51,17 @@
 		}) }}
 
 
+		{% set diversityGenderHtml %}   
+		{{ govukInput({
+			label: { text: "First name", classes: "govuk-label", isPageHeading: false },			
+			classes: "govuk-!-width-two-thirds",
+			id: "applicationDiversityGenderOther",
+			name: "applicationDiversityGenderOther",
+			value: data['applicationDiversityGenderOther']
+		}) }} 
+
+		{% endset -%}
+
 		{{ govukRadios({			
 			name: "applicationDiversityGender",
 			fieldset: {
@@ -59,10 +70,23 @@
 				{ value: "Man", text: "Man", conditional: { html: NationalNumberHtml }, checked: checked("applicationDiversityGender", "Man") },
 				{ value: "Woman", text: "Woman", checked: checked("applicationDiversityGender", "Woman")  },
 				{ value: "Prefer not to disclose", text: "Prefer not to disclose", checked: checked("applicationDiversityGender", "Prefer not to disclose")  },
-				{ value: "Prefer to self-describe", text: "Prefer to self-describe", checked: checked("applicationDiversityGender", "Prefer to self-describe")  }
+				{ value: "Prefer to self-describe", text: "Prefer to self-describe", conditional: { html: diversityGenderHtml },  checked: checked("applicationDiversityGender", "Prefer to self-describe")  }
 				
 			]
 		}) }}
+
+
+
+		{% set diversityOrientationHtml %}   
+		{{ govukInput({
+			label: { text: "First name", classes: "govuk-label", isPageHeading: false },			
+			classes: "govuk-!-width-two-thirds",
+			id: "applicationDiversitySexualOrientationOther",
+			name: "applicationDiversitySexualOrientationOther",
+			value: data['applicationDiversitySexualOrientationOther']
+		}) }} 
+
+		{% endset -%}
 
 
 		{{ govukRadios({			
@@ -75,11 +99,22 @@
 				{ value: "Gay or lesbian", text: "Gay or lesbian", checked: checked("applicationDiversitySexualOrientation", "Gay or lesbian")  },
 				{ value: "Hetrosexual or straight", text: "Hetrosexual or straight", conditional: { html: NationalNumberHtml }, checked: checked("applicationDiversitySexualOrientation", "Hetrosexual or straight") },
 				{ value: "Prefer not to disclose", text: "Prefer not to disclose", checked: checked("applicationDiversitySexualOrientation", "prefer not to disclose")  },
-				{ value: "Prefer to self-describe", text: "Prefer to self-describe", checked: checked("applicationDiversitySexualOrientation", "Prefer to self-describe")  }
+				{ value: "Prefer to self-describe", text: "Prefer to self-describe", conditional: { html: diversityOrientationHtml }, checked: checked("applicationDiversitySexualOrientation", "Prefer to self-describe")  }
 				
 			]
 		}) }}
 
+
+		{% set diversityIdentityHtml %}   
+		{{ govukInput({
+			label: { text: "First name", classes: "govuk-label", isPageHeading: false },			
+			classes: "govuk-!-width-two-thirds",
+			id: "applicationDiversityIdentityOther",
+			name: "applicationDiversityIdentityOther",
+			value: data['applicationDiversityIdentityOther']
+		}) }} 
+
+		{% endset -%}
 
 		{{ govukRadios({			
 			name: "applicationDiversityIdentity",
@@ -93,7 +128,7 @@
 				{ value: "Scottish", text: "Scottish", checked: checked("applicationDiversityIdentity", "Scottish")  },
 				{ value: "Welsh", text: "Welsh", checked: checked("applicationDiversityIdentity", "Welsh")  },				
 				{ value: "Prefer not to disclose", text: "Prefer not to disclose", checked: checked("applicationDiversityIdentity", "Prefer not to disclose")  },
-				{ value: "Other", text: "Other", checked: checked("applicationDiversityIdentity", "Other")  }
+				{ value: "Other", text: "Other", conditional: { html: diversityIdentityHtml }, checked: checked("applicationDiversityIdentity", "Other")  }
 				
 				
 			]
@@ -145,6 +180,20 @@
 			]
 		}) }}
 
+
+
+		{% set diversitySchoolHtml %}   
+		{{ govukInput({
+			label: { text: "First name", classes: "govuk-label", isPageHeading: false },			
+			classes: "govuk-!-width-two-thirds",
+			id: "applicationDiversityAged14SchoolOther",
+			name: "applicationDiversityAged14SchoolOther",
+			value: data['applicationDiversityAged14SchoolOther']
+		}) }} 
+
+		{% endset -%}
+
+
 		{{ govukRadios({			
 			name: "applicationDiversityAged14School",
 			fieldset: {
@@ -158,7 +207,7 @@
 				
 				
 				
-				{ value: "Other", text: "Other", checked: checked("applicationDiversityAged14School", "Other")  },
+				{ value: "Other", text: "Other", conditional: { html: diversitySchoolHtml }, checked: checked("applicationDiversityAged14School", "Other")  },
 				{ value: "Don’t know", text: "Don’t know", checked: checked("applicationDiversityAged14School", "Don’t know")  },
 				{ value: "Prefer not to say", text: "Prefer not to say", checked: checked("applicationDiversityAged14School", "Prefer not to say")  }								
 			]
