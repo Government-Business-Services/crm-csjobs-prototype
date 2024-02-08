@@ -15,16 +15,9 @@
     
     <div class="govuk-grid-column-two-thirds">    
     
-    {% if data['iteration'] == "new" %}
+    
 
-      <h1 class="govuk-heading-l">Declaration</h1>
-        
-        </div>
-      
-    <!-- ////////////// END OF NEW ////////////////// -->
-    {% else %}
-
-    	<h1 class="govuk-heading-l govuk-!-padding-top-4">{{ pageHeading }}</h1>	
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}	
 		
 		<p class="govuk-body">The application is split into 2 sections.</p>
 		
@@ -65,13 +58,15 @@
 		  }) }}
 
 		  <div class="govuk-inset-text">
-		  <p class="govuk-body">If you have any concerns about what we will do with your information, please see our <a href="https://www.civilservicejobs.service.gov.uk/csr/index.cgi?pageclass=StandardMessage&display=privacy" target="_blank">privacy notice (opens in new tab)</a>.</p>
+		  <p class="govuk-body">If you have any concerns about what we will do with your information, please see our <a href="https://www.civilservicejobs.service.gov.uk/csr/index.cgi?pageclass=StandardMessage&display=privacy" target="_blank">Civil Service Jobs privacy notice (opens in new tab)</a>.</p>
 		</div>
 		
 
 			    
-        <form method="post" action="/csjobs/pec/application/eligibility" >
+        <form method="post" action="/csjobs/pec/application/eligibility?navpage=eligibility" >
         	
+			<input type="hidden" id="applicationStatus" name="applicationStatus" value="started_one" />
+
 			{{ govukButton({
           		text: "Start section 1",
 				classes: "govuk-!-margin-top-3",
@@ -80,7 +75,7 @@
 
 		</form>
           
-    {% endif %}
+    
   
 	</div>
 </div>

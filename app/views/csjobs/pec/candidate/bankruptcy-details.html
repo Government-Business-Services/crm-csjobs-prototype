@@ -4,7 +4,7 @@
 {% set showNavLinks = true %}
 
 {% set pageHeading = "Bankruptcy Details" %}
-{% set pageSection = "" %}
+{% set pageSection = "Section 2" %}
 
 {% block content %}
 
@@ -17,7 +17,7 @@
     
     {% if data['iteration'] == "new" %}
 
-	<h1 class="govuk-heading-l govuk-!-padding-top-4">Bankruptcy Details</h1>
+	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}	
 
 	<form method="post" action="/csjobs/pec/candidate/health-declaration" >
 		
@@ -116,7 +116,7 @@
     <!-- ////////////// END OF NEW ////////////////// -->
     {% else %}
 
-    <h1 class="govuk-heading-l govuk-!-padding-top-4">Bankruptcy Details</h1>
+    {{ macroPageHeader.pageHeader(pageHeading,pageSection) }}	
 
 	<form method="post" action="/csjobs/pec/candidate/health-declaration?navpage=hlt" >
 

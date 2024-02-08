@@ -4,7 +4,7 @@
 {% set showNavLinks = true %}
 
 {% set pageHeading = "Personal information" %}
-{% set pageSection = "" %}
+{% set pageSection = "Section 1" %}
 
 {% block content %}
 
@@ -13,20 +13,12 @@
 		{% include "includes/nav_application_part1.html" %}
     </div>
     
-    <div class="govuk-grid-column-two-thirds">    
-    
-    {% if data['iteration'] == "new" %}
+    <div class="govuk-grid-column-two-thirds">        
+		
+		
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}	
 
-      <h1 class="govuk-heading-l">Declaration</h1>
-        
-        </div>
-      
-    <!-- ////////////// END OF NEW ////////////////// -->
-    {% else %}
-
-		<span class="govuk-caption-l">Section 1</span>
-		<h1 class="govuk-heading-l">{{ pageHeading }}</h1>		
-
+		<form method="post" action="/csjobs/pec/application/diversity?navpage=diversity" >
 		{{ govukInput({
 			label: { text: "First name", classes: "govuk-label", isPageHeading: false },			
 			classes: "govuk-!-width-two-thirds",
@@ -151,7 +143,7 @@
 		 -->
 
 
-        <form method="post" action="/csjobs/pec/application/diversity" >
+        
 		          
 			<div class="govuk-button-group">
     			<!-- {{ govukButton({
@@ -167,7 +159,7 @@
     
     	</form>
 
-    {% endif %}
+    
   
 </div>
 </div>

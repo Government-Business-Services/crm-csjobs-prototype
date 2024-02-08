@@ -4,7 +4,7 @@
 {% set showNavLinks = true %}
 
 {% set pageHeading = "Your details" %}
-{% set pageSection = "" %}
+{% set pageSection = "Section 2" %}
 
 {% block content %}
 
@@ -23,7 +23,7 @@
     <!-- ////////////// END OF NEW ////////////////// -->
     {% else %}
 
-    <h1 class="govuk-heading-l govuk-!-padding-top-4">Your details</h1>
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}	
 
 
 	<form method="post" action="/csjobs/pec/candidate/right-to-work?navpage=rtw" >

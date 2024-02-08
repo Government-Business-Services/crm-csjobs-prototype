@@ -4,7 +4,7 @@
 {% set showNavLinks = true %}
 
 {% set pageHeading = "Diversity monitoring" %}
-{% set pageSection = "" %}
+{% set pageSection = "Section 1" %}
 
 {% block content %}
 
@@ -14,18 +14,8 @@
     </div>
     
     <div class="govuk-grid-column-two-thirds">    
-    
-    {% if data['iteration'] == "new" %}
 
-      <h1 class="govuk-heading-l">Declaration</h1>
-        
-        </div>
-      
-    <!-- ////////////// END OF NEW ////////////////// -->
-    {% else %}
-
-	<span class="govuk-caption-l">Section 1</span>
-		<h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}	
 		
 
 
@@ -35,6 +25,10 @@
 		<p>None of the information you give us will be visible as part of your application. It will be used anonymously to monitor the inclusivity of our selection processes. You can select 'prefer not to disclose’ if you don't want to answer a question.</p>
 
 		<h2 class="govuk-heading-m">Diversity and inclusion questions</h2>
+
+
+		<form method="post" action="/csjobs/pec/application/declaration?navpage=dec" >					
+
 
 		{{ govukRadios({			
 			name: "applicationDiversityDisability",
@@ -262,7 +256,7 @@
 		}) }}
 
 
-		<form method="post" action="/csjobs/pec/application/declaration" >					
+		
 
       		<div class="govuk-button-group">
         		<!-- {{ govukButton({
@@ -278,7 +272,7 @@
 
     	</form>
 
-    {% endif %}
+    
   
 	</div>
 </div>

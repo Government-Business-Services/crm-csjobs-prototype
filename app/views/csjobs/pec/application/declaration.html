@@ -4,7 +4,7 @@
 {% set showNavLinks = true %}
 
 {% set pageHeading = "Declaration" %}
-{% set pageSection = "" %}
+{% set pageSection = "Section 1" %}
 
 {% block content %}
 
@@ -15,17 +15,8 @@
     
     <div class="govuk-grid-column-two-thirds">    
     
-    {% if data['iteration'] == "new" %}
 
-      <h1 class="govuk-heading-l">Declaration</h1>
-        
-        </div>
-      
-    <!-- ////////////// END OF NEW ////////////////// -->
-    {% else %}
-
-		<span class="govuk-caption-l">Section 1</span>
-    	<h1 class="govuk-heading-l">Declaration</h1>		
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}	
 
 		
 		
@@ -53,7 +44,10 @@
 		</div>
 		
 
-        <form method="post" action="" >						  
+        <form method="post" action="/csjobs/pec/application/confirmation" >						  
+
+			<input type="hidden" id="applicationStatus" name="applicationStatus" value="completed_one" />
+
 
         	<!-- {{ govukCheckboxes({
             	name: "candidateDeclaration",        
@@ -73,14 +67,13 @@
 			
 				{{ govukButton({
 				text: "Confirm and submit",
-				classes: "govuk-!-margin-top-3",
-				href: "/csjobs/pec/application/confirmation"                  
+				classes: "govuk-!-margin-top-3"			
 				}) }}
 			</div>
 
 		</form>
 
-    {% endif %}
+    
   
 	</div>
 </div>

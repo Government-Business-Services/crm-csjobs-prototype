@@ -4,7 +4,7 @@
 {% set showNavLinks = true %}
 
 {% set pageHeading = "Health Declaration" %}
-{% set pageSection = "" %}
+{% set pageSection = "Section 2" %}
 
 {% block content %}
 
@@ -17,7 +17,7 @@
     
     {% if data['iteration'] == "new" %}
 
-	<h1 class="govuk-heading-l govuk-!-padding-top-4">Health Declaration</h1>
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}	
 
 	
 	<p class="govuk-body">We ask about your health because:</p>
@@ -192,7 +192,7 @@
     <!-- ////////////// END OF NEW ////////////////// -->
     {% else %}
 
-		<h1 class="govuk-heading-l govuk-!-padding-top-4">Health Declaration</h1>
+	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}	
 
 
 		<p class="govuk-body">We ask about your health because:</p>

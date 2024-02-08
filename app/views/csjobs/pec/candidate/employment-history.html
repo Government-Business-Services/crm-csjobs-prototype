@@ -4,7 +4,7 @@
 {% set showNavLinks = true %}
 
 {% set pageHeading = "Employment history" %}
-{% set pageSection = "" %}
+{% set pageSection = "Section 2" %}
 
 {% block content %}
 
@@ -109,7 +109,7 @@
     <!-- ////////////// END OF NEW ////////////////// -->
     {% else %}
 
-    	<h1 class="govuk-heading-l govuk-!-padding-top-4">Employment history</h1>
+	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}	
 
 
 		<form method="post" action="/csjobs/pec/candidate/references?navpage=ref" >

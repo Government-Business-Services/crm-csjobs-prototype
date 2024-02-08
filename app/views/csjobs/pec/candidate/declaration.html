@@ -4,7 +4,7 @@
 {% set showNavLinks = true %}
 
 {% set pageHeading = "Declaration" %}
-{% set pageSection = "" %}
+{% set pageSection = "Section 2" %}
 
 {% block content %}
 
@@ -17,14 +17,14 @@
     
     {% if data['iteration'] == "new" %}
 
-      <h1 class="govuk-heading-l">Declaration</h1>
+	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}	
         
         </div>
       
     <!-- ////////////// END OF NEW ////////////////// -->
     {% else %}
 
-    	<h1 class="govuk-heading-l govuk-!-padding-top-4">Declaration</h1>		
+	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}	
 			
         <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
         	<li>All the information I’ve given in my application form is true to the best of my knowledge and belief and relates to my own experiences</li>

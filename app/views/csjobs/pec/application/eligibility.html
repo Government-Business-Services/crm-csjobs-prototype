@@ -4,7 +4,7 @@
 {% set showNavLinks = true %}
 
 {% set pageHeading = "Eligibility" %}
-{% set pageSection = "" %}
+{% set pageSection = "Section 1" %}
 
 {% block content %}
 
@@ -15,17 +15,8 @@
     
     <div class="govuk-grid-column-two-thirds">    
     
-    {% if data['iteration'] == "new" %}
 
-      <h1 class="govuk-heading-l">Declaration</h1>
-        
-        </div>
-      
-    <!-- ////////////// END OF NEW ////////////////// -->
-    {% else %}
-
-		<span class="govuk-caption-l">Section 1</span>
-		<h1 class="govuk-heading-l">{{ pageHeading }}</h1>			
+		{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}	
 
 		<h2 class="govuk-heading-m">Civil servants</h2>
 		<p>You should be aware that not all staff working in a government department or an accredited non-departmental public body are considered to be civil servants.</p>
@@ -38,7 +29,7 @@
 		</ul>
         
 
-		<form method="post" action="/csjobs/pec/application/personal-information" >
+		<form method="post" action="/csjobs/pec/application/personal-information?navpage=personalInfo" >
 
 		{% set civilServantHtml %}   
 		
@@ -391,7 +382,7 @@
     
     </form>
 
-    {% endif %}
+    
   
 </div>
 </div>

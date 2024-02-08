@@ -4,7 +4,7 @@
 {% set showNavLinks = true %}
 
 {% set pageHeading = "Right to work" %}
-{% set pageSection = "" %}
+{% set pageSection = "Section 2" %}
 
 {% block content %}
 
@@ -23,7 +23,7 @@
     	<!-- ////////////// END OF NEW ////////////////// -->
     	{% else %}
 
-    	<h1 class="govuk-heading-l govuk-!-padding-top-4">Right to work</h1>
+    	{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}	
 		<p class="govuk-body-l govuk-!-font-weight-bold">We ask for this information so we can confirm your right to work in the UK.</p>
 
 		<form method="post" action="/csjobs/pec/candidate/employment-history?navpage=eh" >
