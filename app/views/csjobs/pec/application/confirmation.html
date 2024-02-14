@@ -23,7 +23,7 @@
 			{{ macroPageHeader.pageHeader(pageHeading,pageSection) }}	
 
 			<div class="govuk-inset-text">
-				{{defaultRole}}<br>Ref: {{defaultRef}}
+				{{ data['searchKeyword'] | capitalize}}<br>Ref: {{defaultRef}}
 			</div>
 
 
@@ -56,7 +56,8 @@
 				  }) }}
 
 				
-				<form method="post" action="/csjobs/pec/candidate/details?navpage=det" >
+				<form method="post" action="#" >
+				<!-- <form method="post" action="/csjobs/pec/candidate/details?navpage=det" > -->
 
 					<input type="hidden" id="applicationStatus" name="applicationStatus" value="started_two" />
 				

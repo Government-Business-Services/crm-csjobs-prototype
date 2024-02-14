@@ -94,8 +94,10 @@
 				{{ govukInput({
 					label: { text: "Email address", classes: "govuk-label", isPageHeading: false },      					
 					classes: "govuk-!-width-two-thirds",
+					type: "email",
 					id: "userEmailAddress",
-					name: "userEmailAddress"					
+					name: "userEmailAddress",
+					value: data['userEmailAddress']
 				}) }}
 
 				{{ govukInput({
@@ -103,7 +105,8 @@
 					classes: "govuk-!-width-two-thirds",
 					type: "password",
 					id: "userPassword",
-					name: "userPassword"					
+					name: "userPassword",
+					value: data['userPassword']					
 				}) }}		 
 			
 				{{ govukButton({
