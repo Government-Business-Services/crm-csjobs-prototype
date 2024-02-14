@@ -40,7 +40,10 @@
                     You’ve deleted your job alert.
                     <br><br>You will stop receiving emails related to this alert
                     <br><br>Alert reference: 2653541	
-            {% elif data['notification'] == "needAccount" %}
+                    {% elif data['notification'] == "applyRole" %}
+                    Your registration is complete. You may continue with your application by clicking the link below.
+                    <br><br><a href="/csjobs/pec/application/guidance?navpage=guidance">Click here to continue with your application</a>
+                    {% elif data['notification'] == "needAccount" %}
                 Your registration is complete. You may continue with your application by clicking the link below.
                 <br><br><a href="/csjobs/pec/application/guidance?navpage=guidance">Click here to continue with your application</a>
             {% else %}

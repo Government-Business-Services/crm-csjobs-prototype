@@ -80,7 +80,12 @@
 			{% endif %}
 			
 			{% if data['applyCreateAccount'] == "Yes" %}
+
+			{% elif data['applyHaveAccount'] == "Yes" %}
 			
+				<form method="post" action="/csjobs/pec/application/guidance?navpage=guidance" >
+			
+
 			{% else %}
 				<form method="post" action="/csjobs/search" >
 			{% endif %}

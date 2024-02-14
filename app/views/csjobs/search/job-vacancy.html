@@ -80,9 +80,10 @@
 
 
 
-				<form method="post" action="/csjobs/sign-in?notification=needAccount" >
+				<form method="post" action="/csjobs/sign-in" >
 
-					<input type="hidden" name="applyCreateAccount" id="applyCreateAccount" value="Yes" />
+					<input type="hidden" name="applyHaveAccount" id="applyHaveAccount" value="Yes" />
+					<!-- <input type="hidden" name="applyCreateAccount" id="applyCreateAccount" value="Yes" /> -->
 
 					{{ govukButton({
 						text: "Apply now"
